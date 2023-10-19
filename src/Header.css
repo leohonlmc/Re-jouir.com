@@ -1,0 +1,12 @@
+.navbar.navbar-expand-lg.navbar-light.bg-light {
+  padding: 1% 2%;
+  background-color: transparent !important;
+  border: 0px !important;
+  box-shadow: none !important;
+}
+
+.nav-item.nav-link {
+  color: white !important;
+  font-weight: bold;
+  font-size: 19px;
+}
