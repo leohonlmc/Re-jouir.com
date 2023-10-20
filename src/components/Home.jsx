@@ -161,7 +161,7 @@ function Home() {
 
             <br />
 
-            <div className="d-flex">
+            <div className="d-flex flex-box">
               <div className="feature-img">
                 <img src="/moment-2.png" alt="" style={{ width: "100%" }} />
               </div>
@@ -180,8 +180,25 @@ function Home() {
             </div>
 
             <br />
+            <br />
+            <br />
+            <br />
 
-            <div className="d-flex">
+            <div className="story">
+              <div className="story-div">
+                <img className="founder-img" src="/founder.jpeg" />{" "}
+              </div>
+              <div className="story-div user-info">
+                <p style={{ margin: "0px" }}>FOUNDER</p>
+                <h2 style={{ fontWeight: "bold" }}>Leo Hon</h2>
+                <p>Desciption</p>
+              </div>
+            </div>
+
+            <br />
+            <br />
+
+            <div className="d-flex flex-box">
               <div className="feature-img">
                 <img
                   src="/christmas-tree.png"

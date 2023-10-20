@@ -23,10 +23,10 @@
   color: white;
 }
 
-.main {
+/* .main {
   width: 95%;
   margin: auto;
-}
+} */
 
 .header-section {
   min-height: 550px;
@@ -91,6 +91,8 @@
 }
 
 .mission-div {
+  width: 95%;
+  margin: auto;
   text-align: center;
   padding: 30px 0px;
   background-image: url("../public/tree-1.png");
@@ -117,6 +119,11 @@
 .d-flex {
   display: flex;
   flex-direction: row;
+}
+
+.flex-box {
+  width: 95%;
+  margin: auto;
 }
 
 .feature-img {
@@ -193,6 +200,30 @@ strong {
 
 .delight {
   color: rgb(255, 196, 0);
+}
+
+.story {
+  background-color: rgb(251, 251, 177);
+  height: 300px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.founder-img {
+  width: 70%;
+  border-radius: 30% 70%;
+}
+
+.story-div {
+  width: 300px;
+  display: inline-block;
+}
+
+.user-info {
+  text-align: left;
 }
 
 @media (max-width: 768px) {
