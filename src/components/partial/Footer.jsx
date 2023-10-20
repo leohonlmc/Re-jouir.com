@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -8,16 +7,15 @@ function Footer() {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <footer className="container-footer container text-center my-6 p-8 text-gray3">
-        <div className="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-gray5 to-gray4 rounded-full"></div>
+    <footer className="container-footer container text-center my-6 p-8 text-gray3">
+      <div className="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-gray5 to-gray4 rounded-full"></div>
 
-        <div className="py-3">
-          <img src="/R.png" alt="" style={{ width: "130px" }} />
-          {/* <p className="footer-brand-name">Réjouir.com</p> */}
-        </div>
+      <div className="py-3">
+        <img src="/R.png" alt="" style={{ width: "130px" }} />
+        {/* <p className="footer-brand-name">Réjouir.com</p> */}
+      </div>
 
-        {/* <a
+      {/* <a
           href="https://www.instagram.com/theswebuilder/"
           className="instagram"
           target="_blank"
@@ -32,7 +30,7 @@ function Footer() {
 
         <br />
         <br /> */}
-        {/* 
+      {/* 
         <a href="/about" className="footer-intro-link">
           About
         </a>
@@ -44,7 +42,7 @@ function Footer() {
         <br />
         <br /> */}
 
-        {/* <div className="py-3 footer-normal">
+      {/* <div className="py-3 footer-normal">
           <a href="/terms" className="contact-me-nav">
             Terms & Conditions
           </a>
@@ -56,11 +54,13 @@ function Footer() {
           <br />
         </div> */}
 
-        <div className="text-xs" style={{ fontSize: "0.8rem" }}>
-          Copyright © 2023 <strong>Réjouir.com</strong> <br />
-        </div>
-      </footer>
-    </div>
+      <div
+        className="text-xs"
+        style={{ fontSize: "0.8rem", color: "white", fontWeight: "bold" }}
+      >
+        Copyright © 2023 <strong>Réjouir.com</strong> <br />
+      </div>
+    </footer>
   );
 }
 

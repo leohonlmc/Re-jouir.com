@@ -2,12 +2,19 @@
   width: 100%;
 }
 
+.main {
+  width: 95%;
+  margin: auto;
+}
+
 .header-section {
-  height: 600px;
+  min-height: 550px;
   background-image: url("../public/santa.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  padding: 30px;
+  padding-top: 0px;
 }
 
 .slogan {
@@ -16,6 +23,11 @@
   font-weight: bold;
   font-size: 50px;
   /* text-shadow: 2px 2px 20px #b11a1a; */
+}
+
+.days {
+  font-size: 35px;
+  background-color: rgba(254, 14, 14, 0.8);
 }
 
 .countdown {
@@ -27,7 +39,6 @@
 .countdown-time {
   border-radius: 10px;
   padding: 10px;
-  margin: 10px;
   font-weight: bold;
   font-size: 30px;
   width: 100px;
@@ -39,14 +50,95 @@
   color: white;
   font-weight: bold;
   margin: 30px 0px;
+  margin-bottom: 0px;
 }
 
 .btn.btn-danger {
   border-radius: 20px !important;
-  margin: 0px 10px;
+  margin: 10px 10px;
 }
 
 .btn.btn-outline-light {
   border-radius: 20px !important;
-  margin: 0px 10px;
+  margin: 10px 10px;
+}
+
+.container-footer.container.text-center.my-6.p-8.text-gray3 {
+  background-color: #00873e;
+  margin: 0px;
+  padding: 20px 0px;
+  max-width: 100% !important;
+}
+
+.mission-div {
+  text-align: center;
+  padding: 30px 0px;
+  margin: 50px 0px;
+}
+
+.mission {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 10px 15px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+  width: 300px;
+  transition: 0.5s;
+}
+
+.mission:hover {
+  background-color: rgba(208, 208, 208, 0.5);
+}
+
+.d-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.feature-img {
+  width: 50%;
+  text-align: center;
+}
+
+.feature {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.feature-hr {
+  width: 100px;
+  border: 2px solid rgb(255, 115, 0);
+  color: rgb(255, 115, 0);
+  border-radius: 20px;
+  margin: 5px 0px;
+}
+
+strong {
+  font-family: "Tilt Neon", sans-serif;
+}
+
+.feature-child {
+  padding: 20px;
+  /* border-radius: 20px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5); */
+}
+
+.feature-child > p {
+  font-size: 20px;
+  width: 80%;
+}
+
+.right {
+}
+
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column;
+  }
+  .d-flex > div {
+    width: 100% !important;
+  }
 }
