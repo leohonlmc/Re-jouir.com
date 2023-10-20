@@ -42,23 +42,25 @@ function Footer() {
         <br />
         <br /> */}
 
-      {/* <div className="py-3 footer-normal">
-          <a href="/terms" className="contact-me-nav">
-            Terms & Conditions
-          </a>
-          <a href="/privacy" className="contact-me-nav">
-            Privacy Policy
-          </a>
+      <div className="py-3 footer-normal">
+        <a href="/terms" className="info">
+          About Réjouir
+        </a>
 
-          <br />
-          <br />
-        </div> */}
+        <a href="/terms" className="info">
+          Terms & Conditions
+        </a>
+
+        <a href="/privacy" className="info">
+          Privacy Policy
+        </a>
+      </div>
 
       <div
         className="text-xs"
         style={{ fontSize: "0.8rem", color: "white", fontWeight: "bold" }}
       >
-        Copyright © 2023 <strong>Réjouir.com</strong> <br />
+        {`Copyright © ${new Date().getFullYear()}`} <strong>Réjouir.com</strong>
       </div>
     </footer>
   );

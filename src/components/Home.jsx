@@ -76,120 +76,139 @@ function Home() {
         </div>
       </div>
 
-      <div className="main">
-        <div className="mission-div">
-          <div className="divider-container">
-            <hr className="divider-line" />
-            <h1>
-              <strong>Réjouir · Delight</strong>
-            </h1>
-            <hr className="divider-line" />
-          </div>
+      <div className="wave-main">
+        <div className="wave-bottom">
+          <div className="main">
+            <div className="mission-div">
+              <div className="divider-container">
+                <hr className="divider-line" />
+                <h1>
+                  <strong>
+                    <span className="r-logo">R</span>
+                    <span className="éjouir">éjouir</span>{" "}
+                    <span style={{ color: "grey" }}>·</span>{" "}
+                    <span className="delight">Delight ⭐️</span>
+                  </strong>
+                </h1>
+                <hr className="divider-line" />
+              </div>
 
-          <div className="mission">
-            <FontAwesomeIcon
-              icon={faImages}
-              size="2xl"
-              style={{ color: "#dc3545" }}
-            />
-            <p style={{ margin: "0px", marginTop: "10px" }}>
-              <strong>Christmas Blog</strong>{" "}
-            </p>
-            <p
-              style={{
-                width: "70%",
-                textAlign: "center",
-                margin: "auto",
-                marginTop: "10px",
-              }}
-            >
-              Share up to <strong>5 images</strong> about Christmas from your
-              country!
-            </p>
-          </div>
-          <div className="mission">
-            <FontAwesomeIcon
-              icon={faEarthAmericas}
-              size="2xl"
-              style={{ color: "#dc3545" }}
-            />
-            <p style={{ margin: "0px", marginTop: "10px" }}>
-              <strong>Connect the Globe</strong>{" "}
-            </p>
-            <p
-              style={{
-                width: "70%",
-                textAlign: "center",
-                margin: "auto",
-                marginTop: "10px",
-              }}
-            >
-              We <strong>CAPTURE</strong> the Christmas spirit from around the
-              globe.
-            </p>
-          </div>
-          <div className="mission">
-            <FontAwesomeIcon
-              icon={faUserLargeSlash}
-              size="2xl"
-              style={{ color: "#dc3545" }}
-            />
-            <p style={{ margin: "0px", marginTop: "10px" }}>
-              <strong>Guest Visit</strong>{" "}
-            </p>
-            <p
-              style={{
-                width: "70%",
-                textAlign: "center",
-                margin: "auto",
-                marginTop: "10px",
-              }}
-            >
-              Don't need an account to share your Christmas moment!
-            </p>
-          </div>
-        </div>
+              <p className="introducing">Introducing our features</p>
 
-        <div className="d-flex">
-          <div className="feature-img">
-            <img src="/moment-2.png" alt="" style={{ width: "100%" }} />
-          </div>
-          <div className="feature right">
-            <div className="feature-child ">
-              <h2>
-                <strong>SHARE YOUR MOMENT 🎇</strong>
-              </h2>
-              <hr className="feature-hr" />
-              <p>
-                Share festive moments from around the globe in our Christmas
-                blog without an account.
-              </p>
+              <div className="mission">
+                <FontAwesomeIcon
+                  icon={faImages}
+                  size="2xl"
+                  style={{ color: "#dc3545" }}
+                />
+                <p style={{ margin: "0px", marginTop: "10px" }}>
+                  <strong>Christmas Blog</strong>{" "}
+                </p>
+                <p
+                  style={{
+                    width: "70%",
+                    textAlign: "center",
+                    margin: "auto",
+                    marginTop: "10px",
+                  }}
+                >
+                  Share up to <strong>5 images</strong> about Christmas from
+                  your country!
+                </p>
+              </div>
+              <div className="mission">
+                <FontAwesomeIcon
+                  icon={faEarthAmericas}
+                  size="2xl"
+                  style={{ color: "#dc3545" }}
+                />
+                <p style={{ margin: "0px", marginTop: "10px" }}>
+                  <strong>Connect the Globe</strong>{" "}
+                </p>
+                <p
+                  style={{
+                    width: "70%",
+                    textAlign: "center",
+                    margin: "auto",
+                    marginTop: "10px",
+                  }}
+                >
+                  We <strong>CAPTURE</strong> the Christmas spirit from around
+                  the globe.
+                </p>
+              </div>
+              <div className="mission">
+                <FontAwesomeIcon
+                  icon={faUserLargeSlash}
+                  size="2xl"
+                  style={{ color: "#dc3545" }}
+                />
+                <p style={{ margin: "0px", marginTop: "10px" }}>
+                  <strong>Guest Visit</strong>{" "}
+                </p>
+                <p
+                  style={{
+                    width: "70%",
+                    textAlign: "center",
+                    margin: "auto",
+                    marginTop: "10px",
+                  }}
+                >
+                  Don't need an account to share your Christmas moment!
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <br />
+            <br />
 
-        <div className="d-flex">
-          <div className="feature-img">
-            <img src="/christmas-tree.png" alt="" style={{ width: "100%" }} />
-          </div>
-          <div className="feature">
-            <div className="feature-child">
-              <h2>
-                <strong>WE ❤️ CHRISTMAS, THAT's IT.</strong>
-              </h2>
-              <hr className="feature-hr" />
-              <p>
-                Come back every year to feel the Christmas spirit and share your
-                Christmas moment with us. 🌟
-              </p>
+            <div className="d-flex">
+              <div className="feature-img">
+                <img src="/moment-2.png" alt="" style={{ width: "100%" }} />
+              </div>
+              <div className="feature right">
+                <div className="feature-child ">
+                  <h2>
+                    <strong>SHARE YOUR MOMENT 🎇</strong>
+                  </h2>
+                  <hr className="feature-hr" />
+                  <p>
+                    Share festive moments from around the globe in our Christmas
+                    blog without an account.
+                  </p>
+                </div>
+              </div>
             </div>
+
+            <br />
+
+            <div className="d-flex">
+              <div className="feature-img">
+                <img
+                  src="/christmas-tree.png"
+                  alt=""
+                  style={{ width: "100%" }}
+                />
+              </div>
+              <div className="feature">
+                <div className="feature-child">
+                  <h2>
+                    <strong>WE ❤️ CHRISTMAS, THAT's IT.</strong>
+                  </h2>
+                  <hr className="feature-hr" />
+                  <p>
+                    Come back every year to feel the Christmas spirit and share
+                    your Christmas moment with us. 🌟
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <br />
           </div>
         </div>
+
+        <Footer />
       </div>
-
-      <Footer />
     </div>
   );
 }
