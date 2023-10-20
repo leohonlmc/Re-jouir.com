@@ -181,8 +181,6 @@ function Home() {
 
                   <br />
 
-                  <p>Let us know your 👇🏻: </p>
-
                   <div className="requirement-div">
                     <div className="requirement">
                       <FontAwesomeIcon
