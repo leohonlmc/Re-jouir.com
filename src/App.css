@@ -198,23 +198,26 @@ strong {
 }
 
 .story {
-  background-color: rgb(251, 251, 177);
-  height: 300px;
+  background: -webkit-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: -o-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: -moz-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  min-height: 300px;
   margin: auto;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 30px 10px;
 }
 
 .founder-img {
-  width: 90%;
+  width: 80%;
   border-radius: 30% 70%;
 }
 
 .story-div {
-  max-width: 300px;
+  width: 300px;
   display: inline-block;
 }
 

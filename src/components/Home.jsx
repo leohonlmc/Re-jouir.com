@@ -229,8 +229,9 @@ function Home() {
                 <p style={{ margin: "0px" }}>FOUNDER</p>
                 <h2 style={{ fontWeight: "bold" }}>Leo Hon</h2>
                 <p style={{ margin: "0px" }}>
-                  I love the festive vibes and decorations of Christmas; they
-                  create an atmosphere that's simply magical.
+                  At Réjouir.com, we aim to encapsulate the global spirit of
+                  Christmas. Our platform unites people, letting them share and
+                  cherish their festive moments.
                 </p>
               </div>
             </div>
