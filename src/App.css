@@ -205,15 +205,16 @@ strong {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .founder-img {
-  width: 70%;
+  width: 90%;
   border-radius: 30% 70%;
 }
 
 .story-div {
-  width: 300px;
+  max-width: 300px;
   display: inline-block;
 }
 
@@ -228,12 +229,11 @@ strong {
 .requirement {
   display: inline-block;
   text-align: center;
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
   border-radius: 30px;
-  margin: 20px;
+  margin: 10px;
   margin-left: 0px;
-  margin-top: 0px;
   margin-bottom: 0px;
 }
 
@@ -243,5 +243,11 @@ strong {
   }
   .d-flex > div {
     width: 100% !important;
+  }
+}
+
+@media (max-width: 459px) {
+  .second {
+    display: none;
   }
 }

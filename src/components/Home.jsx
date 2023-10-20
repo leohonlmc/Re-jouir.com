@@ -66,7 +66,7 @@ function Home() {
             <div>{timeLeft.minutes}:</div>
             <div>min</div>
           </div>
-          <div className="countdown-time">
+          <div className="countdown-time second">
             <div>{timeLeft.seconds}</div>
             <div>sec</div>
           </div>
@@ -86,7 +86,7 @@ function Home() {
                 <hr className="divider-line" />
                 <h1>
                   <strong>
-                    <span className="r-logo">R</span>
+                    <span className="r-logo">🎁 R</span>
                     <span className="éjouir">éjouir</span>{" "}
                     <span style={{ color: "grey" }}>·</span>{" "}
                     <span className="delight">Delight ⭐️</span>
@@ -191,7 +191,7 @@ function Home() {
                         style={{ color: "#dc3545", marginBottom: "10px" }}
                       />
                       <br />
-                      <p>Nice images (5)</p>
+                      <p>Nice images</p>
                     </div>
                     <div className="requirement">
                       <FontAwesomeIcon
@@ -228,7 +228,7 @@ function Home() {
               <div className="story-div user-info">
                 <p style={{ margin: "0px" }}>FOUNDER</p>
                 <h2 style={{ fontWeight: "bold" }}>Leo Hon</h2>
-                <p>
+                <p style={{ margin: "0px" }}>
                   I love the festive vibes and decorations of Christmas; they
                   create an atmosphere that's simply magical.
                 </p>
