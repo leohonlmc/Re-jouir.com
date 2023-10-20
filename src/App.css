@@ -81,6 +81,7 @@
 
 .container-footer.container.text-center.my-6.p-8.text-gray3 {
   background-color: #00873e;
+  background-image: url("../public/snow-4.png");
   margin: 0px;
   padding: 20px 0px;
   max-width: 100% !important;
