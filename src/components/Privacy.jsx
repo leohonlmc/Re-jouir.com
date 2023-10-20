@@ -22,11 +22,11 @@ function Privacy() {
 
         <p>
           Welcome to{" "}
-          <strong>
+          <strong style={{ fontSize: "20px" }}>
             <span className="r-logo">R</span>éjouir
           </strong>
           ! This Privacy Policy describes how{" "}
-          <strong>
+          <strong style={{ fontSize: "20px" }}>
             <span className="r-logo">R</span>éjouir
           </strong>{" "}
           ("us", "we", or "our") collects, uses, and discloses your personal

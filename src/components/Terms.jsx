@@ -22,7 +22,7 @@ function Terms() {
 
         <p>
           Thank you for choosing{" "}
-          <strong>
+          <strong style={{ fontSize: "20px" }}>
             <span className="r-logo">R</span>éjouir
           </strong>
           . Please read these Terms and Conditions ("Terms", "Terms and
