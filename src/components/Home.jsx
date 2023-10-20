@@ -78,6 +78,7 @@ function Home() {
 
       <div className="main">
         <div className="mission-div">
+          <h1>Réjouir · Delight</h1>
           <div className="mission">
             <FontAwesomeIcon
               icon={faImages}
