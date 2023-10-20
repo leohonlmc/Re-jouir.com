@@ -78,7 +78,14 @@ function Home() {
 
       <div className="main">
         <div className="mission-div">
-          <h1>Réjouir · Delight</h1>
+          <div className="divider-container">
+            <hr className="divider-line" />
+            <h1>
+              <strong>Réjouir · Delight</strong>
+            </h1>
+            <hr className="divider-line" />
+          </div>
+
           <div className="mission">
             <FontAwesomeIcon
               icon={faImages}
