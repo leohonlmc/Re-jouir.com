@@ -30,21 +30,13 @@ function Footer() {
 
         <br />
         <br /> */}
-      {/* 
-        <a href="/about" className="footer-intro-link">
-          About
-        </a>
-
-        <a href="/contactme" className="footer-intro-link">
-          Contact Me
-        </a>
-
-        <br />
-        <br /> */}
 
       <div className="py-3 footer-normal">
-        <a href="/terms" className="info">
-          About Réjouir
+        <a href="/#/about" className="info">
+          About{" "}
+          <strong>
+            <span className="r-logo">R</span>éjouir
+          </strong>
         </a>
 
         <a href="/terms" className="info">

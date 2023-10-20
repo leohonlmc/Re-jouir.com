@@ -1,0 +1,35 @@
+.About {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23D6001C" fill-opacity="1" d="M0,160L120,138.7C240,117,480,75,720,74.7C960,75,1200,117,1320,138.7L1440,160L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path></svg>');
+  background-repeat: no-repeat;
+  background-size: 1440px 320px;
+  width: 100%;
+  max-width: 1450px;
+  margin: auto;
+}
+
+.header-section-about {
+  min-height: 300px;
+  background-image: url("../public/about.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+  padding-top: 0px;
+}
+
+.about-réjouir {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  max-width: 400px;
+  background-color: #00873e;
+  margin: auto;
+  border-radius: 70% 20%;
+}
+
+.about-main {
+  width: 85%;
+  margin: auto;
+  padding: 30px 0px;
+}

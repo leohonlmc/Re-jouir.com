@@ -11,8 +11,10 @@ import {
   faMapLocationDot,
   faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate, Link } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -74,7 +76,9 @@ function Home() {
 
         <div className="start-btn">
           <button className="btn btn-danger">Get Started</button>
-          <button className="btn btn-outline-light">What is Réjouir?</button>
+          <Link to={"/about"}>
+            <button className="btn btn-outline-light">What is Réjouir?</button>
+          </Link>
         </div>
       </div>
 
