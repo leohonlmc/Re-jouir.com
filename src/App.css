@@ -23,11 +23,6 @@
   color: white;
 }
 
-/* .main {
-  width: 95%;
-  margin: auto;
-} */
-
 .header-section {
   min-height: 550px;
   background-image: url("../public/santa.png");
@@ -224,6 +219,22 @@ strong {
 
 .user-info {
   text-align: left;
+}
+
+.requirement-div {
+  text-align: left;
+}
+
+.requirement {
+  display: inline-block;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  margin: 20px;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 @media (max-width: 768px) {

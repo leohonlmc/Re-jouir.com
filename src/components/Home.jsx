@@ -8,6 +8,8 @@ import {
   faImages,
   faUserLargeSlash,
   faEarthAmericas,
+  faMapLocationDot,
+  faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
@@ -171,10 +173,45 @@ function Home() {
                     <strong>SHARE YOUR MOMENT 🎇</strong>
                   </h2>
                   <hr className="feature-hr" />
-                  <p>
+
+                  <p style={{ margin: "0px" }}>
                     Share festive moments from around the globe in our Christmas
                     blog without an account.
                   </p>
+
+                  <br />
+
+                  <p>Let us know your 👇🏻: </p>
+
+                  <div className="requirement-div">
+                    <div className="requirement">
+                      <FontAwesomeIcon
+                        icon={faImages}
+                        size="2xl"
+                        style={{ color: "#dc3545", marginBottom: "10px" }}
+                      />
+                      <br />
+                      <p>Nice images (5)</p>
+                    </div>
+                    <div className="requirement">
+                      <FontAwesomeIcon
+                        icon={faMapLocationDot}
+                        size="2xl"
+                        style={{ color: "#dc3545", marginBottom: "10px" }}
+                      />
+                      <br />
+                      <p>Location, country</p>
+                    </div>
+                    <div className="requirement">
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        size="2xl"
+                        style={{ color: "#dc3545", marginBottom: "10px" }}
+                      />
+                      <br />
+                      <p>Title, description</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -186,12 +223,15 @@ function Home() {
 
             <div className="story">
               <div className="story-div">
-                <img className="founder-img" src="/founder.jpeg" />{" "}
+                <img className="founder-img" src="/founder-1.jpeg" />{" "}
               </div>
               <div className="story-div user-info">
                 <p style={{ margin: "0px" }}>FOUNDER</p>
                 <h2 style={{ fontWeight: "bold" }}>Leo Hon</h2>
-                <p>Desciption</p>
+                <p>
+                  I love the festive vibes and decorations of Christmas; they
+                  create an atmosphere that's simply magical.
+                </p>
               </div>
             </div>
 
