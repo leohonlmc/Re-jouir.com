@@ -1,6 +1,6 @@
 # Réjouir.com
 
-![Project Image](./public/R.png)
+![Project Image](./public/R-1.png)
 
 Réjouir.com is a dedicated Christmas blog platform designed to capture the essence of Christmas from all over the globe.
 
