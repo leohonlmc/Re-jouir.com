@@ -8,7 +8,7 @@ function Terms() {
   return (
     <div className="About">
       <div className="header-section-about">
-        <Header />
+        <Header title="Terms | Réjouir" />
         <br />
         <br />
         <h1 className="about-réjouir">

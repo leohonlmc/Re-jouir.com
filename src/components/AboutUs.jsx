@@ -8,7 +8,7 @@ function AboutUs() {
   return (
     <div className="About">
       <div className="header-section-about">
-        <Header />
+        <Header title="About Us | Réjouir" />
         <br />
         <br />
         <h1 className="about-réjouir">

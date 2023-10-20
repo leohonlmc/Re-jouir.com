@@ -8,7 +8,7 @@ function Privacy() {
   return (
     <div className="About">
       <div className="header-section-about">
-        <Header />
+        <Header title="Privacy Policy | Réjouir" />
         <br />
         <br />
         <h1 className="about-réjouir">
