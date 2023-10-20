@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Footer() {
   const navigate = useNavigate();
@@ -32,20 +32,26 @@ function Footer() {
         <br /> */}
 
       <div className="py-3 footer-normal">
-        <a href="/#/about" className="info">
-          About{" "}
-          <strong>
-            <span className="r-logo">R</span>éjouir
-          </strong>
-        </a>
+        <Link to="/about">
+          <a href="/" className="info">
+            About{" "}
+            <strong>
+              <span className="r-logo">R</span>éjouir
+            </strong>
+          </a>
+        </Link>
 
-        <a href="/terms" className="info">
-          Terms & Conditions
-        </a>
+        <Link to="/terms">
+          <a href="/" className="info">
+            Terms & Conditions
+          </a>
+        </Link>
 
-        <a href="/privacy" className="info">
-          Privacy Policy
-        </a>
+        <Link to="/privacy">
+          <a href="/" className="info">
+            Privacy Policy
+          </a>
+        </Link>
       </div>
 
       <div
