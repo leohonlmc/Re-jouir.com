@@ -251,17 +251,16 @@ function List() {
       <ToastContainer />
 
       <div>
-        <div
+        {/* <div
           className="divider-container"
           style={{ textAlign: "center", margin: "30px 0px 0px 0px" }}
           s
         >
           <hr className="divider-line" />
-          <h1>
-            <strong>Pick the best five moment 📸</strong>
-          </h1>
+         
           <hr className="divider-line" />
-        </div>
+        </div> */}
+
         <div
           className="container justify-content-center mt-100"
           style={{
@@ -448,6 +447,11 @@ function List() {
           </div>
         </div>
       </div>
+
+      <br />
+      <br />
+
+      <Footer />
     </div>
   );
 }
