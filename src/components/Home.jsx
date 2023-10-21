@@ -75,7 +75,9 @@ function Home() {
         </div>
 
         <div className="start-btn">
-          <button className="btn btn-danger">Get Started</button>
+          <Link to={"/list"}>
+            <button className="btn btn-danger">Get Started</button>
+          </Link>
           <Link to={"/about"}>
             <button className="btn btn-outline-light">What is Réjouir?</button>
           </Link>

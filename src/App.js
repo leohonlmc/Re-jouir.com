@@ -1,6 +1,6 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, AboutUs, Blog, Terms, Privacy } from "./components";
+import { Home, AboutUs, Blog, Terms, Privacy, List } from "./components";
 
 export default function App() {
   return (
@@ -11,6 +11,7 @@ export default function App() {
         <Route exact path="/blog" element={<Blog />} />
         <Route exact path="/terms" element={<Terms />} />
         <Route exact path="/privacy" element={<Privacy />} />
+        <Route exact path="/list" element={<List />} />
       </Routes>
     </Router>
   );
