@@ -246,7 +246,12 @@ function List() {
 
   return (
     <div className="List">
-      <Header showSearchBar={false} title={`Upload | Réjouir`} />
+      <div
+        className="list-header-section"
+        style={{ padding: "30px", paddingTop: "0px" }}
+      >
+        <Header showSearchBar={false} title={`Upload | Réjouir`} />
+      </div>
 
       <ToastContainer />
 
