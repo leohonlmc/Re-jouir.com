@@ -245,6 +245,7 @@ strong {
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px;
+  margin: 0px !important;
 }
 
 .country-review {
