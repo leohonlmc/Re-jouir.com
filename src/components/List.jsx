@@ -9,7 +9,8 @@ import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import AWS from "aws-sdk";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 const {
   REACT_APP_API_ENDPOINT,
   REACT_APP_ACCESS_ID,
@@ -43,6 +44,7 @@ function List() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const countryList = [
+    "Select a country",
     "Argentina",
     "Australia",
     "Austria",
@@ -96,6 +98,7 @@ function List() {
 
   const [title, setTitle] = useState("");
   const [country, setCountry] = useState(countryList[0]);
+  const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
 
   const handleResize = () => {
@@ -137,6 +140,12 @@ function List() {
     }
   };
 
+  const handleRemoveImage = (index) => {
+    const newImageSrcs = [...imageSrcs];
+    newImageSrcs.splice(index, 1);
+    setImageSrcs(newImageSrcs);
+  };
+
   useEffect(() => {
     window.addEventListener("resize", handleResize);
 
@@ -155,6 +164,10 @@ function List() {
 
   const handleCountryChange = (event) => {
     setCountry(event.target.value);
+  };
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
   };
 
   const handleDescriptionChange = (event) => {
@@ -293,8 +306,8 @@ function List() {
                       padding: "24px",
                       borderRadius: "5px",
                       marginTop: { windowWidth } > 1208 ? "0px" : "",
-
                       marginLeft: { windowWidth } > 1208 ? "0px" : "",
+                      backgroundColor: "white",
                     }
                   : { padding: "0px" }
               }
@@ -371,6 +384,18 @@ function List() {
                       {index + 1}
                     </p>
                   </div>
+
+                  <div
+                    className="D_Qy-1"
+                    onClick={() => handleRemoveImage(index)}
+                  >
+                    <p
+                      className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
+                      style={{ textAlign: "center" }}
+                    >
+                      <FontAwesomeIcon icon={faCircleXmark} />
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -391,6 +416,7 @@ function List() {
                         borderRadius: "5px",
                         marginLeft: { windowWidth } < 1208 ? "0px" : "10px",
                         margin: { windowWidth } < 1208 ? "0px" : "auto",
+                        backgroundColor: "white",
                       }
                     : { padding: "0px" }
                 }
@@ -403,8 +429,8 @@ function List() {
                       type="input"
                       className="form__field"
                       placeholder="Title"
-                      name="listing"
-                      id="listing"
+                      name="title"
+                      id="title"
                       required
                       onChange={handleTitle}
                     />
@@ -427,16 +453,32 @@ function List() {
                     </select>
                   </div>
 
+                  <div className="form__group field">
+                    <input
+                      type="input"
+                      className="form__field"
+                      placeholder="Location"
+                      name="location"
+                      id="location"
+                      required
+                      onChange={handleLocationChange}
+                    />
+                  </div>
+
                   <div style={{ marginTop: "20px" }}>
                     <textarea
                       name=""
                       id=""
                       cols="30"
                       rows="10"
+                      maxLength={500}
                       placeholder="Description (Optional)"
                       className="form-control-textarea"
                       onChange={handleDescriptionChange}
                     ></textarea>
+                    <p
+                      style={{ textAlign: "right", margin: "0px" }}
+                    >{`${description.length}/500`}</p>
                   </div>
                   <div className="list-item-btn">
                     <button
