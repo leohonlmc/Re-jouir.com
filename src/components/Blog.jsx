@@ -158,7 +158,7 @@ function Blog() {
                       <img
                         src={imageSet.images[currIndices[imageSetIndex]]}
                         alt=""
-                        className="ecommerce-gallery-main-img active w-100"
+                        className="ecommerce-gallery-main-img active w-100 "
                       />
                     </div>
                   </div>
@@ -166,6 +166,18 @@ function Blog() {
                   <div className="col-3">
                     {imageSet.images.map((image, index) => (
                       <div className="mb-1" key={index}>
+                        <div className="D_Qy-2">
+                          <p
+                            className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
+                            style={{
+                              textAlign: "center",
+                              margin: "0px",
+                              fontSize: "11px",
+                            }}
+                          >
+                            {index + 1}
+                          </p>
+                        </div>
                         <img
                           src={image}
                           className={`active w-100 ${
