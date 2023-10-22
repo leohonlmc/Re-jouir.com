@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   return (
@@ -24,28 +25,13 @@ function Header(props) {
           />
         </a>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        {/* <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
+        <div className="navbar-nav">
+          <Link to={"/blog"} style={{ textDecoration: "none" }}>
             <a className="nav-item nav-link active" href="#">
-              Home <span className="sr-only">(current)</span>
+              Blog <span className="sr-only">(current)</span>
             </a>
-            <a className="nav-item nav-link" href="#">
-              Blog
-            </a>
-          </div>
-        </div> */}
+          </Link>
+        </div>
       </nav>
     </div>
   );

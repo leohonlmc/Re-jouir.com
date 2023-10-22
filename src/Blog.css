@@ -109,3 +109,27 @@
 .like-btn {
   cursor: pointer;
 }
+
+.filter-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes items to the extremes: h2 to left, and the container div of selects to right */
+  flex-wrap: wrap; /* Allow items to wrap to the next line when necessary */
+}
+
+.sort-container {
+  display: flex;
+  gap: 20px; /* space between sort-by divs */
+}
+
+.sort-by {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 740px) {
+  .filter-div h2 {
+    flex-basis: 100%; /* This makes the h2 take full width, causing elements after it to wrap */
+    margin-bottom: 10px; /* Optional: Add a bit of margin for spacing */
+  }
+}

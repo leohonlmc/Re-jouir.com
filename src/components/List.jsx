@@ -99,6 +99,7 @@ function List() {
   const [title, setTitle] = useState("");
   const [country, setCountry] = useState(countryList[0]);
   const [location, setLocation] = useState("");
+  const [event, setEvent] = useState("");
   const [description, setDescription] = useState("");
 
   const handleResize = () => {
@@ -168,6 +169,10 @@ function List() {
 
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
+  };
+
+  const handleEventChange = (event) => {
+    setEvent(event.target.value);
   };
 
   const handleDescriptionChange = (event) => {
@@ -433,6 +438,7 @@ function List() {
                       id="title"
                       required
                       onChange={handleTitle}
+                      maxLength={50}
                     />
                   </div>
 
@@ -457,11 +463,25 @@ function List() {
                     <input
                       type="input"
                       className="form__field"
-                      placeholder="Location"
+                      placeholder="Location (City or town)"
                       name="location"
                       id="location"
                       required
                       onChange={handleLocationChange}
+                      maxLength={30}
+                    />
+                  </div>
+
+                  <div className="form__group field">
+                    <input
+                      type="input"
+                      className="form__field"
+                      placeholder="Event"
+                      name="event"
+                      id="event"
+                      required
+                      onChange={handleEventChange}
+                      maxLength={50}
                     />
                   </div>
 

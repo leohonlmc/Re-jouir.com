@@ -18,6 +18,7 @@ function Blog() {
       ],
       title: "Title 1",
       location: "Location 1",
+      event: "Night Market",
       description: "Description 1",
     },
     {
@@ -30,8 +31,62 @@ function Blog() {
       ],
       title: "Title 2",
       location: "Location 2",
+      event: "Night Market",
       description: "Description 2",
     },
+  ];
+
+  const countryList = [
+    "Global",
+    "Argentina",
+    "Australia",
+    "Austria",
+    "Belgium",
+    "Brazil",
+    "Canada",
+    "Chile",
+    "Colombia",
+    "Costa Rica",
+    "Denmark",
+    "Ecuador",
+    "Finland",
+    "France",
+    "Germany",
+    "Greece",
+    "Hungary",
+    "Iceland",
+    "India",
+    "Indonesia",
+    "Ireland",
+    "Italy",
+    "Jamaica",
+    "Japan",
+    "Kenya",
+    "Lebanon",
+    "Luxembourg",
+    "Mexico",
+    "Netherlands",
+    "New Zealand",
+    "Norway",
+    "Panama",
+    "Peru",
+    "Philippines",
+    "Poland",
+    "Portugal",
+    "Puerto Rico",
+    "Romania",
+    "Russia",
+    "South Africa",
+    "South Korea",
+    "Spain",
+    "Sweden",
+    "Switzerland",
+    "Turkey",
+    "Ukraine",
+    "United Kingdom",
+    "United States",
+    "Venezuela",
+    "Zimbabwe",
   ];
 
   const [currIndices, setCurrIndices] = useState(
@@ -43,11 +98,52 @@ function Blog() {
       <div className="blog-section">
         <Header title="Blog | Réjouir" />
       </div>
+
       <div className="blog-main">
+        <div className="filter-div">
+          <h2
+            className="browse-réjouir"
+            style={{ textAlign: "left", fontWeight: "bold" }}
+          >
+            {`Browse around the Global`}
+          </h2>
+
+          <div className="sort-container">
+            <div className="sort-by">
+              <p style={{ margin: "0px" }}>Sort by:</p>
+              <select
+                className="form-select form-select-sm"
+                aria-label=".form-select-sm example"
+                style={{ maxWidth: "200px" }}
+                defaultValue="newest"
+              >
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="likes">Likes</option>
+              </select>
+            </div>
+
+            <div className="sort-by">
+              <p style={{ margin: "0px" }}>Country:</p>
+              <select
+                className="form-select form-select-sm"
+                aria-label=".form-select-sm example"
+                style={{ maxWidth: "200px" }}
+              >
+                {countryList.map((country, index) => (
+                  <option value={country} key={index}>
+                    {country}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+
         {demoImage.map((imageSet, imageSetIndex) => (
           <div
             className="d-flex"
-            style={{ margin: "30px" }}
+            style={{ marginBottom: "30px" }}
             key={imageSetIndex}
           >
             <div className="images-section">
@@ -95,15 +191,18 @@ function Blog() {
               <div className="blog-info-child">
                 <h1>{imageSet.title}</h1>
                 <h3>📍 {imageSet.location}</h3>
+                <h4>📅 {imageSet.event}</h4>
                 <p>Posted 1 hour ago</p>
                 <p>{imageSet.description}</p>
-                <FontAwesomeIcon
-                  className="like-btn"
-                  icon={faHeart}
-                  style={{ color: "#ff0000" }}
-                  size="xl"
-                />{" "}
-                10 people like this
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                  <FontAwesomeIcon
+                    className="like-btn"
+                    icon={faHeart}
+                    style={{ color: "#ff0000", marginRight: "7px" }}
+                    size="xl"
+                  />{" "}
+                  10 people like this
+                </div>
               </div>
             </div>
           </div>
