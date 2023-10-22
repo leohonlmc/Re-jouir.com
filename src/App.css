@@ -240,6 +240,98 @@ strong {
   margin-bottom: 0px;
 }
 
+.countries {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.country-review {
+  border-radius: 10px;
+  min-height: 330px;
+  padding: 35px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  margin: 15px !important;
+}
+
+.ny,
+.fr,
+.uk {
+  position: relative;
+  color: white;
+  overflow: hidden; /* Ensure overflow content doesn't break the container bounds */
+}
+
+.ny::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.7),
+      rgb(0, 0, 0)
+    ),
+    url("../public/ny.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.fr::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.7),
+      rgb(0, 0, 0)
+    ),
+    url("../public/france.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.uk::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.7),
+      rgb(0, 0, 0)
+    ),
+    url("../public/uk.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.ny:hover::before,
+.fr:hover::before,
+.uk:hover::before {
+  transform: scale(1.1);
+}
+
 @media (max-width: 768px) {
   .d-flex {
     flex-direction: column;

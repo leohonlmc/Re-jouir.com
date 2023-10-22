@@ -143,7 +143,7 @@ function Blog() {
         {demoImage.map((imageSet, imageSetIndex) => (
           <div
             className="d-flex"
-            style={{ marginBottom: "30px" }}
+            style={{ marginBottom: "30px", marginTop: "10px" }}
             key={imageSetIndex}
           >
             <div className="images-section">

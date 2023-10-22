@@ -180,6 +180,6 @@
 
 @media screen and (max-width: 1208px) {
   .col-md-4 {
-    margin: auto !important;
+    margin: auto;
   }
 }

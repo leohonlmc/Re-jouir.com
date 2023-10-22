@@ -221,8 +221,27 @@ function Home() {
             </div>
 
             <br />
-            <br />
-            <br />
+
+            <div className="countries row">
+              <div className="col-lg-3 col-md-4 col-sm-6 col-12 country-review ny">
+                <div className="bottom-info">
+                  <h4>United States</h4>
+                  <h5>New York</h5>
+                  <p>The Columbus Circle Holiday Market</p>
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-4 col-sm-6 col-12 country-review fr">
+                <h4>France</h4>
+                <h5>Broglie, Strasbourg</h5>
+                <p>The Christkindelsmärik</p>
+              </div>
+              <div className="col-lg-3 col-md-4 col-sm-6 col-12 country-review uk">
+                <h4>United Kingdom</h4>
+                <h5>Edinburgh, Scotland</h5>
+                <p>Christmas Market</p>
+              </div>
+            </div>
+
             <br />
 
             <div className="story">
