@@ -5,6 +5,7 @@ import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import ViewIcon from "./popup/ViewIcon";
 
 function Blog() {
   const demoImage = [
@@ -92,12 +93,20 @@ function Blog() {
   const [currIndices, setCurrIndices] = useState(
     Array(demoImage.length).fill(0)
   );
+  const [currImageUrl, setCurrImageUrl] = useState("");
+
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <div className="Blog">
       <div className="blog-section">
         <Header title="Blog | Réjouir" />
       </div>
+
+      {showPopup && (
+        // <ViewIcon setShowPopup={setShowPopup} images={item.images} />
+        <ViewIcon setShowPopup={setShowPopup} image={currImageUrl} />
+      )}
 
       <div className="blog-main">
         <div className="filter-div">
@@ -154,7 +163,15 @@ function Blog() {
               >
                 <div className="row py-3 shadow-5">
                   <div className="col-9 mb-1">
-                    <div className="lightbox">
+                    <div
+                      className="lightbox"
+                      onClick={() => {
+                        setShowPopup(true);
+                        setCurrImageUrl(
+                          imageSet.images[currIndices[imageSetIndex]]
+                        );
+                      }}
+                    >
                       <img
                         src={imageSet.images[currIndices[imageSetIndex]]}
                         alt=""

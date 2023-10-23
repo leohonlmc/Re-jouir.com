@@ -223,6 +223,15 @@ function Home() {
             <br />
 
             <div className="countries row">
+              <div style={{ textAlign: "center" }}>
+                <h2 style={{ fontWeight: "bold" }}>
+                  Place you would like to go
+                </h2>
+                <p style={{ margin: "0px" }}>
+                  More to find from our blog section!
+                </p>
+              </div>
+
               <div className="col-lg-3 col-md-4 col-sm-6 col-12 country-review ny">
                 <div className="bottom-info">
                   <h4>United States</h4>
