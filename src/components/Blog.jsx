@@ -9,6 +9,8 @@ import ViewIcon from "./popup/ViewIcon";
 import axios from "axios";
 import formatDateString from "./functions/formatDateString";
 import generateRandomUserId from "./functions/generateRandomUserId";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
@@ -98,7 +100,15 @@ function Blog() {
       .get(`${REACT_APP_API_ENDPOINT}/all/upload${savedCountry}&${savedFilter}`)
       .then((res) => {
         if (res.data && res.data.uploads) {
-          setAllUpload(res.data.uploads);
+          if (savedFilterValue === "newest") {
+            setAllUpload(res.data.uploads.reverse());
+          } else if (savedFilterValue === "oldest") {
+            setAllUpload(res.data.uploads);
+          } else if (savedFilterValue === "likes") {
+            setAllUpload(
+              res.data.uploads.sort((a, b) => b.likes.length - a.likes.length)
+            );
+          }
           setCurrIndices(Array(res.data.uploads.length).fill(0));
           setLoading(false);
         }
@@ -119,11 +129,39 @@ function Blog() {
     localStorage.setItem("selectedCountry", selectedCountry);
   };
 
+  const handleLike = async (postId, guest) => {
+    try {
+      const { data } = await axios.post(
+        `${REACT_APP_API_ENDPOINT}/like`,
+        {
+          postId,
+          guest,
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      );
+
+      if (data) {
+        toast.success("You liked this post!");
+      }
+    } catch (ex) {
+      if (ex.response && ex.response.data && ex.response.data.error) {
+        toast.error(`Error: ${ex.response.data.error}`);
+      } else {
+        console.error("An error occurred:", ex);
+      }
+    }
+  };
+
   return (
     <div className="Blog">
       <div className="blog-section">
         <Header title="Blog | Réjouir" />
       </div>
+
+      <ToastContainer />
 
       {showPopup && (
         <ViewIcon setShowPopup={setShowPopup} image={currImageUrl} />
@@ -131,12 +169,21 @@ function Blog() {
 
       <div className="blog-main">
         <div className="filter-div">
-          <h2
-            className="browse-réjouir"
-            style={{ textAlign: "left", fontWeight: "bold" }}
-          >
-            {`Browse around the Global`}
-          </h2>
+          {localStorage.getItem("selectedCountry") === "Global" ? (
+            <h2
+              className="browse-réjouir"
+              style={{ textAlign: "left", fontWeight: "bold" }}
+            >
+              {`Browse around the Global`}
+            </h2>
+          ) : (
+            <h2
+              className="browse-réjouir"
+              style={{ textAlign: "left", fontWeight: "bold" }}
+            >
+              {`Browse around ${localStorage.getItem("selectedCountry")}`}
+            </h2>
+          )}
 
           <div className="sort-container">
             <div className="sort-by">
@@ -170,6 +217,13 @@ function Blog() {
                 ))}
               </select>
             </div>
+
+            <button
+              className="btn btn-primary"
+              onClick={() => window.location.reload()}
+            >
+              Filter
+            </button>
           </div>
         </div>
 
@@ -253,15 +307,31 @@ function Blog() {
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
                   <p>{`Guest: ${upload.guest}`}</p>
-                  <div>
-                    <FontAwesomeIcon
-                      className="like-btn"
-                      icon={faHeart}
-                      style={{ color: "#ff0000", marginRight: "7px" }}
-                      size="xl"
-                    />{" "}
-                    {`${upload.likes.length} people like this`}
-                  </div>
+                  {upload.likes.includes(localStorage.getItem("guest")) ? (
+                    <div>
+                      <FontAwesomeIcon
+                        className="liked-btn"
+                        icon={faHeart}
+                        style={{ color: "#ff0000", marginRight: "0px" }}
+                        size="xl"
+                      />{" "}
+                      {`${upload.likes.length} people like this`}
+                    </div>
+                  ) : (
+                    <div
+                      onClick={() =>
+                        handleLike(upload._id, localStorage.getItem("guest"))
+                      }
+                    >
+                      <FontAwesomeIcon
+                        className="like-btn"
+                        icon={faHeart}
+                        style={{ color: "grey", marginRight: "0px" }}
+                        size="xl"
+                      />{" "}
+                      {`${upload.likes.length} people like this`}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

@@ -266,8 +266,6 @@ function List() {
 
       if (data) {
         toast.success("List successfully!");
-        // window.location.reload();
-        console.log(data);
       }
     } catch (ex) {
       console.log(ex);

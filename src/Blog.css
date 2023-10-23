@@ -130,6 +130,10 @@
   cursor: pointer;
 }
 
+.liked-btn {
+  cursor: not-allowed;
+}
+
 .filter-div {
   display: flex;
   align-items: center;
@@ -151,8 +155,6 @@
 .browse-réjouir {
   color: orange;
 }
-
-/* ml12 aside-cta flex--item print:d-none */
 
 @media (max-width: 769px) {
   .ml12.aside-cta.flex--item {
