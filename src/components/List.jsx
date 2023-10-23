@@ -11,6 +11,8 @@ import { ToastContainer, toast } from "react-toastify";
 import AWS from "aws-sdk";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import generateRandomUserId from "./functions/generateRandomUserId";
+
 const {
   REACT_APP_API_ENDPOINT,
   REACT_APP_ACCESS_ID,
@@ -34,9 +36,7 @@ const s3 = new AWS.S3({
 function List() {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(null);
-
-  const [images, setImageName] = useState([]);
+  const [images, setImages] = useState([]);
   const [imageFile, setImageFile] = useState([]);
   const [imageSrcs, setImageSrcs] = useState([]);
 
@@ -96,10 +96,11 @@ function List() {
     "Zimbabwe",
   ];
 
+  const guest = generateRandomUserId();
   const [title, setTitle] = useState("");
-  const [country, setCountry] = useState(countryList[0]);
+  const [country, setCountry] = useState(countryList[1]);
   const [location, setLocation] = useState("");
-  const [event, setEvent] = useState("");
+  const [eventName, setEvent] = useState("");
   const [description, setDescription] = useState("");
 
   const handleResize = () => {
@@ -150,6 +151,10 @@ function List() {
   useEffect(() => {
     window.addEventListener("resize", handleResize);
 
+    if (localStorage.getItem("guest") === null) {
+      localStorage.setItem("guest", guest);
+    }
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -194,73 +199,80 @@ function List() {
   const randomString = generateRandomString();
 
   const handleUpload = async (file) => {
-    const encryptedFileName = randomString + file.name;
+    return new Promise((resolve, reject) => {
+      const encryptedFileName = randomString + file.name;
 
-    setImageName(images.push(encryptedFileName));
+      setImages((prevImages) => [...prevImages, encryptedFileName]);
 
-    if (file) {
-      const params = {
-        Key: randomString + file.name,
-        ContentType: file.type,
-        Body: file,
-        ACL: "public-read",
-      };
+      if (file) {
+        const params = {
+          Key: encryptedFileName,
+          ContentType: file.type,
+          Body: file,
+          ACL: "public-read",
+        };
 
-      s3.upload(params, (err, data) => {
-        if (err) {
-          toast.error("Error uploading file", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          });
-
-          console.log(err);
-        } else {
-          toast.success("File uploaded successfully");
-        }
-      });
-    }
+        s3.upload(params, (err, data) => {
+          if (err) {
+            toast.error("Error uploading file", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+            });
+            reject(err);
+          } else {
+            toast.success("File uploaded successfully");
+            resolve(encryptedFileName); // Resolve with the encrypted file name
+          }
+        });
+      } else {
+        reject(new Error("No file provided for upload."));
+      }
+    });
   };
 
-  // const handleSubmit = async (event) => {
-  //   if (!title || !price) {
-  //     toast.error(`Please fill in all required fields.`);
-  //   }
+  const handleSubmit = async (event) => {
+    if (!title || !country || !location) {
+      toast.error(`Please fill in all required fields.`);
+    }
 
-  //   imageFile.map((file) => {
-  //     handleUpload(file);
-  //   });
+    event.preventDefault();
 
-  //   event.preventDefault();
-  //   try {
-  //     const { data } = await axios.post(
-  //       `${REACT_APP_API_ENDPOINT}/item`,
-  //       {
-  //         category,
-  //         title,
-  //         price,
-  //         country,
-  //         description,
-  //         userID,
-  //         user,
-  //         images,
-  //       },
-  //       {
-  //         withCredentials: true,
-  //         credentials: "include",
-  //       }
-  //     );
-  //     if (data) {
-  //       toast.success("List successfully!");
-  //       window.location.reload();
-  //     }
-  //   } catch (ex) {
-  //     console.log(ex);
-  //   }
-  // };
+    const uploadedImages = await Promise.all(
+      imageFile.map((file) => handleUpload(file))
+    );
+    console.log("Uploaded Images:", uploadedImages);
+
+    try {
+      const { data } = await axios.post(
+        `${REACT_APP_API_ENDPOINT}/upload`,
+        {
+          guest,
+          title,
+          country,
+          location,
+          eventName,
+          description,
+          images: uploadedImages,
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      );
+
+      if (data) {
+        toast.success("List successfully!");
+        // window.location.reload();
+        console.log(data);
+      }
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
 
   return (
     <div className="List">
@@ -426,9 +438,7 @@ function List() {
                     : { padding: "0px" }
                 }
               >
-                <form
-                // onSubmit={handleSubmit}
-                >
+                <form onSubmit={handleSubmit}>
                   <div className="form__group field">
                     <input
                       type="input"

@@ -12,6 +12,7 @@ import {
   faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, Link } from "react-router-dom";
+import generateRandomUserId from "./functions/generateRandomUserId";
 
 function Home() {
   const navigate = useNavigate();
@@ -21,9 +22,14 @@ function Home() {
     minutes: 0,
     seconds: 0,
   });
+  const guest = generateRandomUserId();
 
   useEffect(() => {
     const intervalId = setInterval(updateCountdown, 1000);
+
+    if (localStorage.getItem("guest") === null) {
+      localStorage.setItem("guest", guest);
+    }
 
     return () => {
       clearInterval(intervalId);

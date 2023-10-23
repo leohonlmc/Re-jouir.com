@@ -25,7 +25,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
               height: "100%",
             }}
           >
-            <div style={{ width: "100%" }}>
+            <div style={{ width: "100%" }} onClick={() => setShowPopup(false)}>
               <div
                 style={{
                   height: "95vh",

@@ -100,6 +100,7 @@
 .col-9.mb-1 {
   margin: 0px !important;
   padding: 0px !important;
+  min-height: 400px;
 }
 
 .lightbox {
@@ -149,6 +150,14 @@
 
 .browse-réjouir {
   color: orange;
+}
+
+/* ml12 aside-cta flex--item print:d-none */
+
+@media (max-width: 769px) {
+  .ml12.aside-cta.flex--item {
+    display: none;
+  }
 }
 
 @media (max-width: 740px) {

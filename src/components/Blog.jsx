@@ -1,42 +1,18 @@
 import "../Blog.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import ViewIcon from "./popup/ViewIcon";
+import axios from "axios";
+import formatDateString from "./functions/formatDateString";
+import generateRandomUserId from "./functions/generateRandomUserId";
+
+const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 function Blog() {
-  const demoImage = [
-    {
-      images: [
-        "/sample/1.jpg",
-        "/sample/2.jpeg",
-        "/sample/3.avif",
-        "/sample/4.avif",
-        "/sample/5.jpeg",
-      ],
-      title: "Title 1",
-      location: "Location 1",
-      event: "Night Market",
-      description: "Description 1",
-    },
-    {
-      images: [
-        "/sample/6.avif",
-        "/sample/7.avif",
-        "/sample/8.avif",
-        "/sample/9.avif",
-        "/sample/10.avif",
-      ],
-      title: "Title 2",
-      location: "Location 2",
-      event: "Night Market",
-      description: "Description 2",
-    },
-  ];
-
   const countryList = [
     "Global",
     "Argentina",
@@ -90,12 +66,58 @@ function Blog() {
     "Zimbabwe",
   ];
 
-  const [currIndices, setCurrIndices] = useState(
-    Array(demoImage.length).fill(0)
-  );
+  const [currIndices, setCurrIndices] = useState([]);
   const [currImageUrl, setCurrImageUrl] = useState("");
-
   const [showPopup, setShowPopup] = useState(false);
+  const [allUpload, setAllUpload] = useState([]);
+  const guest = generateRandomUserId();
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState("");
+  const [country, setCountry] = useState("");
+
+  useEffect(() => {
+    if (localStorage.getItem("guest") === null) {
+      localStorage.setItem("guest", guest);
+    }
+
+    // Fetch selected values from localStorage
+    const savedFilterValue = localStorage.getItem("selectedFilter");
+    const savedCountryValue = localStorage.getItem("selectedCountry");
+
+    const savedFilter = savedFilterValue
+      ? `?sort=${savedFilterValue}`
+      : "?sort=newest";
+    const savedCountry = savedCountryValue
+      ? `?country=${savedCountryValue}`
+      : "?country=global";
+
+    setFilter(savedFilterValue ? `?sort=${savedFilterValue}` : "");
+    setCountry(savedCountryValue ? `?country=${savedCountryValue}` : "");
+
+    axios
+      .get(`${REACT_APP_API_ENDPOINT}/all/upload${savedCountry}&${savedFilter}`)
+      .then((res) => {
+        if (res.data && res.data.uploads) {
+          setAllUpload(res.data.uploads);
+          setCurrIndices(Array(res.data.uploads.length).fill(0));
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const handleSSelectChange = (e, index) => {
+    setFilter(`?sort=${e.target.value}`);
+    localStorage.setItem("selectedFilter", e.target.value);
+  };
+
+  const handleCountryChange = (e) => {
+    const selectedCountry = e.target.value;
+    setCountry(selectedCountry ? `?country=${selectedCountry}` : "");
+    localStorage.setItem("selectedCountry", selectedCountry);
+  };
 
   return (
     <div className="Blog">
@@ -104,7 +126,6 @@ function Blog() {
       </div>
 
       {showPopup && (
-        // <ViewIcon setShowPopup={setShowPopup} images={item.images} />
         <ViewIcon setShowPopup={setShowPopup} image={currImageUrl} />
       )}
 
@@ -124,7 +145,8 @@ function Blog() {
                 className="form-select form-select-sm"
                 aria-label=".form-select-sm example"
                 style={{ maxWidth: "200px" }}
-                defaultValue="newest"
+                value={filter.replace("?sort=", "")}
+                onChange={(e) => handleSSelectChange(e, 0)}
               >
                 <option value="newest">Newest</option>
                 <option value="oldest">Oldest</option>
@@ -138,6 +160,8 @@ function Blog() {
                 className="form-select form-select-sm"
                 aria-label=".form-select-sm example"
                 style={{ maxWidth: "200px" }}
+                value={country.replace("?country=", "") || "Global"}
+                onChange={(e) => handleCountryChange(e)}
               >
                 {countryList.map((country, index) => (
                   <option value={country} key={index}>
@@ -149,11 +173,11 @@ function Blog() {
           </div>
         </div>
 
-        {demoImage.map((imageSet, imageSetIndex) => (
+        {allUpload.map((upload, uploadIndex) => (
           <div
             className="d-flex"
             style={{ marginBottom: "30px", marginTop: "10px" }}
-            key={imageSetIndex}
+            key={upload._id}
           >
             <div className="images-section">
               <div
@@ -168,12 +192,16 @@ function Blog() {
                       onClick={() => {
                         setShowPopup(true);
                         setCurrImageUrl(
-                          imageSet.images[currIndices[imageSetIndex]]
+                          `${REACT_APP_AWS}${
+                            upload.images[currIndices[uploadIndex]]
+                          }`
                         );
                       }}
                     >
                       <img
-                        src={imageSet.images[currIndices[imageSetIndex]]}
+                        src={`${REACT_APP_AWS}${
+                          upload.images[currIndices[uploadIndex]]
+                        }`}
                         alt=""
                         className="ecommerce-gallery-main-img active w-100 "
                       />
@@ -181,7 +209,7 @@ function Blog() {
                   </div>
 
                   <div className="col-3">
-                    {imageSet.images.map((image, index) => (
+                    {upload.images.map((image, index) => (
                       <div className="mb-1" key={index}>
                         <div className="D_Qy-2">
                           <p
@@ -196,16 +224,14 @@ function Blog() {
                           </p>
                         </div>
                         <img
-                          src={image}
+                          src={`${REACT_APP_AWS}${image}`}
                           className={`active w-100 ${
-                            currIndices[imageSetIndex] === index
-                              ? "selected"
-                              : ""
+                            currIndices[uploadIndex] === index ? "selected" : ""
                           }`}
                           alt=""
                           onClick={() => {
                             const newIndices = [...currIndices];
-                            newIndices[imageSetIndex] = index;
+                            newIndices[uploadIndex] = index;
                             setCurrIndices(newIndices);
                           }}
                         />
@@ -218,19 +244,24 @@ function Blog() {
 
             <div className="blog-info">
               <div className="blog-info-child">
-                <h1>{imageSet.title}</h1>
-                <h3>📍 {imageSet.location}</h3>
-                <h4>📅 {imageSet.event}</h4>
-                <p>Posted 1 hour ago</p>
-                <p>{imageSet.description}</p>
-                <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                  <FontAwesomeIcon
-                    className="like-btn"
-                    icon={faHeart}
-                    style={{ color: "#ff0000", marginRight: "7px" }}
-                    size="xl"
-                  />{" "}
-                  10 people like this
+                <h1>{upload.title}</h1>
+                <h3>{`${upload.country}, ${upload.location} 📍`}</h3>
+                <p>{`${formatDateString(upload.created)} 📅`}</p>
+                <p>{upload.event}</p>
+                <p>{upload.description}</p>
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <p>{`Guest: ${upload.guest}`}</p>
+                  <div>
+                    <FontAwesomeIcon
+                      className="like-btn"
+                      icon={faHeart}
+                      style={{ color: "#ff0000", marginRight: "7px" }}
+                      size="xl"
+                    />{" "}
+                    {`${upload.likes.length} people like this`}
+                  </div>
                 </div>
               </div>
             </div>
