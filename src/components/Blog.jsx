@@ -130,18 +130,18 @@ function Blog() {
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
 
+  const POSTS_PER_PAGE = 1;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+
   useEffect(() => {
     if (localStorage.getItem("guest") === null) {
       localStorage.setItem("guest", guest);
     }
 
-    // Fetch selected values from localStorage
     const savedFilterValue = localStorage.getItem("selectedFilter");
     const savedCountryValue = localStorage.getItem("selectedCountry");
 
-    const savedFilter = savedFilterValue
-      ? `?sort=${savedFilterValue}`
-      : "?sort=newest";
     const savedCountry = savedCountryValue
       ? `?country=${savedCountryValue}`
       : "?country=global";
@@ -150,7 +150,11 @@ function Blog() {
     setCountry(savedCountryValue ? `?country=${savedCountryValue}` : "");
 
     axios
-      .get(`${REACT_APP_API_ENDPOINT}/all/upload${savedCountry}&${savedFilter}`)
+      .get(
+        `${REACT_APP_API_ENDPOINT}/all/upload${savedCountry}&page=${localStorage.getItem(
+          "currentPage"
+        )}&limit=${POSTS_PER_PAGE}`
+      )
       .then((res) => {
         if (res.data && res.data.uploads) {
           if (savedFilterValue === "newest") {
@@ -164,12 +168,32 @@ function Blog() {
           }
           setCurrIndices(Array(res.data.uploads.length).fill(0));
           setLoading(false);
+
+          setTotalPages(res.data.totalPages);
+          console.log(res.data);
         }
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  const paginatedUploads = allUpload.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  );
+
+  const handlePageChange = (direction) => {
+    if (direction === "next" && currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+      localStorage.setItem("currentPage", currentPage + 1);
+      window.location.reload();
+    } else if (direction === "prev" && currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+      localStorage.setItem("currentPage", currentPage - 1);
+      window.location.reload();
+    }
+  };
 
   const handleSSelectChange = (e, index) => {
     setFilter(`?sort=${e.target.value}`);
@@ -227,16 +251,18 @@ function Blog() {
               className="browse-réjouir"
               style={{ textAlign: "left", fontWeight: "bold" }}
             >
-              {`Browse around the Global`}
+              {`Browse around`}{" "}
+              <span style={{ color: "black" }}>{`the Global 🌍`}</span>
             </h2>
           ) : (
             <h2
               className="browse-réjouir"
               style={{ textAlign: "left", fontWeight: "bold" }}
             >
-              {`Browse around ${localStorage.getItem("selectedCountry")} ${
-                countryEmojiMap[localStorage.getItem("selectedCountry")]
-              }`}
+              {`Browse around ${localStorage.getItem("selectedCountry")}`}{" "}
+              <span>
+                {countryEmojiMap[localStorage.getItem("selectedCountry")]}
+              </span>
             </h2>
           )}
 
@@ -282,7 +308,7 @@ function Blog() {
           </div>
         </div>
 
-        {allUpload.map((upload, uploadIndex) => (
+        {paginatedUploads.map((upload, uploadIndex) => (
           <div
             className="d-flex"
             style={{ marginBottom: "30px", marginTop: "10px" }}
@@ -392,6 +418,41 @@ function Blog() {
             </div>
           </div>
         ))}
+        <div className="page-number-div">
+          {Number(localStorage.getItem("currentPage")) > 1 && (
+            <button
+              className="btn btn-primary"
+              onClick={() => handlePageChange("prev")}
+            >
+              Previous
+            </button>
+          )}
+          {[...Array(totalPages).keys()].map((page) => (
+            <button
+              key={page}
+              className={
+                Number(localStorage.getItem("currentPage")) === page + 1
+                  ? "active-1 btn btn-primary"
+                  : "btn btn-primary"
+              }
+              onClick={() => {
+                setCurrentPage(page + 1);
+                localStorage.setItem("currentPage", page + 1);
+                window.location.reload();
+              }}
+            >
+              {page + 1}
+            </button>
+          ))}
+          {Number(localStorage.getItem("currentPage")) < totalPages && (
+            <button
+              className="btn btn-primary"
+              onClick={() => handlePageChange("next")}
+            >
+              Next
+            </button>
+          )}
+        </div>
       </div>
 
       <Footer />

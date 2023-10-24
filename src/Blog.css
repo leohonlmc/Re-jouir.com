@@ -156,6 +156,31 @@
   color: orange;
 }
 
+.page-number-div {
+  max-width: 300px;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.page-number-div > button {
+  margin: 3px;
+  background-color: #00873e;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border: 0px;
+}
+
+.page-number-div > button:hover {
+  background-color: #007939;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+.active-1 {
+  background-color: #d6001c !important;
+  color: white;
+}
+
 @media (max-width: 769px) {
   .ml12.aside-cta.flex--item {
     display: none;
