@@ -11,6 +11,7 @@ import formatDateString from "./functions/formatDateString";
 import generateRandomUserId from "./functions/generateRandomUserId";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import Loading from "./partial/Loading";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
@@ -308,116 +309,131 @@ function Blog() {
           </div>
         </div>
 
-        {paginatedUploads.map((upload, uploadIndex) => (
-          <div
-            className="d-flex"
-            style={{ marginBottom: "30px", marginTop: "10px" }}
-            key={upload._id}
-          >
-            <div className="images-section">
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            {paginatedUploads.map((upload, uploadIndex) => (
               <div
-                className="ecommerce-gallery"
-                data-mdb-zoom-effect="true"
-                data-mdb-auto-height="true"
+                className="d-flex"
+                style={{ marginBottom: "30px", marginTop: "10px" }}
+                key={upload._id}
               >
-                <div className="row py-3 shadow-5">
-                  <div className="col-9 mb-1">
+                <div className="images-section">
+                  <div
+                    className="ecommerce-gallery"
+                    data-mdb-zoom-effect="true"
+                    data-mdb-auto-height="true"
+                  >
+                    <div className="row py-3 shadow-5">
+                      <div className="col-9 mb-1">
+                        <div
+                          className="lightbox"
+                          onClick={() => {
+                            setShowPopup(true);
+                            setCurrImageUrl(
+                              `${REACT_APP_AWS}${
+                                upload.images[currIndices[uploadIndex]]
+                              }`
+                            );
+                          }}
+                        >
+                          <img
+                            src={`${REACT_APP_AWS}${
+                              upload.images[currIndices[uploadIndex]]
+                            }`}
+                            alt=""
+                            className="ecommerce-gallery-main-img active w-100 "
+                          />
+                        </div>
+                      </div>
+
+                      <div className="col-3">
+                        {upload.images.map((image, index) => (
+                          <div className="mb-1" key={index}>
+                            <div className="D_Qy-2">
+                              <p
+                                className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
+                                style={{
+                                  textAlign: "center",
+                                  margin: "0px",
+                                  fontSize: "11px",
+                                }}
+                              >
+                                {index + 1}
+                              </p>
+                            </div>
+                            <img
+                              src={`${REACT_APP_AWS}${image}`}
+                              className={`active w-100 ${
+                                currIndices[uploadIndex] === index
+                                  ? "selected"
+                                  : ""
+                              }`}
+                              alt=""
+                              onClick={() => {
+                                const newIndices = [...currIndices];
+                                newIndices[uploadIndex] = index;
+                                setCurrIndices(newIndices);
+                              }}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="blog-info">
+                  <div className="blog-info-child">
+                    <h1>{upload.title}</h1>
+                    <h3>{`${upload.country}, ${upload.location} 📍`}</h3>
+                    <p>{`${formatDateString(upload.created)} 📅`}</p>
+                    <p>{upload.event}</p>
+                    <p>{upload.description}</p>
                     <div
-                      className="lightbox"
-                      onClick={() => {
-                        setShowPopup(true);
-                        setCurrImageUrl(
-                          `${REACT_APP_AWS}${
-                            upload.images[currIndices[uploadIndex]]
-                          }`
-                        );
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
                       }}
                     >
-                      <img
-                        src={`${REACT_APP_AWS}${
-                          upload.images[currIndices[uploadIndex]]
-                        }`}
-                        alt=""
-                        className="ecommerce-gallery-main-img active w-100 "
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-3">
-                    {upload.images.map((image, index) => (
-                      <div className="mb-1" key={index}>
-                        <div className="D_Qy-2">
-                          <p
-                            className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
-                            style={{
-                              textAlign: "center",
-                              margin: "0px",
-                              fontSize: "11px",
-                            }}
-                          >
-                            {index + 1}
-                          </p>
+                      <p>{`Guest: ${upload.guest}`}</p>
+                      {upload.likes.includes(localStorage.getItem("guest")) ? (
+                        <div>
+                          <FontAwesomeIcon
+                            className="liked-btn"
+                            icon={faHeart}
+                            style={{ color: "#ff0000", marginRight: "0px" }}
+                            size="xl"
+                          />{" "}
+                          {`${upload.likes.length} people like this`}
                         </div>
-                        <img
-                          src={`${REACT_APP_AWS}${image}`}
-                          className={`active w-100 ${
-                            currIndices[uploadIndex] === index ? "selected" : ""
-                          }`}
-                          alt=""
-                          onClick={() => {
-                            const newIndices = [...currIndices];
-                            newIndices[uploadIndex] = index;
-                            setCurrIndices(newIndices);
-                          }}
-                        />
-                      </div>
-                    ))}
+                      ) : (
+                        <div
+                          onClick={() =>
+                            handleLike(
+                              upload._id,
+                              localStorage.getItem("guest")
+                            )
+                          }
+                        >
+                          <FontAwesomeIcon
+                            className="like-btn"
+                            icon={faHeart}
+                            style={{ color: "grey", marginRight: "0px" }}
+                            size="xl"
+                          />{" "}
+                          {`${upload.likes.length} people like this`}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
+          </>
+        )}
 
-            <div className="blog-info">
-              <div className="blog-info-child">
-                <h1>{upload.title}</h1>
-                <h3>{`${upload.country}, ${upload.location} 📍`}</h3>
-                <p>{`${formatDateString(upload.created)} 📅`}</p>
-                <p>{upload.event}</p>
-                <p>{upload.description}</p>
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <p>{`Guest: ${upload.guest}`}</p>
-                  {upload.likes.includes(localStorage.getItem("guest")) ? (
-                    <div>
-                      <FontAwesomeIcon
-                        className="liked-btn"
-                        icon={faHeart}
-                        style={{ color: "#ff0000", marginRight: "0px" }}
-                        size="xl"
-                      />{" "}
-                      {`${upload.likes.length} people like this`}
-                    </div>
-                  ) : (
-                    <div
-                      onClick={() =>
-                        handleLike(upload._id, localStorage.getItem("guest"))
-                      }
-                    >
-                      <FontAwesomeIcon
-                        className="like-btn"
-                        icon={faHeart}
-                        style={{ color: "grey", marginRight: "0px" }}
-                        size="xl"
-                      />{" "}
-                      {`${upload.likes.length} people like this`}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
         <div className="page-number-div">
           {Number(localStorage.getItem("currentPage")) > 1 && (
             <button
