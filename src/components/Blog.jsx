@@ -68,6 +68,59 @@ function Blog() {
     "Zimbabwe",
   ];
 
+  const countryEmojiMap = {
+    Global: "🌍",
+    Argentina: "🇦🇷",
+    Australia: "🇦🇺",
+    Austria: "🇦🇹",
+    Belgium: "🇧🇪",
+    Brazil: "🇧🇷",
+    Canada: "🇨🇦",
+    Chile: "🇨🇱",
+    Colombia: "🇨🇴",
+    "Costa Rica": "🇨🇷",
+    Denmark: "🇩🇰",
+    Ecuador: "🇪🇨",
+    Finland: "🇫🇮",
+    France: "🇫🇷",
+    Germany: "🇩🇪",
+    Greece: "🇬🇷",
+    Hungary: "🇭🇺",
+    Iceland: "🇮🇸",
+    India: "🇮🇳",
+    Indonesia: "🇮🇩",
+    Ireland: "🇮🇪",
+    Italy: "🇮🇹",
+    Jamaica: "🇯🇲",
+    Japan: "🇯🇵",
+    Kenya: "🇰🇪",
+    Lebanon: "🇱🇧",
+    Luxembourg: "🇱🇺",
+    Mexico: "🇲🇽",
+    Netherlands: "🇳🇱",
+    "New Zealand": "🇳🇿",
+    Norway: "🇳🇴",
+    Panama: "🇵🇦",
+    Peru: "🇵🇪",
+    Philippines: "🇵🇭",
+    Poland: "🇵🇱",
+    Portugal: "🇵🇹",
+    "Puerto Rico": "🇵🇷",
+    Romania: "🇷🇴",
+    Russia: "🇷🇺",
+    "South Africa": "🇿🇦",
+    "South Korea": "🇰🇷",
+    Spain: "🇪🇸",
+    Sweden: "🇸🇪",
+    Switzerland: "🇨🇭",
+    Turkey: "🇹🇷",
+    Ukraine: "🇺🇦",
+    "United Kingdom": "🇬🇧",
+    "United States": "🇺🇸",
+    Venezuela: "🇻🇪",
+    Zimbabwe: "🇿🇼",
+  };
+
   const [currIndices, setCurrIndices] = useState([]);
   const [currImageUrl, setCurrImageUrl] = useState("");
   const [showPopup, setShowPopup] = useState(false);
@@ -181,7 +234,9 @@ function Blog() {
               className="browse-réjouir"
               style={{ textAlign: "left", fontWeight: "bold" }}
             >
-              {`Browse around ${localStorage.getItem("selectedCountry")}`}
+              {`Browse around ${localStorage.getItem("selectedCountry")} ${
+                countryEmojiMap[localStorage.getItem("selectedCountry")]
+              }`}
             </h2>
           )}
 
