@@ -152,26 +152,26 @@ function Blog() {
 
     axios
       .get(
-        `${REACT_APP_API_ENDPOINT}/all/upload${savedCountry}&page=${localStorage.getItem(
+        `${REACT_APP_API_ENDPOINT}/all/upload${savedCountry}&sort=${savedFilterValue}&page=${localStorage.getItem(
           "currentPage"
         )}&limit=${POSTS_PER_PAGE}`
       )
       .then((res) => {
         if (res.data && res.data.uploads) {
-          if (savedFilterValue === "newest") {
-            setAllUpload(res.data.uploads.reverse());
-          } else if (savedFilterValue === "oldest") {
-            setAllUpload(res.data.uploads);
-          } else if (savedFilterValue === "likes") {
-            setAllUpload(
-              res.data.uploads.sort((a, b) => b.likes.length - a.likes.length)
-            );
-          }
+          // if (savedFilterValue === "newest") {
+          //   setAllUpload(res.data.uploads.reverse());
+          // } else if (savedFilterValue === "oldest") {
+          //   setAllUpload(res.data.uploads);
+          // } else if (savedFilterValue === "likes") {
+          //   setAllUpload(
+          //     res.data.uploads.sort((a, b) => b.likes.length - a.likes.length)
+          //   );
+          // }
+          setAllUpload(res.data.uploads);
           setCurrIndices(Array(res.data.uploads.length).fill(0));
           setLoading(false);
 
           setTotalPages(res.data.totalPages);
-          console.log(res.data);
         }
       })
       .catch((err) => {
