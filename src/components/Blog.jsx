@@ -67,6 +67,8 @@ function Blog() {
     "United States",
     "Venezuela",
     "Zimbabwe",
+    "Hong Kong",
+    "Taiwan",
   ];
 
   const countryEmojiMap = {
@@ -290,7 +292,7 @@ function Blog() {
             </div>
 
             <div className="sort-by">
-              <p style={{ margin: "0px" }}>Country:</p>
+              <p style={{ margin: "0px" }}>Location:</p>
               <select
                 className="form-select form-select-sm"
                 aria-label=".form-select-sm example"

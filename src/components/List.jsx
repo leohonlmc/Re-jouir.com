@@ -44,7 +44,7 @@ function List() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const countryList = [
-    "Select a country",
+    "Global",
     "Argentina",
     "Australia",
     "Austria",
@@ -94,6 +94,8 @@ function List() {
     "United States",
     "Venezuela",
     "Zimbabwe",
+    "Hong Kong",
+    "Taiwan",
   ];
 
   const guest = generateRandomUserId();
