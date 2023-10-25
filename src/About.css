@@ -33,3 +33,23 @@
   margin: auto;
   padding: 30px 0px;
 }
+
+.bordered-table {
+  border-collapse: collapse;
+  max-width: 100%;
+}
+
+.bordered-table th,
+.bordered-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.bordered-table th {
+  background-color: #f2f2f2; /* Optional: To give a different background color to header rows */
+}
+
+.responsive-table-container {
+  overflow-x: auto;
+}
