@@ -140,6 +140,21 @@ function Blog() {
       localStorage.setItem("guest", guest);
     }
 
+    if (localStorage.getItem("currentPage") === null) {
+      localStorage.setItem("currentPage", 1);
+    }
+
+    if (
+      localStorage.getItem("selectedFilter") === null ||
+      !localStorage.getItem("selectedFilter")
+    ) {
+      localStorage.setItem("selectedFilter", "newest");
+    }
+
+    if (localStorage.getItem("selectedCountry") === null) {
+      localStorage.setItem("selectedCountry", "Global");
+    }
+
     const savedFilterValue = localStorage.getItem("selectedFilter");
     const savedCountryValue = localStorage.getItem("selectedCountry");
 
@@ -158,15 +173,6 @@ function Blog() {
       )
       .then((res) => {
         if (res.data && res.data.uploads) {
-          // if (savedFilterValue === "newest") {
-          //   setAllUpload(res.data.uploads.reverse());
-          // } else if (savedFilterValue === "oldest") {
-          //   setAllUpload(res.data.uploads);
-          // } else if (savedFilterValue === "likes") {
-          //   setAllUpload(
-          //     res.data.uploads.sort((a, b) => b.likes.length - a.likes.length)
-          //   );
-          // }
           setAllUpload(res.data.uploads);
           setCurrIndices(Array(res.data.uploads.length).fill(0));
           setLoading(false);
