@@ -31,13 +31,63 @@ function Admin() {
       });
   }, []);
 
+  const handleApprove = async (postId) => {
+    try {
+      const { data } = await axios.post(
+        `${REACT_APP_API_ENDPOINT}/approve`,
+        {
+          postId,
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      );
+
+      if (data) {
+        toast.success("Approved!");
+      }
+    } catch (ex) {
+      if (ex.response && ex.response.data && ex.response.data.error) {
+        toast.error(`Error: ${ex.response.data.error}`);
+      } else {
+        console.error("An error occurred:", ex);
+      }
+    }
+  };
+
+  const handleReject = async (postId) => {
+    try {
+      const { data } = await axios.post(
+        `${REACT_APP_API_ENDPOINT}/reject`,
+        {
+          postId,
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      );
+
+      if (data) {
+        toast.success("Rejected!");
+      }
+    } catch (ex) {
+      if (ex.response && ex.response.data && ex.response.data.error) {
+        toast.error(`Error: ${ex.response.data.error}`);
+      } else {
+        console.error("An error occurred:", ex);
+      }
+    }
+  };
+
   return (
     <div className="About">
       <div className="blog-section">
         <Header title="Admin | Réjouir" />
       </div>
 
-      <ToastContainer />
+      <ToastContainer style={{ zIndex: 9999 }} />
 
       {showPopup && (
         <ViewIcon setShowPopup={setShowPopup} image={currImageUrl} />
@@ -120,8 +170,27 @@ function Admin() {
                 </tbody>
               </table>
 
-              <button className="btn btn-success">Approve</button>
-              <button className="btn btn-danger">Reject</button>
+              <button
+                className="btn btn-success"
+                onClick={() => {
+                  handleApprove(upload._id);
+                  alert("Approved!");
+                  window.location.reload();
+                }}
+              >
+                Approve
+              </button>
+
+              <button
+                className="btn btn-danger"
+                onClick={() => {
+                  handleReject(upload._id);
+                  alert("Rejected!");
+                  window.location.reload();
+                }}
+              >
+                Reject
+              </button>
             </div>
           </div>
         </div>
