@@ -31,6 +31,11 @@ function Header(props) {
               Blog <span className="sr-only">(current)</span>
             </a>
           </Link>
+          <Link to={"/list"} style={{ textDecoration: "none" }}>
+            <a className="nav-item nav-link active" href="#">
+              Upload
+            </a>
+          </Link>
         </div>
       </nav>
     </div>
