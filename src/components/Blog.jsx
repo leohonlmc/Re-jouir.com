@@ -133,7 +133,7 @@ function Blog() {
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
 
-  const POSTS_PER_PAGE = 1;
+  const POSTS_PER_PAGE = 10;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
