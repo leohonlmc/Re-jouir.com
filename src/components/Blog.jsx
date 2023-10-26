@@ -420,6 +420,7 @@ function Blog() {
                         </div>
                       ) : (
                         <div
+                          className="liked-btn-div"
                           onClick={() => {
                             handleLike(
                               upload._id,
