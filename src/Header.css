@@ -10,3 +10,11 @@
   font-weight: bold;
   font-size: 19px;
 }
+
+.spin-div {
+  background-color: rgb(177, 177, 177);
+  max-width: 52px;
+  padding: 10px;
+  margin: auto;
+  border-radius: 10px;
+}

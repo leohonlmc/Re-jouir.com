@@ -27,7 +27,14 @@ function Loading() {
                 alignItems: "center",
               }}
             >
-              <FontAwesomeIcon icon={faSpinner} size="2xl" spin />
+              <div className="spin-div">
+                <FontAwesomeIcon
+                  icon={faSpinner}
+                  size="2xl"
+                  spin
+                  color="white"
+                />
+              </div>
             </div>
           </div>
         </div>

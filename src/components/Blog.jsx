@@ -317,7 +317,7 @@ function Blog() {
           </div>
         </div>
 
-        {loading ? (
+        {!loading ? (
           <Loading />
         ) : (
           <>
