@@ -12,7 +12,11 @@ export default function App() {
         <Route exact path="/terms" element={<Terms />} />
         <Route exact path="/privacy" element={<Privacy />} />
         <Route exact path="/list" element={<List />} />
-        <Route exact path="/admin" element={<Admin />} />
+        <Route
+          exact
+          path={`/admin/username/leohon/leohonlmc`}
+          element={<Admin />}
+        />
       </Routes>
     </Router>
   );

@@ -53,3 +53,16 @@
 .responsive-table-container {
   overflow-x: auto;
 }
+
+.xmas {
+  color: rgb(255, 255, 0);
+  text-shadow: 0 0 50px rgb(255, 255, 0);
+  font-weight: bold;
+  font-size: 55px;
+}
+
+.xmas-div {
+  max-width: 600px;
+  text-align: center;
+  margin: auto;
+}

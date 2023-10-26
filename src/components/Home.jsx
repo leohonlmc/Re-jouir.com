@@ -22,9 +22,26 @@ function Home() {
     minutes: 0,
     seconds: 0,
   });
+
   const guest = generateRandomUserId();
+  const [isChristmas, setIsChristmas] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(true);
 
   useEffect(() => {
+    const today = new Date();
+
+    if (isChristmas) {
+      const timer = setTimeout(() => {
+        setShowCelebration(false);
+      }, 4000);
+
+      return () => clearTimeout(timer);
+    }
+
+    if (today.getDate() === 25 && today.getMonth() === 11) {
+      setIsChristmas(true);
+    }
+
     const intervalId = setInterval(updateCountdown, 1000);
 
     if (localStorage.getItem("guest") === null) {
@@ -55,29 +72,61 @@ function Home() {
 
   return (
     <div className="Home">
+      {isChristmas && showCelebration && (
+        <div className="celebration-overlay">
+          {Array(200)
+            .fill()
+            .map((_, i) => (
+              <span
+                key={i}
+                className="confetti"
+                role="img"
+                aria-label="Party popper"
+                style={{
+                  left: `${Math.random() * 100}vw`,
+                  animationDelay: `${Math.random() * 5}s`,
+                }}
+              >
+                🎉
+              </span>
+            ))}
+        </div>
+      )}
+
       <div className="header-section">
         <Header />
         <div style={{ margin: "50px 0px" }}>
           <h1 className="slogan">Share your precious moment 🎄</h1>
         </div>
         <div className="countdown">
-          <p>{`December 25 ${new Date().getFullYear()} ⏳`}</p>
-          <div className="countdown-time days">
-            <div>{timeLeft.days}:</div>
-            <div>days</div>
-          </div>
-          <div className="countdown-time">
-            <div>{timeLeft.hours}:</div>
-            <div>hr</div>
-          </div>
-          <div className="countdown-time">
-            <div>{timeLeft.minutes}:</div>
-            <div>min</div>
-          </div>
-          <div className="countdown-time second">
-            <div>{timeLeft.seconds}</div>
-            <div>sec</div>
-          </div>
+          {isChristmas ? (
+            <p>{`December 25 ${new Date().getFullYear()} ⏳`}</p>
+          ) : null}
+
+          {isChristmas ? (
+            <div className="xmas-div">
+              <h1 className="xmas">Merry Christmas! 🎅🏻</h1>
+            </div>
+          ) : (
+            <>
+              <div className="countdown-time days">
+                <div>{timeLeft.days}:</div>
+                <div>days</div>
+              </div>
+              <div className="countdown-time">
+                <div>{timeLeft.hours}:</div>
+                <div>hr</div>
+              </div>
+              <div className="countdown-time">
+                <div>{timeLeft.minutes}:</div>
+                <div>min</div>
+              </div>
+              <div className="countdown-time second">
+                <div>{timeLeft.seconds}</div>
+                <div>sec</div>
+              </div>
+            </>
+          )}
         </div>
 
         <div className="start-btn">

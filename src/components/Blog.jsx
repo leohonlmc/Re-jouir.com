@@ -34,6 +34,7 @@ function Blog() {
     "Germany",
     "Greece",
     "Hungary",
+    "Hong Kong",
     "Iceland",
     "India",
     "Indonesia",
@@ -62,13 +63,12 @@ function Blog() {
     "Sweden",
     "Switzerland",
     "Turkey",
+    "Taiwan",
     "Ukraine",
     "United Kingdom",
     "United States",
     "Venezuela",
     "Zimbabwe",
-    "Hong Kong",
-    "Taiwan",
   ];
 
   const countryEmojiMap = {

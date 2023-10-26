@@ -4,8 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import formatDateString from "./functions/formatDateString";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
