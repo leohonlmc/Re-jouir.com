@@ -418,12 +418,13 @@ function Blog() {
                         </div>
                       ) : (
                         <div
-                          onClick={() =>
+                          onClick={() => {
                             handleLike(
                               upload._id,
                               localStorage.getItem("guest")
-                            )
-                          }
+                            );
+                            toast.success("You liked the post!");
+                          }}
                         >
                           <FontAwesomeIcon
                             className="like-btn"
