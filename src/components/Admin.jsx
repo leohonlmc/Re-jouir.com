@@ -142,7 +142,7 @@ function Admin() {
             className="blog-info"
             style={{ paddingTop: "0px", paddingBottom: "0px" }}
           >
-            <div className="blog-info-child responsive-table-container">
+            <div className="blog-info-child responsive-table-container admin">
               <table className="bordered-table">
                 <thead>
                   <tr>

@@ -8,7 +8,7 @@
 }
 
 .form__group {
-  padding: 15px 0 0;
+  padding: 0px 0 0;
   position: relative;
 }
 
@@ -176,6 +176,11 @@
   font-size: 14px;
   color: grey;
   cursor: pointer;
+}
+
+.admin {
+  background-color: white !important;
+  background-image: none;
 }
 
 @media screen and (max-width: 1208px) {

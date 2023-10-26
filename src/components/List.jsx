@@ -267,7 +267,8 @@ function List() {
       );
 
       if (data) {
-        toast.success("List successfully!");
+        toast.success("Pending request sent successfully!");
+        window.location.reload();
       }
     } catch (ex) {
       console.log(ex);
@@ -439,6 +440,16 @@ function List() {
                 }
               >
                 <form onSubmit={handleSubmit}>
+                  <p
+                    style={{
+                      margin: "0px",
+                      textAlign: "right",
+                      paddingRight: "5px",
+                      color: "red",
+                    }}
+                  >
+                    *
+                  </p>
                   <div className="form__group field">
                     <input
                       type="input"
@@ -452,9 +463,20 @@ function List() {
                     />
                   </div>
 
+                  <p
+                    style={{
+                      margin: "0px",
+                      textAlign: "right",
+                      paddingRight: "5px",
+                      color: "red",
+                    }}
+                  >
+                    *
+                  </p>
+
                   <div
                     className="form__group field "
-                    style={{ marginTop: "10px", position: "relative" }}
+                    style={{ position: "relative" }}
                   >
                     <select
                       className="form-select"
@@ -469,6 +491,17 @@ function List() {
                     </select>
                   </div>
 
+                  <p
+                    style={{
+                      margin: "0px",
+                      textAlign: "right",
+                      paddingRight: "5px",
+                      color: "red",
+                    }}
+                  >
+                    *
+                  </p>
+
                   <div className="form__group field">
                     <input
                       type="input"
@@ -482,7 +515,10 @@ function List() {
                     />
                   </div>
 
-                  <div className="form__group field">
+                  <div
+                    className="form__group field"
+                    style={{ marginTop: "20px" }}
+                  >
                     <input
                       type="input"
                       className="form__field"
@@ -510,13 +546,21 @@ function List() {
                       style={{ textAlign: "right", margin: "0px" }}
                     >{`${description.length}/500`}</p>
                   </div>
-                  <div className="list-item-btn">
-                    <button
-                      className="btn btn-success"
-                      style={{ padding: "4px 24px", fontWeight: "bold" }}
-                    >
-                      Post!
-                    </button>
+                  <div
+                    className="list-item-btn d-flex"
+                    style={{ justifyContent: "space-between" }}
+                  >
+                    <div>
+                      <p>🎅🏻 Our team will review your post very soon! 💨</p>
+                    </div>
+                    <div>
+                      <button
+                        className="btn btn-success"
+                        style={{ padding: "4px 24px", fontWeight: "bold" }}
+                      >
+                        Post!
+                      </button>
+                    </div>
                   </div>
                 </form>
               </div>
