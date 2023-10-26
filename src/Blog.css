@@ -185,6 +185,10 @@
   .ml12.aside-cta.flex--item {
     display: none;
   }
+  .blog-info {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 @media (max-width: 740px) {

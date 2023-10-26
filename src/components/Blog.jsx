@@ -402,10 +402,9 @@ function Blog() {
                     <div
                       style={{
                         display: "flex",
-                        justifyContent: "space-between",
+                        justifyContent: "flex-end",
                       }}
                     >
-                      <p>{`Guest: ${upload.guest}`}</p>
                       {upload.likes.includes(localStorage.getItem("guest")) ? (
                         <div>
                           <FontAwesomeIcon
