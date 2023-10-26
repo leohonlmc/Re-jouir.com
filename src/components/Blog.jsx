@@ -394,11 +394,14 @@ function Blog() {
 
                 <div className="blog-info">
                   <div className="blog-info-child">
-                    <h1>{upload.title}</h1>
-                    <h3>{`${upload.country}, ${upload.location} 📍`}</h3>
-                    <p>{`${formatDateString(upload.created)} 📅`}</p>
-                    <p>{upload.event}</p>
-                    <p>{upload.description}</p>
+                    <div className="all-info-div">
+                      <h1> {upload.title}</h1>
+                      <h3>{`${upload.country}, ${upload.location} 📍`}</h3>
+                      <p>{`${formatDateString(upload.created)} 📅`}</p>
+                      <p>{upload.event}</p>
+                      <p>{upload.description}</p>
+                    </div>
+                    <br />
                     <div
                       style={{
                         display: "flex",
@@ -406,7 +409,7 @@ function Blog() {
                       }}
                     >
                       {upload.likes.includes(localStorage.getItem("guest")) ? (
-                        <div>
+                        <div className="liked-btn-div">
                           <FontAwesomeIcon
                             className="liked-btn"
                             icon={faHeart}
