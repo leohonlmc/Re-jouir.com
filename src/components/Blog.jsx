@@ -132,6 +132,7 @@ function Blog() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const POSTS_PER_PAGE = 10;
   const [currentPage, setCurrentPage] = useState(1);
@@ -159,10 +160,15 @@ function Blog() {
 
     const savedFilterValue = localStorage.getItem("selectedFilter");
     const savedCountryValue = localStorage.getItem("selectedCountry");
+    const savedSearchQuery = localStorage.getItem("searchQuery");
 
     const savedCountry = savedCountryValue
       ? `?country=${savedCountryValue}`
       : "?country=global";
+
+    const savedSearch = savedSearchQuery
+      ? `&searchQuery=${savedSearchQuery}`
+      : "";
 
     setFilter(savedFilterValue ? `?sort=${savedFilterValue}` : "");
     setCountry(savedCountryValue ? `?country=${savedCountryValue}` : "");
@@ -171,14 +177,13 @@ function Blog() {
       .get(
         `${REACT_APP_API_ENDPOINT}/all/upload${savedCountry}&sort=${savedFilterValue}&page=${localStorage.getItem(
           "currentPage"
-        )}&limit=${POSTS_PER_PAGE}`
+        )}&limit=${POSTS_PER_PAGE}${savedSearch}`
       )
       .then((res) => {
         if (res.data && res.data.uploads) {
           setAllUpload(res.data.uploads);
           setCurrIndices(Array(res.data.uploads.length).fill(0));
           setLoading(false);
-
           setTotalPages(res.data.totalPages);
         }
       })
@@ -213,6 +218,11 @@ function Blog() {
     const selectedCountry = e.target.value;
     setCountry(selectedCountry ? `?country=${selectedCountry}` : "");
     localStorage.setItem("selectedCountry", selectedCountry);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    localStorage.setItem("searchQuery", e.target.value);
   };
 
   const handleLike = async (postId, guest) => {
@@ -276,44 +286,105 @@ function Blog() {
           )}
 
           <div className="sort-container">
-            <div className="sort-by">
-              <p style={{ margin: "0px" }}>Sort by:</p>
-              <select
-                className="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                style={{ maxWidth: "200px" }}
-                value={filter.replace("?sort=", "")}
-                onChange={(e) => handleSSelectChange(e, 0)}
-              >
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-                <option value="likes">Likes</option>
-              </select>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 card-margin">
+                  <div class="card search-form">
+                    <div class="card-body p-0">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="row no-gutters">
+                            <div class="col-lg-1 col-md-1 col-sm-12 p-0">
+                              <select
+                                className="form-select"
+                                aria-label=".form-select-sm example"
+                                value={filter.replace("?sort=", "")}
+                                onChange={(e) => handleSSelectChange(e, 0)}
+                              >
+                                <option value="newest">Newest</option>
+                                <option value="oldest">Oldest</option>
+                                <option value="likes">Likes</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                              <select
+                                className="form-select"
+                                id="exampleFormControlSelect1"
+                                aria-label=".form-select-sm example"
+                                value={
+                                  country.replace("?country=", "") || "Global"
+                                }
+                                onChange={(e) => handleCountryChange(e)}
+                              >
+                                {countryList.map((country, index) => (
+                                  <option value={country} key={index}>
+                                    {country}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                            <div class="col-lg-7 col-md-6 col-sm-12 p-0">
+                              <input
+                                type="text"
+                                placeholder="Search..."
+                                class="form-control"
+                                id="search"
+                                name="search"
+                                onChange={handleSearchChange}
+                              />
+                            </div>
+                            <div
+                              class="col-lg-1 col-md-1 col-sm-12 p-0 reset"
+                              onClick={() => {
+                                localStorage.setItem(
+                                  "selectedFilter",
+                                  "newest"
+                                );
+                                localStorage.setItem(
+                                  "selectedCountry",
+                                  "Global"
+                                );
+                                localStorage.setItem("searchQuery", "");
+                                window.location.reload();
+                              }}
+                            >
+                              <button class="btn btn-base">Reset</button>
+                            </div>
+                            <div
+                              class="col-lg-1 col-md-2 col-sm-12 p-0"
+                              onClick={() => window.location.reload()}
+                            >
+                              <button class="btn btn-base">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="feather feather-search"
+                                >
+                                  <circle cx="11" cy="11" r="8"></circle>
+                                  <line
+                                    x1="21"
+                                    y1="21"
+                                    x2="16.65"
+                                    y2="16.65"
+                                  ></line>
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div className="sort-by">
-              <p style={{ margin: "0px" }}>Location:</p>
-              <select
-                className="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                style={{ maxWidth: "200px" }}
-                value={country.replace("?country=", "") || "Global"}
-                onChange={(e) => handleCountryChange(e)}
-              >
-                {countryList.map((country, index) => (
-                  <option value={country} key={index}>
-                    {country}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <button
-              className="btn btn-primary"
-              onClick={() => window.location.reload()}
-            >
-              Filter
-            </button>
           </div>
         </div>
 
