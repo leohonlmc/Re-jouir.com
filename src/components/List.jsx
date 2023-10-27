@@ -12,6 +12,7 @@ import AWS from "aws-sdk";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import generateRandomUserId from "./functions/generateRandomUserId";
+import emailjs from "@emailjs/browser";
 
 const {
   REACT_APP_API_ENDPOINT,
@@ -104,6 +105,7 @@ function List() {
   const [location, setLocation] = useState("");
   const [eventName, setEvent] = useState("");
   const [description, setDescription] = useState("");
+  const form = useRef();
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -236,6 +238,19 @@ function List() {
     });
   };
 
+  emailjs.init("ICBNNOvdql2SEzaVX");
+
+  const sendEmail = (e) => {
+    emailjs.send("gmail_rejouir", "template_1wuvnh6").then(
+      (result) => {
+        window.location.reload();
+      },
+      (error) => {
+        console.log("Failed...", error);
+      }
+    );
+  };
+
   const handleSubmit = async (event) => {
     if (!title || !country || !location) {
       toast.error(`Please fill in all required fields.`);
@@ -268,7 +283,7 @@ function List() {
 
       if (data) {
         toast.success("Pending request sent successfully!");
-        window.location.reload();
+        sendEmail();
       }
     } catch (ex) {
       console.log(ex);
