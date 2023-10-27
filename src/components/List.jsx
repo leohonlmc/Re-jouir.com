@@ -302,16 +302,6 @@ function List() {
       <ToastContainer />
 
       <div>
-        {/* <div
-          className="divider-container"
-          style={{ textAlign: "center", margin: "30px 0px 0px 0px" }}
-          s
-        >
-          <hr className="divider-line" />
-         
-          <hr className="divider-line" />
-        </div> */}
-
         <div
           className="container justify-content-center mt-100"
           style={{
@@ -319,7 +309,8 @@ function List() {
             marginTop: "24px",
             height: "100%",
             width: "100%",
-            padding: "0px",
+            paddingLeft: "10px",
+            paddingRight: "10px",
             marginBottom: "24px",
           }}
         >

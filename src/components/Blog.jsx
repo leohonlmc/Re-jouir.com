@@ -286,15 +286,15 @@ function Blog() {
           )}
 
           <div className="sort-container">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12 card-margin">
-                  <div class="card search-form">
-                    <div class="card-body p-0">
-                      <div class="row">
-                        <div class="col-12">
-                          <div class="row no-gutters">
-                            <div class="col-lg-1 col-md-1 col-sm-12 p-0">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12 card-margin">
+                  <div className="card search-form">
+                    <div className="card-body p-0">
+                      <div className="row">
+                        <div className="col-12">
+                          <div className="row no-gutters">
+                            <div className="col-lg-1 col-md-1 col-sm-12 p-0">
                               <select
                                 className="form-select"
                                 aria-label=".form-select-sm example"
@@ -306,7 +306,7 @@ function Blog() {
                                 <option value="likes">Likes</option>
                               </select>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                            <div className="col-lg-2 col-md-2 col-sm-12 p-0">
                               <select
                                 className="form-select"
                                 id="exampleFormControlSelect1"
@@ -323,18 +323,18 @@ function Blog() {
                                 ))}
                               </select>
                             </div>
-                            <div class="col-lg-7 col-md-6 col-sm-12 p-0">
+                            <div className="col-lg-7 col-md-6 col-sm-12 p-0">
                               <input
                                 type="text"
                                 placeholder="Search..."
-                                class="form-control"
+                                className="form-control"
                                 id="search"
                                 name="search"
                                 onChange={handleSearchChange}
                               />
                             </div>
                             <div
-                              class="col-lg-1 col-md-1 col-sm-12 p-0 reset"
+                              className="col-lg-1 col-md-1 col-sm-12 p-0 reset"
                               onClick={() => {
                                 localStorage.setItem(
                                   "selectedFilter",
@@ -348,13 +348,13 @@ function Blog() {
                                 window.location.reload();
                               }}
                             >
-                              <button class="btn btn-base">Reset</button>
+                              <button className="btn btn-base">Reset</button>
                             </div>
                             <div
-                              class="col-lg-1 col-md-2 col-sm-12 p-0"
+                              className="col-lg-1 col-md-2 col-sm-12 p-0"
                               onClick={() => window.location.reload()}
                             >
-                              <button class="btn btn-base">
+                              <button className="btn btn-base">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="24"
@@ -362,10 +362,10 @@ function Blog() {
                                   viewBox="0 0 24 24"
                                   fill="none"
                                   stroke="currentColor"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  class="feather feather-search"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-search"
                                 >
                                   <circle cx="11" cy="11" r="8"></circle>
                                   <line
