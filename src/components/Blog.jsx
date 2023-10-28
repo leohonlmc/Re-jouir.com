@@ -117,6 +117,7 @@ function Blog() {
     Sweden: "🇸🇪",
     Switzerland: "🇨🇭",
     Turkey: "🇹🇷",
+    Taiwan: "🇹🇼",
     Ukraine: "🇺🇦",
     "United Kingdom": "🇬🇧",
     "United States": "🇺🇸",
@@ -294,7 +295,7 @@ function Blog() {
                       <div className="row">
                         <div className="col-12">
                           <div className="row no-gutters">
-                            <div className="col-lg-1 col-md-1 col-sm-12 p-0">
+                            <div className="col-lg-1 col-md-1 col-sm-1 p-0">
                               <select
                                 className="form-select"
                                 aria-label=".form-select-sm example"
@@ -303,10 +304,10 @@ function Blog() {
                               >
                                 <option value="newest">Newest</option>
                                 <option value="oldest">Oldest</option>
-                                <option value="likes">Likes</option>
+                                <option value="likes">Likes ❤️</option>
                               </select>
                             </div>
-                            <div className="col-lg-2 col-md-2 col-sm-12 p-0">
+                            <div className="col-lg-2 col-md-2 col-sm-2 p-0">
                               <select
                                 className="form-select"
                                 id="exampleFormControlSelect1"
@@ -318,12 +319,12 @@ function Blog() {
                               >
                                 {countryList.map((country, index) => (
                                   <option value={country} key={index}>
-                                    {country}
+                                    {`${country} ${countryEmojiMap[country]}`}
                                   </option>
                                 ))}
                               </select>
                             </div>
-                            <div className="col-lg-7 col-md-6 col-sm-12 p-0">
+                            <div className="col-lg-7 col-md-6 col-sm-6 p-0">
                               <input
                                 type="text"
                                 placeholder="Search..."
@@ -334,7 +335,7 @@ function Blog() {
                               />
                             </div>
                             <div
-                              className="col-lg-1 col-md-1 col-sm-12 p-0 reset"
+                              className="col-lg-1 col-md-1 col-sm-2 p-0 reset"
                               onClick={() => {
                                 localStorage.setItem(
                                   "selectedFilter",
@@ -351,8 +352,9 @@ function Blog() {
                               <button className="btn btn-base">Reset</button>
                             </div>
                             <div
-                              className="col-lg-1 col-md-2 col-sm-12 p-0"
+                              className="col-lg-1 col-md-2 col-sm-1 p-0"
                               onClick={() => window.location.reload()}
+                              style={{ backgroundColor: "#d6001c" }}
                             >
                               <button className="btn btn-base">
                                 <svg
@@ -366,6 +368,7 @@ function Blog() {
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
                                   className="feather feather-search"
+                                  style={{ color: "white" }}
                                 >
                                   <circle cx="11" cy="11" r="8"></circle>
                                   <line
