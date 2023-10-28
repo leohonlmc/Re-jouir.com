@@ -89,6 +89,7 @@ function Blog() {
     Germany: "🇩🇪",
     Greece: "🇬🇷",
     Hungary: "🇭🇺",
+    "Hong Kong": "🇭🇰",
     Iceland: "🇮🇸",
     India: "🇮🇳",
     Indonesia: "🇮🇩",
