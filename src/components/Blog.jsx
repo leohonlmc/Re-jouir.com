@@ -135,6 +135,7 @@ function Blog() {
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [likedPost, setLikedPost] = useState(false);
 
   const POSTS_PER_PAGE = 10;
   const [currentPage, setCurrentPage] = useState(1);
@@ -240,7 +241,6 @@ function Blog() {
           credentials: "include",
         }
       );
-
       if (data) {
         toast.success("You liked this post!");
       }
@@ -252,6 +252,8 @@ function Blog() {
       }
     }
   };
+
+  console.log(likedPost);
 
   return (
     <div className="Blog">
@@ -501,6 +503,7 @@ function Blog() {
                               upload._id,
                               localStorage.getItem("guest")
                             );
+                            setLikedPost(true);
                             toast.success("You liked the post!");
                           }}
                         >
