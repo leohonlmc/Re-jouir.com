@@ -12,24 +12,19 @@ function Footer() {
 
       <div className="py-3">
         <img src="/R.png" alt="" style={{ width: "130px" }} />
-        {/* <p className="footer-brand-name">Réjouir.com</p> */}
       </div>
-
-      {/* <a
-          href="https://www.instagram.com/theswebuilder/"
-          className="instagram"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FontAwesomeIcon
-            icon={faInstagram}
-            size="2xl"
-            style={{ marginBottom: "10px", width: "45px", height: "45px" }}
-          />
-        </a>
-
-        <br />
-        <br /> */}
+      <a
+        style={{ color: "white" }}
+        href="https://www.instagram.com/rejouirxmas"
+        alt="ig"
+      >
+        Follow our Instagram page for more content!{" "}
+        <FontAwesomeIcon
+          icon={faInstagram}
+          style={{ color: "#ffbb00" }}
+          size="xl"
+        />{" "}
+      </a>
 
       <div className="py-3 footer-normal">
         <Link to="/about">
