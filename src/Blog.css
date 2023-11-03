@@ -94,6 +94,7 @@
 
 .mb-1 {
   position: relative;
+  cursor: pointer;
 }
 
 .D_Qy-2 {
@@ -135,6 +136,12 @@
   justify-content: center;
   height: 100%;
   text-align: center;
+  padding: 12px;
+  transition: 0.5s;
+}
+
+.lightbox:hover {
+  padding: 0px;
 }
 
 .col-3 {
@@ -147,9 +154,9 @@
 }
 
 .ecommerce-gallery-main-img {
-  padding: 12px 0px;
   object-fit: cover;
   width: 95% !important;
+  cursor: pointer;
 }
 
 .like-btn {
