@@ -72,7 +72,7 @@ function Privacy() {
         <h2>Contact Us</h2>
         <p>
           If you have any questions about this Privacy Policy, please contact us
-          at <a href="mailto:leohoncanada@gmail.com">gmail</a>.
+          at <a href="mailto:rejouirxmas@gmail.com">gmail</a>.
         </p>
       </div>
       <Footer />

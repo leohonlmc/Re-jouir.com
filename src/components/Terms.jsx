@@ -27,7 +27,7 @@ function Terms() {
           </strong>
           . Please read these Terms and Conditions ("Terms", "Terms and
           Conditions") carefully before using the{" "}
-          <a href="https://rejouir.onrender.com/">Réjouir.com</a> website
+          <a href="https://www.xn--rjouir-bva.com/">Réjouir.com</a> website
           ("Service") operated by Réjouir ("us", "we", or "our").
         </p>
 
@@ -56,7 +56,7 @@ function Terms() {
         <h2>Feedback and Contact</h2>
         <p>
           If you have any feedback or questions about these Terms, please
-          contact us through <a href="mailto:leohoncanada@gmail.com">gmail</a>.
+          contact us through <a href="mailto:rejouirxmas@gmail.com">gmail</a>.
         </p>
       </div>
       <Footer />
