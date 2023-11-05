@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Globe from "react-globe.gl";
 import Snowfall from "react-snowfall";
+import { useNavigate, Link } from "react-router-dom";
 
 function Support() {
+  const navigate = useNavigate();
   const getCountryCoordinates = (countryName) => {
     // In real use, you would replace this with actual latitude and longitude values
     return { lat: Math.random() * 180 - 90, lng: Math.random() * 360 - 180 };
@@ -98,7 +100,9 @@ function Support() {
         each and every one of you to bring it to its full, festive glory.
       </p>
 
-      <button className="btn btn-danger">Light it up! 🌟</button>
+      <button className="btn btn-danger" onClick={() => navigate("/list")}>
+        Light it up! 🌟
+      </button>
       {/* <div>
         <Globe
           className="myGlobeContainer"
