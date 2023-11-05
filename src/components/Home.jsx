@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, Link } from "react-router-dom";
 import generateRandomUserId from "./functions/generateRandomUserId";
+import Snowfall from "react-snowfall";
 
 function Home() {
   const navigate = useNavigate();
@@ -95,6 +96,22 @@ function Home() {
 
       <div className="header-section">
         <Header />
+
+        <div style={{ position: "relative", width: "100%", height: "100%" }}>
+          <Snowfall
+            color="white"
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              zIndex: 10000,
+            }}
+            snowflakeCount={100}
+          />
+        </div>
+
         <div style={{ margin: "50px 0px" }}>
           <h1 className="slogan">Share your precious moment 🎄</h1>
         </div>

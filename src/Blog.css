@@ -379,6 +379,24 @@
   color: rgb(255, 166, 0);
 }
 
+.Support {
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background-color: #00873e;
+  color: white;
+}
+
+.Support > h3 {
+  color: rgb(255, 187, 0);
+  font-weight: bold;
+}
+
+/* canvas {
+  width: 400px !important;
+  height: 300px !important;
+} */
+
 @media (max-width: 769px) {
   .ml12.aside-cta.flex--item {
     display: none;

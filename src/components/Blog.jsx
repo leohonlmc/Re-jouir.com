@@ -12,6 +12,7 @@ import generateRandomUserId from "./functions/generateRandomUserId";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Loading from "./partial/Loading";
+import Support from "./popup/Support";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
@@ -523,6 +524,8 @@ function Blog() {
             ))}
           </>
         )}
+
+        <Support />
 
         <div className="page-number-div">
           {Number(localStorage.getItem("currentPage")) > 1 && (

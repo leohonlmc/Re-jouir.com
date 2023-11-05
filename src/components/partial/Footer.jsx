@@ -8,7 +8,7 @@ function Footer() {
 
   return (
     <footer className="container-footer container text-center my-6 p-8 text-gray3">
-      <div className="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-gray5 to-gray4 rounded-full"></div>
+      {/* <div className="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-gray5 to-gray4 rounded-full"></div> */}
 
       <div className="py-3">
         <img src="/R.png" alt="" style={{ width: "130px" }} />
