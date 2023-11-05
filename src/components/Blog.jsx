@@ -137,9 +137,9 @@ function Blog() {
   const [country, setCountry] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [likedPost, setLikedPost] = useState(false);
+  const currentPage = parseInt(localStorage.getItem("currentPage"));
 
   const POSTS_PER_PAGE = 10;
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
@@ -189,6 +189,7 @@ function Blog() {
           setCurrIndices(Array(res.data.uploads.length).fill(0));
           setLoading(false);
           setTotalPages(res.data.totalPages);
+          console.log(res.data.uploads);
         }
       })
       .catch((err) => {
@@ -196,18 +197,11 @@ function Blog() {
       });
   }, []);
 
-  const paginatedUploads = allUpload.slice(
-    (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE
-  );
-
   const handlePageChange = (direction) => {
     if (direction === "next" && currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
       localStorage.setItem("currentPage", currentPage + 1);
       window.location.reload();
     } else if (direction === "prev" && currentPage > 1) {
-      setCurrentPage(currentPage - 1);
       localStorage.setItem("currentPage", currentPage - 1);
       window.location.reload();
     }
@@ -253,8 +247,6 @@ function Blog() {
       }
     }
   };
-
-  console.log(likedPost);
 
   return (
     <div className="Blog">
@@ -350,6 +342,7 @@ function Blog() {
                                   "Global"
                                 );
                                 localStorage.setItem("searchQuery", "");
+                                localStorage.setItem("currentPage", 1);
                                 window.location.reload();
                               }}
                             >
@@ -399,7 +392,7 @@ function Blog() {
           <Loading />
         ) : (
           <>
-            {paginatedUploads.map((upload, uploadIndex) => (
+            {allUpload.map((upload, uploadIndex) => (
               <div
                 className="d-flex"
                 style={{ marginBottom: "30px", marginTop: "10px" }}
@@ -545,7 +538,6 @@ function Blog() {
                   : "btn btn-primary"
               }
               onClick={() => {
-                setCurrentPage(page + 1);
                 localStorage.setItem("currentPage", page + 1);
                 window.location.reload();
               }}
