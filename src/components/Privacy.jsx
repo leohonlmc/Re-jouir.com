@@ -3,12 +3,18 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
+import { Helmet } from "react-helmet";
 
 function Privacy() {
   return (
     <div className="About">
       <div className="header-section-about">
         <Header title="Privacy Policy | Réjouir" />
+
+        <Helmet>
+          <link rel="canonical" href="https://www.xn--rjouir-bva.com/privacy" />
+        </Helmet>
+
         <br />
         <br />
         <h1 className="about-réjouir">

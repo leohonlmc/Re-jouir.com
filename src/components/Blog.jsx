@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Loading from "./partial/Loading";
 import Support from "./popup/Support";
+import { Helmet } from "react-helmet";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
@@ -253,6 +254,10 @@ function Blog() {
       <div className="blog-section">
         <Header title="Blog | Réjouir" />
       </div>
+
+      <Helmet>
+        <link rel="canonical" href="https://www.xn--rjouir-bva.com/blog" />
+      </Helmet>
 
       <ToastContainer />
 

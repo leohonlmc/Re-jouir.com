@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import generateRandomUserId from "./functions/generateRandomUserId";
 import emailjs from "@emailjs/browser";
+import { Helmet } from "react-helmet";
 
 const {
   REACT_APP_API_ENDPOINT,
@@ -298,6 +299,10 @@ function List() {
       >
         <Header showSearchBar={false} title={`Upload | Réjouir`} />
       </div>
+
+      <Helmet>
+        <link rel="canonical" href="https://www.xn--rjouir-bva.com/list" />
+      </Helmet>
 
       <ToastContainer />
 

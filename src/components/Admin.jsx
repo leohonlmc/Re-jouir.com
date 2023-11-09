@@ -8,6 +8,7 @@ import formatDateString from "./functions/formatDateString";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import ViewIcon from "./popup/ViewIcon";
+import { Helmet } from "react-helmet";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
@@ -84,6 +85,13 @@ function Admin() {
       <div className="blog-section">
         <Header title="Admin | Réjouir" />
       </div>
+
+      <Helmet>
+        <link
+          rel="canonical"
+          href="https://www.xn--rjouir-bva.com/admin/username/leohon/leohonlmc"
+        />
+      </Helmet>
 
       <ToastContainer style={{ zIndex: 9999 }} />
 

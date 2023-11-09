@@ -14,6 +14,7 @@ import {
 import { useNavigate, Link } from "react-router-dom";
 import generateRandomUserId from "./functions/generateRandomUserId";
 import Snowfall from "react-snowfall";
+import { Helmet } from "react-helmet";
 
 function Home() {
   const navigate = useNavigate();
@@ -73,6 +74,10 @@ function Home() {
 
   return (
     <div className="Home">
+      <Helmet>
+        <link rel="canonical" href="https://www.xn--rjouir-bva.com/" />
+      </Helmet>
+
       {isChristmas && showCelebration && (
         <div className="celebration-overlay">
           {Array(200)
