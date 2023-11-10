@@ -1,5 +1,5 @@
 import "../App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
@@ -18,6 +18,9 @@ import { Helmet } from "react-helmet";
 
 function Home() {
   const navigate = useNavigate();
+  const [isSticky, setIsSticky] = useState(false);
+  const countdownRef = useRef(null); // Ref for the countdown div
+
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -28,6 +31,21 @@ function Home() {
   const guest = generateRandomUserId();
   const [isChristmas, setIsChristmas] = useState(false);
   const [showCelebration, setShowCelebration] = useState(true);
+
+  const handleScroll = () => {
+    const countdownBottom =
+      countdownRef.current.getBoundingClientRect().bottom + window.scrollY;
+    const scrolledPastCountdown = window.scrollY > countdownBottom;
+    setIsSticky(scrolledPastCountdown);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const today = new Date();
@@ -100,7 +118,13 @@ function Home() {
       )}
 
       <div className="header-section">
-        <Header />
+        {timeLeft.days && timeLeft.days !== 0 ? (
+          <Header
+            title={`(${timeLeft.days}) Share Your Precious Moment | Réjouir`}
+          />
+        ) : (
+          <Header title={`Merry Christmas! 🌟 | Réjouir`} />
+        )}
 
         <div style={{ position: "relative", width: "100%", height: "100%" }}>
           <Snowfall
@@ -120,11 +144,11 @@ function Home() {
         <div style={{ margin: "50px 0px" }}>
           <h1 className="slogan">Share your precious moment 🎄</h1>
         </div>
-        <div className="countdown">
+        <div className="countdown" ref={countdownRef}>
+          {" "}
           {isChristmas ? (
             <p>{`December 25 ${new Date().getFullYear()} ⏳`}</p>
           ) : null}
-
           {isChristmas ? (
             <div className="xmas-div">
               <h1 className="xmas">Merry Christmas! 🎅🏻</h1>
@@ -149,6 +173,21 @@ function Home() {
               </div>
             </>
           )}
+        </div>
+
+        {/* <div ref={countdownRef} className="start-point"></div> */}
+
+        <div className={isSticky ? "sticky" : "hidden"}>
+          <div className="sticky-countdown">
+            <strong>
+              Counting down to{" "}
+              <span style={{ color: "#fabc02" }}>Christmas</span> 🎅🏻🎄
+            </strong>
+            <br className="next-line" />
+            <span className="countdown-span">{timeLeft.days} days</span>
+            <span className="countdown-span">{timeLeft.hours} hours</span>
+            <span className="countdown-span">{timeLeft.minutes} minutes</span>⏳
+          </div>
         </div>
 
         <div className="start-btn">
@@ -336,7 +375,19 @@ function Home() {
               </div>
               <div className="story-div user-info">
                 <p style={{ margin: "0px" }}>FOUNDER</p>
-                <h2 style={{ fontWeight: "bold" }}>Leo Hon</h2>
+                <a
+                  href="https://www.linkedin.com/in/hon-leo-aa12881b2/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontWeight: "bold",
+                    color: "black",
+                    textDecoration: "none",
+                    fontSize: "30px",
+                  }}
+                >
+                  Leo Hon
+                </a>
                 <p style={{ margin: "0px" }}>
                   At Réjouir.com, we aim to encapsulate the global spirit of
                   Christmas. Our platform unites people, letting them share and

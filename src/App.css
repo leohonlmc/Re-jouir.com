@@ -4,6 +4,31 @@
   margin: auto;
 }
 
+.hidden {
+  display: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #00873e;
+  z-index: 1000;
+  right: 0;
+  padding: 20px 10px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.sticky-countdown {
+  text-align: center;
+}
+
+.countdown-span {
+  margin: 10px 5px;
+  font-weight: bold;
+}
+
 .wave-main {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23D6001C" fill-opacity="1" d="M0,288L60,288C120,288,240,288,360,256C480,224,600,160,720,160C840,160,960,224,1080,229.3C1200,235,1320,181,1380,154.7L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>');
   background-repeat: no-repeat;
@@ -361,12 +386,22 @@ strong {
   }
 }
 
+.next-line {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .d-flex {
     flex-direction: column;
   }
   .d-flex > div {
     width: 100% !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .next-line {
+    display: block;
   }
 }
 
