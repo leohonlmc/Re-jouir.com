@@ -12,7 +12,7 @@ function Terms() {
         <Header title="Terms | Réjouir" />
 
         <Helmet>
-          <link rel="canonical" href="https://www.xn--rjouir-bva.com/terms" />
+          <link rel="canonical" href="https://www.rejouirxmas.com/terms" />
         </Helmet>
 
         <br />
@@ -33,7 +33,7 @@ function Terms() {
           </strong>
           . Please read these Terms and Conditions ("Terms", "Terms and
           Conditions") carefully before using the{" "}
-          <a href="https://www.xn--rjouir-bva.com/">Réjouir.com</a> website
+          <a href="https://www.rejouirxmas.com/">Rejouirxmas.com</a> website
           ("Service") operated by Réjouir ("us", "we", or "our").
         </p>
 

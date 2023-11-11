@@ -93,7 +93,7 @@ function Home() {
   return (
     <div className="Home">
       <Helmet>
-        <link rel="canonical" href="https://www.xn--rjouir-bva.com/" />
+        <link rel="canonical" href="https://www.rejouirxmas.com" />
       </Helmet>
 
       {isChristmas && showCelebration && (
@@ -177,6 +177,15 @@ function Home() {
 
         {/* <div ref={countdownRef} className="start-point"></div> */}
 
+        <div className="start-btn">
+          <Link to={"/list"}>
+            <button className="btn btn-danger">Get Started</button>
+          </Link>
+          <Link to={"/about"}>
+            <button className="btn btn-outline-light">What is Réjouir?</button>
+          </Link>
+        </div>
+
         <div className={isSticky ? "sticky" : "hidden"}>
           <div className="sticky-countdown">
             <strong>
@@ -188,15 +197,6 @@ function Home() {
             <span className="countdown-span">{timeLeft.hours} hours</span>
             <span className="countdown-span">{timeLeft.minutes} minutes</span>⏳
           </div>
-        </div>
-
-        <div className="start-btn">
-          <Link to={"/list"}>
-            <button className="btn btn-danger">Get Started</button>
-          </Link>
-          <Link to={"/about"}>
-            <button className="btn btn-outline-light">What is Réjouir?</button>
-          </Link>
         </div>
       </div>
 

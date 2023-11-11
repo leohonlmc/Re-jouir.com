@@ -89,7 +89,7 @@ function Admin() {
       <Helmet>
         <link
           rel="canonical"
-          href="https://www.xn--rjouir-bva.com/admin/username/leohon/leohonlmc"
+          href="https://www.rejouirxmas.com/admin/username/leohon/leohonlmc"
         />
       </Helmet>
 

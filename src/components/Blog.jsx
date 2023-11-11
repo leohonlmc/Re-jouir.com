@@ -256,7 +256,7 @@ function Blog() {
       </div>
 
       <Helmet>
-        <link rel="canonical" href="https://www.xn--rjouir-bva.com/blog" />
+        <link rel="canonical" href="https://www.rejouirxmas.com/blog" />
       </Helmet>
 
       <ToastContainer />

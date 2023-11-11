@@ -301,7 +301,7 @@ function List() {
       </div>
 
       <Helmet>
-        <link rel="canonical" href="https://www.xn--rjouir-bva.com/list" />
+        <link rel="canonical" href="https://www.rejouirxmas.com/list" />
       </Helmet>
 
       <ToastContainer />

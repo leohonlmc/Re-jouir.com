@@ -12,7 +12,7 @@ function Privacy() {
         <Header title="Privacy Policy | Réjouir" />
 
         <Helmet>
-          <link rel="canonical" href="https://www.xn--rjouir-bva.com/privacy" />
+          <link rel="canonical" href="https://www.rejouirxmas.com/privacy" />
         </Helmet>
 
         <br />

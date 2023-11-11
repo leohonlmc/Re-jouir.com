@@ -12,7 +12,7 @@ function AboutUs() {
         <Header title="About Us | Réjouir" />
 
         <Helmet>
-          <link rel="canonical" href="https://www.xn--rjouir-bva.com/about" />
+          <link rel="canonical" href="https://www.rejouirxmas.com/about" />
         </Helmet>
 
         <br />
@@ -27,7 +27,7 @@ function AboutUs() {
         <p>
           Welcome to{" "}
           <strong style={{ fontSize: "20px" }}>
-            <span className="r-logo">R</span>éjouir.com
+            <span className="r-logo">R</span>ejouirxmas.com
           </strong>
           , where the magic of Christmas echoes from every corner of the globe.
           As a dedicated Christmas blog, we're more than just a festive site;

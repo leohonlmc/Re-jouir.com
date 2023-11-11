@@ -53,7 +53,8 @@ function Footer() {
         className="text-xs"
         style={{ fontSize: "0.8rem", color: "white", fontWeight: "bold" }}
       >
-        {`Copyright © ${new Date().getFullYear()}`} <strong>Réjouir.com</strong>
+        {`Copyright © ${new Date().getFullYear()}`}{" "}
+        <strong>Rejouirxmas.com</strong>
       </div>
     </footer>
   );
