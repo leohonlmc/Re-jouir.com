@@ -259,7 +259,7 @@ function Blog() {
         <link rel="canonical" href="https://www.rejouirxmas.com/blog" />
       </Helmet>
 
-      <ToastContainer />
+      <ToastContainer position="top-center" autoClose={1500} />
 
       {showPopup && (
         <ViewIcon setShowPopup={setShowPopup} image={currImageUrl} />
