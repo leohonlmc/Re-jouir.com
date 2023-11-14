@@ -190,7 +190,6 @@ function Blog() {
           setCurrIndices(Array(res.data.uploads.length).fill(0));
           setLoading(false);
           setTotalPages(res.data.totalPages);
-          console.log(res.data.uploads);
         }
       })
       .catch((err) => {

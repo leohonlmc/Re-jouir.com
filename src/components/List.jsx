@@ -154,6 +154,7 @@ function List() {
   };
 
   useEffect(() => {
+    localStorage.setItem("searchQuery", "");
     window.addEventListener("resize", handleResize);
 
     if (localStorage.getItem("guest") === null) {

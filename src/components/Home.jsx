@@ -50,6 +50,8 @@ function Home() {
   useEffect(() => {
     const today = new Date();
 
+    localStorage.setItem("searchQuery", "");
+
     if (isChristmas) {
       const timer = setTimeout(() => {
         setShowCelebration(false);
