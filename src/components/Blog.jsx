@@ -471,7 +471,19 @@ function Blog() {
                   <div className="blog-info-child">
                     <div className="all-info-div">
                       <h1> {upload.title}</h1>
-                      <h3>{`${upload.country}, ${upload.location} 📍`}</h3>
+                      <h3>
+                        {`${upload.country}, `}
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={`https://www.google.com/maps?q=${encodeURIComponent(
+                            upload.location
+                          )}`}
+                        >
+                          {upload.location}
+                        </a>
+                        📍
+                      </h3>
                       <p>{`${formatDateString(upload.created)} 📅`}</p>
                       <p>{upload.event}</p>
                       <p>{upload.description}</p>

@@ -187,6 +187,37 @@
   background-image: none;
 }
 
+.location_field {
+  position: relative;
+}
+
+.location_info {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.hover_text {
+  visibility: hidden;
+  position: absolute;
+  right: 4%;
+  top: 10%;
+  transform: translateY(-50%) scale(0.8);
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 8px 8px 0 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.location_info:hover + .hover_text {
+  visibility: visible;
+  transform: translateY(-50%) scale(1);
+  opacity: 1;
+}
+
 @media screen and (max-width: 1208px) {
   .col-md-4 {
     margin: auto;

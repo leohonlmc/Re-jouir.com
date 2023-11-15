@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import AWS from "aws-sdk";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import generateRandomUserId from "./functions/generateRandomUserId";
 import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet";
@@ -514,10 +514,10 @@ function List() {
                     *
                   </p>
 
-                  <div className="form__group field">
+                  <div className="form__group field ">
                     <input
                       type="input"
-                      className="form__field"
+                      className="form__field location_field"
                       placeholder="Location (City or town)"
                       name="location"
                       id="location"
@@ -525,6 +525,15 @@ function List() {
                       onChange={handleLocationChange}
                       maxLength={30}
                     />
+                    <FontAwesomeIcon
+                      icon={faCircleInfo}
+                      style={{ color: "#9192a0" }}
+                      className="location_info"
+                    />
+                    <div className="hover_text">
+                      Please specify the exact location to better assist the
+                      user in planning their trip.
+                    </div>
                   </div>
 
                   <div
