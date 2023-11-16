@@ -324,7 +324,7 @@ function List() {
             <div
               className={
                 uploaded
-                  ? "col-md-4 col-lg-7 col-sm-12"
+                  ? "col-md-5 col-lg-7 col-sm-12"
                   : "col-md-12 col-lg-12 col-sm-12"
               }
               style={
