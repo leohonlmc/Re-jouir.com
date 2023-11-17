@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import "../../Header.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
@@ -33,7 +35,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                   objectFit: "contain",
                 }}
               >
-                <img
+                <LazyLoadImage
                   src={props.image}
                   className="card-img-top"
                   style={{

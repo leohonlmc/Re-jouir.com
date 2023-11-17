@@ -1,11 +1,11 @@
 import "../Blog.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import ViewIcon from "./popup/ViewIcon";
+// import ViewIcon from "./popup/ViewIcon";
 import axios from "axios";
 import formatDateString from "./functions/formatDateString";
 import generateRandomUserId from "./functions/generateRandomUserId";
@@ -14,8 +14,11 @@ import { ToastContainer, toast } from "react-toastify";
 import Loading from "./partial/Loading";
 import Support from "./popup/Support";
 import { Helmet } from "react-helmet";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
+const ViewIcon = React.lazy(() => import("./popup/ViewIcon"));
 
 function Blog() {
   const countryList = [
@@ -261,7 +264,9 @@ function Blog() {
       <ToastContainer position="top-center" autoClose={1500} />
 
       {showPopup && (
-        <ViewIcon setShowPopup={setShowPopup} image={currImageUrl} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ViewIcon setShowPopup={setShowPopup} image={currImageUrl} />
+        </Suspense>
       )}
 
       <div className="blog-main">
@@ -446,14 +451,15 @@ function Blog() {
                                 {index + 1}
                               </p>
                             </div>
-                            <img
+                            <LazyLoadImage
                               src={`${REACT_APP_AWS}${image}`}
+                              alt=""
                               className={`active w-100 ${
                                 currIndices[uploadIndex] === index
                                   ? "selected"
                                   : ""
                               }`}
-                              alt=""
+                              effect="blur"
                               onClick={() => {
                                 const newIndices = [...currIndices];
                                 newIndices[uploadIndex] = index;
