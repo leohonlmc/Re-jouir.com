@@ -518,7 +518,7 @@ function List() {
                     <input
                       type="input"
                       className="form__field location_field"
-                      placeholder="Location (City or town)"
+                      placeholder="Location (Disneyland, wonderland, time square...)"
                       name="location"
                       id="location"
                       required
