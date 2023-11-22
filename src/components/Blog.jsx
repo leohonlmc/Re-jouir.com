@@ -487,8 +487,12 @@ function Blog() {
                           )}`}
                         >
                           {upload.location}
+                          <img
+                            src="/google-map.png"
+                            alt=""
+                            style={{ width: "40px" }}
+                          />
                         </a>
-                        📍
                       </h3>
                       <p>{`${formatDateString(upload.created)} 📅`}</p>
                       <p>{upload.event}</p>

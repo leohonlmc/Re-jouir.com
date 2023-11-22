@@ -371,7 +371,7 @@ function Home() {
 
             <br />
 
-            <div className="story">
+            {/* <div className="story">
               <div className="story-div">
                 <img className="founder-img" src="/founder-1.jpeg" />{" "}
               </div>
@@ -396,7 +396,7 @@ function Home() {
                   cherish their festive moments.
                 </p>
               </div>
-            </div>
+            </div> */}
 
             <br />
             <br />
