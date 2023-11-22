@@ -100,6 +100,61 @@ function List() {
     "Zimbabwe",
   ];
 
+  const countryEmojiMap = {
+    Global: "🌍",
+    Argentina: "🇦🇷",
+    Australia: "🇦🇺",
+    Austria: "🇦🇹",
+    Belgium: "🇧🇪",
+    Brazil: "🇧🇷",
+    Canada: "🇨🇦",
+    Chile: "🇨🇱",
+    Colombia: "🇨🇴",
+    "Costa Rica": "🇨🇷",
+    Denmark: "🇩🇰",
+    Ecuador: "🇪🇨",
+    Finland: "🇫🇮",
+    France: "🇫🇷",
+    Germany: "🇩🇪",
+    Greece: "🇬🇷",
+    Hungary: "🇭🇺",
+    "Hong Kong": "🇭🇰",
+    Iceland: "🇮🇸",
+    India: "🇮🇳",
+    Indonesia: "🇮🇩",
+    Ireland: "🇮🇪",
+    Italy: "🇮🇹",
+    Jamaica: "🇯🇲",
+    Japan: "🇯🇵",
+    Kenya: "🇰🇪",
+    Lebanon: "🇱🇧",
+    Luxembourg: "🇱🇺",
+    Mexico: "🇲🇽",
+    Netherlands: "🇳🇱",
+    "New Zealand": "🇳🇿",
+    Norway: "🇳🇴",
+    Panama: "🇵🇦",
+    Peru: "🇵🇪",
+    Philippines: "🇵🇭",
+    Poland: "🇵🇱",
+    Portugal: "🇵🇹",
+    "Puerto Rico": "🇵🇷",
+    Romania: "🇷🇴",
+    Russia: "🇷🇺",
+    "South Africa": "🇿🇦",
+    "South Korea": "🇰🇷",
+    Spain: "🇪🇸",
+    Sweden: "🇸🇪",
+    Switzerland: "🇨🇭",
+    Turkey: "🇹🇷",
+    Taiwan: "🇹🇼",
+    Ukraine: "🇺🇦",
+    "United Kingdom": "🇬🇧",
+    "United States": "🇺🇸",
+    Venezuela: "🇻🇪",
+    Zimbabwe: "🇿🇼",
+  };
+
   const guest = generateRandomUserId();
   const [title, setTitle] = useState("");
   const [country, setCountry] = useState(countryList[1]);
@@ -497,7 +552,7 @@ function List() {
                     >
                       {countryList.map((country, index) => (
                         <option key={index} value={country}>
-                          {country}
+                          {`${country} ${countryEmojiMap[country]}`}
                         </option>
                       ))}
                     </select>
