@@ -256,6 +256,19 @@ function Blog() {
       <div className="blog-section">
         <Header title="Blog | Réjouir" />
       </div>
+      {Number(localStorage.getItem("currentPage")) > 1 && (
+        <div className="previous-page" onClick={() => handlePageChange("prev")}>
+          <p className="arrow">Previous</p>
+          <p className="emoji-previous">👈🏻</p>
+        </div>
+      )}
+
+      {Number(localStorage.getItem("currentPage")) < totalPages && (
+        <div className="next-page" onClick={() => handlePageChange("next")}>
+          <p className="arrow">Next</p>
+          <p className="emoji-next">👉🏻</p>
+        </div>
+      )}
 
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com/blog" />
@@ -274,7 +287,7 @@ function Blog() {
           {localStorage.getItem("selectedCountry") === "Global" ? (
             <h2
               className="browse-réjouir"
-              style={{ textAlign: "left", fontWeight: "bold" }}
+              style={{ textAlign: "left", fontWeight: "bold", margin: "0px" }}
             >
               {`Browse around`}{" "}
               <span style={{ color: "black" }}>{`the Global 🌍`}</span>
@@ -397,6 +410,14 @@ function Blog() {
           </div>
         </div>
 
+        <div className="divider-container" style={{ margin: "15px 0px" }}>
+          <hr className="divider-line -black-line" />
+          <h5>
+            <span>{`Page: ${localStorage.getItem("currentPage")}`}</span>
+          </h5>
+          <hr className="divider-line -black-line" />
+        </div>
+
         {loading ? (
           <Loading />
         ) : (
@@ -404,7 +425,7 @@ function Blog() {
             {allUpload.map((upload, uploadIndex) => (
               <div
                 className="d-flex"
-                style={{ marginBottom: "30px", marginTop: "10px" }}
+                style={{ marginBottom: "30px" }}
                 key={upload._id}
               >
                 <div className="images-section">
