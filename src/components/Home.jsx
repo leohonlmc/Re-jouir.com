@@ -369,7 +369,7 @@ function Home() {
               </div>
             </div>
 
-            <br />
+            {/* <br /> */}
 
             {/* <div className="story">
               <div className="story-div">
