@@ -398,14 +398,19 @@ function Blog() {
                                 window.location.reload();
                               }}
                             >
-                              <button className="btn btn-base">Reset</button>
+                              <button className="btn btn-base reset-btn">
+                                Reset
+                              </button>
                             </div>
                             <div
                               className="col-lg-1 col-md-2 col-sm-1 p-0"
                               onClick={() => window.location.reload()}
-                              style={{ backgroundColor: "#d6001c" }}
+                              style={{
+                                backgroundColor: "#d6001c",
+                                borderRadius: "5px",
+                              }}
                             >
-                              <button className="btn btn-base">
+                              <button className="btn btn-base search-btn">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="24"
