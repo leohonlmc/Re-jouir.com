@@ -227,3 +227,9 @@
     margin: auto;
   }
 }
+
+@media screen and (max-width: 695px) {
+  .hover_text {
+    top: -50px;
+  }
+}
