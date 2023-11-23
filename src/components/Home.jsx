@@ -338,8 +338,6 @@ function Home() {
               </div>
             </div>
 
-            <br />
-
             <div className="countries row">
               <div style={{ textAlign: "center" }}>
                 <h2 style={{ fontWeight: "bold" }}>
