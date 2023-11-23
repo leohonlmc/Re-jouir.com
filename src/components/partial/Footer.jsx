@@ -27,25 +27,19 @@ function Footer() {
       </a>
 
       <div className="py-3 footer-normal">
-        <Link to="/about">
-          <a href="/" className="info">
-            About{" "}
-            <strong>
-              <span className="r-logo">R</span>éjouir
-            </strong>
-          </a>
+        <Link to="/about" style={{ color: "white", margin: "10px" }}>
+          About{" "}
+          <strong>
+            <span className="r-logo">R</span>éjouir
+          </strong>
         </Link>
 
-        <Link to="/terms">
-          <a href="/" className="info">
-            Terms & Conditions
-          </a>
+        <Link to="/terms" style={{ color: "white", margin: "10px" }}>
+          Terms & Conditions
         </Link>
 
-        <Link to="/privacy">
-          <a href="/" className="info">
-            Privacy Policy
-          </a>
+        <Link to="/privacy" style={{ color: "white", margin: "10px" }}>
+          Privacy Policy
         </Link>
       </div>
 

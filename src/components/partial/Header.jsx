@@ -26,15 +26,19 @@ function Header(props) {
         </a>
 
         <div className="navbar-nav">
-          <Link to={"/blog"} style={{ textDecoration: "none" }}>
-            <a className="nav-item nav-link active" href="#">
-              Blog <span className="sr-only">(current)</span>
-            </a>
+          <Link
+            to={"/blog"}
+            style={{ textDecoration: "none" }}
+            className="nav-item nav-link active"
+          >
+            Blog <span className="sr-only">(current)</span>
           </Link>
-          <Link to={"/list"} style={{ textDecoration: "none" }}>
-            <a className="nav-item nav-link active" href="#">
-              Upload
-            </a>
+          <Link
+            to={"/list"}
+            style={{ textDecoration: "none" }}
+            className="nav-item nav-link active"
+          >
+            Upload
           </Link>
         </div>
       </nav>
