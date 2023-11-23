@@ -4,8 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-// import ViewIcon from "./popup/ViewIcon";
+import {
+  faHeart,
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import formatDateString from "./functions/formatDateString";
 import generateRandomUserId from "./functions/generateRandomUserId";
@@ -16,6 +19,7 @@ import Support from "./popup/Support";
 import { Helmet } from "react-helmet";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import NoResult from "./partial/NoResult";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 const ViewIcon = React.lazy(() => import("./popup/ViewIcon"));
@@ -143,6 +147,8 @@ function Blog() {
   const [likedPost, setLikedPost] = useState(false);
   const currentPage = parseInt(localStorage.getItem("currentPage"));
 
+  const [noResult, setNoResult] = useState(false);
+
   const POSTS_PER_PAGE = 10;
   const [totalPages, setTotalPages] = useState(0);
 
@@ -193,11 +199,29 @@ function Blog() {
           setCurrIndices(Array(res.data.uploads.length).fill(0));
           setLoading(false);
           setTotalPages(res.data.totalPages);
+
+          if (res.data.uploads.length === 0) {
+            setNoResult(true);
+          } else {
+            setNoResult(false);
+          }
         }
       })
       .catch((err) => {
         console.log(err);
       });
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Enter") {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   const handlePageChange = (direction) => {
@@ -258,15 +282,21 @@ function Blog() {
       </div>
       {Number(localStorage.getItem("currentPage")) > 1 && (
         <div className="previous-page" onClick={() => handlePageChange("prev")}>
-          <p className="arrow">Previous</p>
-          <p className="emoji-previous">👈🏻</p>
+          <FontAwesomeIcon
+            icon={faChevronLeft}
+            style={{ color: "white" }}
+            className="arrow"
+          />
         </div>
       )}
 
       {Number(localStorage.getItem("currentPage")) < totalPages && (
         <div className="next-page" onClick={() => handlePageChange("next")}>
-          <p className="arrow">Next</p>
-          <p className="emoji-next">👉🏻</p>
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            style={{ color: "white" }}
+            className="arrow"
+          />
         </div>
       )}
 
@@ -422,146 +452,154 @@ function Blog() {
           <Loading />
         ) : (
           <>
-            {allUpload.map((upload, uploadIndex) => (
-              <div
-                className="d-flex"
-                style={{ marginBottom: "30px" }}
-                key={upload._id}
-              >
-                <div className="images-section">
+            {noResult === true ? (
+              <NoResult />
+            ) : (
+              <div>
+                {allUpload.map((upload, uploadIndex) => (
                   <div
-                    className="ecommerce-gallery"
-                    data-mdb-zoom-effect="true"
-                    data-mdb-auto-height="true"
+                    className="d-flex"
+                    style={{ marginBottom: "30px" }}
+                    key={upload._id}
                   >
-                    <div className="row py-3 shadow-5">
-                      <div className="col-9 mb-1">
-                        <div
-                          className="lightbox"
-                          onClick={() => {
-                            setShowPopup(true);
-                            setCurrImageUrl(
-                              `${REACT_APP_AWS}${
-                                upload.images[currIndices[uploadIndex]]
-                              }`
-                            );
-                          }}
-                        >
-                          <img
-                            src={`${REACT_APP_AWS}${
-                              upload.images[currIndices[uploadIndex]]
-                            }`}
-                            alt=""
-                            className="ecommerce-gallery-main-img active w-100 "
-                          />
-                        </div>
-                      </div>
-
-                      <div className="col-3">
-                        {upload.images.map((image, index) => (
-                          <div className="mb-1" key={index}>
-                            <div className="D_Qy-2">
-                              <p
-                                className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
-                                style={{
-                                  textAlign: "center",
-                                  margin: "0px",
-                                  fontSize: "11px",
-                                }}
-                              >
-                                {index + 1}
-                              </p>
-                            </div>
-                            <LazyLoadImage
-                              src={`${REACT_APP_AWS}${image}`}
-                              alt=""
-                              className={`active w-100 ${
-                                currIndices[uploadIndex] === index
-                                  ? "selected"
-                                  : ""
-                              }`}
-                              effect="blur"
+                    <div className="images-section">
+                      <div
+                        className="ecommerce-gallery"
+                        data-mdb-zoom-effect="true"
+                        data-mdb-auto-height="true"
+                      >
+                        <div className="row py-3 shadow-5">
+                          <div className="col-9 mb-1">
+                            <div
+                              className="lightbox"
                               onClick={() => {
-                                const newIndices = [...currIndices];
-                                newIndices[uploadIndex] = index;
-                                setCurrIndices(newIndices);
+                                setShowPopup(true);
+                                setCurrImageUrl(
+                                  `${REACT_APP_AWS}${
+                                    upload.images[currIndices[uploadIndex]]
+                                  }`
+                                );
                               }}
-                            />
+                            >
+                              <img
+                                src={`${REACT_APP_AWS}${
+                                  upload.images[currIndices[uploadIndex]]
+                                }`}
+                                alt=""
+                                className="ecommerce-gallery-main-img active w-100 "
+                              />
+                            </div>
                           </div>
-                        ))}
+
+                          <div className="col-3">
+                            {upload.images.map((image, index) => (
+                              <div className="mb-1" key={index}>
+                                <div className="D_Qy-2">
+                                  <p
+                                    className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
+                                    style={{
+                                      textAlign: "center",
+                                      margin: "0px",
+                                      fontSize: "11px",
+                                    }}
+                                  >
+                                    {index + 1}
+                                  </p>
+                                </div>
+                                <LazyLoadImage
+                                  src={`${REACT_APP_AWS}${image}`}
+                                  alt=""
+                                  className={`active w-100 ${
+                                    currIndices[uploadIndex] === index
+                                      ? "selected"
+                                      : ""
+                                  }`}
+                                  effect="blur"
+                                  onClick={() => {
+                                    const newIndices = [...currIndices];
+                                    newIndices[uploadIndex] = index;
+                                    setCurrIndices(newIndices);
+                                  }}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="blog-info">
+                      <div className="blog-info-child">
+                        <div className="all-info-div">
+                          <h1> {upload.title}</h1>
+                          <h3>
+                            {`${upload.country}, `}
+                            <a
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              href={`https://www.google.com/maps?q=${encodeURIComponent(
+                                upload.location
+                              )}`}
+                            >
+                              {upload.location}
+                              <img
+                                src="/google-map.png"
+                                alt=""
+                                style={{ width: "40px" }}
+                              />
+                            </a>
+                          </h3>
+                          <p>{`${formatDateString(upload.created)} 📅`}</p>
+                          <p>{upload.event}</p>
+                          <p>{upload.description}</p>
+                        </div>
+                        <br />
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "flex-end",
+                          }}
+                        >
+                          {upload.likes.includes(
+                            localStorage.getItem("guest")
+                          ) ? (
+                            <div className="liked-btn-div">
+                              <FontAwesomeIcon
+                                className="liked-btn"
+                                icon={faHeart}
+                                style={{ color: "#ff0000", marginRight: "0px" }}
+                                size="xl"
+                              />{" "}
+                              {`${upload.likes.length} people like this`}
+                            </div>
+                          ) : (
+                            <div
+                              className="liked-btn-div"
+                              onClick={() => {
+                                handleLike(
+                                  upload._id,
+                                  localStorage.getItem("guest")
+                                );
+                                setLikedPost(true);
+                                toast.success("You liked the post!");
+                              }}
+                            >
+                              <FontAwesomeIcon
+                                className="like-btn"
+                                icon={faHeart}
+                                style={{ color: "grey", marginRight: "0px" }}
+                                size="xl"
+                              />{" "}
+                              {`${upload.likes.length} people like this`}
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="blog-info">
-                  <div className="blog-info-child">
-                    <div className="all-info-div">
-                      <h1> {upload.title}</h1>
-                      <h3>
-                        {`${upload.country}, `}
-                        <a
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          href={`https://www.google.com/maps?q=${encodeURIComponent(
-                            upload.location
-                          )}`}
-                        >
-                          {upload.location}
-                          <img
-                            src="/google-map.png"
-                            alt=""
-                            style={{ width: "40px" }}
-                          />
-                        </a>
-                      </h3>
-                      <p>{`${formatDateString(upload.created)} 📅`}</p>
-                      <p>{upload.event}</p>
-                      <p>{upload.description}</p>
-                    </div>
-                    <br />
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "flex-end",
-                      }}
-                    >
-                      {upload.likes.includes(localStorage.getItem("guest")) ? (
-                        <div className="liked-btn-div">
-                          <FontAwesomeIcon
-                            className="liked-btn"
-                            icon={faHeart}
-                            style={{ color: "#ff0000", marginRight: "0px" }}
-                            size="xl"
-                          />{" "}
-                          {`${upload.likes.length} people like this`}
-                        </div>
-                      ) : (
-                        <div
-                          className="liked-btn-div"
-                          onClick={() => {
-                            handleLike(
-                              upload._id,
-                              localStorage.getItem("guest")
-                            );
-                            setLikedPost(true);
-                            toast.success("You liked the post!");
-                          }}
-                        >
-                          <FontAwesomeIcon
-                            className="like-btn"
-                            icon={faHeart}
-                            style={{ color: "grey", marginRight: "0px" }}
-                            size="xl"
-                          />{" "}
-                          {`${upload.likes.length} people like this`}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+            )}
           </>
         )}
 

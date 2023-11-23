@@ -397,7 +397,7 @@
   top: 45%;
   left: 0px;
   z-index: 10000;
-  background-color: rgba(237, 237, 237, 0.9);
+  background-color: rgba(201, 201, 201, 0.9);
   width: 50px;
   text-align: center;
   padding: 10px 0px;
@@ -405,8 +405,8 @@
   border-bottom-right-radius: 20px;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  height: 44px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  height: 40px;
 }
 
 .next-page {
@@ -414,7 +414,7 @@
   top: 45%;
   right: 0px;
   z-index: 10000;
-  background-color: rgba(206, 206, 206, 0.9);
+  background-color: rgba(201, 201, 201, 0.9);
   margin-right: 0px;
   margin-left: auto;
   width: 50px;
@@ -424,20 +424,16 @@
   border-bottom-left-radius: 20px;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  height: 44px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  height: 40px;
 }
 
 .arrow {
-  margin: 0px;
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-weight: bold;
-  display: none;
   transition: 0.3s;
-}
-
-.emoji-previous,
-.emoji-next {
-  display: block;
 }
 
 .next-page:hover,
@@ -445,16 +441,6 @@
   background-color: #00873e;
   color: white;
   width: 100px;
-}
-
-.next-page:hover .emoji-next,
-.previous-page:hover .emoji-previous {
-  display: none;
-}
-
-.next-page:hover .arrow,
-.previous-page:hover .arrow {
-  display: block;
 }
 
 @media (max-width: 769px) {
