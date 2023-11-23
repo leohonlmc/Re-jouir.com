@@ -320,7 +320,7 @@ function Blog() {
               style={{ textAlign: "left", fontWeight: "bold", margin: "0px" }}
             >
               {`Browse around`}{" "}
-              <span style={{ color: "black" }}>{`the Global 🌍`}</span>
+              <span className="browse-country">{`the Global 🌍`}</span>
             </h2>
           ) : (
             <h2
@@ -538,8 +538,8 @@ function Blog() {
                     <div className="blog-info">
                       <div className="blog-info-child">
                         <div className="all-info-div">
-                          <h1> {upload.title}</h1>
-                          <h3>
+                          <h2> {upload.title}</h2>
+                          <h4>
                             {`${upload.country}, `}
                             <a
                               target="_blank"
@@ -555,7 +555,7 @@ function Blog() {
                                 style={{ width: "40px" }}
                               />
                             </a>
-                          </h3>
+                          </h4>
                           <p>{`${formatDateString(upload.created)} 📅`}</p>
                           <p>{upload.event}</p>
                           <p>{upload.description}</p>

@@ -182,7 +182,11 @@
 }
 
 .browse-réjouir {
-  color: orange;
+  color: white;
+}
+
+.browse-country {
+  color: rgb(60, 60, 60);
 }
 
 .page-number-div {
@@ -452,8 +456,8 @@
 }
 
 .filter-div {
-  background-color: rgb(242, 242, 242);
-  padding: 10px;
+  background-color: rgb(198, 198, 198);
+  padding: 20px 15px;
   border-radius: 10px;
 }
 
