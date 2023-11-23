@@ -223,16 +223,17 @@
   padding: 1rem;
   font-size: 1rem;
   border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .search-form select {
-  padding: 1rem;
   height: 100%;
   font-size: 1rem;
   border: none;
   box-shadow: none;
-  width: 98%;
+  width: 90%;
   margin: auto;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .search-form select:focus {
@@ -457,6 +458,9 @@
 
 .reset-btn {
   background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) !important;
+  width: 92% !important;
+  margin: auto !important;
 }
 
 @media (max-width: 769px) {
@@ -473,5 +477,33 @@
   .filter-div h2 {
     flex-basis: 100%;
     margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-form select {
+    width: 100%;
+  }
+  .search-form input {
+    margin: 0px;
+    width: 100% !important;
+  }
+  .col-lg-1.col-md-1.col-sm-1.p-0 {
+    margin-bottom: 10px;
+  }
+  .col-lg-2.col-md-2.col-sm-2.p-0 {
+    margin-bottom: 10px;
+  }
+  .col-lg-7.col-md-6.col-sm-6.p-0 {
+    margin-bottom: 10px;
+  }
+  .col-lg-1.col-md-1.col-sm-2.p-0.reset {
+    margin-bottom: 10px;
+  }
+  .form-control {
+    padding: 10px !important;
+  }
+  .reset-btn {
+    width: 100% !important;
   }
 }
