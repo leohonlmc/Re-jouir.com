@@ -172,6 +172,22 @@ function Blog() {
       localStorage.setItem("selectedCountry", "Global");
     }
 
+    fetchCurrent();
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Enter") {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const fetchCurrent = () => {
     const savedFilterValue = localStorage.getItem("selectedFilter");
     const savedCountryValue = localStorage.getItem("selectedCountry");
     const savedSearchQuery = localStorage.getItem("searchQuery");
@@ -210,19 +226,7 @@ function Blog() {
       .catch((err) => {
         console.log(err);
       });
-
-    const handleKeyDown = (event) => {
-      if (event.key === "Enter") {
-        window.location.reload();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+  };
 
   const handlePageChange = (direction) => {
     if (direction === "next" && currentPage < totalPages) {
@@ -265,6 +269,7 @@ function Blog() {
       );
       if (data) {
         toast.success("You liked this post!");
+        await fetchCurrent();
       }
     } catch (ex) {
       if (ex.response && ex.response.data && ex.response.data.error) {
@@ -540,7 +545,9 @@ function Blog() {
                         <div className="all-info-div">
                           <h2> {upload.title}</h2>
                           <h4>
-                            {`${upload.country}, `}
+                            {`${upload.country} ${
+                              countryEmojiMap[upload.country]
+                            }, `}
                             <a
                               target="_blank"
                               rel="noopener noreferrer"
