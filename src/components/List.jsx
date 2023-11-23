@@ -355,12 +355,17 @@ function List() {
       >
         <Header showSearchBar={false} title={`Upload | Réjouir`} />
       </div>
-
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com/list" />
       </Helmet>
-
       <ToastContainer />
+
+      <div style={{ width: "95%", margin: "auto", textAlign: "center" }}>
+        <h1 style={{ margin: "0px" }}>Upload images</h1>
+        <p style={{ margin: "0px" }}>
+          We need you to light up the Christmas tree 🌟
+        </p>
+      </div>
 
       <div>
         <div
@@ -644,10 +649,8 @@ function List() {
           </div>
         </div>
       </div>
-
       <br />
       <br />
-
       <Footer />
     </div>
   );
