@@ -201,7 +201,7 @@
   visibility: hidden;
   position: absolute;
   right: 4%;
-  top: 10%;
+  top: -25px;
   transform: translateY(-50%) scale(0.8);
   background-color: #f9f9f9;
   padding: 10px 15px;
@@ -212,7 +212,7 @@
   opacity: 0;
 }
 
-.location_info:hover + .hover_text {
+.form__field.location_field:focus ~ .hover_text {
   visibility: visible;
   transform: translateY(-50%) scale(1);
   opacity: 1;
