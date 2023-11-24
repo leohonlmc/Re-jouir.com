@@ -564,7 +564,9 @@ function Blog() {
                               />
                             </a>
                           </h4>
-                          <p>{`Posted ${formatDateString(upload.created)}`}</p>
+                          <p className="post-time">{`Posted ${formatDateString(
+                            upload.created
+                          )}`}</p>
                           <p>{upload.event}</p>
                           <p>{upload.description}</p>
                         </div>
