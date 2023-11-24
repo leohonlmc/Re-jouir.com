@@ -68,6 +68,13 @@
   background-color: black;
 }
 
+.save-blog {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: black;
+}
+
 .liked-btn-div {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 5px 10px;

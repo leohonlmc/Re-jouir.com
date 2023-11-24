@@ -8,6 +8,7 @@ import {
   faHeart,
   faChevronLeft,
   faChevronRight,
+  faBookmark,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import formatDateString from "./functions/formatDateString";
@@ -505,7 +506,7 @@ function Blog() {
 
                           <div className="col-3">
                             {upload.images.map((image, index) => (
-                              <div className="mb-1" key={index}>
+                              <div className={`mb-1`} key={index}>
                                 <div className="D_Qy-2">
                                   <p
                                     className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
@@ -563,7 +564,7 @@ function Blog() {
                               />
                             </a>
                           </h4>
-                          <p>{`${formatDateString(upload.created)} 📅`}</p>
+                          <p>{`Posted ${formatDateString(upload.created)}`}</p>
                           <p>{upload.event}</p>
                           <p>{upload.description}</p>
                         </div>
@@ -571,9 +572,18 @@ function Blog() {
                         <div
                           style={{
                             display: "flex",
+                            // justifyContent: "space-between",
                             justifyContent: "flex-end",
                           }}
                         >
+                          {/* <div className="save-blog">
+                            <FontAwesomeIcon
+                              icon={faBookmark}
+                              style={{ color: "#70726d", cursor: "pointer" }}
+                              size="xl"
+                            />
+                          </div> */}
+
                           {upload.likes.includes(
                             localStorage.getItem("guest")
                           ) ? (
