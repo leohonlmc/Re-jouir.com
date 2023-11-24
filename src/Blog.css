@@ -111,6 +111,7 @@
   position: absolute;
   top: 5px;
   width: 20px;
+  z-index: 1;
 }
 
 .col-12.mb-1 {
@@ -466,6 +467,10 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) !important;
   width: 92% !important;
   margin: auto !important;
+}
+
+.reset-btn:hover {
+  background-color: rgb(230, 230, 230) !important;
 }
 
 @media (max-width: 769px) {
