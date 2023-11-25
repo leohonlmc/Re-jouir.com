@@ -46,7 +46,6 @@ function List() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const countryList = [
-    "Global",
     "Argentina",
     "Australia",
     "Austria",
@@ -101,7 +100,6 @@ function List() {
   ];
 
   const countryEmojiMap = {
-    Global: "🌍",
     Argentina: "🇦🇷",
     Australia: "🇦🇺",
     Austria: "🇦🇹",
