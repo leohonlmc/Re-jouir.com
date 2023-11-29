@@ -384,13 +384,11 @@ strong {
 }
 
 .Song {
-  margin: auto;
   text-align: center;
 }
 
 .Song > iframe {
   margin: 10px;
-  width: 350px;
   height: 315px;
 }
 
@@ -415,6 +413,17 @@ strong {
   }
   .d-flex > div {
     width: 100% !important;
+  }
+}
+
+@media (max-width: 663px) {
+  .Song {
+    margin-top: 10px !important;
+  }
+  .Song > iframe {
+    margin: 0px;
+    height: 315px;
+    width: 100%;
   }
 }
 
