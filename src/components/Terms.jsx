@@ -33,8 +33,14 @@ function Terms() {
           </strong>
           . Please read these Terms and Conditions ("Terms", "Terms and
           Conditions") carefully before using the{" "}
-          <a href="https://www.rejouirxmas.com/">Rejouirxmas.com</a> website
-          ("Service") operated by Réjouir ("us", "we", or "our").
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.rejouirxmas.com/"
+          >
+            Rejouirxmas.com
+          </a>{" "}
+          website ("Service") operated by Réjouir ("us", "we", or "our").
         </p>
 
         <h2>1. Agreement to Terms</h2>
@@ -62,7 +68,15 @@ function Terms() {
         <h2>Feedback and Contact</h2>
         <p>
           If you have any feedback or questions about these Terms, please
-          contact us through <a href="mailto:rejouirxmas@gmail.com">gmail</a>.
+          contact us through{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="mailto:rejouirxmas@gmail.com"
+          >
+            gmail
+          </a>
+          .
         </p>
       </div>
       <Footer />

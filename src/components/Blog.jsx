@@ -16,6 +16,7 @@ import generateRandomUserId from "./functions/generateRandomUserId";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Loading from "./partial/Loading";
+import Feedback from "./partial/Feedback";
 import Support from "./popup/Support";
 import { Helmet } from "react-helmet";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -270,7 +271,7 @@ function Blog() {
       );
       if (data) {
         toast.success("You liked this post!");
-        await fetchCurrent();
+        fetchCurrent();
       }
     } catch (ex) {
       if (ex.response && ex.response.data && ex.response.data.error) {
@@ -319,6 +320,7 @@ function Blog() {
       )}
 
       <div className="blog-main">
+        <Feedback />
         <div className="filter-div">
           {localStorage.getItem("selectedCountry") === "Global" ? (
             <h2

@@ -477,6 +477,15 @@
   color: rgb(71, 71, 71);
 }
 
+.Feedback {
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #00873e;
+  color: white;
+  text-align: center;
+}
+
 @media (max-width: 769px) {
   .ml12.aside-cta.flex--item {
     display: none;
