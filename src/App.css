@@ -383,6 +383,17 @@ strong {
   opacity: 0;
 }
 
+.Song {
+  margin: auto;
+  text-align: center;
+}
+
+.Song > iframe {
+  margin: 10px;
+  width: 400px;
+  height: 315px;
+}
+
 @keyframes floatDown {
   0% {
     transform: translateY(-100%);

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
+import Song from "./partial/Song";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faImages,
@@ -365,6 +366,14 @@ function Home() {
                 <h5>Edinburgh, Scotland</h5>
                 <p>Christmas Market</p>
               </div>
+            </div>
+
+            <div className="countries row">
+              <div style={{ textAlign: "center" }}>
+                <h2 style={{ fontWeight: "bold" }}>Songs?</h2>
+                <p style={{ margin: "0px" }}>Live music for your day!</p>
+              </div>
+              <Song />
             </div>
 
             {/* <br /> */}
