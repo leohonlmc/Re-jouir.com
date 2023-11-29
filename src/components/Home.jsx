@@ -376,6 +376,10 @@ function Home() {
               <Song />
             </div>
 
+            <h2 style={{ fontWeight: "bold", textAlign: "center" }}>
+              Our mission?
+            </h2>
+
             {/* <br /> */}
 
             {/* <div className="story">
@@ -405,7 +409,6 @@ function Home() {
               </div>
             </div> */}
 
-            <br />
             <br />
 
             <div className="d-flex flex-box">
