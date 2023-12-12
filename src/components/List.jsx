@@ -157,7 +157,7 @@ function List() {
   const [title, setTitle] = useState("");
   const [country, setCountry] = useState(countryList[1]);
   const [location, setLocation] = useState("");
-  const [eventName, setEvent] = useState("");
+  const [event, setEvent] = useState("");
   const [description, setDescription] = useState("");
   const form = useRef();
 
@@ -326,7 +326,7 @@ function List() {
           title,
           country,
           location,
-          eventName,
+          event,
           description,
           images: uploadedImages,
         },
@@ -604,7 +604,6 @@ function List() {
                       placeholder="Event"
                       name="event"
                       id="event"
-                      required
                       onChange={handleEventChange}
                       maxLength={50}
                     />
