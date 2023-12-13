@@ -9,6 +9,7 @@
   color: white !important;
   font-weight: bold;
   font-size: 19px;
+  text-shadow: 1px 1px 1px #555;
 }
 
 .spin-div {

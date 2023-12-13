@@ -190,16 +190,23 @@ function Home() {
         </div>
 
         <div className={isSticky ? "sticky" : "hidden"}>
-          <div className="sticky-countdown">
-            <strong>
-              Counting down to{" "}
-              <span style={{ color: "#fabc02" }}>Christmas</span> 🎅🏻🎄
-            </strong>
-            <br className="next-line" />
-            <span className="countdown-span">{timeLeft.days} days</span>
-            <span className="countdown-span">{timeLeft.hours} hours</span>
-            <span className="countdown-span">{timeLeft.minutes} minutes</span>⏳
-          </div>
+          {isChristmas ? (
+            <div className="sticky-countdown">
+              <strong>🌟 Merry Christmas! 🎅🏻🎄</strong>
+            </div>
+          ) : (
+            <div className="sticky-countdown">
+              <strong>
+                Counting down to{" "}
+                <span style={{ color: "#fabc02" }}>Christmas</span> 🎅🏻🎄
+              </strong>
+              <br className="next-line" />
+              <span className="countdown-span">{timeLeft.days} days</span>
+              <span className="countdown-span">{timeLeft.hours} hours</span>
+              <span className="countdown-span">{timeLeft.minutes} minutes</span>
+              ⏳
+            </div>
+          )}
         </div>
       </div>
 
