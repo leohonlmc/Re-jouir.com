@@ -359,7 +359,9 @@ function List() {
       <ToastContainer />
 
       <div style={{ width: "95%", margin: "auto", textAlign: "center" }}>
-        <h1 style={{ margin: "0px" }}>Upload images</h1>
+        <h1 style={{ margin: "0px", textShadow: "1px 1px 1px #555" }}>
+          Upload images
+        </h1>
         <p style={{ margin: "0px" }}>
           We need you to light up the Christmas tree 🌟
         </p>

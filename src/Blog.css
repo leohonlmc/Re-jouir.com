@@ -191,6 +191,7 @@
 
 .browse-réjouir {
   color: white;
+  text-shadow: 1px 1px 1px #555;
 }
 
 .browse-country {
@@ -198,7 +199,7 @@
 }
 
 .page-number-div {
-  max-width: 300px;
+  width: 100%;
   margin: auto;
   padding: 10px;
   border-radius: 10px;
@@ -457,7 +458,7 @@
 }
 
 .filter-div {
-  background-color: rgb(198, 198, 198);
+  background-color: rgb(221, 221, 221);
   padding: 20px 15px;
   border-radius: 10px;
 }
