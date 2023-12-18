@@ -5,10 +5,10 @@ import "../../Header.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
-
 const ViewIcon = ({ setShowPopup, ...props }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
+  const [currIndex, setCurrIndex] = useState(0);
+  const images = props.images;
 
   const closePopup = () => {
     setIsPopupVisible(false);
@@ -27,16 +27,18 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
               height: "100%",
             }}
           >
-            <div style={{ width: "100%" }} onClick={() => setShowPopup(false)}>
+            <div style={{ width: "100%" }}>
               <div
+                onClick={() => setShowPopup(false)}
                 style={{
-                  height: "95vh",
+                  height: "76vh",
                   width: "100%",
                   objectFit: "contain",
+                  padding: "10px",
                 }}
               >
                 <LazyLoadImage
-                  src={props.image}
+                  src={images[currIndex]}
                   className="card-img-top"
                   style={{
                     height: "100%",
@@ -46,7 +48,35 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                   onClick={() => setShowPopup(true)}
                 />
               </div>
+
+              <div className="all-card-img-section">
+                <div className="all-card-img-sub-section">
+                  {props.images.map((item, index) => (
+                    <div
+                      key={item._id}
+                      style={{
+                        display: "inline-block",
+                      }}
+                    >
+                      <img
+                        src={item}
+                        style={{
+                          width: "150px",
+                          height: "140px",
+                          objectFit: "contain",
+                          cursor: "pointer",
+                        }}
+                        alt="..."
+                        onClick={() => {
+                          setCurrIndex(index);
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
+
             <div
               className="ml12 aside-cta flex--item print:d-none"
               onClick={closePopup}

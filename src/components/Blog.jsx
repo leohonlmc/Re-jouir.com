@@ -139,6 +139,7 @@ function Blog() {
 
   const [currIndices, setCurrIndices] = useState([]);
   const [currImageUrl, setCurrImageUrl] = useState("");
+  const [allImageUrl, setAllImageUrl] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [allUpload, setAllUpload] = useState([]);
   const guest = generateRandomUserId();
@@ -287,24 +288,32 @@ function Blog() {
       <div className="blog-section">
         <Header title="Blog | Réjouir" />
       </div>
-      {Number(localStorage.getItem("currentPage")) > 1 && (
-        <div className="previous-page" onClick={() => handlePageChange("prev")}>
-          <FontAwesomeIcon
-            icon={faChevronLeft}
-            style={{ color: "white" }}
-            className="arrow"
-          />
-        </div>
-      )}
 
-      {Number(localStorage.getItem("currentPage")) < totalPages && (
-        <div className="next-page" onClick={() => handlePageChange("next")}>
-          <FontAwesomeIcon
-            icon={faChevronRight}
-            style={{ color: "white" }}
-            className="arrow"
-          />
-        </div>
+      {showPopup ? null : (
+        <>
+          {Number(localStorage.getItem("currentPage")) > 1 && (
+            <div
+              className="previous-page"
+              onClick={() => handlePageChange("prev")}
+            >
+              <FontAwesomeIcon
+                icon={faChevronLeft}
+                style={{ color: "white" }}
+                className="arrow"
+              />
+            </div>
+          )}
+
+          {Number(localStorage.getItem("currentPage")) < totalPages && (
+            <div className="next-page" onClick={() => handlePageChange("next")}>
+              <FontAwesomeIcon
+                icon={faChevronRight}
+                style={{ color: "white" }}
+                className="arrow"
+              />
+            </div>
+          )}
+        </>
       )}
 
       <Helmet>
@@ -315,7 +324,11 @@ function Blog() {
 
       {showPopup && (
         <Suspense fallback={<div>Loading...</div>}>
-          <ViewIcon setShowPopup={setShowPopup} image={currImageUrl} />
+          <ViewIcon
+            setShowPopup={setShowPopup}
+            image={currImageUrl}
+            images={allImageUrl}
+          />
         </Suspense>
       )}
 
@@ -494,6 +507,11 @@ function Blog() {
                                     upload.images[currIndices[uploadIndex]]
                                   }`
                                 );
+                                setAllImageUrl(
+                                  upload.images.map(
+                                    (image) => `${REACT_APP_AWS}${image}`
+                                  )
+                                );
                               }}
                             >
                               <img
@@ -508,7 +526,7 @@ function Blog() {
 
                           <div className="col-3">
                             {upload.images.map((image, index) => (
-                              <div className={`mb-1`} key={index}>
+                              <div className={`mb-1 mb-1${index}`} key={index}>
                                 <div className="D_Qy-2">
                                   <p
                                     className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
