@@ -21,8 +21,33 @@
 }
 
 .all-card-img-section {
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
   margin: auto;
   text-align: center;
   padding: 5px;
   background-color: rgb(237, 237, 237);
+}
+
+.all-card-img-sub-section {
+  display: inline-block;
+}
+
+.images-section-curr {
+  width: 120px !important;
+  object-fit: contain;
+  cursor: pointer;
+  padding: 10px;
+}
+
+@media screen and (max-width: 826px) {
+  .images-section {
+    width: 80px !important;
+    padding: 10px;
+  }
+  .all-card-img-sub-section {
+    height: 100%;
+  }
 }

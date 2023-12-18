@@ -31,11 +31,12 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
               <div
                 onClick={() => setShowPopup(false)}
                 style={{
-                  height: "76vh",
-                  width: "100%",
+                  height: "74vh",
+                  maxWidth: "100%",
                   objectFit: "contain",
                   padding: "10px",
                 }}
+                className="image-section"
               >
                 <LazyLoadImage
                   src={images[currIndex]}
@@ -60,16 +61,11 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                     >
                       <img
                         src={item}
-                        style={{
-                          width: "150px",
-                          height: "140px",
-                          objectFit: "contain",
-                          cursor: "pointer",
-                        }}
                         alt="..."
                         onClick={() => {
                           setCurrIndex(index);
                         }}
+                        className="images-section-curr"
                       />
                     </div>
                   ))}
