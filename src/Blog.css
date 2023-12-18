@@ -155,10 +155,16 @@
   text-align: center;
   padding: 12px;
   transition: 0.5s;
+  margin: auto;
 }
 
-.lightbox:hover {
-  padding: 0px;
+.lightbox > img {
+  max-width: 330px;
+  transition: 0.3s;
+}
+
+.lightbox > img:hover {
+  transform: scale(1.1);
 }
 
 .col-3 {
