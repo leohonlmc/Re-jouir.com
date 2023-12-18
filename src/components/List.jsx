@@ -157,7 +157,7 @@ function List() {
   const [title, setTitle] = useState("");
   const [country, setCountry] = useState(countryList[1]);
   const [location, setLocation] = useState("");
-  const [event, setEvent] = useState("");
+  const [eventData, setEvent] = useState("");
   const [description, setDescription] = useState("");
   const form = useRef();
 
@@ -316,7 +316,6 @@ function List() {
     const uploadedImages = await Promise.all(
       imageFile.map((file) => handleUpload(file))
     );
-    console.log("Uploaded Images:", uploadedImages);
 
     try {
       const { data } = await axios.post(
@@ -326,7 +325,7 @@ function List() {
           title,
           country,
           location,
-          event,
+          event: eventData,
           description,
           images: uploadedImages,
         },
