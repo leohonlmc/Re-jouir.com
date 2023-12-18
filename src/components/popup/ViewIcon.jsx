@@ -7,7 +7,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ViewIcon = ({ setShowPopup, ...props }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
-  const [currIndex, setCurrIndex] = useState(0);
+  const [currIndex, setCurrIndex] = useState(props.currIndex);
   const images = props.images;
 
   const closePopup = () => {
@@ -53,7 +53,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                 <div className="all-card-img-sub-section">
                   {props.images.map((item, index) => (
                     <div
-                      key={item._id}
+                      key={index}
                       style={{
                         display: "inline-block",
                       }}

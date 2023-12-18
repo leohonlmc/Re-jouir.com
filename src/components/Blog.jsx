@@ -140,6 +140,7 @@ function Blog() {
   const [currIndices, setCurrIndices] = useState([]);
   const [currImageUrl, setCurrImageUrl] = useState("");
   const [allImageUrl, setAllImageUrl] = useState([]);
+  const [currImageIndex, setCurrImageIndex] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [allUpload, setAllUpload] = useState([]);
   const guest = generateRandomUserId();
@@ -328,6 +329,7 @@ function Blog() {
             setShowPopup={setShowPopup}
             image={currImageUrl}
             images={allImageUrl}
+            currIndex={currImageIndex}
           />
         </Suspense>
       )}
@@ -512,6 +514,7 @@ function Blog() {
                                     (image) => `${REACT_APP_AWS}${image}`
                                   )
                                 );
+                                setCurrImageIndex(currIndices[uploadIndex]);
                               }}
                             >
                               <img
@@ -594,18 +597,9 @@ function Blog() {
                         <div
                           style={{
                             display: "flex",
-                            // justifyContent: "space-between",
                             justifyContent: "flex-end",
                           }}
                         >
-                          {/* <div className="save-blog">
-                            <FontAwesomeIcon
-                              icon={faBookmark}
-                              style={{ color: "#70726d", cursor: "pointer" }}
-                              size="xl"
-                            />
-                          </div> */}
-
                           {upload.likes.includes(
                             localStorage.getItem("guest")
                           ) ? (
