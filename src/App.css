@@ -1,3 +1,9 @@
+:root {
+  --gray-500: #6c6c89;
+  --christmas-green: #00873e;
+  --christmas-red: #d6001c;
+}
+
 .Home {
   width: 100%;
   max-width: 1450px;
@@ -14,7 +20,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #00873e;
+  background-color: var(--christmas-green);
   z-index: 1000;
   right: 0;
   padding: 20px 10px;
@@ -34,16 +40,18 @@
   font-weight: bold;
 }
 
-.wave-main {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23D6001C" fill-opacity="1" d="M0,288L60,288C120,288,240,288,360,256C480,224,600,160,720,160C840,160,960,224,1080,229.3C1200,235,1320,181,1380,154.7L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>');
+.wave-main,
+.wave-bottom {
   background-repeat: no-repeat;
   background-size: 1440px 320px;
 }
 
+.wave-main {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23D6001C" fill-opacity="1" d="M0,288L60,288C120,288,240,288,360,256C480,224,600,160,720,160C840,160,960,224,1080,229.3C1200,235,1320,181,1380,154.7L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>');
+}
+
 .wave-bottom {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffd700" fill-opacity="1" d="M0,288L60,288C120,288,240,288,360,256C480,224,600,160,720,160C840,160,960,224,1080,229.3C1200,235,1320,181,1380,154.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>');
-  background-repeat: no-repeat;
-  background-size: 1440px 320px;
   background-position: bottom;
 }
 
@@ -64,11 +72,23 @@
   padding-top: 0px;
 }
 
-.slogan {
+.slogan,
+.countdown {
   text-align: center;
   color: white;
   font-weight: bold;
+}
+
+.slogan {
   font-size: 50px;
+}
+
+.countdown-time,
+.days {
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
+  display: inline-block;
 }
 
 .days {
@@ -76,19 +96,9 @@
   background-color: rgba(254, 14, 14, 0.8);
 }
 
-.countdown {
-  text-align: center;
-  color: white;
-  font-weight: bold;
-}
-
 .countdown-time {
-  border-radius: 10px;
-  padding: 10px;
-  font-weight: bold;
   font-size: 30px;
   width: 100px;
-  display: inline-block;
 }
 
 .start-btn {
@@ -99,22 +109,23 @@
   margin-bottom: 0px;
 }
 
-.btn.btn-danger {
-  border-radius: 20px !important;
-  margin: 10px 10px;
-}
-
+.btn.btn-danger,
 .btn.btn-outline-light {
   border-radius: 20px !important;
   margin: 10px 10px;
 }
 
 .container-footer.container.text-center.my-6.p-8.text-gray3 {
-  background-color: #00873e;
+  background-color: var(--christmas-green);
   background-image: url("../public/snow-4.png");
   margin: 0px;
   padding: 20px 0px;
   max-width: 100% !important;
+}
+
+.why-rejouir {
+  color: white;
+  font-weight: bold;
 }
 
 .mission-div {
@@ -390,6 +401,11 @@ strong {
 .Song > iframe {
   margin: 10px;
   height: 315px;
+}
+
+.share-moment-text,
+.come-back-text {
+  color: var(--gray-500);
 }
 
 @keyframes floatDown {

@@ -20,7 +20,7 @@ import { Helmet } from "react-helmet";
 function Home() {
   const navigate = useNavigate();
   const [isSticky, setIsSticky] = useState(false);
-  const countdownRef = useRef(null); // Ref for the countdown div
+  const countdownRef = useRef(null);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -214,7 +214,7 @@ function Home() {
         <div className="wave-bottom">
           <div className="main">
             <div className="mission-div">
-              <div className="divider-container">
+              {/* <div className="divider-container">
                 <hr className="divider-line" />
                 <h1>
                   <strong>
@@ -225,7 +225,9 @@ function Home() {
                   </strong>
                 </h1>
                 <hr className="divider-line" />
-              </div>
+              </div> */}
+
+              <p className="why-rejouir">WHY Réjouir?</p>
 
               <p className="introducing">Introducing our features</p>
 
@@ -293,25 +295,19 @@ function Home() {
               </div>
             </div>
 
-            <br />
-
-            <div className="d-flex flex-box">
+            <div className="d-flex flex-box" style={{ padding: "20px" }}>
               <div className="feature-img">
                 <img src="/moment-2.png" alt="" style={{ width: "100%" }} />
               </div>
               <div className="feature right">
                 <div className="feature-child ">
-                  <h2>
-                    <strong>SHARE YOUR MOMENT 🎇</strong>
-                  </h2>
-                  <hr className="feature-hr" />
+                  <h2>SHARE YOUR MOMENT 🎇</h2>
+                  {/* <hr className="feature-hr" /> */}
 
-                  <p style={{ margin: "0px" }}>
+                  <p className="share-moment-text">
                     Share festive moments from around the globe in our Christmas
                     blog without an account.
                   </p>
-
-                  <br />
 
                   <div className="requirement-div">
                     <div className="requirement">
@@ -383,39 +379,6 @@ function Home() {
               <Song />
             </div>
 
-            <h2 style={{ fontWeight: "bold", textAlign: "center" }}>
-              Our mission?
-            </h2>
-
-            {/* <br /> */}
-
-            {/* <div className="story">
-              <div className="story-div">
-                <img className="founder-img" src="/founder-1.jpeg" />{" "}
-              </div>
-              <div className="story-div user-info">
-                <p style={{ margin: "0px" }}>FOUNDER</p>
-                <a
-                  href="https://www.linkedin.com/in/hon-leo-aa12881b2/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontWeight: "bold",
-                    color: "black",
-                    textDecoration: "none",
-                    fontSize: "30px",
-                  }}
-                >
-                  Leo Hon
-                </a>
-                <p style={{ margin: "0px" }}>
-                  At Réjouir.com, we aim to encapsulate the global spirit of
-                  Christmas. Our platform unites people, letting them share and
-                  cherish their festive moments.
-                </p>
-              </div>
-            </div> */}
-
             <br />
 
             <div className="d-flex flex-box">
@@ -428,11 +391,8 @@ function Home() {
               </div>
               <div className="feature">
                 <div className="feature-child">
-                  <h2>
-                    <strong>WE ❤️ CHRISTMAS, THAT's IT.</strong>
-                  </h2>
-                  <hr className="feature-hr" />
-                  <p>
+                  <h2>WE ❤️ CHRISTMAS, THAT's IT.</h2>
+                  <p className="come-back-text">
                     Come back every year to feel the Christmas spirit and share
                     your Christmas moment with us. 🌟
                   </p>
