@@ -1,3 +1,14 @@
+:root {
+  --tg-heading-font-family: "Power Grotesk";
+  --tg-body-font-family: "Mabry Pro";
+  --tg-body-font-color: #7b7583;
+  --tg--christmas-yellow: #f8b229;
+}
+
+.nav-item.nav-link.active.blog {
+  color: var(--tg--christmas-yellow) !important;
+}
+
 .navbar.navbar-expand-lg.navbar-light.bg-light {
   padding: 1% 2%;
   background-color: transparent !important;

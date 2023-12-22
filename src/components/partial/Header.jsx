@@ -29,7 +29,7 @@ function Header(props) {
           <Link
             to={"/blog"}
             style={{ textDecoration: "none" }}
-            className="nav-item nav-link active"
+            className="nav-item nav-link active blog"
           >
             Blog <span className="sr-only">(current)</span>
           </Link>

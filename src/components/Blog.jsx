@@ -360,7 +360,7 @@ function Blog() {
       )}
 
       <div className="blog-main">
-        <Feedback />
+        {/* <Feedback /> */}
         <div className="filter-div">
           {localStorage.getItem("selectedCountry") === "Global" ? (
             <h2
@@ -687,31 +687,35 @@ function Blog() {
                     ))}
                   </div>
                   <div className="col-lg-3">
-                    <div className="countries-cat">
-                      <h3>Locations</h3>
-                      <ul className="locations-ul">
-                        {topFour.map((location, index) => (
-                          <li
-                            key={index}
-                            onClick={() => {
-                              localStorage.setItem(
-                                "selectedCountry",
-                                location._id
-                              );
-                              window.location.reload();
-                            }}
-                          >
-                            <div className="locations-li">
-                              <p className="location-name">
-                                {location._id.toUpperCase()}
-                              </p>
-                            </div>
-                            <div className="locations-li">{location.count}</div>
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="sticky-div">
+                      <div className="countries-cat">
+                        <h3>Locations</h3>
+                        <ul className="locations-ul">
+                          {topFour.map((location, index) => (
+                            <li
+                              key={index}
+                              onClick={() => {
+                                localStorage.setItem(
+                                  "selectedCountry",
+                                  location._id
+                                );
+                                window.location.reload();
+                              }}
+                            >
+                              <div className="locations-li">
+                                <p className="location-name">
+                                  {location._id.toUpperCase()}
+                                </p>
+                              </div>
+                              <div className="locations-li">
+                                {location.count}
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <Support />
                     </div>
-                    <Support />
                   </div>
                 </div>
               </div>

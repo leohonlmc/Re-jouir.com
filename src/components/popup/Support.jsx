@@ -91,13 +91,10 @@ function Support() {
         />
       </div>
 
-      <h3>
-        Réjouir invites you to bring the Christmas tree to life with a festive
-        glow 🎄✨
-      </h3>
+      <h3>We invites you to bring the Christmas tree to life 🎄✨</h3>
       <p>
-        Réjouir stands as a bare Christmas tree, awaiting the unique sparkle of
-        each and every one of you to bring it to its full, festive glory.
+        Réjouir is like a Christmas tree, awaiting the unique sparkle of every
+        one of you to bring festive glory.
       </p>
 
       <button className="btn btn-danger" onClick={() => navigate("/list")}>
