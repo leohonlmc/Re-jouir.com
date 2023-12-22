@@ -216,10 +216,10 @@ function Home() {
             <div className="mission-div">
               <div className="container">
                 <div className="row justify-content-center">
-                  <div class="col-xl-8 col-lg-10">
+                  <div className="col-xl-8 col-lg-10">
                     <br />
-                    <div class="section__title text-center title-mb-80">
-                      <h2 class="title why-rejouir">Why Réjouir?</h2>
+                    <div className="section__title text-center title-mb-80">
+                      <h2 className="title why-rejouir">Why Réjouir?</h2>
                     </div>
                     <br />
                   </div>
@@ -279,6 +279,9 @@ function Home() {
                 </div>
               </div>
 
+              <br />
+              <br />
+
               <div className="countries row">
                 <div style={{ textAlign: "center" }}>
                   <h2 style={{ fontWeight: "bold" }}>
@@ -308,6 +311,9 @@ function Home() {
                 </div>
               </div>
 
+              <br />
+              <br />
+
               <div className="countries row">
                 <div style={{ textAlign: "center" }}>
                   <h2 style={{ fontWeight: "bold" }}>Songs?</h2>
@@ -316,6 +322,7 @@ function Home() {
                 <Song />
               </div>
 
+              <br />
               <br />
 
               <div className="d-flex flex-box">

@@ -1,16 +1,8 @@
 import "../../App.css";
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faImages,
-  faUserLargeSlash,
-  faEarthAmericas,
-  faMapLocationDot,
-  faPenToSquare,
-} from "@fortawesome/free-solid-svg-icons";
 
-function Home() {
+function ChooseUs() {
   const data = [
     {
       title: "Christmas Blog",
@@ -35,7 +27,10 @@ function Home() {
         <div className="position-relative">
           <div className="row justify-content-center">
             {data.map((item, index) => (
-              <div className={`col-xl-3 col-lg-4 col-sm-6 a${index}`}>
+              <div
+                className={`col-xl-3 col-lg-4 col-sm-6 a${index}`}
+                key={index}
+              >
                 <div className="choose__item">
                   <div className="choose__item-count tg-text-gradient">
                     0{index + 1}.
@@ -54,4 +49,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default ChooseUs;

@@ -422,6 +422,7 @@ strong {
   justify-content: flex-end;
   overflow: hidden;
   margin: 15px !important;
+  text-align: left;
 }
 
 .ny,
