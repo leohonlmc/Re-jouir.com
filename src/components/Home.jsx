@@ -1,5 +1,4 @@
-// import "../App.css";
-import "../styles/index.scss";
+import "../App.css";
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
@@ -18,6 +17,7 @@ import generateRandomUserId from "./functions/generateRandomUserId";
 import Snowfall from "react-snowfall";
 import { Helmet } from "react-helmet";
 import ChoseArea from "./partial/ChoseArea";
+import ChooseUs from "./partial/ChooseUs";
 
 function Home() {
   const navigate = useNavigate();
@@ -217,191 +217,132 @@ function Home() {
               <div className="container">
                 <div className="row justify-content-center">
                   <div class="col-xl-8 col-lg-10">
+                    <br />
                     <div class="section__title text-center title-mb-80">
                       <h2 class="title why-rejouir">Why Réjouir?</h2>
                     </div>
+                    <br />
                   </div>
                 </div>
               </div>
 
               <br />
 
-              <div className="mission">
-                <FontAwesomeIcon
-                  icon={faImages}
-                  size="2xl"
-                  style={{ color: "#dc3545" }}
-                />
-                <p style={{ margin: "0px", marginTop: "10px" }}>
-                  <strong>Christmas Blog</strong>{" "}
-                </p>
-                <p
-                  style={{
-                    width: "70%",
-                    textAlign: "center",
-                    margin: "auto",
-                    marginTop: "10px",
-                  }}
-                >
-                  Share up to <strong>5 images</strong> about Christmas from
-                  your country!
-                </p>
-              </div>
-              <div className="mission">
-                <FontAwesomeIcon
-                  icon={faEarthAmericas}
-                  size="2xl"
-                  style={{ color: "#dc3545" }}
-                />
-                <p style={{ margin: "0px", marginTop: "10px" }}>
-                  <strong>Connect the Globe</strong>{" "}
-                </p>
-                <p
-                  style={{
-                    width: "70%",
-                    textAlign: "center",
-                    margin: "auto",
-                    marginTop: "10px",
-                  }}
-                >
-                  We <strong>CAPTURE</strong> the Christmas spirit from around
-                  the globe.
-                </p>
-              </div>
-              <div className="mission">
-                <FontAwesomeIcon
-                  icon={faUserLargeSlash}
-                  size="2xl"
-                  style={{ color: "#dc3545" }}
-                />
-                <p style={{ margin: "0px", marginTop: "10px" }}>
-                  <strong>Guest Visit</strong>{" "}
-                </p>
-                <p
-                  style={{
-                    width: "70%",
-                    textAlign: "center",
-                    margin: "auto",
-                    marginTop: "10px",
-                  }}
-                >
-                  Don't need an account to share your Christmas moment!
-                </p>
-              </div>
+              <ChooseUs />
 
-              {/* <ChoseArea /> */}
-            </div>
+              <br />
+              <br />
 
-            <div className="d-flex flex-box" style={{ padding: "20px" }}>
-              <div className="feature-img">
-                <img src="/moment-2.png" alt="" style={{ width: "100%" }} />
-              </div>
-              <div className="feature right">
-                <div className="feature-child ">
-                  <h2>SHARE YOUR MOMENT 🎇</h2>
-                  {/* <hr className="feature-hr" /> */}
+              <div className="d-flex flex-box" style={{ padding: "20px" }}>
+                <div className="feature-img">
+                  <img src="/moment-2.png" alt="" style={{ width: "100%" }} />
+                </div>
+                <div className="feature right">
+                  <div className="feature-child">
+                    <h2>SHARE YOUR MOMENT 🎇</h2>
 
-                  <p className="share-moment-text">
-                    Share festive moments from around the globe in our Christmas
-                    blog without an account.
-                  </p>
+                    <p className="share-moment-text">
+                      Share festive moments from around the globe in our
+                      Christmas blog without an account.
+                    </p>
 
-                  <div className="requirement-div">
-                    <div className="requirement">
-                      <FontAwesomeIcon
-                        icon={faImages}
-                        size="2xl"
-                        style={{ color: "#dc3545", marginBottom: "10px" }}
-                      />
-                      <br />
-                      <p>Nice images</p>
-                    </div>
-                    <div className="requirement">
-                      <FontAwesomeIcon
-                        icon={faMapLocationDot}
-                        size="2xl"
-                        style={{ color: "#dc3545", marginBottom: "10px" }}
-                      />
-                      <br />
-                      <p>Location, country</p>
-                    </div>
-                    <div className="requirement">
-                      <FontAwesomeIcon
-                        icon={faPenToSquare}
-                        size="2xl"
-                        style={{ color: "#dc3545", marginBottom: "10px" }}
-                      />
-                      <br />
-                      <p>Title, description</p>
+                    <div className="requirement-div">
+                      <div className="requirement">
+                        <FontAwesomeIcon
+                          icon={faImages}
+                          size="2xl"
+                          style={{ color: "#dc3545", marginBottom: "10px" }}
+                        />
+                        <br />
+                        <p>Nice images</p>
+                      </div>
+                      <div className="requirement">
+                        <FontAwesomeIcon
+                          icon={faMapLocationDot}
+                          size="2xl"
+                          style={{ color: "#dc3545", marginBottom: "10px" }}
+                        />
+                        <br />
+                        <p>Location, country</p>
+                      </div>
+                      <div className="requirement">
+                        <FontAwesomeIcon
+                          icon={faPenToSquare}
+                          size="2xl"
+                          style={{ color: "#dc3545", marginBottom: "10px" }}
+                        />
+                        <br />
+                        <p>Title, description</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="countries row">
-              <div style={{ textAlign: "center" }}>
-                <h2 style={{ fontWeight: "bold" }}>
-                  Place you would like to go
-                </h2>
-                <p style={{ margin: "0px" }}>
-                  More to find from our blog section!
-                </p>
-              </div>
-
-              <div className="col-lg-3 col-md-4 col-sm-6 col-12 country-review ny">
-                <div className="bottom-info">
-                  <h4>United States</h4>
-                  <h5>New York</h5>
-                  <p>The Columbus Circle Holiday Market</p>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-4 col-sm-6 col-12 country-review fr">
-                <h4>France</h4>
-                <h5>Broglie, Strasbourg</h5>
-                <p>The Christkindelsmärik</p>
-              </div>
-              <div className="col-lg-3 col-md-4 col-sm-6 col-12 country-review uk">
-                <h4>United Kingdom</h4>
-                <h5>Edinburgh, Scotland</h5>
-                <p>Christmas Market</p>
-              </div>
-            </div>
-
-            <div className="countries row">
-              <div style={{ textAlign: "center" }}>
-                <h2 style={{ fontWeight: "bold" }}>Songs?</h2>
-                <p style={{ margin: "0px" }}>Live music for your day!</p>
-              </div>
-              <Song />
-            </div>
-
-            <br />
-
-            <div className="d-flex flex-box">
-              <div className="feature-img">
-                <img
-                  src="/christmas-tree.png"
-                  alt=""
-                  style={{ width: "100%" }}
-                />
-              </div>
-              <div className="feature">
-                <div className="feature-child">
-                  <h2>WE ❤️ CHRISTMAS, THAT's IT.</h2>
-                  <p className="come-back-text">
-                    Come back every year to feel the Christmas spirit and share
-                    your Christmas moment with us. 🌟
+              <div className="countries row">
+                <div style={{ textAlign: "center" }}>
+                  <h2 style={{ fontWeight: "bold" }}>
+                    Place you would like to go
+                  </h2>
+                  <p style={{ margin: "0px" }}>
+                    More to find from our blog section!
                   </p>
                 </div>
+
+                <div className="col-lg-3 col-md-4 col-sm-6 col-12 country-review ny">
+                  <div className="bottom-info">
+                    <h4>United States</h4>
+                    <h5>New York</h5>
+                    <p>The Columbus Circle Holiday Market</p>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6 col-12 country-review fr">
+                  <h4>France</h4>
+                  <h5>Broglie, Strasbourg</h5>
+                  <p>The Christkindelsmärik</p>
+                </div>
+                <div className="col-lg-3 col-md-4 col-sm-6 col-12 country-review uk">
+                  <h4>United Kingdom</h4>
+                  <h5>Edinburgh, Scotland</h5>
+                  <p>Christmas Market</p>
+                </div>
               </div>
+
+              <div className="countries row">
+                <div style={{ textAlign: "center" }}>
+                  <h2 style={{ fontWeight: "bold" }}>Songs?</h2>
+                  <p style={{ margin: "0px" }}>Live music for your day!</p>
+                </div>
+                <Song />
+              </div>
+
+              <br />
+
+              <div className="d-flex flex-box">
+                <div className="feature-img">
+                  <img
+                    src="/christmas-tree.png"
+                    alt=""
+                    style={{ width: "100%" }}
+                  />
+                </div>
+                <div className="feature">
+                  <div className="feature-child">
+                    <h2>WE ❤️ CHRISTMAS, THAT's IT.</h2>
+                    <p className="come-back-text">
+                      Come back every year to feel the Christmas spirit and
+                      share your Christmas moment with us. 🌟
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <br />
             </div>
-
-            <br />
           </div>
-        </div>
 
-        <Footer />
+          <Footer />
+        </div>
       </div>
     </div>
   );

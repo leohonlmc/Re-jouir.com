@@ -7,6 +7,121 @@
   --tg-body-font-family: "Mabry Pro";
   --tg-body-font-color: #7b7583;
   --tg--christmas-yellow: #f8b229;
+  --tg-body-font-family: "Mabry Pro";
+  --tg-heading-font-family: "Power Grotesk";
+  --tg-fa-icon-font-family: "Font Awesome 5 Free";
+  --tg-ui-icon-font-family: "Unicons";
+  --tg-body-font-size: 18px;
+  --tg-body-line-height: 1.5;
+  --tg-heading-line-height: 1.2;
+  --tg-common-color-blue: #0d6efd;
+  --tg-common-color-indigo: #6610f2;
+  --tg-common-color-purple: #741ff5;
+  --tg-common-color-pink: #d63384;
+  --tg-common-color-red: #dc3545;
+  --tg-common-color-orange: #fd7e14;
+  --tg-common-color-yellow: #ffc107;
+  --tg-common-color-green: #198754;
+  --tg-common-color-teal: #20c997;
+  --tg-common-color-cyan: #0dcaf0;
+  --tg-common-color-white: #fff;
+  --tg-common-color-gray: #6c757d;
+  --tg-common-color-black: #0f051d;
+  --tg-body-color: #7b7583;
+  --tg-heading-color: #0f051d;
+  --tg-theme-primary: #741ff5;
+  --tg-theme-secondary: #e348ff;
+  --tg-gradient-1: #00873e;
+  --tg-gradient-2: #f8b229;
+  --tg-border-1: #e5e5e5;
+  --tg-border-2: rgba(131, 131, 131, 0.25);
+  --tg-rgba-1: rgba(255, 255, 255, 0.05);
+  --tg-rgba-2: rgba(255, 255, 255, 0.02);
+  --tg-rgba-3: rgba(255, 255, 255, 0.15);
+  --tg-fw-extra-bold: 800;
+  --tg-fw-bold: 700;
+  --tg-fw-semi-bold: 600;
+  --tg-fw-medium: 500;
+  --tg-fw-regular: 400;
+  --tg-fw-light: 300;
+}
+
+.tg-text-gradient {
+  background-color: var(--tg-gradient-1);
+  background-image: linear-gradient(
+    25deg,
+    var(--tg-gradient-1),
+    var(--tg-gradient-2)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: var(--tg-heading-font-family);
+  color: var(--tg-heading-color);
+  margin-top: 0px;
+  font-weight: var(--tg-fw-bold);
+  line-height: 1.2;
+  text-transform: unset;
+}
+
+p {
+  font-family: var(--tg-body-font-family);
+  font-size: var(--tg-body-font-size);
+  line-height: var(--tg-body-line-height);
+  font-weight: var(--tg-fw-regular);
+  color: var(--tg-body-color);
+  margin-bottom: 15px;
+}
+
+.choose__item-count {
+  display: inline-block;
+  font-family: var(--tg-heading-font-family);
+  font-size: 56px;
+  line-height: 1;
+  font-weight: var(--tg-fw-bold);
+  margin: 0 0 28px;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.choose__item {
+  text-align: left;
+  padding: 48px 24px;
+  border-radius: 24px;
+  box-shadow: 0 3px 12px -1px rgba(0, 0, 0, 0.08);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.col-xl-3.col-lg-4.col-sm-6.a1,
+.col-xl-3.col-lg-4.col-sm-6.a3 {
+  margin-top: 48px;
+}
+
+.choose__item-content .title {
+  font-size: 28px;
+  line-height: 1.1;
+  margin: 0 0 25px;
+}
+
+.container {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
 }
 
 .Home {
@@ -138,7 +253,7 @@
   margin: auto;
   text-align: center;
   padding: 30px 0px;
-  background-image: url("../public/tree-1.png");
+  /* background-image: url("../public/tree-1.png"); */
   background-repeat: no-repeat;
   background-size: 400px 400px;
   background-position: right;
@@ -196,6 +311,7 @@ strong {
 
 .feature-child {
   padding: 20px;
+  text-align: left;
 }
 
 .feature-child > p {
@@ -432,6 +548,12 @@ strong {
 
 .next-line {
   display: none;
+}
+
+@media (max-width: 1200px) {
+  .col-xl-3.col-lg-4.col-sm-6 {
+    margin: 0px 0px 30px !important;
+  }
 }
 
 @media (max-width: 768px) {

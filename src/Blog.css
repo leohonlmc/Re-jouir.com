@@ -7,9 +7,9 @@
 
 @font-face {
   font-family: "Power Grotesk";
-  src: url("./static/assets/fonts/power-grotesk/PowerGrotesk-UltraBold.woff")
+  src: url("../static/assets/fonts/power-grotesk/PowerGrotesk-UltraBold.woff")
       format("woff"),
-    url("./static/assets/fonts/power-grotesk/PowerGrotesk-UltraBold.woff2")
+    url("../static/assets/fonts/power-grotesk/PowerGrotesk-UltraBold.woff2")
       format("woff2");
   font-weight: 800;
   font-style: normal;
@@ -17,8 +17,8 @@
 
 @font-face {
   font-family: "Mabry Pro";
-  src: url("./static/assets/fonts/mabry-pro/MabryPro-Bold.woff") format("woff"),
-    url("./static/assets/fonts/mabry-pro/MabryPro-Regular.woff2")
+  src: url("../static/assets/fonts/mabry-pro/MabryPro-Bold.woff") format("woff"),
+    url("../static/assets/fonts/mabry-pro/MabryPro-Regular.woff2")
       format("woff2");
   font-weight: 800;
   font-style: normal;
