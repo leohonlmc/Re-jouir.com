@@ -26,10 +26,10 @@
 }
 
 .nav-item.nav-link {
-  color: white !important;
+  color: black !important;
   font-weight: bold;
-  font-size: 19px;
-  text-shadow: 1px 1px 1px #555;
+  font-size: 20px;
+
   font-family: var(--tg-body-font-family);
 }
 

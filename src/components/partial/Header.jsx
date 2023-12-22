@@ -17,9 +17,9 @@ function Header(props) {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="/">
           <img
-            src="/R_white.png"
-            width="110"
-            height="35"
+            src="/R.png"
+            width="60"
+            height="60"
             className="d-inline-block align-top"
             alt=""
           />

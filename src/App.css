@@ -46,6 +46,19 @@
   --tg-fw-light: 300;
 }
 
+.background {
+  background-image: url("../public/assets/img/bg/gradient_bg02.png");
+  position: absolute;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
 .tg-text-gradient {
   background-color: var(--tg-gradient-1);
   background-image: linear-gradient(
@@ -122,6 +135,8 @@ p {
 .container {
   padding-left: 15px !important;
   padding-right: 15px !important;
+  max-width: 1230px;
+  margin: auto;
 }
 
 .Home {
@@ -141,7 +156,7 @@ p {
   top: 0;
   width: 100%;
   background-color: var(--christmas-green);
-  z-index: 1000;
+  z-index: 1;
   right: 0;
   padding: 20px 10px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
@@ -184,19 +199,22 @@ p {
 
 .header-section {
   min-height: 550px;
-  background-image: url("../public/santa.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   padding: 30px;
   padding-top: 0px;
 }
 
-.slogan,
 .countdown {
-  text-align: center;
-  color: white;
+  text-align: left;
+  color: rgba(67, 67, 67, 0.617);
   font-weight: bold;
+}
+
+.countdown-time {
+  text-align: center;
+}
+
+.countdown-time.days {
+  color: white;
 }
 
 .slogan {
@@ -222,17 +240,33 @@ p {
 }
 
 .start-btn {
-  text-align: center;
   color: white;
   font-weight: bold;
   margin: 30px 0px;
   margin-bottom: 0px;
 }
 
+.banner__images-grid-two > img {
+  position: relative;
+  max-width: 100%;
+  z-index: 10;
+}
+
 .btn.btn-danger,
 .btn.btn-outline-light {
-  border-radius: 20px !important;
+  border-radius: 40px !important;
   margin: 10px 10px;
+  background-color: var(--tg-gradient-1);
+  background-image: linear-gradient(
+    25deg,
+    var(--tg-gradient-1),
+    var(--tg-gradient-2)
+  );
+  border: none;
+  padding: 18px 32px;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: none;
 }
 
 .container-footer.container.text-center.my-6.p-8.text-gray3 {
@@ -253,7 +287,7 @@ p {
   margin: auto;
   text-align: center;
   padding: 30px 0px;
-  /* background-image: url("../public/tree-1.png"); */
+
   background-repeat: no-repeat;
   background-size: 400px 400px;
   background-position: right;
@@ -425,6 +459,56 @@ strong {
   text-align: left;
 }
 
+.about__content .section__title {
+  margin-bottom: 20px;
+}
+
+.section__title.text-start {
+  margin-bottom: 20px;
+}
+
+.text-start {
+  text-align: left !important;
+}
+
+.about__facts-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 0;
+  margin: 50px -15px 0;
+}
+
+.about__icon-box {
+  display: flex;
+  align-items: center;
+}
+
+.about__facts-list > * {
+  padding: 0 15px;
+  width: 50%;
+  flex: 0 0 auto;
+}
+
+.about__icon-box .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 24px;
+  flex: 0 0 auto;
+  font-size: 32px;
+  line-height: 1;
+  margin-right: 25px;
+  color: var(--tg-common-color-white);
+  background-color: var(--tg-gradient-1);
+  background-image: linear-gradient(
+    25deg,
+    var(--tg-gradient-1),
+    var(--tg-gradient-2)
+  );
+}
+
 .ny,
 .fr,
 .uk {
@@ -536,6 +620,28 @@ strong {
   margin: 0 0;
 }
 
+.banner__content {
+  position: relative;
+}
+
+.banner__content .title {
+  font-size: 68px;
+  line-height: 1;
+  margin: 0 0 23px;
+}
+
+.banner__content .desc {
+  font-size: 24px;
+  line-height: 1.5;
+  max-width: 75%;
+  margin: 0 0 36px;
+}
+
+.banner-area .container {
+  position: relative;
+  z-index: 3;
+}
+
 @keyframes floatDown {
   0% {
     transform: translateY(-100%);
@@ -549,6 +655,12 @@ strong {
 
 .next-line {
   display: none;
+}
+
+@media (max-width: 1500px) {
+  .container {
+    max-width: 1230px;
+  }
 }
 
 @media (max-width: 1200px) {

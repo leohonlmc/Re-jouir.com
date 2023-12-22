@@ -27,8 +27,15 @@ function PlaceToGo() {
   return (
     <div className="Home">
       <div className="countries row">
+        <div className="section__title text-start">
+          <h2
+            className="title"
+            style={{ fontWeight: "bold", textAlign: "center" }}
+          >
+            <span className="tg-text-gradient">Place</span> you would like to go
+          </h2>
+        </div>
         <div>
-          <h2 style={{ fontWeight: "bold" }}>Place you would like to go</h2>
           <p style={{ margin: "0px" }}>More to find from our blog section!</p>
         </div>
         {data.map((item, index) => (

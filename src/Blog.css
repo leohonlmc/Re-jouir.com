@@ -484,9 +484,10 @@
   border-radius: 8px;
 }
 
-.container {
+.container.blog {
+  margin: 0px !important;
+  padding: 0px !important;
   max-width: 100% !important;
-  padding: 0px;
 }
 
 .reset > button {

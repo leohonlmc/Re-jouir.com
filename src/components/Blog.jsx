@@ -385,7 +385,7 @@ function Blog() {
           )}
 
           <div className="sort-container">
-            <div className="container">
+            <div className="container blog">
               <div className="row">
                 <div className="col-lg-12 card-margin">
                   <div className="card search-form">
@@ -512,7 +512,7 @@ function Blog() {
             {noResult === true ? (
               <NoResult />
             ) : (
-              <div className="container">
+              <div className="container blog">
                 <div className="row">
                   <div className="col-lg-9">
                     {allUpload.map((upload, uploadIndex) => (
