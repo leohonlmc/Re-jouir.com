@@ -27,6 +27,13 @@ function Header(props) {
 
         <div className="navbar-nav">
           <Link
+            to={"/"}
+            style={{ textDecoration: "none" }}
+            className="nav-item nav-link active"
+          >
+            Home
+          </Link>
+          <Link
             to={"/list"}
             style={{ textDecoration: "none" }}
             className="nav-item nav-link active"

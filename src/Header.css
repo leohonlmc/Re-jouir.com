@@ -29,8 +29,11 @@
   color: black !important;
   font-weight: bold;
   font-size: 20px;
-
   font-family: var(--tg-body-font-family);
+}
+
+.nav-item.nav-link:hover {
+  color: var(--tg--christmas-yellow) !important;
 }
 
 .spin-div {

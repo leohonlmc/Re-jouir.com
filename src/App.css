@@ -199,7 +199,7 @@ p {
 
 .header-section {
   min-height: 550px;
-  padding: 30px;
+
   padding-top: 0px;
 }
 
@@ -348,11 +348,6 @@ strong {
   text-align: left;
 }
 
-.feature-child > p {
-  font-size: 20px;
-  width: 80%;
-}
-
 .divider-container {
   display: flex;
   align-items: center;
@@ -481,12 +476,19 @@ strong {
 .about__icon-box {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .about__facts-list > * {
   padding: 0 15px;
   width: 50%;
   flex: 0 0 auto;
+}
+
+.about__icon-box p {
+  margin: 0 0;
+  color: var(--tg-heading-color);
+  line-height: 1.5;
 }
 
 .about__icon-box .icon {
@@ -615,7 +617,7 @@ strong {
 }
 
 .section__title .title {
-  font-size: 55px;
+  font-size: 45px;
   line-height: 1;
   margin: 0 0;
 }

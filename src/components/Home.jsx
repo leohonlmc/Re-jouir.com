@@ -201,13 +201,13 @@ function Home() {
                         <div class="icon">
                           <FontAwesomeIcon icon={faImages} size="sm" />
                         </div>
-                        <p>Nice images</p>
+                        <p>Images, description</p>
                       </div>
                       <div class="about__icon-box">
                         <div class="icon">
                           <FontAwesomeIcon icon={faMapLocationDot} size="sm" />
                         </div>
-                        <p>Location, country &amp; description</p>
+                        <p>Location, country</p>
                       </div>
                     </div>
                   </div>
