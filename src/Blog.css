@@ -1,3 +1,59 @@
+:root {
+  --tg-heading-font-family: "Power Grotesk";
+  --tg-body-font-family: "Mabry Pro";
+  --tg-body-font-color: #7b7583;
+}
+
+@font-face {
+  font-family: "Power Grotesk";
+  src: url("../static/assets/fonts/power-grotesk/PowerGrotesk-UltraBold.woff")
+      format("woff"),
+    url("../static/assets/fonts/power-grotesk/PowerGrotesk-UltraBold.woff2")
+      format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mabry Pro";
+  src: url("../static/assets/fonts/mabry-pro/MabryPro-Bold.woff") format("woff"),
+    url("../static/assets/fonts/mabry-pro/MabryPro-Regular.woff2")
+      format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+.inline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Use flexbox to align items inline */
+  align-items: center; /* Align items vertically */
+  margin-bottom: 10px;
+  font-family: var(--tg-body-font-family);
+  color: var(--tg-body-font-color);
+}
+
+.inline-list li {
+  margin-right: 10px; /* Spacing between items */
+  position: relative; /* Needed for positioning the ::after pseudo-element */
+}
+
+.inline-list li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -5px; /* Adjust as needed, depending on the thickness of the border */
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px; /* Adjust the height of the line */
+  border-right: 1px solid lightgrey; /* Adjust color and thickness of the line */
+}
+
+.upload-description {
+  font-family: var(--tg-body-font-family);
+  color: var(--tg-body-font-color);
+}
+
 .Blog {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23D6001C" fill-opacity="1" d="M0,160L120,138.7C240,117,480,75,720,74.7C960,75,1200,117,1320,138.7L1440,160L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path></svg>');
   background-repeat: no-repeat;
@@ -86,6 +142,20 @@
   background-color: rgba(255, 255, 255, 0.9);
   padding: 5px 10px;
   border-radius: 10px;
+}
+
+.all-info-div > h2 {
+  font-family: var(--tg-heading-font-family);
+}
+
+.location-name {
+  color: var(--tg-body-font-color);
+  margin: 0px;
+}
+
+.browsing-page-text {
+  color: var(--tg-body-font-color);
+  font-family: var(--tg-body-font-family);
 }
 
 .blog-info > div {
@@ -209,6 +279,7 @@
 
 .browse-country {
   color: rgb(60, 60, 60);
+  font-family: var(--tg-heading-font-family);
 }
 
 .page-number-div {
@@ -352,6 +423,30 @@
 
 .form-control:focus {
   background-color: white !important;
+}
+
+.countries-cat {
+  padding: 40px 30px;
+  font-family: var(--tg-heading-font-family);
+}
+
+.locations-ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.locations-ul > li {
+  font-family: var(--tg-heading-font-family);
+  padding: 11px 18px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  list-style-type: none;
+  color: #3c4142;
+  margin-bottom: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -498,6 +593,19 @@
   background-color: #00873e;
   color: white;
   text-align: center;
+}
+
+.countries-cat {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgb(221, 221, 221);
+  margin-bottom: 20px;
+}
+
+.countries-cat > h3 {
+  margin: 0px;
+  margin-bottom: 20px;
+  font-size: 22px;
 }
 
 @media (max-width: 769px) {
