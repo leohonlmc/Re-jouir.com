@@ -14,6 +14,7 @@ import ChooseUs from "./partial/ChooseUs";
 import LoveXmas from "./partial/LoveXmas";
 import PlaceToGo from "./partial/PlaceToGo";
 import Snow from "./effect/Snow";
+import Hero from "./partial/Hero";
 
 function Home() {
   const navigate = useNavigate();
@@ -129,128 +130,7 @@ function Home() {
 
         <Snow />
 
-        {/* <div style={{ margin: "50px 0px" }}>
-          <h1 className="slogan">Share your precious moment 🎄</h1>
-        </div>
-        <div className="countdown" ref={countdownRef}>
-          {" "}
-          {isChristmas ? (
-            <p>{`December 25 ${new Date().getFullYear()} ⏳`}</p>
-          ) : null}
-          {isChristmas ? (
-            <div className="xmas-div">
-              <h1 className="xmas">Merry Christmas! 🎅🏻</h1>
-            </div>
-          ) : (
-            <>
-              <div className="countdown-time days">
-                <div>{timeLeft.days}:</div>
-                <div>days</div>
-              </div>
-              <div className="countdown-time">
-                <div>{timeLeft.hours}:</div>
-                <div>hr</div>
-              </div>
-              <div className="countdown-time">
-                <div>{timeLeft.minutes}:</div>
-                <div>min</div>
-              </div>
-              <div className="countdown-time second">
-                <div>{timeLeft.seconds}</div>
-                <div>sec</div>
-              </div>
-            </>
-          )}
-        </div>
-
-        <div className="start-btn">
-          <Link to={"/list"}>
-            <button className="btn btn-danger">
-              Let's get started{" "}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                viewBox="0 0 30 30"
-              >
-                <path
-                  fill="currentColor"
-                  d="M17.92 6.62a1 1 0 0 0-.54-.54A1 1 0 0 0 17 6H7a1 1 0 0 0 0 2h7.59l-8.3 8.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0L16 9.41V17a1 1 0 0 0 2 0V7a1 1 0 0 0-.08-.38"
-                />
-              </svg>
-            </button>
-          </Link>
-        </div> */}
-
-        <div className="container">
-          <div className="row align-items-center justify-content-center">
-            <div className="col-lg-6">
-              <div
-                class="banner__content"
-                data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 100;"
-              >
-                <h2 class="title">Share your precious moment</h2>
-                {/* <p class="desc">
-                  A 890 piece custom Nerko's collection is joining the NFT space
-                  on Opensea.
-                </p> */}
-                <div className="countdown" ref={countdownRef}>
-                  {" "}
-                  {isChristmas ? (
-                    <p>{`December 25 ${new Date().getFullYear()} ⏳`}</p>
-                  ) : null}
-                  {isChristmas ? (
-                    <div className="xmas-div">
-                      <h1 className="xmas">Merry Christmas! 🎅🏻</h1>
-                    </div>
-                  ) : (
-                    <>
-                      <div className="countdown-time days">
-                        <div>{timeLeft.days}:</div>
-                        <div>days</div>
-                      </div>
-                      <div className="countdown-time">
-                        <div>{timeLeft.hours}:</div>
-                        <div>hr</div>
-                      </div>
-                      <div className="countdown-time">
-                        <div>{timeLeft.minutes}:</div>
-                        <div>min</div>
-                      </div>
-                      <div className="countdown-time second">
-                        <div>{timeLeft.seconds}</div>
-                        <div>sec</div>
-                      </div>
-                    </>
-                  )}
-                </div>
-                <div className="start-btn">
-                  <Link to={"/list"}>
-                    <button className="btn btn-danger">
-                      Let's get started{" "}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="30"
-                        viewBox="0 0 30 30"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M17.92 6.62a1 1 0 0 0-.54-.54A1 1 0 0 0 17 6H7a1 1 0 0 0 0 2h7.59l-8.3 8.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0L16 9.41V17a1 1 0 0 0 2 0V7a1 1 0 0 0-.08-.38"
-                        />
-                      </svg>
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div class="banner__images-grid-two">
-                <img src="/tree-1.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Hero />
 
         <div className={isSticky ? "sticky" : "hidden"}>
           {isChristmas ? (
