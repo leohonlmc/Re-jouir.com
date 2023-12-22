@@ -689,6 +689,9 @@ strong {
   .countdown {
     text-align: center;
   }
+  .Home.Hero {
+    margin-top: 50px !important;
+  }
 }
 
 @media (max-width: 768px) {
