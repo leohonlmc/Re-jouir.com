@@ -3,6 +3,10 @@
   --christmas-green: #00873e;
   --christmas-red: #d6001c;
   --tg--christmas-yellow: #f8b229;
+  --tg-heading-font-family: "Power Grotesk";
+  --tg-body-font-family: "Mabry Pro";
+  --tg-body-font-color: #7b7583;
+  --tg--christmas-yellow: #f8b229;
 }
 
 .Home {
@@ -407,6 +411,12 @@ strong {
 .share-moment-text,
 .come-back-text {
   color: var(--gray-500);
+}
+
+.section__title .title {
+  font-size: 55px;
+  line-height: 1;
+  margin: 0 0;
 }
 
 @keyframes floatDown {

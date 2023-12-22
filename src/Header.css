@@ -5,6 +5,15 @@
   --tg--christmas-yellow: #f8b229;
 }
 
+@font-face {
+  font-family: "Mabry Pro";
+  src: url("./static/assets/fonts/mabry-pro/MabryPro-Bold.woff") format("woff"),
+    url("./static/assets/fonts/mabry-pro/MabryPro-Regular.woff2")
+      format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
 .nav-item.nav-link.active.blog {
   color: var(--tg--christmas-yellow) !important;
 }
@@ -21,6 +30,7 @@
   font-weight: bold;
   font-size: 19px;
   text-shadow: 1px 1px 1px #555;
+  font-family: var(--tg-body-font-family);
 }
 
 .spin-div {

@@ -42,12 +42,16 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                   src={images[currIndex]}
                   className="card-img-top"
                   style={{
-                    height: "100%",
+                    height: "97%",
                     objectFit: "contain",
                   }}
                   alt="..."
                   onClick={() => setShowPopup(true)}
                 />
+
+                <p style={{ margin: "0px", textAlign: "center" }}>
+                  {props.caption}
+                </p>
               </div>
 
               <div className="all-card-img-section">

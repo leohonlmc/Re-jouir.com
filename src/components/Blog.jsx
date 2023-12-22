@@ -141,6 +141,7 @@ function Blog() {
   const [currImageUrl, setCurrImageUrl] = useState("");
   const [allImageUrl, setAllImageUrl] = useState([]);
   const [currImageIndex, setCurrImageIndex] = useState(0);
+  const [capton, setCapton] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [allUpload, setAllUpload] = useState([]);
   const guest = generateRandomUserId();
@@ -355,6 +356,7 @@ function Blog() {
             image={currImageUrl}
             images={allImageUrl}
             currIndex={currImageIndex}
+            caption={capton}
           />
         </Suspense>
       )}
@@ -542,6 +544,7 @@ function Blog() {
                                       )
                                     );
                                     setCurrImageIndex(currIndices[uploadIndex]);
+                                    setCapton(upload.title);
                                   }}
                                 >
                                   <img

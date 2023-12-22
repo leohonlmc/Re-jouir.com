@@ -1,4 +1,5 @@
-import "../App.css";
+// import "../App.css";
+import "../styles/index.scss";
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
@@ -16,6 +17,7 @@ import { useNavigate, Link } from "react-router-dom";
 import generateRandomUserId from "./functions/generateRandomUserId";
 import Snowfall from "react-snowfall";
 import { Helmet } from "react-helmet";
+import ChoseArea from "./partial/ChoseArea";
 
 function Home() {
   const navigate = useNavigate();
@@ -178,8 +180,6 @@ function Home() {
           )}
         </div>
 
-        {/* <div ref={countdownRef} className="start-point"></div> */}
-
         <div className="start-btn">
           <Link to={"/list"}>
             <button className="btn btn-danger">Get Started</button>
@@ -214,24 +214,19 @@ function Home() {
         <div className="wave-bottom">
           <div className="main">
             <div className="mission-div">
-              {/* <div className="divider-container">
-                <hr className="divider-line" />
-                <h1>
-                  <strong>
-                    <span className="r-logo">🎁 R</span>
-                    <span className="éjouir">éjouir</span>{" "}
-                    <span style={{ color: "grey" }}>·</span>{" "}
-                    <span className="delight">Delight ⭐️</span>
-                  </strong>
-                </h1>
-                <hr className="divider-line" />
-              </div> */}
+              <div className="container">
+                <div className="row justify-content-center">
+                  <div class="col-xl-8 col-lg-10">
+                    <div class="section__title text-center title-mb-80">
+                      <h2 class="title why-rejouir">Why Réjouir?</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-              <p className="why-rejouir">WHY Réjouir?</p>
+              <br />
 
-              <p className="introducing">Introducing our features</p>
-
-              <div className="mission">
+              {/* <div className="mission">
                 <FontAwesomeIcon
                   icon={faImages}
                   size="2xl"
@@ -292,7 +287,9 @@ function Home() {
                 >
                   Don't need an account to share your Christmas moment!
                 </p>
-              </div>
+              </div> */}
+
+              <ChoseArea />
             </div>
 
             <div className="d-flex flex-box" style={{ padding: "20px" }}>
