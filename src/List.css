@@ -99,6 +99,7 @@
 
 .file-input-btn {
   margin: auto;
+  text-align: center;
 }
 
 .file-input-btn > button {
