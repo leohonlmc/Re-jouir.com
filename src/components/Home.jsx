@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImages, faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, Link } from "react-router-dom";
 import generateRandomUserId from "./functions/generateRandomUserId";
-import Snowfall from "react-snowfall";
 import { Helmet } from "react-helmet";
 import ChooseUs from "./partial/ChooseUs";
 import LoveXmas from "./partial/LoveXmas";
@@ -17,7 +16,6 @@ import Snow from "./effect/Snow";
 import Hero from "./partial/Hero";
 
 function Home() {
-  const navigate = useNavigate();
   const [isSticky, setIsSticky] = useState(false);
   const countdownRef = useRef(null);
 
@@ -31,20 +29,6 @@ function Home() {
   const guest = generateRandomUserId();
   const [isChristmas, setIsChristmas] = useState(false);
   const [showCelebration, setShowCelebration] = useState(true);
-
-  const handleScroll = () => {
-    const countdownBottom =
-      countdownRef.current.getBoundingClientRect().bottom + window.scrollY;
-    const scrolledPastCountdown = window.scrollY > countdownBottom;
-    setIsSticky(scrolledPastCountdown);
-  };
-
-  useEffect(() => {
-    // window.addEventListener("scroll", handleScroll);
-    // return () => {
-    //   window.removeEventListener("scroll", handleScroll);
-    // };
-  }, []);
 
   useEffect(() => {
     const today = new Date();

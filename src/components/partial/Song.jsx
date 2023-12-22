@@ -10,7 +10,7 @@ function Song() {
     <div className="Song">
       <div className="section__title text-start">
         <h2 className="title" style={{ textAlign: "center" }}>
-          Songs?
+          <span className="tg-text-gradient">Songs</span> you might like
         </h2>
 
         <p style={{ margin: "0px", textAlign: "center" }}>

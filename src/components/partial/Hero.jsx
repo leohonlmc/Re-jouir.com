@@ -5,8 +5,6 @@ import { useNavigate, Link } from "react-router-dom";
 import generateRandomUserId from "../functions/generateRandomUserId";
 
 function Hero() {
-  const navigate = useNavigate();
-  const [isSticky, setIsSticky] = useState(false);
   const countdownRef = useRef(null);
 
   const [timeLeft, setTimeLeft] = useState({
@@ -71,9 +69,30 @@ function Hero() {
         <div className="row align-items-center justify-content-center">
           <div className="col-lg-6">
             <div
-              class="banner__content"
+              className="banner__content"
               data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 100;"
             >
+              <img
+                src="/assets/img/objects/circle-01.png"
+                width="16"
+                alt="object"
+                style={{ top: "14%", left: "-8%" }}
+              ></img>
+              <img
+                src="/assets/img/objects/circle-03.png"
+                width="24"
+                alt="object"
+                style={{ bottom: "-16%", left: "12%" }}
+              ></img>
+
+              <img
+                src="/assets/img/objects/x.png"
+                width="28"
+                class="shape"
+                alt="object"
+                style={{ top: "-4%", right: "16%" }}
+              />
+
               <h2 class="title">Share your precious moment</h2>
 
               <div className="countdown" ref={countdownRef}>

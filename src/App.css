@@ -623,6 +623,11 @@ strong {
   position: relative;
 }
 
+.banner__content > img {
+  position: absolute;
+  transition: all 0s ease-out 0s;
+}
+
 .banner__content .title {
   font-size: 68px;
   line-height: 1;
