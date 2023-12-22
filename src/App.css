@@ -231,7 +231,7 @@ p {
 
 .days {
   font-size: 35px;
-  background-color: rgba(254, 14, 14, 0.8);
+  background-color: var(--christmas-red);
 }
 
 .countdown-time {
