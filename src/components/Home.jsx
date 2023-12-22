@@ -226,7 +226,7 @@ function Home() {
 
               <br />
 
-              {/* <div className="mission">
+              <div className="mission">
                 <FontAwesomeIcon
                   icon={faImages}
                   size="2xl"
@@ -287,9 +287,9 @@ function Home() {
                 >
                   Don't need an account to share your Christmas moment!
                 </p>
-              </div> */}
+              </div>
 
-              <ChoseArea />
+              {/* <ChoseArea /> */}
             </div>
 
             <div className="d-flex flex-box" style={{ padding: "20px" }}>
