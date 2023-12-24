@@ -10,14 +10,17 @@ function Footer() {
   return (
     <footer className="footer-area section-py-80">
       <div className="row justify-content-center footer">
-        <div className="col-xl-5 col-lg-7 col-md-9 col-sm-11">
+        <div
+          className="col-xl-5 col-lg-7 col-md-9 col-sm-11"
+          style={{ position: "relative" }}
+        >
           <img
             src="/assets/img/objects/circle-01.png"
             alt="object"
             style={{
               position: "absolute",
-              bottom: "-8%",
-              left: "30%",
+              bottom: "-15%",
+              right: "30%",
               width: "24px",
             }}
           ></img>
@@ -26,8 +29,8 @@ function Footer() {
             alt="object"
             style={{
               position: "absolute",
-              bottom: "-8%",
-              left: "30%",
+              bottom: "-70%",
+              left: "20%",
               width: "24px",
             }}
           ></img>
