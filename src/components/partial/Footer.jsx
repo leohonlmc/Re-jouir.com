@@ -1,54 +1,100 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+// faPaperPlane
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, Link } from "react-router-dom";
+import "../../Footer.css";
 
 function Footer() {
-  const navigate = useNavigate();
-
   return (
-    <footer className="container-footer container text-center my-6 p-8 text-gray3">
-      {/* <div className="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-gray5 to-gray4 rounded-full"></div> */}
+    <footer className="footer-area section-py-80">
+      <div className="row justify-content-center footer">
+        <div className="col-xl-5 col-lg-7 col-md-9 col-sm-11">
+          <img
+            src="/assets/img/objects/circle-01.png"
+            alt="object"
+            style={{
+              position: "absolute",
+              bottom: "-8%",
+              left: "30%",
+              width: "24px",
+            }}
+          ></img>
+          <img
+            src="/assets/img/objects/circle-03.png"
+            alt="object"
+            style={{
+              position: "absolute",
+              bottom: "-8%",
+              left: "30%",
+              width: "24px",
+            }}
+          ></img>
+          <div className="footer__info text-center">
+            <div className="footer-logo">
+              <img src="/R.png" alt="" style={{ width: "130px" }} />
+            </div>
+            <p>
+              We make Christmas one step closer around the globe, and share your
+              pre cious moment.
+            </p>
 
-      <div className="py-3">
-        <img src="/R.png" alt="" style={{ width: "130px" }} />
-      </div>
-      <a
-        style={{ color: "white" }}
-        href="https://www.instagram.com/rejouirxmas"
-        alt="ig"
-      >
-        Follow our Instagram page for more content!{" "}
-        <FontAwesomeIcon
-          icon={faInstagram}
-          style={{ color: "#ffbb00" }}
-          size="xl"
-        />{" "}
-      </a>
+            <ul class="list-wrap footer__social">
+              <li>
+                <a
+                  style={{ color: "white" }}
+                  href="https://www.instagram.com/rejouirxmas"
+                  alt="ig"
+                >
+                  <FontAwesomeIcon
+                    icon={faInstagram}
+                    style={{ color: "#a8b6ca" }}
+                    size="2xl"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="mailto:rejouirxmas@gmail.com"
+                >
+                  <FontAwesomeIcon
+                    icon={faPaperPlane}
+                    style={{ color: "#a8b6ca" }}
+                    size="2xl"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-      <div className="py-3 footer-normal">
-        <Link to="/about" style={{ color: "white", margin: "10px" }}>
-          About{" "}
-          <strong>
-            <span className="r-logo">R</span>éjouir
-          </strong>
-        </Link>
-
-        <Link to="/terms" style={{ color: "white", margin: "10px" }}>
-          Terms & Conditions
-        </Link>
-
-        <Link to="/privacy" style={{ color: "white", margin: "10px" }}>
-          Privacy Policy
-        </Link>
-      </div>
-
-      <div
-        className="text-xs"
-        style={{ fontSize: "0.8rem", color: "white", fontWeight: "bold" }}
-      >
-        {`Copyright © ${new Date().getFullYear()}`}{" "}
-        <strong>Rejouirxmas.com</strong>
+        <div class="copyright__wrapper">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="copyright__text">
+                <p>© 2023 Rejouir. All rights reserved.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="copyright__menu">
+                <ul class="list-wrap">
+                  <li>
+                    <Link to="/about">About us</Link>
+                  </li>
+                  <li>
+                    <Link to="/terms">Terms & Conditions</Link>
+                  </li>
+                  <li class="backTop">
+                    <Link to="/privacy">Privacy Policy</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
