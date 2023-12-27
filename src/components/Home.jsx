@@ -116,7 +116,7 @@ function Home() {
 
         <Hero />
 
-        <div className={isSticky ? "sticky" : "hidden"}>
+        {/* <div className={isSticky ? "sticky" : "hidden"}>
           {isChristmas ? (
             <div className="sticky-countdown">
               <strong>🌟 Merry Christmas! 🎅🏻🎄</strong>
@@ -134,7 +134,7 @@ function Home() {
               ⏳
             </div>
           )}
-        </div>
+        </div> */}
       </div>
 
       <div className="wave-main">

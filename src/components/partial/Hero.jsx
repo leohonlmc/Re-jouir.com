@@ -100,9 +100,11 @@ function Hero() {
                 {isChristmas ? (
                   <p>{`December 25 ${new Date().getFullYear()} ⏳`}</p>
                 ) : null}
-                {isChristmas ? (
+                {!isChristmas ? (
                   <div className="xmas-div">
-                    <h1 className="xmas">Merry Christmas! 🎅🏻</h1>
+                    <h1 className="xmas">
+                      Merry <br /> Christmas! 🎅🏻
+                    </h1>
                   </div>
                 ) : (
                   <>

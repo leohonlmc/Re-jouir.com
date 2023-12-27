@@ -40,7 +40,7 @@ function Footer() {
             </div>
             <p>
               We make Christmas one step closer around the globe, and share your
-              pre cious moment.
+              precious moment.
             </p>
 
             <ul class="list-wrap footer__social">
