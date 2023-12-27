@@ -424,6 +424,7 @@
 .countries-cat {
   padding: 40px 30px;
   font-family: var(--tg-heading-font-family);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .locations-ul {
