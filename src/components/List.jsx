@@ -284,9 +284,9 @@ function List() {
             });
             reject(err);
           } else {
-            resolve(encryptedFileName); // Resolve with the encrypted file name
+            resolve(encryptedFileName);
             setUploadingImages(false);
-            setUploadCount((prevCount) => prevCount + 1); // Increment upload count
+            setUploadCount((prevCount) => prevCount + 1);
             setSuccess("yes");
           }
         });
@@ -685,7 +685,7 @@ function List() {
                   style={{ justifyContent: "space-between" }}
                 >
                   <div>
-                    <p>🎅🏻 Our team will review your post very soon! 💨</p>
+                    <p>🎅🏻 Our team will review your post ASAP! 💨</p>
                   </div>
                   <div>
                     <button
