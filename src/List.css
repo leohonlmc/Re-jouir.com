@@ -3,7 +3,6 @@
   width: 100%;
   max-width: 1450px;
   margin: auto;
-  pointer-events: none;
 }
 
 .form__group {
@@ -114,6 +113,8 @@
   background-color: rgb(241, 241, 241);
   border: 0px;
   object-fit: cover;
+  width: 123px;
+  height: 123px;
 }
 
 .form-control-textarea {
@@ -217,14 +218,40 @@
   margin: 0px auto;
 }
 
+.spinner-or-arrow-parent {
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+  text-align: center;
+}
+
 @media screen and (max-width: 1208px) {
   .col-md-4 {
     margin: auto;
+  }
+
+  .img-thumbnail {
+    width: 100px;
+    height: 100px;
   }
 }
 
 @media screen and (max-width: 695px) {
   .hover_text {
     top: -50px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .img-thumbnail {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .img-thumbnail {
+    width: 80px;
+    height: 80px;
   }
 }

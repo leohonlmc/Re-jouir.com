@@ -43,7 +43,7 @@ function Footer() {
               precious moment.
             </p>
 
-            <ul class="list-wrap footer__social">
+            <ul className="list-wrap footer__social">
               <li>
                 <a
                   style={{ color: "white" }}
@@ -74,23 +74,23 @@ function Footer() {
           </div>
         </div>
 
-        <div class="copyright__wrapper">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="copyright__text">
+        <div className="copyright__wrapper">
+          <div className="row">
+            <div className="col-md-6">
+              <div className="copyright__text">
                 <p>© 2023 Rejouir. All rights reserved.</p>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="copyright__menu">
-                <ul class="list-wrap">
+            <div className="col-md-6">
+              <div className="copyright__menu">
+                <ul className="list-wrap">
                   <li>
                     <Link to="/about">About us</Link>
                   </li>
                   <li>
                     <Link to="/terms">Terms & Conditions</Link>
                   </li>
-                  <li class="backTop">
+                  <li className="backTop">
                     <Link to="/privacy">Privacy Policy</Link>
                   </li>
                 </ul>

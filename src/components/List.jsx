@@ -10,8 +10,16 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import AWS from "aws-sdk";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleXmark,
+  faCircleInfo,
+  faCloudArrowUp,
+  faCircleCheck,
+  faSpinner,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 import generateRandomUserId from "./functions/generateRandomUserId";
+import generateRandomString from "./functions/generateRandomString";
 import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet";
 
@@ -42,7 +50,6 @@ function List() {
   const [imageFile, setImageFile] = useState([]);
   const [imageSrcs, setImageSrcs] = useState([]);
 
-  const [uploaded, setUploaded] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const countryList = [
@@ -159,7 +166,12 @@ function List() {
   const [location, setLocation] = useState("");
   const [eventData, setEvent] = useState("");
   const [description, setDescription] = useState("");
-  const form = useRef();
+
+  const [uploading, setUploading] = useState(false);
+  const [uploaded, setUploaded] = useState(false);
+  const [uploadingImages, setUploadingImages] = useState(true);
+  const [uploadCount, setUploadCount] = useState(0);
+  const [success, setSuccess] = useState("no");
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -191,8 +203,8 @@ function List() {
         };
 
         reader.readAsDataURL(file);
+        setUploaded(true);
       });
-      setUploaded(true);
     } else {
       toast.error(
         `You can only upload up to 5 images. You currently have ${imageSrcs.length} uploaded.`
@@ -243,21 +255,10 @@ function List() {
     setDescription(event.target.value);
   };
 
-  function generateRandomString() {
-    const chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@$";
-    let result = "";
-    for (let i = 0; i < 10; i++) {
-      const randomIndex = Math.floor(Math.random() * chars.length);
-      result += chars[randomIndex];
-    }
-    result += localStorage.getItem("id");
-    return result;
-  }
-
   const randomString = generateRandomString();
 
   const handleUpload = async (file) => {
+    setUploadingImages(true);
     return new Promise((resolve, reject) => {
       const encryptedFileName = randomString + file.name;
 
@@ -283,8 +284,10 @@ function List() {
             });
             reject(err);
           } else {
-            toast.success("File uploaded successfully");
             resolve(encryptedFileName); // Resolve with the encrypted file name
+            setUploadingImages(false);
+            setUploadCount((prevCount) => prevCount + 1); // Increment upload count
+            setSuccess("yes");
           }
         });
       } else {
@@ -307,6 +310,9 @@ function List() {
   };
 
   const handleSubmit = async (event) => {
+    setUploading(true);
+    setUploadCount(0); // Reset the upload count before starting
+
     if (!title || !country || !location) {
       toast.error(`Please fill in all required fields.`);
     }
@@ -336,8 +342,11 @@ function List() {
       );
 
       if (data) {
-        toast.success("Pending request sent successfully!");
+        // toast.success("Pending request sent successfully!");
         sendEmail();
+        setTimeout(() => {
+          setUploading(false);
+        }, 3000);
       }
     } catch (ex) {
       console.log(ex);
@@ -354,14 +363,55 @@ function List() {
       </Helmet>
       <ToastContainer />
 
-      {/* <div style={{ width: "95%", margin: "auto", textAlign: "center" }}>
-        <h1 style={{ margin: "0px", textShadow: "1px 1px 1px #555" }}>
-          Upload images
-        </h1>
-        <p style={{ margin: "0px" }}>
-          We need you to light up the Christmas tree 🌟
-        </p>
-      </div> */}
+      {uploading ? (
+        <>
+          <div>
+            <div className="popup">
+              <div
+                style={{
+                  width: "100%",
+                  padding: "24px",
+                  height: "100%",
+                }}
+              >
+                <div className="status">
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faCloudArrowUp}
+                      style={{ color: "#79cee6" }}
+                      size="2xl"
+                      className="upload-icon"
+                    />
+                    <p>{`Uploaded ${uploadCount} images`}</p>
+                  </div>
+                  <div className="spinner-or-arrow-parent">
+                    {uploadingImages === true ? (
+                      <FontAwesomeIcon
+                        icon={faSpinner}
+                        size="lg"
+                        className="loading-spinner"
+                        spin
+                      />
+                    ) : (
+                      <FontAwesomeIcon icon={faArrowRight} />
+                    )}
+                  </div>
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faCircleCheck}
+                      size="2xl"
+                      className={`checkmark ${success}`}
+                    />
+                    <p>Pending requested!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {<div className="overlay"></div>}
+          </div>
+        </>
+      ) : null}
 
       <div>
         <div
@@ -379,10 +429,9 @@ function List() {
           <div className="row" style={{ width: "100%", padding: "0px" }}>
             <div
               className={
-                // uploaded
-                // ?
-                "col-md-5 col-lg-7 col-sm-12"
-                // : "col-md-12 col-lg-12 col-sm-12"
+                uploaded
+                  ? "col-md-5 col-lg-7 col-sm-12"
+                  : "col-md-12 col-lg-12 col-sm-12"
               }
               style={
                 // uploaded
@@ -397,6 +446,7 @@ function List() {
                   marginLeft: { windowWidth } > 1208 ? "0px" : "",
                   backgroundColor: "white",
                 }
+
                 // : { padding: "0px" }
               }
             >
@@ -404,8 +454,14 @@ function List() {
                 className="file-drop-area"
                 style={
                   uploaded
-                    ? { width: "100%", height: "200px" }
-                    : { width: "100%", height: "480px" }
+                    ? {
+                        width: "100%",
+                        height: "50%",
+                      }
+                    : {
+                        width: "100%",
+                        height: "100%",
+                      }
                 }
               >
                 <div className="file-input-btn">
@@ -460,7 +516,6 @@ function List() {
                     key={index}
                     src={src}
                     alt={`Selected ${index}`}
-                    style={{ width: "123px", height: "123px" }}
                     className="img-thumbnail"
                   />
 

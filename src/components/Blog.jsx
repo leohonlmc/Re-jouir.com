@@ -299,7 +299,6 @@ function Blog() {
       );
       if (data) {
         setTopFour(data.topFour);
-        console.log(data.topFour);
       }
     } catch (ex) {
       if (ex.response && ex.response.data && ex.response.data.error) {
