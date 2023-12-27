@@ -4,9 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import Song from "./partial/Song";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faImages, faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate, Link } from "react-router-dom";
 import generateRandomUserId from "./functions/generateRandomUserId";
 import { Helmet } from "react-helmet";
 import ChooseUs from "./partial/ChooseUs";
@@ -14,11 +11,10 @@ import LoveXmas from "./partial/LoveXmas";
 import PlaceToGo from "./partial/PlaceToGo";
 import Snow from "./effect/Snow";
 import Hero from "./partial/Hero";
+import Faq from "./partial/Faq";
+import ShareMoment from "./partial/ShareMoment";
 
 function Home() {
-  const [isSticky, setIsSticky] = useState(false);
-  const countdownRef = useRef(null);
-
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -115,26 +111,6 @@ function Home() {
         <Snow />
 
         <Hero />
-
-        {/* <div className={isSticky ? "sticky" : "hidden"}>
-          {isChristmas ? (
-            <div className="sticky-countdown">
-              <strong>🌟 Merry Christmas! 🎅🏻🎄</strong>
-            </div>
-          ) : (
-            <div className="sticky-countdown">
-              <strong>
-                Counting down to{" "}
-                <span style={{ color: "#fabc02" }}>Christmas</span> 🎅🏻🎄
-              </strong>
-              <br className="next-line" />
-              <span className="countdown-span">{timeLeft.days} days</span>
-              <span className="countdown-span">{timeLeft.hours} hours</span>
-              <span className="countdown-span">{timeLeft.minutes} minutes</span>
-              ⏳
-            </div>
-          )}
-        </div> */}
       </div>
 
       <div className="wave-main">
@@ -162,42 +138,6 @@ function Home() {
               <br />
               <br />
 
-              <div className="d-flex flex-box" style={{ padding: "20px" }}>
-                <div className="feature-img">
-                  <img src="/moment-2.png" alt="" style={{ width: "100%" }} />
-                </div>
-                <div className="feature right">
-                  <div className="feature-child">
-                    <div className="section__title text-start">
-                      <span className="sub-title tg-text-gradient">
-                        Sync and Track
-                      </span>
-                      <h2 className="title">SHARE YOUR MOMENT 🎇</h2>
-                    </div>
-
-                    <p className="share-moment-text">
-                      Share festive moments from around the globe in our
-                      Christmas blog without an account.
-                    </p>
-
-                    <div class="about__facts-list">
-                      <div class="about__icon-box">
-                        <div class="icon">
-                          <FontAwesomeIcon icon={faImages} size="sm" />
-                        </div>
-                        <p>Images, description</p>
-                      </div>
-                      <div class="about__icon-box">
-                        <div class="icon">
-                          <FontAwesomeIcon icon={faMapLocationDot} size="sm" />
-                        </div>
-                        <p>Location, country</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <br />
               <br />
               <PlaceToGo />
@@ -206,7 +146,14 @@ function Home() {
               <Song />
               <br />
               <br />
+              <ShareMoment />
+              <br />
+              <br />
               <LoveXmas />
+              <br />
+              <br />
+              <Faq />
+              <br />
               <br />
             </div>
           </div>
