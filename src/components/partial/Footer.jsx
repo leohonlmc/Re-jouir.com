@@ -85,13 +85,13 @@ function Footer() {
               <div className="copyright__menu">
                 <ul className="list-wrap">
                   <li>
-                    <Link to="/about">About us</Link>
+                    <a href="/#/about">About us</a>
                   </li>
                   <li>
-                    <Link to="/terms">Terms & Conditions</Link>
+                    <a href="/#/terms">Terms & Conditions</a>
                   </li>
                   <li className="backTop">
-                    <Link to="/privacy">Privacy Policy</Link>
+                    <a href="/#/privacy">Privacy Policy</a>
                   </li>
                 </ul>
               </div>

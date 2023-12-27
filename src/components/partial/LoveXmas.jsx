@@ -7,7 +7,7 @@ function LoveXmas() {
     <div className="Home">
       <div className="d-flex flex-box">
         <div className="feature-img">
-          <img src="/christmas-tree.png" alt="" style={{ width: "100%" }} />
+          <img src="/santa-2.png" alt="" style={{ width: "100%" }} />
         </div>
         <div className="feature">
           <div className="feature-child">
