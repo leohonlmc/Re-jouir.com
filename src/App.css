@@ -57,6 +57,7 @@
   left: 0;
   right: 0;
   opacity: 1;
+  pointer-events: none;
 }
 
 .tg-text-gradient {
@@ -659,6 +660,10 @@ strong {
 
 .next-line {
   display: none;
+}
+
+.banner__images-grid-two > img {
+  pointer-events: none;
 }
 
 .col-lg-6 {

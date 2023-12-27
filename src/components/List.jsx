@@ -354,14 +354,14 @@ function List() {
       </Helmet>
       <ToastContainer />
 
-      <div style={{ width: "95%", margin: "auto", textAlign: "center" }}>
+      {/* <div style={{ width: "95%", margin: "auto", textAlign: "center" }}>
         <h1 style={{ margin: "0px", textShadow: "1px 1px 1px #555" }}>
           Upload images
         </h1>
         <p style={{ margin: "0px" }}>
           We need you to light up the Christmas tree 🌟
         </p>
-      </div>
+      </div> */}
 
       <div>
         <div
@@ -379,23 +379,25 @@ function List() {
           <div className="row" style={{ width: "100%", padding: "0px" }}>
             <div
               className={
-                uploaded
-                  ? "col-md-5 col-lg-7 col-sm-12"
-                  : "col-md-12 col-lg-12 col-sm-12"
+                // uploaded
+                // ?
+                "col-md-5 col-lg-7 col-sm-12"
+                // : "col-md-12 col-lg-12 col-sm-12"
               }
               style={
-                uploaded
-                  ? {
-                      width: "453px",
-                      border: "1px solid #f1f1f1",
-                      boxShadow: "0 0 10px rgb(186, 186, 186)",
-                      padding: "24px",
-                      borderRadius: "5px",
-                      marginTop: { windowWidth } > 1208 ? "0px" : "",
-                      marginLeft: { windowWidth } > 1208 ? "0px" : "",
-                      backgroundColor: "white",
-                    }
-                  : { padding: "0px" }
+                // uploaded
+                // ?
+                {
+                  width: "453px",
+                  border: "1px solid #f1f1f1",
+                  boxShadow: "0 0 10px rgb(186, 186, 186)",
+                  padding: "24px",
+                  borderRadius: "5px",
+                  marginTop: { windowWidth } > 1208 ? "0px" : "",
+                  marginLeft: { windowWidth } > 1208 ? "0px" : "",
+                  backgroundColor: "white",
+                }
+                // : { padding: "0px" }
               }
             >
               <div
@@ -490,157 +492,158 @@ function List() {
               <div style={{ padding: "20px" }}></div>
             )}
 
-            {uploaded ? (
-              <div
-                className="col-md-7 col-lg-7 col-sm-12"
-                style={
-                  uploaded
-                    ? {
-                        border: "1px solid #f1f1f1",
-                        boxShadow: "0 0 10px rgb(186, 186, 186)",
-                        padding: "24px",
-                        borderRadius: "5px",
-                        marginLeft: { windowWidth } < 1208 ? "0px" : "10px",
-                        margin: { windowWidth } < 1208 ? "0px" : "auto",
-                        backgroundColor: "white",
-                      }
-                    : { padding: "0px" }
+            {/* {uploaded ? ( */}
+            <div
+              className="col-md-7 col-lg-7 col-sm-12"
+              style={
+                // uploaded
+                // ?
+                {
+                  border: "1px solid #f1f1f1",
+                  boxShadow: "0 0 10px rgb(186, 186, 186)",
+                  padding: "24px",
+                  borderRadius: "5px",
+                  marginLeft: { windowWidth } < 1208 ? "0px" : "10px",
+                  margin: { windowWidth } < 1208 ? "0px" : "auto",
+                  backgroundColor: "white",
                 }
-              >
-                <form onSubmit={handleSubmit}>
-                  <p
-                    style={{
-                      margin: "0px",
-                      textAlign: "right",
-                      paddingRight: "5px",
-                      color: "red",
-                    }}
+                // : { padding: "0px" }
+              }
+            >
+              <form onSubmit={handleSubmit}>
+                <p
+                  style={{
+                    margin: "0px",
+                    textAlign: "right",
+                    paddingRight: "5px",
+                    color: "red",
+                  }}
+                >
+                  *
+                </p>
+                <div className="form__group field">
+                  <input
+                    type="input"
+                    className="form__field"
+                    placeholder="Title"
+                    name="title"
+                    id="title"
+                    required
+                    onChange={handleTitle}
+                    maxLength={50}
+                  />
+                </div>
+
+                <p
+                  style={{
+                    margin: "0px",
+                    textAlign: "right",
+                    paddingRight: "5px",
+                    color: "red",
+                  }}
+                >
+                  *
+                </p>
+
+                <div
+                  className="form__group field "
+                  style={{ position: "relative" }}
+                >
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                    onChange={handleCountryChange}
                   >
-                    *
-                  </p>
-                  <div className="form__group field">
-                    <input
-                      type="input"
-                      className="form__field"
-                      placeholder="Title"
-                      name="title"
-                      id="title"
-                      required
-                      onChange={handleTitle}
-                      maxLength={50}
-                    />
+                    {countryList.map((country, index) => (
+                      <option key={index} value={country}>
+                        {`${country} ${countryEmojiMap[country]}`}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <p
+                  style={{
+                    margin: "0px",
+                    textAlign: "right",
+                    paddingRight: "5px",
+                    color: "red",
+                  }}
+                >
+                  *
+                </p>
+
+                <div className="form__group field ">
+                  <input
+                    type="input"
+                    className="form__field location_field"
+                    placeholder="Location (Disneyland, wonderland, time square...)"
+                    name="location"
+                    id="location"
+                    required
+                    onChange={handleLocationChange}
+                    maxLength={30}
+                  />
+                  <FontAwesomeIcon
+                    icon={faCircleInfo}
+                    style={{ color: "#9192a0" }}
+                    className="location_info"
+                  />
+                  <div className="hover_text">
+                    Please specify the exact location to better assist the user
+                    in planning their trip.
                   </div>
+                </div>
 
+                <div
+                  className="form__group field"
+                  style={{ marginTop: "20px" }}
+                >
+                  <input
+                    type="input"
+                    className="form__field"
+                    placeholder="Event"
+                    name="event"
+                    id="event"
+                    onChange={handleEventChange}
+                    maxLength={50}
+                  />
+                </div>
+
+                <div style={{ marginTop: "20px" }}>
+                  <textarea
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                    maxLength={500}
+                    placeholder="Description (Optional)"
+                    className="form-control-textarea"
+                    onChange={handleDescriptionChange}
+                  ></textarea>
                   <p
-                    style={{
-                      margin: "0px",
-                      textAlign: "right",
-                      paddingRight: "5px",
-                      color: "red",
-                    }}
-                  >
-                    *
-                  </p>
-
-                  <div
-                    className="form__group field "
-                    style={{ position: "relative" }}
-                  >
-                    <select
-                      className="form-select"
-                      aria-label="Default select example"
-                      onChange={handleCountryChange}
+                    style={{ textAlign: "right", margin: "0px" }}
+                  >{`${description.length}/500`}</p>
+                </div>
+                <div
+                  className="list-item-btn d-flex"
+                  style={{ justifyContent: "space-between" }}
+                >
+                  <div>
+                    <p>🎅🏻 Our team will review your post very soon! 💨</p>
+                  </div>
+                  <div>
+                    <button
+                      className="btn btn-success"
+                      style={{ padding: "4px 24px", fontWeight: "bold" }}
                     >
-                      {countryList.map((country, index) => (
-                        <option key={index} value={country}>
-                          {`${country} ${countryEmojiMap[country]}`}
-                        </option>
-                      ))}
-                    </select>
+                      Post!
+                    </button>
                   </div>
-
-                  <p
-                    style={{
-                      margin: "0px",
-                      textAlign: "right",
-                      paddingRight: "5px",
-                      color: "red",
-                    }}
-                  >
-                    *
-                  </p>
-
-                  <div className="form__group field ">
-                    <input
-                      type="input"
-                      className="form__field location_field"
-                      placeholder="Location (Disneyland, wonderland, time square...)"
-                      name="location"
-                      id="location"
-                      required
-                      onChange={handleLocationChange}
-                      maxLength={30}
-                    />
-                    <FontAwesomeIcon
-                      icon={faCircleInfo}
-                      style={{ color: "#9192a0" }}
-                      className="location_info"
-                    />
-                    <div className="hover_text">
-                      Please specify the exact location to better assist the
-                      user in planning their trip.
-                    </div>
-                  </div>
-
-                  <div
-                    className="form__group field"
-                    style={{ marginTop: "20px" }}
-                  >
-                    <input
-                      type="input"
-                      className="form__field"
-                      placeholder="Event"
-                      name="event"
-                      id="event"
-                      onChange={handleEventChange}
-                      maxLength={50}
-                    />
-                  </div>
-
-                  <div style={{ marginTop: "20px" }}>
-                    <textarea
-                      name=""
-                      id=""
-                      cols="30"
-                      rows="10"
-                      maxLength={500}
-                      placeholder="Description (Optional)"
-                      className="form-control-textarea"
-                      onChange={handleDescriptionChange}
-                    ></textarea>
-                    <p
-                      style={{ textAlign: "right", margin: "0px" }}
-                    >{`${description.length}/500`}</p>
-                  </div>
-                  <div
-                    className="list-item-btn d-flex"
-                    style={{ justifyContent: "space-between" }}
-                  >
-                    <div>
-                      <p>🎅🏻 Our team will review your post very soon! 💨</p>
-                    </div>
-                    <div>
-                      <button
-                        className="btn btn-success"
-                        style={{ padding: "4px 24px", fontWeight: "bold" }}
-                      >
-                        Post!
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            ) : null}
+                </div>
+              </form>
+            </div>
+            {/* ) : null} */}
           </div>
         </div>
       </div>
