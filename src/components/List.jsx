@@ -418,7 +418,7 @@ function List() {
           className="container justify-content-center mt-100"
           style={{
             display: "flex",
-            marginTop: "24px",
+            marginTop: "15px",
             height: "100%",
             width: "100%",
             paddingLeft: "10px",
@@ -481,7 +481,7 @@ function List() {
                   </div>
 
                   <button>
-                    Select Photos
+                    Select Images
                     <input
                       type="file"
                       style={{
@@ -498,8 +498,8 @@ function List() {
                       accept="image/*"
                     />
                   </button>
-                  <p style={{ paddingTop: "10px" }}>or drag photos here</p>
-                  <p style={{ color: "darkgray" }}>(Up to 5 photos)</p>
+                  <p style={{ paddingTop: "10px" }}>or drag images here</p>
+                  <p style={{ color: "darkgray" }}>(Up to 5 images)</p>
                 </div>
               </div>
               {imageSrcs.map((src, index) => (
@@ -510,10 +510,10 @@ function List() {
                     marginTop: "10px",
                     position: "relative",
                   }}
-                  key={index}
+                  key={src._id}
                 >
                   <img
-                    key={index}
+                    key={src._id}
                     src={src}
                     alt={`Selected ${index}`}
                     className="img-thumbnail"
@@ -646,7 +646,14 @@ function List() {
                   />
                   <div className="hover_text">
                     Please specify the exact location to better assist the user
-                    in planning their trip.
+                    in planning their trip. e.g. Canada's Wonderland ➡{" "}
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={`https://www.google.com/maps?q=Canada's Wonderland`}
+                    >
+                      Canada's Wonderland
+                    </a>
                   </div>
                 </div>
 
@@ -685,7 +692,7 @@ function List() {
                   style={{ justifyContent: "space-between" }}
                 >
                   <div>
-                    <p>🎅🏻 Our team will review your post ASAP! 💨</p>
+                    <p>🎅🏻 We'll review your request ASAP! 💨</p>
                   </div>
                   <div>
                     <button
@@ -703,8 +710,8 @@ function List() {
         </div>
       </div>
       <br />
-      <br />
-      <Footer />
+      {/* <br /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

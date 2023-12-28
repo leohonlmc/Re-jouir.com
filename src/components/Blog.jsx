@@ -361,16 +361,15 @@ function Blog() {
       )}
 
       <div className="blog-main">
-        {/* <Feedback /> */}
         <div className="filter-div">
           {localStorage.getItem("selectedCountry") === "Global" ? (
-            <h2
+            <h3
               className="browse-réjouir"
               style={{ textAlign: "left", fontWeight: "bold", margin: "0px" }}
             >
               {`Browse around`}{" "}
               <span className="browse-country">{`the Global 🌍`}</span>
-            </h2>
+            </h3>
           ) : (
             <h2
               className="browse-réjouir"
