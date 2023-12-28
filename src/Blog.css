@@ -611,6 +611,16 @@
   top: 0;
 }
 
+.new-post {
+  position: absolute;
+  left: -5px;
+  top: 10px;
+}
+
+.new-post > img {
+  width: 100px;
+}
+
 @media (max-width: 769px) {
   .ml12.aside-cta.flex--item {
     display: none;

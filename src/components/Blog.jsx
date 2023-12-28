@@ -527,6 +527,12 @@ function Blog() {
                           >
                             <div className="row py-3 shadow-5">
                               <div className="col-9 mb-1">
+                                {uploadIndex === 0 &&
+                                localStorage.getItem("currentPage") == 1 ? (
+                                  <div className="new-post">
+                                    <img src="/new.png" alt="" />
+                                  </div>
+                                ) : null}
                                 <div
                                   className="lightbox"
                                   onClick={() => {
@@ -568,6 +574,7 @@ function Blog() {
                                           textAlign: "center",
                                           margin: "0px",
                                           fontSize: "11px",
+                                          color: "white",
                                         }}
                                       >
                                         {index + 1}
