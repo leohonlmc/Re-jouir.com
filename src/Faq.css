@@ -50,7 +50,6 @@
 }
 
 .faq__wrapper .accordion-item:not(:first-child) {
-  padding-top: 20px;
   border-top: 1px solid rgba(131, 131, 131, 0.25) !important;
 }
 
