@@ -515,7 +515,13 @@ function Blog() {
                   <div className="col-lg-9">
                     {allUpload.map((upload, uploadIndex) => (
                       <div
-                        className="d-flex"
+                        // className="d-flex"
+                        className={
+                          uploadIndex === 0 &&
+                          Number(localStorage.getItem("currentPage")) === 1
+                            ? "d-flex new"
+                            : "d-flex"
+                        }
                         style={{ marginBottom: "30px" }}
                         key={upload._id}
                       >
@@ -528,7 +534,8 @@ function Blog() {
                             <div className="row py-3 shadow-5">
                               <div className="col-9 mb-1">
                                 {uploadIndex === 0 &&
-                                localStorage.getItem("currentPage") == 1 ? (
+                                Number(localStorage.getItem("currentPage")) ===
+                                  1 ? (
                                   <div className="new-post">
                                     <img src="/new.png" alt="" />
                                   </div>
@@ -734,7 +741,7 @@ function Blog() {
         <div className="page-number-div">
           {Number(localStorage.getItem("currentPage")) > 1 && (
             <button
-              className="btn btn-primary"
+              className="btn btn-outline-primary"
               onClick={() => handlePageChange("prev")}
             >
               Previous
@@ -745,8 +752,8 @@ function Blog() {
               key={page}
               className={
                 Number(localStorage.getItem("currentPage")) === page + 1
-                  ? "active-1 btn btn-primary"
-                  : "btn btn-primary"
+                  ? "active-1 btn btn-outline-primary"
+                  : "btn btn-outline-primary"
               }
               onClick={() => {
                 localStorage.setItem("currentPage", page + 1);
@@ -758,7 +765,7 @@ function Blog() {
           ))}
           {Number(localStorage.getItem("currentPage")) < totalPages && (
             <button
-              className="btn btn-primary"
+              className="btn btn-outline-primary"
               onClick={() => handlePageChange("next")}
             >
               Next

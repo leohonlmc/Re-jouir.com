@@ -36,7 +36,7 @@ function Footer() {
           ></img>
           <div className="footer__info text-center">
             <div className="footer-logo">
-              <img src="/R.png" alt="" style={{ width: "130px" }} />
+              <img src="/R_white.png" alt="" style={{ width: "250px" }} />
             </div>
             <p>
               We make Christmas one step closer around the globe, and share your

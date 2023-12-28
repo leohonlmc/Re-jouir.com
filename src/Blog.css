@@ -1,8 +1,49 @@
 :root {
+  --gray-500: #6c6c89;
+  --christmas-green: #00873e;
+  --christmas-red: #d6001c;
+  --tg--christmas-yellow: #f8b229;
   --tg-heading-font-family: "Power Grotesk";
   --tg-body-font-family: "Mabry Pro";
   --tg-body-font-color: #7b7583;
   --tg--christmas-yellow: #f8b229;
+  --tg-body-font-family: "Mabry Pro";
+  --tg-heading-font-family: "Power Grotesk";
+  --tg-fa-icon-font-family: "Font Awesome 5 Free";
+  --tg-ui-icon-font-family: "Unicons";
+  --tg-body-font-size: 18px;
+  --tg-body-line-height: 1.5;
+  --tg-heading-line-height: 1.2;
+  --tg-common-color-blue: #0d6efd;
+  --tg-common-color-indigo: #6610f2;
+  --tg-common-color-purple: #741ff5;
+  --tg-common-color-pink: #d63384;
+  --tg-common-color-red: #dc3545;
+  --tg-common-color-orange: #fd7e14;
+  --tg-common-color-yellow: #ffc107;
+  --tg-common-color-green: #198754;
+  --tg-common-color-teal: #20c997;
+  --tg-common-color-cyan: #0dcaf0;
+  --tg-common-color-white: #fff;
+  --tg-common-color-gray: #6c757d;
+  --tg-common-color-black: #0f051d;
+  --tg-body-color: #7b7583;
+  --tg-heading-color: #0f051d;
+  --tg-theme-primary: #741ff5;
+  --tg-theme-secondary: #e348ff;
+  --tg-gradient-1: #00873e;
+  --tg-gradient-2: #f8b229;
+  --tg-border-1: #e5e5e5;
+  --tg-border-2: rgba(131, 131, 131, 0.25);
+  --tg-rgba-1: rgba(255, 255, 255, 0.05);
+  --tg-rgba-2: rgba(255, 255, 255, 0.02);
+  --tg-rgba-3: rgba(255, 255, 255, 0.15);
+  --tg-fw-extra-bold: 800;
+  --tg-fw-bold: 700;
+  --tg-fw-semi-bold: 600;
+  --tg-fw-medium: 500;
+  --tg-fw-regular: 400;
+  --tg-fw-light: 300;
 }
 
 @font-face {
@@ -288,19 +329,19 @@
 
 .page-number-div > button {
   margin: 3px;
-  background-color: #00873e;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) !important;
   border: 0px;
+  color: black;
 }
 
 .page-number-div > button:hover {
-  background-color: #007939;
+  background-color: var(--christmas-green);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) !important;
 }
 
 .active-1 {
-  background-color: #d6001c !important;
-  color: white;
+  background-color: var(--christmas-green) !important;
+  color: white !important;
 }
 
 .search-form {
@@ -444,6 +485,17 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  transition: 0.5s;
+}
+
+.locations-ul li:hover {
+  background-color: var(--christmas-green);
+  transform: scale(1.1);
+}
+
+.locations-ul li:hover .location-name,
+.locations-ul li:hover .locations-li {
+  color: white;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -619,6 +671,10 @@
 
 .new-post > img {
   width: 100px;
+}
+
+.d-flex.new {
+  transform: scale(1.03);
 }
 
 @media (max-width: 769px) {
