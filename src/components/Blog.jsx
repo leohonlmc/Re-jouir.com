@@ -629,7 +629,7 @@ function Blog() {
                                       {upload.location}
                                     </a>
                                   </li>
-                                  <li>{formatDateString(upload.created)}</li>
+                                  <li>🗓️ {formatDateString(upload.created)}</li>
                                 </ul>
                               </div>
 
