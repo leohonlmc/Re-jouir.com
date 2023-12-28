@@ -315,7 +315,7 @@ function Blog() {
         <Header title="Blog | Réjouir" />
       </div>
 
-      {showPopup ? null : (
+      {/* {showPopup ? null : (
         <>
           {Number(localStorage.getItem("currentPage")) > 1 && (
             <div
@@ -340,7 +340,7 @@ function Blog() {
             </div>
           )}
         </>
-      )}
+      )} */}
 
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com/blog" />
