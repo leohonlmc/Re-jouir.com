@@ -150,8 +150,6 @@ function Home() {
               <br />
               <br />
               <LoveXmas />
-              <br />
-              <br />
               <Faq />
               <br />
               <br />

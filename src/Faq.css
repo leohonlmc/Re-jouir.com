@@ -1,7 +1,33 @@
+.Faq {
+  position: relative;
+  padding: 48px 0px;
+}
+
+.Faq::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../public/assets/img/bg/collection_cta.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.Faq .container {
+  position: relative;
+  z-index: 1;
+}
+
 .faq__wrapper {
   padding: 48px;
   border-radius: 24px;
-  box-shadow: 0 3px 8px -1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 8px 5px rgba(0, 0, 0, 0.08);
+  background-color: white !important;
 }
 
 .accordion-item,
