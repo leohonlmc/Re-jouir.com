@@ -565,6 +565,9 @@ function List() {
                 // : { padding: "0px" }
               }
             >
+              <div className="xmas-hat-div">
+                <img src="/xmas-hat.png" alt="" />
+              </div>
               <form onSubmit={handleSubmit}>
                 <p
                   style={{
