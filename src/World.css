@@ -1,0 +1,26 @@
+.scene-container,
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 10px !important;
+}
+
+.World {
+  position: relative;
+  transition: 0.4s;
+  margin-bottom: 30px;
+}
+
+.world-text {
+  position: absolute;
+  color: white;
+  top: 20px;
+  left: 20px;
+}
+
+.world-text h2 {
+  margin: 0px !important;
+}
+
+@media screen and (max-width: 991px) {
+}
