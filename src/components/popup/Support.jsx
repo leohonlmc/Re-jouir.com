@@ -23,7 +23,7 @@ function Support() {
         />
       </div>
 
-      <h3>We invites you to bring the Christmas tree to life 🎄✨</h3>
+      <h3>Bring the Christmas tree to life 🎄✨</h3>
       <p style={{ color: "white" }}>
         We are waiting the unique sparkle of every one of you to bring festive
         glory.

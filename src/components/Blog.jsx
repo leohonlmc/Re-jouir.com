@@ -367,19 +367,19 @@ function Blog() {
               className="browse-réjouir"
               style={{ textAlign: "left", fontWeight: "bold", margin: "0px" }}
             >
-              {`Browse around`}{" "}
-              <span className="browse-country">{`the Global 🌍`}</span>
+              {`Explore`}{" "}
+              <span className="browse-country">{`the World 🌍`}</span>
             </h3>
           ) : (
-            <h2
+            <h3
               className="browse-réjouir"
               style={{ textAlign: "left", fontWeight: "bold" }}
             >
-              {`Browse around ${localStorage.getItem("selectedCountry")}`}{" "}
+              {`Explore ${localStorage.getItem("selectedCountry")}`}{" "}
               <span>
                 {countryEmojiMap[localStorage.getItem("selectedCountry")]}
               </span>
-            </h2>
+            </h3>
           )}
 
           <div className="sort-container">
@@ -423,7 +423,7 @@ function Blog() {
                             <div className="col-lg-7 col-md-6 col-sm-6 p-0">
                               <input
                                 type="text"
-                                placeholder="Search..."
+                                placeholder="Search any keywords..."
                                 className="form-control"
                                 id="search"
                                 name="search"

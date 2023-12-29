@@ -24,6 +24,20 @@ function ChooseUs() {
   return (
     <div className="Home">
       <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-xl-8 col-lg-10">
+            <br />
+            <div className="section__title text-center title-mb-80">
+              <h2 className="title why-rejouir">
+                Why <span className="tg-text-gradient">choose Réjouir?</span>
+              </h2>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
+      <br />
+      <div className="container">
         <div className="position-relative">
           <div className="row justify-content-center">
             {data.map((item, index) => (

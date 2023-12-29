@@ -14,8 +14,10 @@ function ShareMoment() {
         <div className="feature right">
           <div className="feature-child">
             <div className="section__title text-start">
-              <span className="sub-title tg-text-gradient">Sync and Track</span>
-              <h2 className="title">SHARE YOUR MOMENT 🎇</h2>
+              <span className="sub-title tg-text-gradient">
+                Capture and Share
+              </span>
+              <h2 className="title">SHARE YOUR MOMENT</h2>
             </div>
 
             <p className="share-moment-text">

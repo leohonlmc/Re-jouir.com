@@ -13,6 +13,8 @@ import Snow from "./effect/Snow";
 import Hero from "./partial/Hero";
 import Faq from "./partial/Faq";
 import ShareMoment from "./partial/ShareMoment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   const [timeLeft, setTimeLeft] = useState({
@@ -77,27 +79,6 @@ function Home() {
         <link rel="canonical" href="https://www.rejouirxmas.com" />
       </Helmet>
 
-      {isChristmas && showCelebration && (
-        <div className="celebration-overlay">
-          {Array(200)
-            .fill()
-            .map((_, i) => (
-              <span
-                key={i}
-                className="confetti"
-                role="img"
-                aria-label="Party popper"
-                style={{
-                  left: `${Math.random() * 100}vw`,
-                  animationDelay: `${Math.random() * 5}s`,
-                }}
-              >
-                🎉
-              </span>
-            ))}
-        </div>
-      )}
-
       <div className="header-section banner__background-wrap">
         <div class="background"></div>
         {timeLeft.days && timeLeft.days !== 0 ? (
@@ -107,37 +88,16 @@ function Home() {
         ) : (
           <Header title={`Merry Christmas! 🌟 | Réjouir`} />
         )}
-
         <Snow />
-
         <Hero />
       </div>
-
       <div className="wave-main">
         <div className="wave-bottom">
           <div className="main">
             <div className="mission-div">
-              <div className="container">
-                <div className="row justify-content-center">
-                  <div className="col-xl-8 col-lg-10">
-                    <br />
-                    <div className="section__title text-center title-mb-80">
-                      <h2 className="title why-rejouir">
-                        Why{" "}
-                        <span className="tg-text-gradient">
-                          choose Réjouir?
-                        </span>
-                      </h2>
-                    </div>
-                    <br />
-                  </div>
-                </div>
-              </div>
-              <br />
               <ChooseUs />
               <br />
               <br />
-
               <br />
               <br />
               <PlaceToGo />

@@ -315,7 +315,6 @@
 }
 
 .browse-country {
-  color: rgb(60, 60, 60);
   font-family: var(--tg-heading-font-family);
 }
 
@@ -466,6 +465,7 @@
   padding: 40px 30px;
   font-family: var(--tg-heading-font-family);
   background-color: rgba(255, 255, 255, 0.3);
+  z-index: 100;
 }
 
 .locations-ul {
@@ -675,6 +675,8 @@
 
 .d-flex.new {
   transform: scale(1.03);
+  box-shadow: 1px 1px 20px 0px var(--tg--christmas-yellow);
+  border-radius: 10px;
 }
 
 @media (max-width: 769px) {
