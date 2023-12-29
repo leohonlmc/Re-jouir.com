@@ -17,6 +17,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import NoResult from "./partial/NoResult";
 import World from "./effect/World";
+import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 const ViewIcon = React.lazy(() => import("./popup/ViewIcon"));
@@ -152,6 +153,15 @@ function Blog() {
 
   const POSTS_PER_PAGE = 8;
   const [totalPages, setTotalPages] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    if (window.pageYOffset > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
 
   useEffect(() => {
     if (localStorage.getItem("guest") === null) {
@@ -187,8 +197,16 @@ function Blog() {
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const fetchCurrent = () => {
     const savedFilterValue = localStorage.getItem("selectedFilter");
@@ -712,6 +730,18 @@ function Blog() {
             )}
           </>
         )}
+
+        <div
+          onClick={scrollToTop}
+          style={{ textAlign: "center", margin: "20px 0px" }}
+        >
+          <FontAwesomeIcon
+            className="back-to-top"
+            icon={faCircleChevronUp}
+            size="2xl"
+          />
+          <p>BACK TO TOP</p>
+        </div>
 
         <div className="page-number-div">
           {Number(localStorage.getItem("currentPage")) > 1 && (

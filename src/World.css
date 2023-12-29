@@ -27,3 +27,9 @@ canvas {
 .world-text h2 {
   margin: 0px !important;
 }
+
+@media screen and (max-width: 991px) {
+  .World {
+    display: none;
+  }
+}

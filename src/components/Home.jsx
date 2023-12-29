@@ -27,6 +27,15 @@ function Home() {
   const guest = generateRandomUserId();
   const [isChristmas, setIsChristmas] = useState(false);
   const [showCelebration, setShowCelebration] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    if (window.pageYOffset > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
 
   useEffect(() => {
     const today = new Date();
@@ -51,8 +60,11 @@ function Home() {
       localStorage.setItem("guest", guest);
     }
 
+    window.addEventListener("scroll", toggleVisibility);
+
     return () => {
       clearInterval(intervalId);
+      window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
 
@@ -72,6 +84,13 @@ function Home() {
 
     setTimeLeft({ days, hours, minutes, seconds });
   }
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="Home">
@@ -113,6 +132,15 @@ function Home() {
               <Faq />
               <br />
               <br />
+
+              <div onClick={scrollToTop}>
+                <FontAwesomeIcon
+                  className="back-to-top"
+                  icon={faCircleChevronUp}
+                  size="2xl"
+                />
+                <p>BACK TO TOP</p>
+              </div>
             </div>
           </div>
           <Footer />
