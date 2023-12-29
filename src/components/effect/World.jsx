@@ -52,7 +52,7 @@ const World = () => {
       />
       <div className="world-text">
         <h3>
-          Sending <br /> Christmas monment <br /> to the world.
+          Sending <br /> Christmas monment <br /> to the world. 🦌🎅🏻
         </h3>
       </div>
     </div>
