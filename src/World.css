@@ -1,8 +1,14 @@
 .scene-container,
+.scene-container > div,
 canvas {
   width: 100% !important;
   height: 100% !important;
   border-radius: 10px !important;
+}
+
+.scene-tooltip {
+  left: 0 !important;
+  top: 0 !important;
 }
 
 .World {
@@ -20,7 +26,4 @@ canvas {
 
 .world-text h2 {
   margin: 0px !important;
-}
-
-@media screen and (max-width: 991px) {
 }
