@@ -16,7 +16,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
   };
 
   return (
-    <div>
+    <div className="popupwindow">
       {isPopupVisible && (
         <div className="popup">
           <div
@@ -101,20 +101,21 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
             align-items: center;
             justify-content: center;
             position: fixed;
-            top: 50%;
-            left: 50%;
+            top: 0%;
+            left: 0%;
             transform: translate(-50%, -50%);
             background-color: rgba(255, 255, 255, 0.9);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             z-index: 9999;
             width: 100%;
             height: 100%;
+            animation: popupAnimation 0.2s ease-in-out forwards;
           }
 
           .button-container {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px; /* Adjust as needed */
+            margin-top: 20px; 
           }
 
           .popup h2 {
@@ -146,6 +147,16 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
             z-index: 9998;
           }
 
+          @keyframes popupAnimation {
+            from {
+              opacity: 0;
+              transform: scale(0.9);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
         `}
       </style>
     </div>

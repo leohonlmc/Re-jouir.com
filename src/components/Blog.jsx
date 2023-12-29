@@ -4,19 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHeart,
-  faChevronLeft,
-  faChevronRight,
-  faBookmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import formatDateString from "./functions/formatDateString";
 import generateRandomUserId from "./functions/generateRandomUserId";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Loading from "./partial/Loading";
-import Feedback from "./partial/Feedback";
 import Support from "./popup/Support";
 import { Helmet } from "react-helmet";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -314,52 +308,23 @@ function Blog() {
       <div className="blog-section">
         <Header title="Blog | Réjouir" />
       </div>
-
-      {/* {showPopup ? null : (
-        <>
-          {Number(localStorage.getItem("currentPage")) > 1 && (
-            <div
-              className="previous-page"
-              onClick={() => handlePageChange("prev")}
-            >
-              <FontAwesomeIcon
-                icon={faChevronLeft}
-                style={{ color: "white" }}
-                className="arrow"
-              />
-            </div>
-          )}
-
-          {Number(localStorage.getItem("currentPage")) < totalPages && (
-            <div className="next-page" onClick={() => handlePageChange("next")}>
-              <FontAwesomeIcon
-                icon={faChevronRight}
-                style={{ color: "white" }}
-                className="arrow"
-              />
-            </div>
-          )}
-        </>
-      )} */}
-
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com/blog" />
       </Helmet>
-
       <ToastContainer position="top-center" autoClose={1500} />
-
       {showPopup && (
-        <Suspense fallback={<div>Loading...</div>}>
-          <ViewIcon
-            setShowPopup={setShowPopup}
-            image={currImageUrl}
-            images={allImageUrl}
-            currIndex={currImageIndex}
-            caption={capton}
-          />
-        </Suspense>
+        <>
+          <Suspense fallback={<div>Loading...</div>}>
+            <ViewIcon
+              setShowPopup={setShowPopup}
+              image={currImageUrl}
+              images={allImageUrl}
+              currIndex={currImageIndex}
+              caption={capton}
+            />
+          </Suspense>
+        </>
       )}
-
       <div className="blog-main">
         <div className="filter-div">
           {localStorage.getItem("selectedCountry") === "Global" ? (
@@ -773,7 +738,6 @@ function Blog() {
           )}
         </div>
       </div>
-
       <Footer />
     </div>
   );
