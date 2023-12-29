@@ -125,6 +125,7 @@ p {
 
 .choose__item:hover {
   transform: scale(1.07);
+  background-color: white;
 }
 
 .col-xl-3.col-lg-4.col-sm-6.a1,
