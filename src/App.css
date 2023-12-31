@@ -676,9 +676,12 @@ strong {
   padding: 0px !important;
 }
 
+.back-to-top-div {
+  cursor: pointer;
+}
+
 .back-to-top {
   color: var(--christmas-green);
-  cursor: pointer;
   margin-bottom: 10px;
 }
 

@@ -133,7 +133,7 @@ function Home() {
               <br />
               <br />
 
-              <div onClick={scrollToTop}>
+              <div className="back-to-top-div" onClick={scrollToTop}>
                 <FontAwesomeIcon
                   className="back-to-top"
                   icon={faCircleChevronUp}

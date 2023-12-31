@@ -735,6 +735,7 @@ function Blog() {
         <div
           onClick={scrollToTop}
           style={{ textAlign: "center", margin: "20px 0px" }}
+          className="back-to-top-div"
         >
           <FontAwesomeIcon
             className="back-to-top"
