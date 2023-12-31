@@ -553,16 +553,37 @@
 }
 
 .Support {
-  padding: 20px;
+  position: relative;
+  padding: 30px;
   margin-bottom: 30px;
-  border-radius: 10px;
-  background-color: #00873e;
-  color: white;
+  border-radius: 40px;
+  z-index: 1;
 }
 
-.Support > h3 {
+.Support::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(-70deg, #fa7c30 30%, rgba(0, 0, 0, 0) 30%),
+    url("https://platthillnursery.com/wp-content/uploads/2020/11/platt-hill-artificial-vs-fresh-christmas-trees-ornament-up-close.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px);
+  z-index: -1;
+  border-radius: 40px;
+}
+
+.Support * {
+  position: relative;
+  z-index: 2;
+}
+
+.Support > h2 {
   color: var(--tg--christmas-yellow);
-  font-weight: bold;
+  text-shadow: 2px 2px var(--christmas-red);
 }
 
 .previous-page {

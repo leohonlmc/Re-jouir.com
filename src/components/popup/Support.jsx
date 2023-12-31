@@ -23,11 +23,13 @@ function Support() {
         />
       </div>
 
-      <h3>Bring the Christmas tree to life 🎄✨</h3>
-      <p style={{ color: "white" }}>
+      <h2>
+        Bring <br /> the Christmas tree to life 🎄✨
+      </h2>
+      {/* <p style={{ color: "white" }}>
         We are waiting the unique sparkle of every one of you to bring festive
-        glory.
-      </p>
+        glory!
+      </p> */}
 
       <button className="btn btn-danger" onClick={() => navigate("/list")}>
         Light it up! 🌟

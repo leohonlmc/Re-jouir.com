@@ -499,6 +499,7 @@ function Blog() {
                   <div className="col-lg-8">
                     {allUpload.map((upload, uploadIndex) => (
                       <>
+                        {uploadIndex === 4 ? <Support /> : null}
                         <div
                           className={
                             uploadIndex === 0 &&
