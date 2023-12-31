@@ -577,7 +577,7 @@
   background-position: center;
   filter: blur(1px);
   z-index: -1;
-  border-radius: 40px;
+  border-radius: 10px;
 }
 
 .Support * {
