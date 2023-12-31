@@ -567,7 +567,11 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(-70deg, #fa7c30 30%, rgba(0, 0, 0, 0) 30%),
+  background: linear-gradient(
+      -80deg,
+      var(--tg--christmas-yellow) 20%,
+      rgba(0, 0, 0, 0) 20%
+    ),
     url("https://platthillnursery.com/wp-content/uploads/2020/11/platt-hill-artificial-vs-fresh-christmas-trees-ornament-up-close.jpg");
   background-size: cover;
   background-position: center;
