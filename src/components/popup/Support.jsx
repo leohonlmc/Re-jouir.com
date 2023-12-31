@@ -31,9 +31,9 @@ function Support() {
         glory!
       </p> */}
 
-      <button className="btn btn-danger" onClick={() => navigate("/list")}>
+      {/* <button className="btn btn-danger" onClick={() => navigate("/list")}>
         Light it up! 🌟
-      </button>
+      </button> */}
     </div>
   );
 }
