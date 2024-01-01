@@ -365,51 +365,55 @@ function List() {
 
       {uploading ? (
         <>
-          <div>
-            <div className="popup">
-              <div
-                style={{
-                  width: "100%",
-                  padding: "24px",
-                  height: "100%",
-                }}
-              >
-                <div className="status">
-                  <div>
+          <div
+            className="popup"
+            style={{
+              borderRadius: "10px",
+            }}
+          >
+            <div
+              style={{
+                width: "100%",
+                padding: "24px",
+                height: "100%",
+                borderRadius: "10px",
+              }}
+            >
+              <div className="status">
+                <div>
+                  <FontAwesomeIcon
+                    icon={faCloudArrowUp}
+                    style={{ color: "#79cee6" }}
+                    size="2xl"
+                    className="upload-icon"
+                  />
+                  <p>{`Uploaded ${uploadCount} images`}</p>
+                </div>
+                <div className="spinner-or-arrow-parent">
+                  {uploadingImages === true ? (
                     <FontAwesomeIcon
-                      icon={faCloudArrowUp}
-                      style={{ color: "#79cee6" }}
-                      size="2xl"
-                      className="upload-icon"
+                      icon={faSpinner}
+                      size="lg"
+                      className="loading-spinner"
+                      spin
                     />
-                    <p>{`Uploaded ${uploadCount} images`}</p>
-                  </div>
-                  <div className="spinner-or-arrow-parent">
-                    {uploadingImages === true ? (
-                      <FontAwesomeIcon
-                        icon={faSpinner}
-                        size="lg"
-                        className="loading-spinner"
-                        spin
-                      />
-                    ) : (
-                      <FontAwesomeIcon icon={faArrowRight} />
-                    )}
-                  </div>
-                  <div>
-                    <FontAwesomeIcon
-                      icon={faCircleCheck}
-                      size="2xl"
-                      className={`checkmark ${success}`}
-                    />
-                    <p>Pending requested!</p>
-                  </div>
+                  ) : (
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  )}
+                </div>
+                <div>
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    size="2xl"
+                    className={`checkmark ${success}`}
+                  />
+                  <p>Pending requested!</p>
                 </div>
               </div>
             </div>
-
-            {<div className="overlay"></div>}
           </div>
+
+          {<div className="overlay"></div>}
         </>
       ) : null}
 

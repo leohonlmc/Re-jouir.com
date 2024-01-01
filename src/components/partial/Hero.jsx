@@ -104,7 +104,7 @@ function Hero() {
                   <div className="xmas-div">
                     <h1 className="xmas">
                       {/* Merry <br /> Christmas! 🎅🏻 */}
-                      Happy <br /> New Year! 🎉
+                      Happy <br /> New Year 2023! 🎉
                     </h1>
                   </div>
                 ) : (
