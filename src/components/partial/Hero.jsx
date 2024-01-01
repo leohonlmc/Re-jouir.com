@@ -103,7 +103,8 @@ function Hero() {
                 {!isChristmas ? (
                   <div className="xmas-div">
                     <h1 className="xmas">
-                      Merry <br /> Christmas! 🎅🏻
+                      {/* Merry <br /> Christmas! 🎅🏻 */}
+                      Happy <br /> New Year! 🎉
                     </h1>
                   </div>
                 ) : (
