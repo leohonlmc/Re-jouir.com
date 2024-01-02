@@ -477,7 +477,7 @@ function Blog() {
           </div>
         </div>
 
-        <div className="divider-container" style={{ margin: "15px 0px" }}>
+        <div className="divider-container">
           <hr className="divider-line -black-line" />
           <h5 className="browsing-page-text">
             <span>{`Browsing page: ${localStorage.getItem(
@@ -486,6 +486,8 @@ function Blog() {
           </h5>
           <hr className="divider-line -black-line" />
         </div>
+
+        <br />
 
         {loading ? (
           <Loading />
