@@ -125,7 +125,7 @@ p {
 
 .choose__item:hover {
   transform: scale(1.07);
-  background-color: white;
+  background-color: var(--tg-common-color-white);
 }
 
 .col-xl-3.col-lg-4.col-sm-6.a1,
@@ -167,7 +167,7 @@ p {
   right: 0;
   padding: 20px 10px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
-  color: white;
+  color: var(--tg-common-color-white);
   opacity: 1;
   visibility: visible;
   transition: all 0.5s ease;
@@ -200,7 +200,7 @@ p {
 .introducing {
   font-weight: bold;
   font-size: 25px;
-  color: white;
+  color: var(--tg-common-color-white);
   margin: 20px 0px;
 }
 
@@ -221,7 +221,7 @@ p {
 }
 
 .countdown-time.days {
-  color: white;
+  color: var(--tg-common-color-white);
 }
 
 .slogan {
@@ -282,7 +282,7 @@ p {
 }
 
 .why-rejouir {
-  color: white;
+  color: var(--tg-common-color-white);
   font-weight: bold;
 }
 
@@ -375,7 +375,7 @@ strong {
 }
 
 .info {
-  color: white;
+  color: var(--tg-common-color-white);
   margin: 0px 10px;
 }
 
@@ -388,7 +388,7 @@ strong {
 }
 
 .éjouir {
-  color: white;
+  color: var(--tg-common-color-white);
 }
 
 .delight {
@@ -519,8 +519,8 @@ strong {
 .fr,
 .uk {
   position: relative;
-  color: white;
-  overflow: hidden; /* Ensure overflow content doesn't break the container bounds */
+  color: var(--tg-common-color-white);
+  overflow: hidden;
 }
 
 .ny::before {

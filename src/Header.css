@@ -3,6 +3,7 @@
   --tg-body-font-family: "Mabry Pro";
   --tg-body-font-color: #7b7583;
   --tg--christmas-yellow: #f8b229;
+  --tag-white-color: white;
 }
 
 .Header {
@@ -31,7 +32,7 @@
 
 .navbar.navbar-expand-lg.navbar-light.bg-light.white {
   padding: 1% 2%;
-  background-color: white !important;
+  background-color: var(--tag-white-color) !important;
   box-shadow: 0 10px 15px rgba(25, 25, 25, 0.05) !important;
   animation-name: fadeInDown;
   animation-duration: 500ms;
@@ -184,15 +185,5 @@
 @media screen and (max-width: 991px) {
   .props {
     display: none;
-  }
-}
-
-@media screen and (max-width: 826px) {
-  .images-section {
-    width: 80px !important;
-    padding: 10px;
-  }
-  .all-card-img-sub-section {
-    height: 100%;
   }
 }

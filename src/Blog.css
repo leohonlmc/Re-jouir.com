@@ -203,7 +203,7 @@
 .row.py-3.shadow-5 {
   padding: 0px 0px 0px 0px !important;
   margin: 0px;
-  background-color: white;
+  background-color: var(--tg-common-color-white);
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) !important;
 }
@@ -310,7 +310,7 @@
 }
 
 .browse-réjouir {
-  color: white;
+  color: var(--tg-common-color-white);
   text-shadow: 1px 1px 1px #555;
 }
 
@@ -341,7 +341,7 @@
 
 .active-1 {
   background-color: var(--christmas-green) !important;
-  color: white !important;
+  color: var(--tg-common-color-white) !important;
 }
 
 .search-form {
@@ -452,14 +452,14 @@
 }
 
 .form-control {
-  background-color: white !important;
+  background-color: var(--tg-common-color-white) !important;
   transition: 0.5s;
   width: 98% !important;
   margin: auto;
 }
 
 .form-control:focus {
-  background-color: white !important;
+  background-color: var(--tg-common-color-white) !important;
 }
 
 .countries-cat {
@@ -496,7 +496,7 @@
 
 .locations-ul li:hover .location-name,
 .locations-ul li:hover .locations-li {
-  color: white;
+  color: var(--tg-common-color-white);
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -637,7 +637,7 @@
 .next-page:hover,
 .previous-page:hover {
   background-color: #00873e;
-  color: white;
+  color: var(--tg-common-color-white);
   width: 100px;
 }
 
@@ -647,7 +647,7 @@
 }
 
 .reset-btn {
-  background-color: white;
+  background-color: var(--tg-common-color-white);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) !important;
   width: 92% !important;
   margin: auto !important;
@@ -666,7 +666,7 @@
   margin-bottom: 10px;
   border-radius: 10px;
   background-color: #00873e;
-  color: white;
+  color: var(--tg-common-color-white);
   text-align: center;
 }
 
@@ -681,12 +681,6 @@
   margin: 0px;
   margin-bottom: 20px;
   font-size: 22px;
-}
-
-.sticky-div {
-  /* position: -webkit-sticky; */
-  /* position: sticky; */
-  /* top: 0; */
 }
 
 .new-post {
