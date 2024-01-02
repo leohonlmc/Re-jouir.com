@@ -354,7 +354,7 @@ function List() {
   };
 
   return (
-    <div className="List">
+    <div className="List" style={{ paddingTop: "100px" }}>
       <div className="list-header-section">
         <Header showSearchBar={false} title={`Upload | Réjouir`} />
       </div>

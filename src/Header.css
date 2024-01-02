@@ -29,6 +29,32 @@
   box-shadow: none !important;
 }
 
+.navbar.navbar-expand-lg.navbar-light.bg-light.white {
+  padding: 1% 2%;
+  background-color: white !important;
+  box-shadow: 0 10px 15px rgba(25, 25, 25, 0.05) !important;
+  animation-name: fadeInDown;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  border: 0px !important;
+  z-index: 99;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .nav-item.nav-link {
   color: black !important;
   font-weight: bold;

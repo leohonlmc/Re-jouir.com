@@ -9,6 +9,23 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 function Header(props) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  console.log(scrolled);
+
   return (
     <div className="Header">
       <HelmetProvider>
@@ -17,7 +34,11 @@ function Header(props) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Helmet>
       </HelmetProvider>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        className={`navbar navbar-expand-lg fixed-top navbar-light bg-light ${
+          scrolled ? "white" : ""
+        }`}
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             <img
@@ -64,10 +85,10 @@ function Header(props) {
             </ul>
           </div>
         </div>
+        <div className="props">
+          <img src="/props.png" alt="" />
+        </div>
       </nav>
-      <div className="props">
-        <img src="/props.png" alt="" />
-      </div>
     </div>
   );
 }

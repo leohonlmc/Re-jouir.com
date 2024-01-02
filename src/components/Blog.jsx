@@ -323,7 +323,7 @@ function Blog() {
   };
 
   return (
-    <div className="Blog">
+    <div className="Blog" style={{ paddingTop: "100px" }}>
       <div className="blog-section">
         <Header title="Blog | Réjouir" />
       </div>

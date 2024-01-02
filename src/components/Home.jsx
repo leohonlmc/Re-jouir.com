@@ -93,7 +93,7 @@ function Home() {
   };
 
   return (
-    <div className="Home">
+    <div className="Home" style={{ paddingTop: "100px" }}>
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com" />
       </Helmet>
