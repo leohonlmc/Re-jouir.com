@@ -57,6 +57,7 @@ function Header(props) {
             aria-controls="navbarNavDropdown"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={() => setScrolled(true)}
           >
             <FontAwesomeIcon icon={faBars} />
           </button>
