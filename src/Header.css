@@ -5,6 +5,10 @@
   --tg--christmas-yellow: #f8b229;
 }
 
+.Header {
+  position: relative;
+}
+
 @font-face {
   font-family: "Mabry Pro";
   src: url("../static/assets/fonts/mabry-pro/MabryPro-Bold.woff") format("woff"),
@@ -139,6 +143,22 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9998;
+}
+
+.props {
+  position: absolute;
+  right: 50px;
+  top: 0px;
+}
+
+.props > img {
+  width: 45px;
+}
+
+@media screen and (max-width: 991px) {
+  .props {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 826px) {

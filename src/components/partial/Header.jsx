@@ -65,6 +65,9 @@ function Header(props) {
           </div>
         </div>
       </nav>
+      <div className="props">
+        <img src="/props.png" alt="" />
+      </div>
     </div>
   );
 }
