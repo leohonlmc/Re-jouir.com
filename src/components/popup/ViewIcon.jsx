@@ -69,7 +69,11 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                         onClick={() => {
                           setCurrIndex(index);
                         }}
-                        className="images-section-curr"
+                        className={
+                          index === currIndex
+                            ? `images-section-curr n${currIndex}`
+                            : "images-section-curr"
+                        }
                       />
                     </div>
                   ))}
