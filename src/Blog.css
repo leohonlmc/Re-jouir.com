@@ -695,7 +695,6 @@
 
 .d-flex.new {
   transform: scale(1.03);
-  box-shadow: 1px 1px 20px 0px var(--tg--christmas-yellow);
   border-radius: 10px;
 }
 
