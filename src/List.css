@@ -48,6 +48,9 @@
 
 .List {
   background-image: url("../public/assets/img/bg/gradient_bg02.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   width: 100%;
   max-width: 1450px;
   margin: auto;
