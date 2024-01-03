@@ -72,7 +72,7 @@
 
 .navbar.navbar-expand-lg.navbar-light.bg-light.white {
   padding: 1% 2%;
-  background-color: var(--tag-white-color) !important;
+  background-color: var(--tg-common-color-white) !important;
   box-shadow: 0 10px 15px rgba(25, 25, 25, 0.05) !important;
   animation-name: fadeInDown;
   animation-duration: 500ms;
