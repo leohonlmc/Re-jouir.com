@@ -526,7 +526,7 @@ function List() {
                   <div className="D_Qy">
                     <p
                       className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
-                      style={{ textAlign: "center" }}
+                      style={{ textAlign: "center", color: "white" }}
                     >
                       {index + 1}
                     </p>
@@ -540,7 +540,10 @@ function List() {
                       className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
                       style={{ textAlign: "center" }}
                     >
-                      <FontAwesomeIcon icon={faCircleXmark} />
+                      <FontAwesomeIcon
+                        icon={faCircleXmark}
+                        style={{ color: "white" }}
+                      />
                     </p>
                   </div>
                 </div>
@@ -702,7 +705,9 @@ function List() {
                     {uploading === true ? (
                       <p>Sending to Santa's team 💨</p>
                     ) : (
-                      <p>🎅🏻 We'll review your request ASAP! 💨</p>
+                      <p style={{ margin: "0px" }}>
+                        🎅🏻 We'll review your request ASAP! 💨
+                      </p>
                     )}
                   </div>
                   <div>
