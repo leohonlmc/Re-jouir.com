@@ -699,15 +699,33 @@ function List() {
                   style={{ justifyContent: "space-between" }}
                 >
                   <div>
-                    <p>🎅🏻 We'll review your request ASAP! 💨</p>
+                    {uploading === true ? (
+                      <p>Sending to Santa's team 💨</p>
+                    ) : (
+                      <p>🎅🏻 We'll review your request ASAP! 💨</p>
+                    )}
                   </div>
                   <div>
-                    <button
-                      className="btn btn-success"
-                      style={{ padding: "4px 24px", fontWeight: "bold" }}
-                    >
-                      Post!
-                    </button>
+                    {uploading === true ? (
+                      <button
+                        className="btn btn-secondary"
+                        style={{ padding: "4px 24px", fontWeight: "bold" }}
+                      >
+                        <FontAwesomeIcon
+                          icon={faSpinner}
+                          size="lg"
+                          className="loading-spinner"
+                          spin
+                        />
+                      </button>
+                    ) : (
+                      <button
+                        className="btn btn-success"
+                        style={{ padding: "4px 24px", fontWeight: "bold" }}
+                      >
+                        Post!
+                      </button>
+                    )}
                   </div>
                 </div>
               </form>
