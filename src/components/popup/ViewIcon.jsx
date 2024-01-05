@@ -27,14 +27,13 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
               height: "100%",
             }}
           >
-            <div style={{ width: "100%", height: "100%" }}>
+            <div style={{ width: "100%", height: "75%" }}>
               <div
                 onClick={() => setShowPopup(false)}
                 style={{
+                  width: "100%",
                   height: "100%",
-                  maxWidth: "100%",
                   objectFit: "contain",
-                  padding: "10px",
                 }}
                 className="image-section"
               >
@@ -42,7 +41,8 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                   src={images[currIndex]}
                   className="card-img-top"
                   style={{
-                    height: "97%",
+                    height: "100%",
+                    width: "100%",
                     objectFit: "contain",
                   }}
                   alt="..."
@@ -50,8 +50,11 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                 />
               </div>
 
-              <div className="all-card-img-section">
-                <div className="all-card-img-sub-section">
+              <div className="all-card-img-section" style={{ height: "25%" }}>
+                <div
+                  className="all-card-img-sub-section"
+                  style={{ height: "100%", width: "100%" }}
+                >
                   {props.images.map((item, index) => (
                     <div
                       key={index}

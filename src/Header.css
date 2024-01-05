@@ -120,7 +120,6 @@
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
-  margin: auto;
   text-align: center;
   background-color: rgb(237, 237, 237);
   position: absolute;
@@ -129,17 +128,21 @@
 }
 
 .all-card-img-sub-section {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .images-section-curr {
-  width: 120px !important;
+  max-width: 110px;
   object-fit: contain;
   cursor: pointer;
   padding: 10px;
   border-radius: 10px;
   transition: 0.3s;
   filter: blur(2px);
+  height: 100%;
 }
 
 .images-section-curr.n0,
