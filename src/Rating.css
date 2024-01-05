@@ -1,0 +1,75 @@
+.ratings {
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.rating-color {
+  color: #fbc634 !important;
+}
+
+.review-count {
+  font-weight: 400;
+  margin-bottom: 2px;
+  font-size: 24px !important;
+}
+
+.small-ratings i {
+  color: #cecece;
+}
+
+.review-stat {
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.fa-star {
+  color: grey;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.selected {
+  color: #fbc634 !important;
+}
+
+/* When hovering over the ratings container, all stars change color */
+.ratings:hover .fa-star {
+  color: #fbc634;
+}
+
+/* Override for stars to the right of the first star */
+.fa-star.s1:hover ~ .fa-star {
+  color: grey;
+}
+
+/* Override for stars to the right of the second star */
+.fa-star.s2:hover ~ .fa-star.s3,
+.fa-star.s2:hover ~ .fa-star.s4,
+.fa-star.s2:hover ~ .fa-star.s5 {
+  color: grey;
+}
+
+/* Override for stars to the right of the third star */
+.fa-star.s3:hover ~ .fa-star.s4,
+.fa-star.s3:hover ~ .fa-star.s5 {
+  color: grey;
+}
+
+/* Override for stars to the right of the fourth star */
+.fa-star.s4:hover ~ .fa-star.s5 {
+  color: grey;
+}
+
+h5 {
+  margin: 0px !important;
+}
+
+.Rating {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.d-flex.star-div {
+  justify-content: space-between;
+}

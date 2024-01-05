@@ -1,10 +1,9 @@
-import styles from "../List.css";
+import "../List.css";
 import React, { useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "./partial/Header";
-import Footer from "./partial/Footer";
 import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -22,6 +21,7 @@ import generateRandomUserId from "./functions/generateRandomUserId";
 import generateRandomString from "./functions/generateRandomString";
 import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet";
+import Rating from "./partial/Rating";
 
 const {
   REACT_APP_API_ENDPOINT,
@@ -173,6 +173,9 @@ function List() {
   const [uploadCount, setUploadCount] = useState(0);
   const [success, setSuccess] = useState("no");
 
+  const [typingTitle, setTypingTitle] = useState(false);
+  const [typingLocation, setTypingLocation] = useState(false);
+
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
   };
@@ -237,6 +240,12 @@ function List() {
     if (!event.target.value) {
       toast.error(`Please enter a title.`);
     }
+
+    if (event.target.value.length > 0) {
+      setTypingTitle(true);
+    } else {
+      setTypingTitle(false);
+    }
   };
 
   const handleCountryChange = (event) => {
@@ -245,6 +254,12 @@ function List() {
 
   const handleLocationChange = (event) => {
     setLocation(event.target.value);
+
+    if (event.target.value.length > 0) {
+      setTypingLocation(true);
+    } else {
+      setTypingLocation(false);
+    }
   };
 
   const handleEventChange = (event) => {
@@ -342,7 +357,6 @@ function List() {
       );
 
       if (data) {
-        // toast.success("Pending request sent successfully!");
         sendEmail();
         setTimeout(() => {
           setUploading(false);
@@ -576,43 +590,29 @@ function List() {
                 <img src="/xmas-hat.png" alt="" />
               </div>
               <form onSubmit={handleSubmit}>
-                <p
-                  style={{
-                    margin: "0px",
-                    textAlign: "right",
-                    paddingRight: "5px",
-                    color: "red",
-                  }}
-                >
-                  *
-                </p>
-                <div className="form__group field">
+                <div className="form__group field title">
                   <input
                     type="input"
                     className="form__field"
-                    placeholder="Title"
                     name="title"
                     id="title"
                     required
                     onChange={handleTitle}
                     maxLength={50}
                   />
+                  {!typingTitle ? (
+                    <label
+                      for="titleInput"
+                      className="custom-placeholder title"
+                    >
+                      Title<span class="asterisk">*</span>
+                    </label>
+                  ) : null}
                 </div>
 
-                <p
-                  style={{
-                    margin: "0px",
-                    textAlign: "right",
-                    paddingRight: "5px",
-                    color: "red",
-                  }}
-                >
-                  *
-                </p>
-
                 <div
-                  className="form__group field "
-                  style={{ position: "relative" }}
+                  className="form__group field"
+                  style={{ marginTop: "20px" }}
                 >
                   <select
                     className="form-select"
@@ -627,28 +627,28 @@ function List() {
                   </select>
                 </div>
 
-                <p
-                  style={{
-                    margin: "0px",
-                    textAlign: "right",
-                    paddingRight: "5px",
-                    color: "red",
-                  }}
+                <div
+                  className="form__group field"
+                  style={{ marginTop: "20px" }}
                 >
-                  *
-                </p>
-
-                <div className="form__group field ">
                   <input
                     type="input"
                     className="form__field location_field"
-                    placeholder="Location (Disneyland, wonderland, time square...)"
                     name="location"
                     id="location"
                     required
                     onChange={handleLocationChange}
                     maxLength={30}
                   />
+                  {!typingLocation ? (
+                    <label
+                      for="titleInput"
+                      className="custom-placeholder title"
+                    >
+                      Location (Disneyland, Wonderland...)
+                      <span class="asterisk">*</span>
+                    </label>
+                  ) : null}
                   <FontAwesomeIcon
                     icon={faCircleInfo}
                     style={{ color: "#9192a0" }}
@@ -689,13 +689,30 @@ function List() {
                     cols="30"
                     rows="10"
                     maxLength={500}
-                    placeholder="Description (Optional)"
+                    placeholder="Description"
                     className="form-control-textarea"
                     onChange={handleDescriptionChange}
                   ></textarea>
-                  <p
-                    style={{ textAlign: "right", margin: "0px" }}
-                  >{`${description.length}/500`}</p>
+                  {description.length === 500 ? (
+                    <p
+                      style={{
+                        textAlign: "right",
+                        margin: "0px",
+                        fontSize: "14px",
+                        color: "red",
+                      }}
+                    >{`Reached max word limit: ${description.length}/500`}</p>
+                  ) : (
+                    <p
+                      style={{
+                        textAlign: "right",
+                        margin: "0px",
+                        fontSize: "14px",
+                      }}
+                    >{`${description.length}/500`}</p>
+                  )}
+
+                  <Rating />
                 </div>
                 <div
                   className="list-item-btn d-flex"
