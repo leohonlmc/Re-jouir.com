@@ -330,14 +330,15 @@ function List() {
   };
 
   const handleSubmit = async (event) => {
-    setUploading(true);
-    setUploadCount(0);
+    event.preventDefault();
 
     if (!title || !country || !location || stars === 0) {
       toast.error(`Please fill in all required fields.`);
+      return;
     }
 
-    event.preventDefault();
+    setUploading(true);
+    setUploadCount(0);
 
     const uploadedImages = await Promise.all(
       imageFile.map((file) => handleUpload(file))
