@@ -27,11 +27,11 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
               height: "100%",
             }}
           >
-            <div style={{ width: "100%" }}>
+            <div style={{ width: "100%", height: "100%" }}>
               <div
                 onClick={() => setShowPopup(false)}
                 style={{
-                  height: "74vh",
+                  height: "100%",
                   maxWidth: "100%",
                   objectFit: "contain",
                   padding: "10px",
@@ -48,10 +48,6 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                   alt="..."
                   onClick={() => setShowPopup(true)}
                 />
-
-                <p style={{ margin: "0px", textAlign: "center" }}>
-                  {props.caption}
-                </p>
               </div>
 
               <div className="all-card-img-section">

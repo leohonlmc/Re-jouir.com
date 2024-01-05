@@ -123,6 +123,9 @@
   margin: auto;
   text-align: center;
   background-color: rgb(237, 237, 237);
+  position: absolute;
+  bottom: 0;
+  padding: 10px 0px;
 }
 
 .all-card-img-sub-section {
