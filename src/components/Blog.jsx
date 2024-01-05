@@ -684,9 +684,9 @@ function Blog() {
                                       )}
                                     </div>
                                     <div className="col-lg-10 col-md-9 p-0">
-                                      <h2 className="m-0 p-2">
+                                      <h4 className="m-0 p-2">
                                         {upload.title}
-                                      </h2>
+                                      </h4>
                                     </div>
                                   </div>
                                 </div>
