@@ -126,7 +126,6 @@
   background-color: rgb(237, 237, 237);
   position: absolute;
   bottom: 0;
-  padding: 10px 0px;
   right: 0;
 }
 
@@ -145,13 +144,13 @@
   border-radius: 10px;
   transition: 0.3s;
   filter: blur(2px);
-  height: 100%;
 }
 
 .images-section-curr.n0,
 .images-section-curr.n1,
 .images-section-curr.n2,
-.images-section-curr.n3 {
+.images-section-curr.n3,
+.images-section-curr.n4 {
   background-color: var(--christmas-green);
   filter: blur(0px);
 }
