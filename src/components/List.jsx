@@ -44,8 +44,6 @@ const s3 = new AWS.S3({
 });
 
 function List() {
-  const navigate = useNavigate();
-
   const [images, setImages] = useState([]);
   const [imageFile, setImageFile] = useState([]);
   const [imageSrcs, setImageSrcs] = useState([]);
@@ -759,13 +757,9 @@ function List() {
                 </div>
               </form>
             </div>
-            {/* ) : null} */}
           </div>
         </div>
       </div>
-      <br />
-      {/* <br /> */}
-      {/* <Footer /> */}
     </div>
   );
 }

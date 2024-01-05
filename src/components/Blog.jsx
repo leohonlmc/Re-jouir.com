@@ -690,8 +690,10 @@ function Blog() {
                                     </div>
                                   </div>
                                 </div>
+                                {!upload.event ? null : (
+                                  <p className="upload-event">{`Event: ${upload.event}`}</p>
+                                )}
 
-                                <p className="upload-event">{`Event: ${upload.event}`}</p>
                                 <p className="upload-description">
                                   {upload.description}
                                 </p>
