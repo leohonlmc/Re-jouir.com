@@ -2,7 +2,12 @@ import "../../App.css";
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faImages, faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+  faImages,
+  faMapLocationDot,
+  faCloudArrowUp,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 
 function ShareMoment() {
   return (
@@ -30,13 +35,32 @@ function ShareMoment() {
                 <div class="icon">
                   <FontAwesomeIcon icon={faImages} size="sm" />
                 </div>
-                <p>Images, description</p>
+                <p>1. Images</p>
               </div>
               <div class="about__icon-box">
                 <div class="icon">
                   <FontAwesomeIcon icon={faMapLocationDot} size="sm" />
                 </div>
-                <p>Location, country</p>
+                <p>2. Country, location</p>
+              </div>
+
+              <div class="about__icon-box">
+                <div class="icon">
+                  <FontAwesomeIcon
+                    icon={faStar}
+                    size="sm"
+                    color="white"
+                    className="fa-star-white"
+                  />
+                </div>
+                <p>4. Rate your exp</p>
+              </div>
+
+              <div class="about__icon-box">
+                <div class="icon cloud">
+                  <FontAwesomeIcon icon={faCloudArrowUp} size="sm" bounce />
+                </div>
+                <p>4. Upload to cloud</p>
               </div>
             </div>
           </div>
