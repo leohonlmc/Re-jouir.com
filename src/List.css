@@ -303,6 +303,16 @@
   color: red !important;
 }
 
+.list-item-btn {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.review-message {
+  margin: 0px;
+}
+
 @media screen and (max-width: 1208px) {
   .col-md-4 {
     margin: auto;
@@ -315,6 +325,12 @@
   .img-thumbnail {
     width: 100px;
     height: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .review-message {
+    margin-bottom: 10px;
   }
 }
 

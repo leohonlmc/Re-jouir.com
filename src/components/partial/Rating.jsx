@@ -19,8 +19,8 @@ function Rating({ onRatingChange }) {
     <div className="Rating">
       <div className="d-flex star-div">
         <div className="d-flex">
-          <p style={{ margin: "0px" }}>
-            Great place to go? <span className="asterisk">*</span>
+          <p className="rating-message">
+            Your rating? <span className="asterisk">*</span>
           </p>
         </div>
         <div>

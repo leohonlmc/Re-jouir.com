@@ -72,3 +72,13 @@ h5 {
 .d-flex.star-div {
   justify-content: space-between;
 }
+
+.rating-message {
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .d-flex.star-div {
+    text-align: center;
+  }
+}

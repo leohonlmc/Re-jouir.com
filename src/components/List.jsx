@@ -719,19 +719,15 @@ function List() {
 
                   <Rating onRatingChange={handleRatingChange} />
                 </div>
-                <div
-                  className="list-item-btn d-flex"
-                  style={{ justifyContent: "space-between" }}
-                >
+                <div className="list-item-btn d-flex">
                   <div>
                     {uploading === true ? (
                       <p>Sending to Santa's team 💨</p>
                     ) : (
-                      <p style={{ margin: "0px" }}>
-                        🎅🏻 We'll review your request ASAP! 💨
-                      </p>
+                      <p className="review-message">🎅🏻 let us have a look!</p>
                     )}
                   </div>
+
                   <div>
                     {uploading === true ? (
                       <button
