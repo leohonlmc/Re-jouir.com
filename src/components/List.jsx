@@ -333,7 +333,7 @@ function List() {
     setUploading(true);
     setUploadCount(0);
 
-    if (!title || !country || !location) {
+    if (!title || !country || !location || stars === 0) {
       toast.error(`Please fill in all required fields.`);
     }
 
