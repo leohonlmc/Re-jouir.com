@@ -24,8 +24,6 @@ function Header(props) {
     };
   }, []);
 
-  console.log(scrolled);
-
   return (
     <div className="Header">
       <HelmetProvider>

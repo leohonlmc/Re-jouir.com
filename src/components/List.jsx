@@ -175,6 +175,7 @@ function List() {
 
   const [typingTitle, setTypingTitle] = useState(false);
   const [typingLocation, setTypingLocation] = useState(false);
+  const [stars, setStars] = useState(0);
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -270,6 +271,10 @@ function List() {
     setDescription(event.target.value);
   };
 
+  const handleRatingChange = (newRating) => {
+    setStars(newRating);
+  };
+
   const randomString = generateRandomString();
 
   const handleUpload = async (file) => {
@@ -326,7 +331,7 @@ function List() {
 
   const handleSubmit = async (event) => {
     setUploading(true);
-    setUploadCount(0); // Reset the upload count before starting
+    setUploadCount(0);
 
     if (!title || !country || !location) {
       toast.error(`Please fill in all required fields.`);
@@ -349,6 +354,7 @@ function List() {
           event: eventData,
           description,
           images: uploadedImages,
+          rating: stars,
         },
         {
           withCredentials: true,
@@ -602,10 +608,10 @@ function List() {
                   />
                   {!typingTitle ? (
                     <label
-                      for="titleInput"
+                      htmlFor="titleInput"
                       className="custom-placeholder title"
                     >
-                      Title<span class="asterisk">*</span>
+                      Title<span className="asterisk">*</span>
                     </label>
                   ) : null}
                 </div>
@@ -642,11 +648,11 @@ function List() {
                   />
                   {!typingLocation ? (
                     <label
-                      for="titleInput"
+                      htmlFor="titleInput"
                       className="custom-placeholder title"
                     >
                       Location (Disneyland, Wonderland...)
-                      <span class="asterisk">*</span>
+                      <span className="asterisk">*</span>
                     </label>
                   ) : null}
                   <FontAwesomeIcon
@@ -712,7 +718,7 @@ function List() {
                     >{`${description.length}/500`}</p>
                   )}
 
-                  <Rating />
+                  <Rating onRatingChange={handleRatingChange} />
                 </div>
                 <div
                   className="list-item-btn d-flex"

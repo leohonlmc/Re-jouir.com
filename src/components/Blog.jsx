@@ -639,41 +639,59 @@ function Blog() {
                           <div className="blog-info">
                             <div className="blog-info-child">
                               <div className="all-info-div">
-                                <div>
-                                  <br />
-                                  <ul className="inline-list">
-                                    <li>
-                                      {countryEmojiMap[upload.country]}{" "}
-                                      {upload.country}
-                                    </li>
-                                    <li>
-                                      <img
-                                        src="/google-map.png"
-                                        alt=""
-                                        style={{ width: "20px" }}
-                                      />
-                                      <a
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href={`https://www.google.com/maps?q=${encodeURIComponent(
-                                          upload.location
-                                        )}`}
-                                        style={{ textDecoration: "none" }}
-                                      >
-                                        {upload.location}
-                                      </a>
-                                    </li>
-                                    <li>
-                                      🗓️ {formatDateString(upload.created)}
-                                    </li>
-                                  </ul>
+                                <ul className="inline-list">
+                                  <li>
+                                    {countryEmojiMap[upload.country]}{" "}
+                                    {upload.country}
+                                  </li>
+                                  <li>
+                                    <img
+                                      src="/google-map.png"
+                                      alt=""
+                                      style={{ width: "20px" }}
+                                    />
+                                    <a
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      href={`https://www.google.com/maps?q=${encodeURIComponent(
+                                        upload.location
+                                      )}`}
+                                      style={{ textDecoration: "none" }}
+                                    >
+                                      {upload.location}
+                                    </a>
+                                  </li>
+                                  <li>🗓️ {formatDateString(upload.created)}</li>
+                                </ul>
+
+                                <div className="container p-0">
+                                  <div className="row">
+                                    <div className="col-lg-2 col-md-3 p-0">
+                                      {upload.rating > 3 ? (
+                                        <div className="rating-div green-rating">
+                                          <div>Rating</div>
+                                          <div className="text-xl leading-5 font-bold ">
+                                            {upload.rating.toFixed(1)}
+                                          </div>
+                                        </div>
+                                      ) : (
+                                        <div className="rating-div yellow-rating">
+                                          <div>Rating</div>
+                                          <div className="text-xl leading-5 font-bold ">
+                                            NA
+                                          </div>
+                                        </div>
+                                      )}
+                                    </div>
+                                    <div className="col-lg-10 col-md-9 p-0">
+                                      <h2 className="m-0 p-2">
+                                        {upload.title}
+                                      </h2>
+                                    </div>
+                                  </div>
                                 </div>
 
-                                <h2> {upload.title}</h2>
-
-                                <p className="upload-description">
-                                  {upload.event}
-                                </p>
+                                <p className="upload-event">{`Event: ${upload.event}`}</p>
                                 <p className="upload-description">
                                   {upload.description}
                                 </p>

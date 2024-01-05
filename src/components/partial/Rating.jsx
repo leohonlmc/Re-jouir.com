@@ -4,13 +4,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-function Rating() {
-  const [stars, setStars] = useState(0);
+function Rating({ onRatingChange }) {
   const [selected1, setSelected1] = useState(false);
   const [selected2, setSelected2] = useState(false);
   const [selected3, setSelected3] = useState(false);
   const [selected4, setSelected4] = useState(false);
   const [selected5, setSelected5] = useState(false);
+
+  const handleStarClick = (rating) => {
+    onRatingChange(rating);
+  };
 
   return (
     <div className="Rating">
@@ -27,7 +30,7 @@ function Rating() {
               size="xl"
               className={`fa-star s1 ${selected1 ? "selected" : ""}`}
               onClick={() => {
-                setStars(1);
+                handleStarClick(1);
                 setSelected1(true);
                 setSelected2(false);
                 setSelected3(false);
@@ -40,7 +43,7 @@ function Rating() {
               size="xl"
               className={`fa-star s2 ${selected2 ? "selected" : ""}`}
               onClick={() => {
-                setStars(2);
+                handleStarClick(2);
                 setSelected1(true);
                 setSelected2(true);
                 setSelected3(false);
@@ -53,7 +56,7 @@ function Rating() {
               size="xl"
               className={`fa-star s3 ${selected3 ? "selected" : ""}`}
               onClick={() => {
-                setStars(3);
+                handleStarClick(3);
                 setSelected1(true);
                 setSelected2(true);
                 setSelected3(true);
@@ -66,7 +69,7 @@ function Rating() {
               size="xl"
               className={`fa-star s4 ${selected4 ? "selected" : ""}`}
               onClick={() => {
-                setStars(4);
+                handleStarClick(4);
                 setSelected1(true);
                 setSelected2(true);
                 setSelected3(true);
@@ -79,7 +82,7 @@ function Rating() {
               size="xl"
               className={`fa-star s5 ${selected5 ? "selected" : ""}`}
               onClick={() => {
-                setStars(5);
+                handleStarClick(5);
                 setSelected1(true);
                 setSelected2(true);
                 setSelected3(true);
