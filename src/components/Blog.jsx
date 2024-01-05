@@ -477,20 +477,10 @@ function Blog() {
           </div>
         </div>
 
-        {/* <div className="divider-container">
-          <hr className="divider-line -black-line" />
-          <h5 className="browsing-page-text">
-            <span>{`Browsing page: ${localStorage.getItem(
-              "currentPage"
-            )}`}</span>
-          </h5>
-          <hr className="divider-line -black-line" />
-        </div> */}
-
-        <div className="page-number-div" style={{ marginTop: "0px" }}>
+        <div className="page-number-div p-0 m-0">
           {Number(localStorage.getItem("currentPage")) > 1 && (
             <button
-              className="btn btn-outline-primary"
+              className="btn btn-light"
               onClick={() => handlePageChange("prev")}
             >
               Previous
@@ -501,8 +491,8 @@ function Blog() {
               key={page}
               className={
                 Number(localStorage.getItem("currentPage")) === page + 1
-                  ? "active-1 btn btn-outline-primary"
-                  : "btn btn-outline-primary"
+                  ? "active-1 btn btn-light"
+                  : "btn btn-light"
               }
               onClick={() => {
                 localStorage.setItem("currentPage", page + 1);
@@ -514,7 +504,7 @@ function Blog() {
           ))}
           {Number(localStorage.getItem("currentPage")) < totalPages && (
             <button
-              className="btn btn-outline-primary"
+              className="btn btn-light"
               onClick={() => handlePageChange("next")}
             >
               Next
