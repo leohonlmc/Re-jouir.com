@@ -53,7 +53,7 @@ function ShareMoment() {
                     className="fa-star-white"
                   />
                 </div>
-                <p>4. Rate your exp</p>
+                <p>3. Rate your exp</p>
               </div>
 
               <div class="about__icon-box">
