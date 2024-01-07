@@ -297,7 +297,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
         </div>
       )}
 
-      {isPopupVisible && <div className="overlay"></div>}
+      {isPopupVisible && <div className="overlay" onClick={closePopup}></div>}
 
       <style>
         {`
@@ -315,6 +315,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
             z-index: 9999;
             width: 60%;
             animation: popupAnimation 0.2s ease-in-out forwards;
+            border-radius: 10px;
           }
 
           .button-container {
@@ -368,7 +369,6 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                 width: 100%;
                 left: 0;
             }
-
           }
         `}
       </style>
