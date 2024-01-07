@@ -22,6 +22,7 @@ import generateRandomString from "./functions/generateRandomString";
 import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet";
 import Rating from "./partial/Rating";
+import Preview from "./partial/Preview";
 
 const {
   REACT_APP_API_ENDPOINT,
@@ -47,6 +48,7 @@ function List() {
   const [images, setImages] = useState([]);
   const [imageFile, setImageFile] = useState([]);
   const [imageSrcs, setImageSrcs] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -377,6 +379,20 @@ function List() {
       <div className="list-header-section">
         <Header showSearchBar={false} title={`Upload | Réjouir`} />
       </div>
+
+      {showPopup && (
+        <Preview
+          setShowPopup={setShowPopup}
+          allUpload={imageSrcs}
+          title={title}
+          country={country}
+          location={location}
+          event={eventData}
+          description={description}
+          rating={stars}
+        />
+      )}
+
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com/list" />
       </Helmet>
@@ -456,22 +472,16 @@ function List() {
                   ? "col-md-5 col-lg-7 col-sm-12"
                   : "col-md-12 col-lg-12 col-sm-12"
               }
-              style={
-                // uploaded
-                // ?
-                {
-                  width: "453px",
-                  border: "1px solid #f1f1f1",
-                  boxShadow: "0 0 10px rgb(186, 186, 186)",
-                  padding: "24px",
-                  borderRadius: "5px",
-                  marginTop: { windowWidth } > 1208 ? "0px" : "",
-                  marginLeft: { windowWidth } > 1208 ? "0px" : "",
-                  backgroundColor: "white",
-                }
-
-                // : { padding: "0px" }
-              }
+              style={{
+                width: "453px",
+                border: "1px solid #f1f1f1",
+                boxShadow: "0 0 10px rgb(186, 186, 186)",
+                padding: "24px",
+                borderRadius: "5px",
+                marginTop: { windowWidth } > 1208 ? "0px" : "",
+                marginLeft: { windowWidth } > 1208 ? "0px" : "",
+                backgroundColor: "white",
+              }}
             >
               <div
                 className="file-drop-area"
@@ -573,23 +583,17 @@ function List() {
               <div style={{ padding: "20px" }}></div>
             )}
 
-            {/* {uploaded ? ( */}
             <div
               className="col-md-7 col-lg-7 col-sm-12"
-              style={
-                // uploaded
-                // ?
-                {
-                  border: "1px solid #f1f1f1",
-                  boxShadow: "0 0 10px rgb(186, 186, 186)",
-                  padding: "24px",
-                  borderRadius: "5px",
-                  marginLeft: { windowWidth } < 1208 ? "0px" : "10px",
-                  margin: { windowWidth } < 1208 ? "0px" : "auto",
-                  backgroundColor: "white",
-                }
-                // : { padding: "0px" }
-              }
+              style={{
+                border: "1px solid #f1f1f1",
+                boxShadow: "0 0 10px rgb(186, 186, 186)",
+                padding: "24px",
+                borderRadius: "5px",
+                marginLeft: { windowWidth } < 1208 ? "0px" : "10px",
+                margin: { windowWidth } < 1208 ? "0px" : "auto",
+                backgroundColor: "white",
+              }}
             >
               <div className="xmas-hat-div">
                 <img src="/xmas-hat.png" alt="" />
@@ -721,18 +725,34 @@ function List() {
                 </div>
                 <div className="list-item-btn d-flex">
                   <div>
-                    {uploading === true ? (
+                    {/* {uploading === true ? (
                       <p>Sending to Santa's team 💨</p>
                     ) : (
                       <p className="review-message">🎅🏻 let us have a look!</p>
-                    )}
+                    )} */}
+
+                    <div
+                      className="btn btn-success"
+                      style={{
+                        padding: "4px 24px",
+                        fontWeight: "bold",
+                        marginBottom: "10px",
+                      }}
+                      onClick={() => setShowPopup(true)}
+                    >
+                      Preview
+                    </div>
                   </div>
 
                   <div>
                     {uploading === true ? (
                       <button
                         className="btn btn-secondary"
-                        style={{ padding: "4px 24px", fontWeight: "bold" }}
+                        style={{
+                          padding: "4px 24px",
+                          fontWeight: "bold",
+                          marginBottom: "10px",
+                        }}
                       >
                         <FontAwesomeIcon
                           icon={faSpinner}
