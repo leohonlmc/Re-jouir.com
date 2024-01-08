@@ -370,6 +370,12 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                 left: 0;
             }
           }
+
+          @media only screen and (max-width: 1209px) {
+            .popup {
+                top: 0;
+            }
+          }
         `}
       </style>
     </div>
