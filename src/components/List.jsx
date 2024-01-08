@@ -730,17 +730,30 @@ function List() {
                       <p className="review-message">🎅🏻 let us have a look!</p>
                     )} */}
 
-                    <div
-                      className="btn btn-warning"
-                      style={{
-                        padding: "4px 24px",
-                        fontWeight: "bold",
-                        marginBottom: "10px",
-                      }}
-                      onClick={() => setShowPopup(true)}
-                    >
-                      Preview
-                    </div>
+                    {uploaded ? (
+                      <div
+                        className="btn btn-warning"
+                        style={{
+                          padding: "4px 24px",
+                          fontWeight: "bold",
+                          marginBottom: "10px",
+                        }}
+                        onClick={() => setShowPopup(true)}
+                      >
+                        Preview
+                      </div>
+                    ) : (
+                      <div
+                        className="btn btn-secondary"
+                        style={{
+                          padding: "4px 24px",
+                          fontWeight: "bold",
+                          marginBottom: "10px",
+                        }}
+                      >
+                        Preview
+                      </div>
+                    )}
                   </div>
 
                   <div>
