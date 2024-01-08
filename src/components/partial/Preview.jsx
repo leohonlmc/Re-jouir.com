@@ -141,146 +141,136 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
             }}
           >
             <div className="col-lg-12">
-              {allUpload.map((upload, uploadIndex) => (
-                <>
-                  <div className="d-flex" key={upload._id}>
-                    <div className="images-section">
-                      <div
-                        className="ecommerce-gallery"
-                        data-mdb-zoom-effect="true"
-                        data-mdb-auto-height="true"
-                      >
-                        <div className="row py-3 shadow-5">
-                          <div className="col-9 mb-1">
-                            {uploadIndex === 0 &&
-                            Number(localStorage.getItem("currentPage")) ===
-                              1 ? (
-                              <div className="new-post">
-                                <img src="/new.png" alt="" />
-                              </div>
-                            ) : null}
-                            <div className="lightbox">
-                              <img
-                                src={upload}
-                                alt=""
-                                className="ecommerce-gallery-main-img active w-100 "
-                              />
-                            </div>
-                          </div>
-
-                          <div className="col-3">
-                            {allUpload.map((image, index) => (
-                              <div className={`mb-1 mb-1${index}`} key={index}>
-                                <div className="D_Qy-2">
-                                  <p
-                                    className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
-                                    style={{
-                                      textAlign: "center",
-                                      margin: "0px",
-                                      fontSize: "11px",
-                                      color: "white",
-                                    }}
-                                  >
-                                    {index + 1}
-                                  </p>
-                                </div>
-                                <LazyLoadImage
-                                  src={image}
-                                  alt=""
-                                  className={`active w-100`}
-                                  effect="blur"
-                                />
-                              </div>
-                            ))}
-                          </div>
+              <div className="d-flex">
+                <div className="images-section">
+                  <div
+                    className="ecommerce-gallery"
+                    data-mdb-zoom-effect="true"
+                    data-mdb-auto-height="true"
+                  >
+                    <div className="row py-3 shadow-5">
+                      <div className="col-9 mb-1">
+                        <div className="new-post">
+                          <img src="/new.png" alt="" />
+                        </div>
+                        <div className="lightbox">
+                          <img
+                            src={allUpload[0]}
+                            alt=""
+                            className="ecommerce-gallery-main-img active w-100 "
+                          />
                         </div>
                       </div>
-                    </div>
 
-                    <div className="blog-info">
-                      <div className="blog-info-child">
-                        <div className="all-info-div">
-                          <ul className="inline-list">
-                            <li>
-                              {countryEmojiMap[props.country]} {props.country}
-                            </li>
-                            <li>
-                              <img
-                                src="/google-map.png"
-                                alt=""
-                                style={{ width: "20px" }}
-                              />
-                              <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href={`https://www.google.com/maps?q=${encodeURIComponent(
-                                  props.location
-                                )}`}
-                                style={{ textDecoration: "none" }}
+                      <div className="col-3">
+                        {allUpload.map((image, index) => (
+                          <div className={`mb-1 mb-1${index}`} key={index}>
+                            <div className="D_Qy-2">
+                              <p
+                                className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
+                                style={{
+                                  textAlign: "center",
+                                  margin: "0px",
+                                  fontSize: "11px",
+                                  color: "white",
+                                }}
                               >
-                                {props.location}
-                              </a>
-                            </li>
-                            <li>🗓️ Now</li>
-                          </ul>
-
-                          <div className="container p-0">
-                            <div className="row">
-                              <div className="col-lg-2 col-md-3 p-0">
-                                {props.rating > 3 ? (
-                                  <div className="rating-div green-rating">
-                                    <div>Rating</div>
-                                    <div className="text-xl leading-5 font-bold ">
-                                      {props.rating.toFixed(1)}
-                                    </div>
-                                  </div>
-                                ) : (
-                                  <div className="rating-div yellow-rating">
-                                    <div>Rating</div>
-                                    <div className="text-xl leading-5 font-bold ">
-                                      NA
-                                    </div>
-                                  </div>
-                                )}
-                              </div>
-                              <div className="col-lg-10 col-md-9 p-0">
-                                <h4 className="m-0 p-2">{props.title}</h4>
-                              </div>
+                                {index + 1}
+                              </p>
                             </div>
+                            <LazyLoadImage
+                              src={image}
+                              alt=""
+                              className={`active w-100`}
+                              effect="blur"
+                            />
                           </div>
-                          {!upload.event ? null : (
-                            <p className="upload-event">{`Event: ${upload.event}`}</p>
-                          )}
-
-                          <p className="upload-description">
-                            {upload.description}
-                          </p>
-                        </div>
-                        <br />
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "flex-end",
-                          }}
-                        >
-                          <div className="liked-btn-div">
-                            <FontAwesomeIcon
-                              className="like-btn"
-                              icon={faHeart}
-                              style={{
-                                color: "grey",
-                                marginRight: "0px",
-                              }}
-                              size="xl"
-                            />{" "}
-                            {`0 people like this`}
-                          </div>
-                        </div>
+                        ))}
                       </div>
                     </div>
                   </div>
-                </>
-              ))}
+                </div>
+
+                <div className="blog-info">
+                  <div className="blog-info-child">
+                    <div className="all-info-div">
+                      <ul className="inline-list">
+                        <li>
+                          {countryEmojiMap[props.country]} {props.country}
+                        </li>
+                        <li>
+                          <img
+                            src="/google-map.png"
+                            alt=""
+                            style={{ width: "20px" }}
+                          />
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={`https://www.google.com/maps?q=${encodeURIComponent(
+                              props.location
+                            )}`}
+                            style={{ textDecoration: "none" }}
+                          >
+                            {props.location}
+                          </a>
+                        </li>
+                        <li>🗓️ Now</li>
+                      </ul>
+
+                      <div className="container p-0">
+                        <div className="row">
+                          <div className="col-lg-2 col-md-3 p-0">
+                            {props.rating > 3 ? (
+                              <div className="rating-div green-rating">
+                                <div>Rating</div>
+                                <div className="text-xl leading-5 font-bold ">
+                                  {props.rating.toFixed(1)}
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="rating-div yellow-rating">
+                                <div>Rating</div>
+                                <div className="text-xl leading-5 font-bold ">
+                                  NA
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                          <div className="col-lg-10 col-md-9 p-0">
+                            <h4 className="m-0 p-2">{props.title}</h4>
+                          </div>
+                        </div>
+                      </div>
+                      {!props.event ? null : (
+                        <p className="upload-event">{`Event: ${props.event}`}</p>
+                      )}
+
+                      <p className="upload-description">{props.description}</p>
+                    </div>
+                    <br />
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                      }}
+                    >
+                      <div className="liked-btn-div">
+                        <FontAwesomeIcon
+                          className="like-btn"
+                          icon={faHeart}
+                          style={{
+                            color: "grey",
+                            marginRight: "0px",
+                          }}
+                          size="xl"
+                        />{" "}
+                        {`0 people like this`}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div
