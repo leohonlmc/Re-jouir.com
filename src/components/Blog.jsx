@@ -17,6 +17,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import NoResult from "./partial/NoResult";
 import World from "./effect/World";
+import SearchBar from "./partial/SearchBar";
 import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
@@ -366,115 +367,7 @@ function Blog() {
             </h3>
           )}
 
-          <div className="sort-container">
-            <div className="container blog">
-              <div className="row">
-                <div className="col-lg-12 card-margin">
-                  <div className="card search-form">
-                    <div className="card-body p-0">
-                      <div className="row">
-                        <div className="col-12">
-                          <div className="row no-gutters">
-                            <div className="col-lg-1 col-md-1 col-sm-1 p-0">
-                              <select
-                                className="form-select"
-                                aria-label=".form-select-sm example"
-                                value={filter.replace("?sort=", "")}
-                                onChange={(e) => handleSSelectChange(e, 0)}
-                              >
-                                <option value="newest">Newest</option>
-                                <option value="oldest">Oldest</option>
-                                <option value="likes">Likes ❤️</option>
-                              </select>
-                            </div>
-                            <div className="col-lg-2 col-md-2 col-sm-2 p-0">
-                              <select
-                                className="form-select"
-                                id="exampleFormControlSelect1"
-                                aria-label=".form-select-sm example"
-                                value={
-                                  country.replace("?country=", "") || "Global"
-                                }
-                                onChange={(e) => handleCountryChange(e)}
-                              >
-                                {countryList.map((country, index) => (
-                                  <option value={country} key={index}>
-                                    {`${country} ${countryEmojiMap[country]}`}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-                            <div className="col-lg-7 col-md-6 col-sm-6 p-0">
-                              <input
-                                type="text"
-                                placeholder="Search any keywords..."
-                                className="form-control"
-                                id="search"
-                                name="search"
-                                onChange={handleSearchChange}
-                              />
-                            </div>
-                            <div
-                              className="col-lg-1 col-md-1 col-sm-2 p-0 reset"
-                              onClick={() => {
-                                localStorage.setItem(
-                                  "selectedFilter",
-                                  "newest"
-                                );
-                                localStorage.setItem(
-                                  "selectedCountry",
-                                  "Global"
-                                );
-                                localStorage.setItem("searchQuery", "");
-                                localStorage.setItem("currentPage", 1);
-                                window.location.reload();
-                              }}
-                            >
-                              <button className="btn btn-base reset-btn">
-                                Reset
-                              </button>
-                            </div>
-                            <div
-                              className="col-lg-1 col-md-2 col-sm-1 p-0"
-                              onClick={() => window.location.reload()}
-                              style={{
-                                backgroundColor: "#d6001c",
-                                borderRadius: "5px",
-                              }}
-                            >
-                              <button className="btn btn-base search-btn">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  className="feather feather-search"
-                                  style={{ color: "white" }}
-                                >
-                                  <circle cx="11" cy="11" r="8"></circle>
-                                  <line
-                                    x1="21"
-                                    y1="21"
-                                    x2="16.65"
-                                    y2="16.65"
-                                  ></line>
-                                </svg>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <SearchBar />
         </div>
 
         <div className="page-number-div p-0 m-0">
