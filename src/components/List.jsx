@@ -663,8 +663,8 @@ function List() {
                     className="location_info"
                   />
                   <div className="hover_text">
-                    Please specify the exact location to better assist the user
-                    in planning their trip. e.g. Canada's Wonderland ➡{" "}
+                    Please specify the address to better assist the user in
+                    planning their trip. e.g. Canada's Wonderland ➡{" "}
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
