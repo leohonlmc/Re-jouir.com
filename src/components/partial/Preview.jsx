@@ -27,7 +27,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
     "Germany",
     "Greece",
     "Hungary",
-    "Hong Kong",
+    "Hong Kong SAR",
     "Iceland",
     "India",
     "Indonesia",
@@ -82,7 +82,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
     Germany: "🇩🇪",
     Greece: "🇬🇷",
     Hungary: "🇭🇺",
-    "Hong Kong": "🇭🇰",
+    "Hong Kong SAR": "🇭🇰",
     Iceland: "🇮🇸",
     India: "🇮🇳",
     Indonesia: "🇮🇩",
@@ -204,16 +204,29 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                             alt=""
                             style={{ width: "20px" }}
                           />
-                          <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={`https://www.google.com/maps?q=${encodeURIComponent(
-                              props.location
-                            )}`}
-                            style={{ textDecoration: "none" }}
-                          >
-                            {props.location}
-                          </a>
+                          {props.location.length > 0 ? (
+                            <a
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              href={`https://www.google.com/maps?q=${encodeURIComponent(
+                                props.location
+                              )}`}
+                              style={{ textDecoration: "none" }}
+                            >
+                              {props.location}
+                            </a>
+                          ) : (
+                            <a
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              href={`https://www.google.com/maps?q=${encodeURIComponent(
+                                props.location
+                              )}`}
+                              style={{ textDecoration: "none" }}
+                            >
+                              Address?
+                            </a>
+                          )}
                         </li>
                         <li>🗓️ Now</li>
                       </ul>
@@ -238,15 +251,45 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                             )}
                           </div>
                           <div className="col-lg-10 col-md-9 p-0">
-                            <h4 className="m-0 p-2">{props.title}</h4>
+                            {props.title.length > 0 ? (
+                              <h4 className="m-0 p-2" style={{ margin: "0px" }}>
+                                {props.title}
+                              </h4>
+                            ) : (
+                              <h4 className="m-0 p-2" style={{ margin: "0px" }}>
+                                Your title goes here!
+                              </h4>
+                            )}
                           </div>
                         </div>
                       </div>
-                      {!props.event ? null : (
-                        <p className="upload-event">{`Event: ${props.event}`}</p>
+                      {props.event ? (
+                        <p
+                          className="upload-event"
+                          style={{ margin: "0px", textAlign: "left" }}
+                        >{`Event: ${props.event}`}</p>
+                      ) : (
+                        <p
+                          className="upload-event"
+                          style={{ margin: "0px", textAlign: "left" }}
+                        >{`Event: event goes here!`}</p>
                       )}
 
-                      <p className="upload-description">{props.description}</p>
+                      {props.description.length > 0 ? (
+                        <p
+                          className="upload-description"
+                          style={{ margin: "0px", textAlign: "left" }}
+                        >
+                          {props.description}
+                        </p>
+                      ) : (
+                        <p
+                          className="upload-description"
+                          style={{ margin: "0px", textAlign: "left" }}
+                        >
+                          Description goes here!
+                        </p>
+                      )}
                     </div>
                     <br />
                     <div

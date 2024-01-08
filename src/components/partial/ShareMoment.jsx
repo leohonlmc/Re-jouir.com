@@ -41,7 +41,7 @@ function ShareMoment() {
                 <div class="icon">
                   <FontAwesomeIcon icon={faMapLocationDot} size="sm" />
                 </div>
-                <p>2. Country, location</p>
+                <p>2. Country, address</p>
               </div>
 
               <div class="about__icon-box">

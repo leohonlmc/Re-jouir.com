@@ -68,7 +68,7 @@ function List() {
     "Germany",
     "Greece",
     "Hungary",
-    "Hong Kong",
+    "Hong Kong SAR",
     "Iceland",
     "India",
     "Indonesia",
@@ -122,7 +122,7 @@ function List() {
     Germany: "🇩🇪",
     Greece: "🇬🇷",
     Hungary: "🇭🇺",
-    "Hong Kong": "🇭🇰",
+    "Hong Kong SAR": "🇭🇰",
     Iceland: "🇮🇸",
     India: "🇮🇳",
     Indonesia: "🇮🇩",
@@ -653,7 +653,7 @@ function List() {
                       htmlFor="titleInput"
                       className="custom-placeholder title"
                     >
-                      Location (Disneyland, Wonderland...)
+                      Address (Disneyland, Wonderland...)
                       <span className="asterisk">*</span>
                     </label>
                   ) : null}
