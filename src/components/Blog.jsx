@@ -769,7 +769,6 @@ function Blog() {
                           ))}
                         </ul>
                       </div>
-                      {/* <Support /> */}
                       <World />
                     </div>
                   </div>

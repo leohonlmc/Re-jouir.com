@@ -22,6 +22,7 @@ import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet";
 import Rating from "./partial/Rating";
 import Preview from "./partial/Preview";
+import Submitted from "./partial/Submitted";
 
 const {
   REACT_APP_API_ENDPOINT,
@@ -48,6 +49,8 @@ function List() {
   const [imageFile, setImageFile] = useState([]);
   const [imageSrcs, setImageSrcs] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
+
+  const [submitted, setSubmitted] = useState(false);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -363,10 +366,11 @@ function List() {
       );
 
       if (data) {
-        // sendEmail();
+        sendEmail();
         setTimeout(() => {
           setUploading(false);
         }, 3000);
+        setSubmitted(true);
       }
     } catch (ex) {
       console.log(ex);
@@ -452,353 +456,357 @@ function List() {
       ) : null}
 
       <div>
-        <div
-          className="container justify-content-center mt-100"
-          style={{
-            display: "flex",
-            marginTop: "15px",
-            height: "100%",
-            width: "100%",
-            paddingLeft: "10px",
-            paddingRight: "10px",
-            marginBottom: "24px",
-          }}
-        >
-          <div className="row" style={{ width: "100%", padding: "0px" }}>
-            <div
-              className={
-                uploaded
-                  ? "col-md-5 col-lg-7 col-sm-12"
-                  : "col-md-12 col-lg-12 col-sm-12"
-              }
-              style={{
-                width: "453px",
-                border: "1px solid #f1f1f1",
-                boxShadow: "0 0 10px rgb(186, 186, 186)",
-                padding: "24px",
-                borderRadius: "5px",
-                marginTop: { windowWidth } > 1208 ? "0px" : "",
-                marginLeft: { windowWidth } > 1208 ? "0px" : "",
-                backgroundColor: "white",
-              }}
-            >
+        {submitted ? (
+          <Submitted />
+        ) : (
+          <div
+            className="container justify-content-center mt-100"
+            style={{
+              display: "flex",
+              marginTop: "15px",
+              height: "100%",
+              width: "100%",
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginBottom: "24px",
+            }}
+          >
+            <div className="row" style={{ width: "100%", padding: "0px" }}>
               <div
-                className="file-drop-area"
-                style={
+                className={
                   uploaded
-                    ? {
-                        width: "100%",
-                        height: "50%",
-                      }
-                    : {
-                        width: "100%",
-                        height: "100%",
-                      }
+                    ? "col-md-5 col-lg-7 col-sm-12"
+                    : "col-md-12 col-lg-12 col-sm-12"
                 }
+                style={{
+                  width: "453px",
+                  border: "1px solid #f1f1f1",
+                  boxShadow: "0 0 10px rgb(186, 186, 186)",
+                  padding: "24px",
+                  borderRadius: "5px",
+                  marginTop: { windowWidth } > 1208 ? "0px" : "",
+                  marginLeft: { windowWidth } > 1208 ? "0px" : "",
+                  backgroundColor: "white",
+                }}
               >
-                <div className="file-input-btn">
-                  <div className="svg-upload-icon">
-                    <svg
-                      className=""
-                      height="32"
-                      viewBox="0 0 32 32"
-                      width="32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M28 26h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3h-3a1 1 0 0 1 0-2h3v-3a1 1 0 0 1 2 0v3zM2 28h16a1 1 0 0 1 0 2H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h28a1 1 0 0 1 1 1v17a1 1 0 0 1-2 0V2H2v26zm9-15a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm.174 7.353L6.768 23.64a1 1 0 1 1-1.536-1.28l5-6a1 1 0 0 1 1.35-.174l6.254 4.468 5.405-6.305a1 1 0 1 1 1.518 1.302l-6 7a1 1 0 0 1-1.34.163l-6.245-4.46z"
-                        fill="#008f79"
-                      ></path>
-                    </svg>
-                  </div>
-
-                  <button>
-                    Select Images
-                    <input
-                      type="file"
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        opacity: 0,
-                        width: "100%",
-                        height: "100%",
-                        cursor: "pointer",
-                      }}
-                      onChange={handleFileChange}
-                      multiple
-                      accept="image/*"
-                    />
-                  </button>
-                  <p style={{ paddingTop: "10px" }}>or drag images here</p>
-                  <p style={{ color: "darkgray" }}>(Up to 5 images)</p>
-                </div>
-              </div>
-              {imageSrcs.map((src, index) => (
                 <div
-                  style={{
-                    padding: "5px",
-                    display: "inline-block",
-                    marginTop: "10px",
-                    position: "relative",
-                  }}
-                  key={src._id}
+                  className="file-drop-area"
+                  style={
+                    uploaded
+                      ? {
+                          width: "100%",
+                          height: "50%",
+                        }
+                      : {
+                          width: "100%",
+                          height: "100%",
+                        }
+                  }
                 >
-                  <img
-                    key={src._id}
-                    src={src}
-                    alt={`Selected ${index}`}
-                    className="img-thumbnail"
-                  />
+                  <div className="file-input-btn">
+                    <div className="svg-upload-icon">
+                      <svg
+                        className=""
+                        height="32"
+                        viewBox="0 0 32 32"
+                        width="32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 26h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3h-3a1 1 0 0 1 0-2h3v-3a1 1 0 0 1 2 0v3zM2 28h16a1 1 0 0 1 0 2H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h28a1 1 0 0 1 1 1v17a1 1 0 0 1-2 0V2H2v26zm9-15a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm.174 7.353L6.768 23.64a1 1 0 1 1-1.536-1.28l5-6a1 1 0 0 1 1.35-.174l6.254 4.468 5.405-6.305a1 1 0 1 1 1.518 1.302l-6 7a1 1 0 0 1-1.34.163l-6.245-4.46z"
+                          fill="#008f79"
+                        ></path>
+                      </svg>
+                    </div>
 
-                  <div className="D_Qy">
-                    <p
-                      className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
-                      style={{ textAlign: "center", color: "white" }}
+                    <button>
+                      Select Images
+                      <input
+                        type="file"
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          opacity: 0,
+                          width: "100%",
+                          height: "100%",
+                          cursor: "pointer",
+                        }}
+                        onChange={handleFileChange}
+                        multiple
+                        accept="image/*"
+                      />
+                    </button>
+                    <p style={{ paddingTop: "10px" }}>or drag images here</p>
+                    <p style={{ color: "darkgray" }}>(Up to 5 images)</p>
+                  </div>
+                </div>
+                {imageSrcs.map((src, index) => (
+                  <div
+                    style={{
+                      padding: "5px",
+                      display: "inline-block",
+                      marginTop: "10px",
+                      position: "relative",
+                    }}
+                    key={src._id}
+                  >
+                    <img
+                      key={src._id}
+                      src={src}
+                      alt={`Selected ${index}`}
+                      className="img-thumbnail"
+                    />
+
+                    <div className="D_Qy">
+                      <p
+                        className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
+                        style={{ textAlign: "center", color: "white" }}
+                      >
+                        {index + 1}
+                      </p>
+                    </div>
+
+                    <div
+                      className="D_Qy-1"
+                      onClick={() => handleRemoveImage(index)}
                     >
-                      {index + 1}
-                    </p>
+                      <p
+                        className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
+                        style={{ textAlign: "center" }}
+                      >
+                        <FontAwesomeIcon
+                          icon={faCircleXmark}
+                          style={{ color: "white" }}
+                        />
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {windowWidth > 1208 ? null : (
+                <div style={{ padding: "20px" }}></div>
+              )}
+
+              <div
+                className="col-md-7 col-lg-7 col-sm-12"
+                style={{
+                  border: "1px solid #f1f1f1",
+                  boxShadow: "0 0 10px rgb(186, 186, 186)",
+                  padding: "24px",
+                  borderRadius: "5px",
+                  marginLeft: { windowWidth } < 1208 ? "0px" : "10px",
+                  margin: { windowWidth } < 1208 ? "0px" : "auto",
+                  backgroundColor: "white",
+                }}
+              >
+                <div className="xmas-hat-div">
+                  <img src="/xmas-hat.png" alt="" />
+                </div>
+                <form onSubmit={handleSubmit}>
+                  <div className="form__group field title">
+                    <input
+                      type="input"
+                      className="form__field"
+                      name="title"
+                      id="title"
+                      required
+                      onChange={handleTitle}
+                      maxLength={50}
+                    />
+                    {!typingTitle ? (
+                      <label
+                        htmlFor="titleInput"
+                        className="custom-placeholder title"
+                      >
+                        Title<span className="asterisk">*</span>
+                      </label>
+                    ) : null}
                   </div>
 
                   <div
-                    className="D_Qy-1"
-                    onClick={() => handleRemoveImage(index)}
+                    className="form__group field"
+                    style={{ marginTop: "20px" }}
                   >
-                    <p
-                      className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
-                      style={{ textAlign: "center" }}
+                    <select
+                      className="form-select"
+                      aria-label="Default select example"
+                      onChange={handleCountryChange}
                     >
-                      <FontAwesomeIcon
-                        icon={faCircleXmark}
-                        style={{ color: "white" }}
-                      />
-                    </p>
+                      {countryList.map((country, index) => (
+                        <option key={index} value={country}>
+                          {`${country} ${countryEmojiMap[country]}`}
+                        </option>
+                      ))}
+                    </select>
                   </div>
-                </div>
-              ))}
-            </div>
 
-            {windowWidth > 1208 ? null : (
-              <div style={{ padding: "20px" }}></div>
-            )}
+                  <div
+                    className="form__group field"
+                    style={{ marginTop: "20px" }}
+                  >
+                    <input
+                      type="input"
+                      className="form__field location_field"
+                      name="location"
+                      id="location"
+                      required
+                      onChange={handleLocationChange}
+                      maxLength={30}
+                    />
+                    {!typingLocation ? (
+                      <label
+                        htmlFor="titleInput"
+                        className="custom-placeholder title"
+                      >
+                        Address (Disneyland, Wonderland...)
+                        <span className="asterisk">*</span>
+                      </label>
+                    ) : null}
+                    <FontAwesomeIcon
+                      icon={faCircleInfo}
+                      style={{ color: "#9192a0" }}
+                      className="location_info"
+                    />
+                    <div className="hover_text">
+                      Please specify the address to better assist the user in
+                      planning their trip. e.g. Canada's Wonderland ➡{" "}
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={`https://www.google.com/maps?q=Canada's Wonderland`}
+                      >
+                        Canada's Wonderland
+                      </a>
+                    </div>
+                  </div>
 
-            <div
-              className="col-md-7 col-lg-7 col-sm-12"
-              style={{
-                border: "1px solid #f1f1f1",
-                boxShadow: "0 0 10px rgb(186, 186, 186)",
-                padding: "24px",
-                borderRadius: "5px",
-                marginLeft: { windowWidth } < 1208 ? "0px" : "10px",
-                margin: { windowWidth } < 1208 ? "0px" : "auto",
-                backgroundColor: "white",
-              }}
-            >
-              <div className="xmas-hat-div">
-                <img src="/xmas-hat.png" alt="" />
+                  <div
+                    className="form__group field"
+                    style={{ marginTop: "20px" }}
+                  >
+                    <input
+                      type="input"
+                      className="form__field"
+                      placeholder="Event"
+                      name="event"
+                      id="event"
+                      onChange={handleEventChange}
+                      maxLength={50}
+                    />
+                  </div>
+
+                  <div style={{ marginTop: "20px" }}>
+                    <textarea
+                      name=""
+                      id=""
+                      cols="30"
+                      rows="10"
+                      maxLength={500}
+                      placeholder="Description"
+                      className="form-control-textarea"
+                      onChange={handleDescriptionChange}
+                    ></textarea>
+                    {description.length === 500 ? (
+                      <p
+                        style={{
+                          textAlign: "right",
+                          margin: "0px",
+                          fontSize: "14px",
+                          color: "red",
+                        }}
+                      >{`Reached max word limit: ${description.length}/500`}</p>
+                    ) : (
+                      <p
+                        style={{
+                          textAlign: "right",
+                          margin: "0px",
+                          fontSize: "14px",
+                        }}
+                      >{`${description.length}/500`}</p>
+                    )}
+
+                    <Rating onRatingChange={handleRatingChange} />
+                  </div>
+                  <div className="list-item-btn d-flex">
+                    <div>
+                      {/* {uploading === true ? (
+                        <p>Sending to Santa's team 💨</p>
+                      ) : (
+                        <p className="review-message">🎅🏻 let us have a look!</p>
+                      )} */}
+
+                      {uploaded ? (
+                        <div
+                          className="btn btn-warning"
+                          style={{
+                            padding: "4px 24px",
+                            fontWeight: "bold",
+                            marginBottom: "10px",
+                          }}
+                          onClick={() => setShowPopup(true)}
+                        >
+                          Preview
+                        </div>
+                      ) : (
+                        <div
+                          className="btn btn-secondary"
+                          style={{
+                            padding: "4px 24px",
+                            fontWeight: "bold",
+                            marginBottom: "10px",
+                          }}
+                          onClick={() =>
+                            toast.warn("Please upload at least one image!", {
+                              position: "top-center",
+                              autoClose: 5000,
+                              hideProgressBar: false,
+                              closeOnClick: true,
+                              pauseOnHover: true,
+                              draggable: true,
+                              progress: undefined,
+                              theme: "light",
+                            })
+                          }
+                        >
+                          Preview
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      {uploading === true ? (
+                        <button
+                          className="btn btn-secondary"
+                          style={{
+                            padding: "4px 24px",
+                            fontWeight: "bold",
+                            marginBottom: "10px",
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faSpinner}
+                            size="lg"
+                            className="loading-spinner"
+                            spin
+                          />
+                        </button>
+                      ) : (
+                        <button
+                          className="btn btn-success"
+                          style={{ padding: "4px 24px", fontWeight: "bold" }}
+                        >
+                          Post!
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </form>
               </div>
-              <form onSubmit={handleSubmit}>
-                <div className="form__group field title">
-                  <input
-                    type="input"
-                    className="form__field"
-                    name="title"
-                    id="title"
-                    required
-                    onChange={handleTitle}
-                    maxLength={50}
-                  />
-                  {!typingTitle ? (
-                    <label
-                      htmlFor="titleInput"
-                      className="custom-placeholder title"
-                    >
-                      Title<span className="asterisk">*</span>
-                    </label>
-                  ) : null}
-                </div>
-
-                <div
-                  className="form__group field"
-                  style={{ marginTop: "20px" }}
-                >
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                    onChange={handleCountryChange}
-                  >
-                    {countryList.map((country, index) => (
-                      <option key={index} value={country}>
-                        {`${country} ${countryEmojiMap[country]}`}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div
-                  className="form__group field"
-                  style={{ marginTop: "20px" }}
-                >
-                  <input
-                    type="input"
-                    className="form__field location_field"
-                    name="location"
-                    id="location"
-                    required
-                    onChange={handleLocationChange}
-                    maxLength={30}
-                  />
-                  {!typingLocation ? (
-                    <label
-                      htmlFor="titleInput"
-                      className="custom-placeholder title"
-                    >
-                      Address (Disneyland, Wonderland...)
-                      <span className="asterisk">*</span>
-                    </label>
-                  ) : null}
-                  <FontAwesomeIcon
-                    icon={faCircleInfo}
-                    style={{ color: "#9192a0" }}
-                    className="location_info"
-                  />
-                  <div className="hover_text">
-                    Please specify the address to better assist the user in
-                    planning their trip. e.g. Canada's Wonderland ➡{" "}
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={`https://www.google.com/maps?q=Canada's Wonderland`}
-                    >
-                      Canada's Wonderland
-                    </a>
-                  </div>
-                </div>
-
-                <div
-                  className="form__group field"
-                  style={{ marginTop: "20px" }}
-                >
-                  <input
-                    type="input"
-                    className="form__field"
-                    placeholder="Event"
-                    name="event"
-                    id="event"
-                    onChange={handleEventChange}
-                    maxLength={50}
-                  />
-                </div>
-
-                <div style={{ marginTop: "20px" }}>
-                  <textarea
-                    name=""
-                    id=""
-                    cols="30"
-                    rows="10"
-                    maxLength={500}
-                    placeholder="Description"
-                    className="form-control-textarea"
-                    onChange={handleDescriptionChange}
-                  ></textarea>
-                  {description.length === 500 ? (
-                    <p
-                      style={{
-                        textAlign: "right",
-                        margin: "0px",
-                        fontSize: "14px",
-                        color: "red",
-                      }}
-                    >{`Reached max word limit: ${description.length}/500`}</p>
-                  ) : (
-                    <p
-                      style={{
-                        textAlign: "right",
-                        margin: "0px",
-                        fontSize: "14px",
-                      }}
-                    >{`${description.length}/500`}</p>
-                  )}
-
-                  <Rating onRatingChange={handleRatingChange} />
-                </div>
-                <div className="list-item-btn d-flex">
-                  <div>
-                    {/* {uploading === true ? (
-                      <p>Sending to Santa's team 💨</p>
-                    ) : (
-                      <p className="review-message">🎅🏻 let us have a look!</p>
-                    )} */}
-
-                    {uploaded ? (
-                      <div
-                        className="btn btn-warning"
-                        style={{
-                          padding: "4px 24px",
-                          fontWeight: "bold",
-                          marginBottom: "10px",
-                        }}
-                        onClick={() => setShowPopup(true)}
-                      >
-                        Preview
-                      </div>
-                    ) : (
-                      <div
-                        className="btn btn-secondary"
-                        style={{
-                          padding: "4px 24px",
-                          fontWeight: "bold",
-                          marginBottom: "10px",
-                        }}
-                        onClick={() =>
-                          toast.warn("Please upload at least one image!", {
-                            position: "top-center",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "light",
-                          })
-                        }
-                      >
-                        Preview
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    {uploading === true ? (
-                      <button
-                        className="btn btn-secondary"
-                        style={{
-                          padding: "4px 24px",
-                          fontWeight: "bold",
-                          marginBottom: "10px",
-                        }}
-                      >
-                        <FontAwesomeIcon
-                          icon={faSpinner}
-                          size="lg"
-                          className="loading-spinner"
-                          spin
-                        />
-                      </button>
-                    ) : (
-                      <button
-                        className="btn btn-success"
-                        style={{ padding: "4px 24px", fontWeight: "bold" }}
-                      >
-                        Post!
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </form>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
