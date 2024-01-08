@@ -397,10 +397,6 @@ a:active {
   background-color: var(--tg-common-color-gray);
 }
 
-.btn-submit:hover {
-  color: white;
-}
-
 @media (max-width: 767px) {
   .btn-submit {
     width: 100%;

@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import "../../SearchBar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRepeat, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 function SearchBar() {
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [searched, setSearched] = useState(false);
 
   const countryList = [
     "Global",
@@ -188,31 +191,55 @@ function SearchBar() {
             }}
             style={{ marginRight: "10px", marginBottom: "10px" }}
           >
-            Reset
+            <FontAwesomeIcon icon={faRepeat} style={{ color: "white" }} />
           </button>
-          <button
-            className="btn-submit"
-            type="submit"
-            onClick={() => window.location.reload()}
-            style={{ marginBottom: "10px" }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-search"
-              style={{ color: "white" }}
+
+          {searched ? (
+            <button
+              className="btn-submit"
+              type="submit"
+              onClick={() => {
+                setSearched(true);
+                window.location.reload();
+              }}
+              style={{ marginBottom: "10px" }}
             >
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </button>
+              <FontAwesomeIcon
+                icon={faSpinner}
+                style={{ color: "white" }}
+                spin
+              />
+            </button>
+          ) : (
+            <button
+              className="btn-submit"
+              type="submit"
+              onClick={() => {
+                setSearched(true);
+                setTimeout(() => {
+                  window.location.reload();
+                }, 300);
+              }}
+              style={{ marginBottom: "10px" }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="feather feather-search"
+                style={{ color: "white" }}
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          )}
         </div>
       </div>
     </div>
