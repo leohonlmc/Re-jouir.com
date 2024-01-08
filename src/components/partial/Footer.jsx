@@ -80,7 +80,9 @@ function Footer() {
           <div className="row">
             <div className="col-md-6">
               <div className="copyright__text">
-                <p>© 2023 Rejouir. All rights reserved.</p>
+                <p>
+                  © {new Date().getFullYear()} Rejouir. All rights reserved.
+                </p>
               </div>
             </div>
             <div className="col-md-6">
