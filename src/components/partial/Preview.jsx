@@ -371,7 +371,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
             }
           }
 
-          @media only screen and (max-width: 1209px) {
+          @media only screen and (max-width: 768px) {
             .popup {
                 top: 0;
             }
