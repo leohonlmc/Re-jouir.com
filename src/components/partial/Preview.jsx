@@ -244,9 +244,15 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                             ) : (
                               <div className="rating-div yellow-rating">
                                 <div>Rating</div>
-                                <div className="text-xl leading-5 font-bold ">
-                                  NA
-                                </div>
+                                {!props.rating ? (
+                                  <div className="text-xl leading-5 font-bold ">
+                                    NA
+                                  </div>
+                                ) : (
+                                  <div className="text-xl leading-5 font-bold ">
+                                    {props.rating.toFixed(1)}
+                                  </div>
+                                )}
                               </div>
                             )}
                           </div>
