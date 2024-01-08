@@ -35,7 +35,7 @@ function Hero() {
       setIsChristmas(true);
     }
 
-    const intervalId = setInterval(updateCountdown, 1000);
+    const intervalId = setInterval(updateCountdown, 100);
 
     if (localStorage.getItem("guest") === null) {
       localStorage.setItem("guest", guest);
