@@ -347,26 +347,6 @@ function Blog() {
       )}
       <div className="blog-main">
         <div className="filter-div">
-          {localStorage.getItem("selectedCountry") === "Global" ? (
-            <h3
-              className="browse-réjouir"
-              style={{ textAlign: "left", fontWeight: "bold", margin: "0px" }}
-            >
-              {`Explore`}{" "}
-              <span className="browse-country">{`the World 🌍`}</span>
-            </h3>
-          ) : (
-            <h3
-              className="browse-réjouir"
-              style={{ textAlign: "left", fontWeight: "bold" }}
-            >
-              {`Explore ${localStorage.getItem("selectedCountry")}`}{" "}
-              <span>
-                {countryEmojiMap[localStorage.getItem("selectedCountry")]}
-              </span>
-            </h3>
-          )}
-
           <SearchBar />
         </div>
 

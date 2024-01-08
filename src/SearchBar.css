@@ -46,8 +46,9 @@
   --tg-fw-light: 300;
 }
 
-.card-body {
-  margin-top: 10px;
+.parent-div {
+  display: grid;
+  place-items: center;
 }
 
 .row {
