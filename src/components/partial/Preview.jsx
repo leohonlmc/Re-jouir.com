@@ -7,62 +7,6 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ViewIcon = ({ setShowPopup, ...props }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
-  const [currIndex, setCurrIndex] = useState(props.currIndex);
-  const images = props.images;
-  const countryList = [
-    "Global",
-    "Argentina",
-    "Australia",
-    "Austria",
-    "Belgium",
-    "Brazil",
-    "Canada",
-    "Chile",
-    "Colombia",
-    "Costa Rica",
-    "Denmark",
-    "Ecuador",
-    "Finland",
-    "France",
-    "Germany",
-    "Greece",
-    "Hungary",
-    "Hong Kong SAR",
-    "Iceland",
-    "India",
-    "Indonesia",
-    "Ireland",
-    "Italy",
-    "Jamaica",
-    "Japan",
-    "Kenya",
-    "Lebanon",
-    "Luxembourg",
-    "Mexico",
-    "Netherlands",
-    "New Zealand",
-    "Norway",
-    "Panama",
-    "Peru",
-    "Philippines",
-    "Poland",
-    "Portugal",
-    "Puerto Rico",
-    "Romania",
-    "Russia",
-    "South Africa",
-    "South Korea",
-    "Spain",
-    "Sweden",
-    "Switzerland",
-    "Turkey",
-    "Taiwan",
-    "Ukraine",
-    "United Kingdom",
-    "United States",
-    "Venezuela",
-    "Zimbabwe",
-  ];
 
   const countryEmojiMap = {
     Global: "🌍",
@@ -135,7 +79,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
             style={{
               width: "100%",
               height: "100%",
-              padding: "24px",
+              padding: "24px 24px 10px 24px",
               margin: "auto",
               textAlign: "center",
             }}
@@ -333,6 +277,10 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
               />
             </div>
           </div>
+
+          <p style={{ marginBottom: "10px" }}>
+            This will be the final design of your post ☝🏻
+          </p>
         </div>
       )}
 
@@ -413,6 +361,8 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
           @media only screen and (max-width: 768px) {
             .popup {
                 top: 0;
+                height: 100%;
+                border-radius: 0px;
             }
           }
         `}
