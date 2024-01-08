@@ -73,12 +73,15 @@ function Hero() {
               data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 100;"
             >
               <img
+                className="object"
                 src="/assets/img/objects/circle-01.png"
                 width="16"
                 alt="object"
                 style={{ top: "14%", left: "-8%" }}
               ></img>
+
               <img
+                className="object"
                 src="/assets/img/objects/circle-03.png"
                 width="24"
                 alt="object"
@@ -86,9 +89,9 @@ function Hero() {
               ></img>
 
               <img
+                className="object"
                 src="/assets/img/objects/x.png"
                 width="28"
-                class="shape"
                 alt="object"
                 style={{ top: "-4%", right: "16%" }}
               />

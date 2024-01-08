@@ -15,6 +15,7 @@ function Footer() {
           style={{ position: "relative" }}
         >
           <img
+            className="object"
             src="/assets/img/objects/circle-01.png"
             alt="object"
             style={{
@@ -25,6 +26,7 @@ function Footer() {
             }}
           ></img>
           <img
+            className="object"
             src="/assets/img/objects/circle-03.png"
             alt="object"
             style={{

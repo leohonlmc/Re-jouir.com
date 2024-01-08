@@ -65,6 +65,14 @@ svg {
   color: white;
 }
 
+.object {
+  transition: all 0.3s ease-in-out;
+}
+
+.object:hover {
+  transform: scale(1.3);
+}
+
 @media screen and (max-width: 767px) {
   .copyright__text {
     text-align: center;
