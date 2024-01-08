@@ -363,7 +363,7 @@ function List() {
       );
 
       if (data) {
-        sendEmail();
+        // sendEmail();
         setTimeout(() => {
           setUploading(false);
         }, 3000);

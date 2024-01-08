@@ -5,6 +5,8 @@ import "../../Header.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
+const { REACT_APP_AWS } = process.env;
+
 const ViewIcon = ({ setShowPopup, ...props }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
   const [currIndex, setCurrIndex] = useState(props.currIndex);
@@ -38,7 +40,11 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                 className="image-section"
               >
                 <LazyLoadImage
-                  src={images[currIndex]}
+                  src={
+                    images[currIndex].slice(0, 4) !== "http"
+                      ? `${REACT_APP_AWS}${images[currIndex]}`
+                      : images[currIndex]
+                  }
                   className="card-img-top"
                   style={{
                     height: "100%",
@@ -63,7 +69,11 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                       }}
                     >
                       <img
-                        src={item}
+                        src={
+                          item.slice(0, 4) !== "http"
+                            ? `${REACT_APP_AWS}${item}`
+                            : item
+                        }
                         alt="..."
                         onClick={() => {
                           setCurrIndex(index);
