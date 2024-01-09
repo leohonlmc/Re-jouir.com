@@ -22,6 +22,7 @@ import { Helmet } from "react-helmet";
 import Rating from "./partial/Rating";
 import Preview from "./partial/Preview";
 import Submitted from "./partial/Submitted";
+import Footer from "./partial/Footer";
 
 const {
   REACT_APP_API_ENDPOINT,
@@ -767,6 +768,8 @@ function List() {
           </div>
         )}
       </div>
+      <br />
+      <Footer />
     </div>
   );
 }
