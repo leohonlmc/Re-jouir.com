@@ -1,13 +1,25 @@
 import React, { useEffect, useState, useRef } from "react";
 import "../../SearchBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRepeat, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import {
+  faRepeat,
+  faSpinner,
+  faMinus,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
 
-function SearchBar() {
+function SearchBar(props) {
   const [filter, setFilter] = useState("");
+  const [filterValue, setFilterValue] = useState("");
+
   const [country, setCountry] = useState("");
+  const [countryValue, setCountryValue] = useState("");
+
   const [searchQuery, setSearchQuery] = useState("");
+
   const [searched, setSearched] = useState(false);
+
+  const [hide, setHide] = useState(false);
 
   const countryList = [
     "Global",
@@ -121,11 +133,13 @@ function SearchBar() {
 
   const handleSSelectChange = (e, index) => {
     setFilter(`?sort=${e.target.value}`);
+    setFilterValue(e.target.value);
     localStorage.setItem("selectedFilter", e.target.value);
   };
 
   const handleCountryChange = (e) => {
     const selectedCountry = e.target.value;
+    setCountryValue(selectedCountry);
     setCountry(selectedCountry ? `?country=${selectedCountry}` : "");
     localStorage.setItem("selectedCountry", selectedCountry);
   };
@@ -147,6 +161,7 @@ function SearchBar() {
               placeholder="Type here..."
               name="going"
               onChange={handleSearchChange}
+              maxLength="40"
             />
           </div>
           <div className="input-group input--medium">
@@ -180,7 +195,7 @@ function SearchBar() {
           </div>
 
           <button
-            className="btn-submit reset"
+            className="btn-submit reset lg"
             type="submit"
             onClick={() => {
               localStorage.setItem("selectedFilter", "newest");
@@ -196,7 +211,7 @@ function SearchBar() {
 
           {searched ? (
             <button
-              className="btn-submit"
+              className="btn-submit search"
               type="submit"
               onClick={() => {
                 setSearched(true);
@@ -211,34 +226,97 @@ function SearchBar() {
               />
             </button>
           ) : (
-            <button
-              className="btn-submit"
-              type="submit"
-              onClick={() => {
-                setSearched(true);
-                setTimeout(() => {
-                  window.location.reload();
-                }, 300);
-              }}
-              style={{ marginBottom: "10px" }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="feather feather-search"
-                style={{ color: "white" }}
+            <>
+              <button
+                className="btn-submit search"
+                type="submit"
+                onClick={() => {
+                  setSearched(true);
+                  setTimeout(() => {
+                    window.location.reload();
+                  }, 300);
+                }}
+                style={{ marginBottom: "10px" }}
               >
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-search"
+                  style={{ color: "white" }}
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </button>
+
+              {!(filterValue || searchQuery || countryValue) ||
+              props.showPopup === true ? null : (
+                <div className="btn-submit search-sm">
+                  <div className="inline-div">
+                    <div
+                      className="reset sm"
+                      type="submit"
+                      onClick={() => {
+                        localStorage.setItem("selectedFilter", "newest");
+                        localStorage.setItem("selectedCountry", "Global");
+                        localStorage.setItem("searchQuery", "");
+                        localStorage.setItem("currentPage", 1);
+                        window.location.reload();
+                      }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faRepeat}
+                        style={{ color: "white" }}
+                      />
+                    </div>
+                    {hide === true ? (
+                      <div
+                        className="reset sm"
+                        type="submit"
+                        onClick={() => {
+                          setHide(false);
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faPlus} />{" "}
+                      </div>
+                    ) : (
+                      <div
+                        className="reset sm"
+                        type="submit"
+                        onClick={() => {
+                          setHide(true);
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faMinus} />
+                      </div>
+                    )}
+                  </div>
+                  {hide === true ? null : (
+                    <div
+                      className="btn btn-submit"
+                      onClick={() => {
+                        setSearched(true);
+                        setTimeout(() => {
+                          window.location.reload();
+                        }, 300);
+                      }}
+                      style={{ marginTop: "10px" }}
+                    >
+                      {`Search ${filterValue.toLowerCase()} "${searchQuery}" in ${countryValue} ${
+                        countryEmojiMap[countryValue]
+                      }`}
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

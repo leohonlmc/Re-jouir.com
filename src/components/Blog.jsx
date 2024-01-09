@@ -347,7 +347,7 @@ function Blog() {
       )}
       <div className="blog-main">
         <div className="filter-div">
-          <SearchBar />
+          <SearchBar showPopup={showPopup} />
         </div>
 
         <div className="page-number-div p-0 m-0">
