@@ -546,7 +546,7 @@ function List() {
                     style={{
                       padding: "5px",
                       display: "inline-block",
-                      marginTop: "10px",
+                      marginTop: "5px",
                       position: "relative",
                     }}
                     key={src._id}

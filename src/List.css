@@ -165,8 +165,9 @@
   background-color: rgb(241, 241, 241);
   border: 0px;
   object-fit: cover;
-  width: 123px;
-  height: 123px;
+  width: 100px;
+  height: 100px;
+  padding: 0px !important;
 }
 
 .form-control-textarea {
