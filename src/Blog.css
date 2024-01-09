@@ -813,13 +813,6 @@
   }
 }
 
-@media (max-width: 740px) {
-  .filter-div h2 {
-    flex-basis: 100%;
-    margin-bottom: 10px;
-  }
-}
-
 @media (max-width: 576px) {
   .search-form select {
     width: 100%;
