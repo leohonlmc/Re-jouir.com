@@ -10,7 +10,6 @@ import AWS from "aws-sdk";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleXmark,
-  faCircleInfo,
   faCloudArrowUp,
   faCircleCheck,
   faSpinner,
@@ -323,7 +322,7 @@ function List() {
   const sendEmail = (e) => {
     emailjs.send("gmail_rejouir", "template_1wuvnh6").then(
       (result) => {
-        window.location.reload();
+        console.log("Success!");
       },
       (error) => {
         console.log("Failed...", error);
@@ -605,99 +604,65 @@ function List() {
                   <img src="/xmas-hat.png" alt="" />
                 </div>
                 <form onSubmit={handleSubmit}>
-                  <div className="form__group field title">
-                    <input
-                      type="input"
-                      className="form__field"
-                      name="title"
-                      id="title"
-                      required
-                      onChange={handleTitle}
-                      maxLength={50}
-                    />
-                    {!typingTitle ? (
-                      <label
-                        htmlFor="titleInput"
-                        className="custom-placeholder title"
-                      >
-                        Title<span className="asterisk">*</span>
-                      </label>
-                    ) : null}
-                  </div>
-
-                  <div
-                    className="form__group field"
-                    style={{ marginTop: "20px" }}
-                  >
-                    <select
-                      className="form-select"
-                      aria-label="Default select example"
-                      onChange={handleCountryChange}
-                    >
-                      {countryList.map((country, index) => (
-                        <option key={index} value={country}>
-                          {`${country} ${countryEmojiMap[country]}`}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div
-                    className="form__group field"
-                    style={{ marginTop: "20px" }}
-                  >
-                    <input
-                      type="input"
-                      className="form__field location_field"
-                      name="location"
-                      id="location"
-                      required
-                      onChange={handleLocationChange}
-                      maxLength={30}
-                    />
-                    {!typingLocation ? (
-                      <label
-                        htmlFor="titleInput"
-                        className="custom-placeholder title"
-                      >
-                        Address (Disneyland, Wonderland...)
-                        <span className="asterisk">*</span>
-                      </label>
-                    ) : null}
-                    <FontAwesomeIcon
-                      icon={faCircleInfo}
-                      style={{ color: "#9192a0" }}
-                      className="location_info"
-                    />
-                    <div className="hover_text">
-                      Please specify the address to better assist the user in
-                      planning their trip. e.g. Canada's Wonderland ➡{" "}
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={`https://www.google.com/maps?q=Canada's Wonderland`}
-                      >
-                        Canada's Wonderland
-                      </a>
+                  <div class="form-row d-flex">
+                    <div class="col">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Title *"
+                        onChange={handleTitle}
+                        maxLength={50}
+                        required
+                        style={{ marginTop: "10px" }}
+                      />
+                    </div>
+                    <div class="col address">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Address *"
+                        required
+                        onChange={handleLocationChange}
+                        maxLength={30}
+                        style={{ marginTop: "10px" }}
+                      />
                     </div>
                   </div>
 
-                  <div
-                    className="form__group field"
-                    style={{ marginTop: "20px" }}
-                  >
-                    <input
-                      type="input"
-                      className="form__field"
-                      placeholder="Event"
-                      name="event"
-                      id="event"
-                      onChange={handleEventChange}
-                      maxLength={50}
-                    />
+                  <div class="form-row d-flex">
+                    <div
+                      class="form-group col-md-8"
+                      style={{ marginTop: "10px" }}
+                    >
+                      <input
+                        type="text"
+                        class="form-control"
+                        onChange={handleEventChange}
+                        maxLength={50}
+                        placeholder="Event"
+                      />
+                    </div>
+                    <div
+                      class="form-group col-md-4"
+                      style={{ marginTop: "10px" }}
+                    >
+                      <select
+                        id="inputState"
+                        class="form-control"
+                        onChange={handleCountryChange}
+                      >
+                        {countryList.map((country, index) => (
+                          <option key={index} value={country}>
+                            {`${country} ${countryEmojiMap[country]}`}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
 
-                  <div style={{ marginTop: "20px" }}>
+                  <br />
+
+                  <div style={{ width: "99%", margin: "auto" }}>
                     <textarea
                       name=""
                       id=""
@@ -731,12 +696,6 @@ function List() {
                   </div>
                   <div className="list-item-btn d-flex">
                     <div>
-                      {/* {uploading === true ? (
-                        <p>Sending to Santa's team 💨</p>
-                      ) : (
-                        <p className="review-message">🎅🏻 let us have a look!</p>
-                      )} */}
-
                       {uploaded ? (
                         <div
                           className="btn btn-warning"

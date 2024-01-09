@@ -54,6 +54,7 @@
   width: 100%;
   max-width: 1450px;
   margin: auto;
+  height: 100vh;
 }
 
 .form__group {
