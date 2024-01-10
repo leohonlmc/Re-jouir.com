@@ -13,7 +13,7 @@ function SearchBar(props) {
   const [filterValue, setFilterValue] = useState("");
 
   const [country, setCountry] = useState("");
-  const [countryValue, setCountryValue] = useState("");
+  const [countryValue, setCountryValue] = useState("the Global");
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -77,7 +77,7 @@ function SearchBar(props) {
   ];
 
   const countryEmojiMap = {
-    Global: "🌍",
+    "the Global": "🌍",
     Argentina: "🇦🇷",
     Australia: "🇦🇺",
     Austria: "🇦🇹",
