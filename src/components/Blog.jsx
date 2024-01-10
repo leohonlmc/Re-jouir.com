@@ -18,7 +18,11 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import NoResult from "./partial/NoResult";
 import World from "./effect/World";
 import SearchBar from "./partial/SearchBar";
-import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleChevronUp,
+  faArrowLeft,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 const ViewIcon = React.lazy(() => import("./popup/ViewIcon"));
@@ -355,8 +359,9 @@ function Blog() {
             <button
               className="btn btn-light"
               onClick={() => handlePageChange("prev")}
+              style={{ borderRadius: "50%" }}
             >
-              Previous
+              <FontAwesomeIcon icon={faArrowLeft} />
             </button>
           )}
           {[...Array(totalPages).keys()].map((page) => (
@@ -379,8 +384,9 @@ function Blog() {
             <button
               className="btn btn-light"
               onClick={() => handlePageChange("next")}
+              style={{ borderRadius: "50%" }}
             >
-              Next
+              <FontAwesomeIcon icon={faArrowRight} />
             </button>
           )}
         </div>
@@ -669,8 +675,9 @@ function Blog() {
             <button
               className="btn btn-outline-primary"
               onClick={() => handlePageChange("prev")}
+              style={{ borderRadius: "50%" }}
             >
-              Previous
+              <FontAwesomeIcon icon={faArrowLeft} />
             </button>
           )}
           {[...Array(totalPages).keys()].map((page) => (
@@ -693,8 +700,9 @@ function Blog() {
             <button
               className="btn btn-outline-primary"
               onClick={() => handlePageChange("next")}
+              style={{ borderRadius: "50%" }}
             >
-              Next
+              <FontAwesomeIcon icon={faArrowRight} />
             </button>
           )}
         </div>
