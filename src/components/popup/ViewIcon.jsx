@@ -25,7 +25,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
             className="d-flex"
             style={{
               width: "100%",
-              padding: "24px 24px 0px 24px",
+              padding: "20px 10px 0px 10px",
               height: "100%",
             }}
           >
@@ -96,7 +96,13 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
             >
               <FontAwesomeIcon
                 icon={faXmark}
-                style={{ cursor: "pointer" }}
+                style={{
+                  cursor: "pointer",
+                  padding: "5px 8px",
+                  backgroundColor: "black",
+                  borderRadius: "50%",
+                  color: "white",
+                }}
                 size="lg"
               />
             </div>

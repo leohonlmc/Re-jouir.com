@@ -342,6 +342,7 @@
 .page-number-div > button:hover {
   background-color: var(--christmas-green);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) !important;
+  color: white;
 }
 
 .active-1 {
