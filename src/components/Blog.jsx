@@ -397,6 +397,9 @@ function Blog() {
                                     <div
                                       className={`mb-1 mb-1${index}`}
                                       key={index}
+                                      style={
+                                        index === 0 ? {} : { cursor: "default" }
+                                      }
                                     >
                                       <div className="D_Qy-2">
                                         <p
@@ -425,7 +428,9 @@ function Blog() {
                                           newIndices[uploadIndex] = index;
                                           setCurrIndices(newIndices);
                                         }}
-                                        style={{ pointerEvents: "none" }}
+                                        style={{
+                                          pointerEvents: "none",
+                                        }}
                                       />
                                     </div>
                                   ))}
