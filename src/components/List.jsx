@@ -419,12 +419,23 @@ function List() {
             >
               <div className="status">
                 <div>
-                  <FontAwesomeIcon
-                    icon={faCloudArrowUp}
-                    style={{ color: "#79cee6" }}
-                    size="2xl"
-                    className="upload-icon"
-                  />
+                  {uploadingImages === true ? (
+                    <FontAwesomeIcon
+                      icon={faCloudArrowUp}
+                      style={{ color: "#79cee6" }}
+                      size="2xl"
+                      className="upload-icon"
+                      bounce
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faCloudArrowUp}
+                      style={{ color: "#79cee6" }}
+                      size="2xl"
+                      className="upload-icon"
+                    />
+                  )}
+
                   <p>{`Uploaded ${uploadCount} images`}</p>
                 </div>
                 <div className="spinner-or-arrow-parent">
