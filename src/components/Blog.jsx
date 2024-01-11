@@ -28,61 +28,6 @@ const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 const ViewIcon = React.lazy(() => import("./popup/ViewIcon"));
 
 function Blog() {
-  const countryList = [
-    "Global",
-    "Argentina",
-    "Australia",
-    "Austria",
-    "Belgium",
-    "Brazil",
-    "Canada",
-    "Chile",
-    "Colombia",
-    "Costa Rica",
-    "Denmark",
-    "Ecuador",
-    "Finland",
-    "France",
-    "Germany",
-    "Greece",
-    "Hungary",
-    "Hong Kong SAR",
-    "Iceland",
-    "India",
-    "Indonesia",
-    "Ireland",
-    "Italy",
-    "Jamaica",
-    "Japan",
-    "Kenya",
-    "Lebanon",
-    "Luxembourg",
-    "Mexico",
-    "Netherlands",
-    "New Zealand",
-    "Norway",
-    "Panama",
-    "Peru",
-    "Philippines",
-    "Poland",
-    "Portugal",
-    "Puerto Rico",
-    "Romania",
-    "Russia",
-    "South Africa",
-    "South Korea",
-    "Spain",
-    "Sweden",
-    "Switzerland",
-    "Turkey",
-    "Taiwan",
-    "Ukraine",
-    "United Kingdom",
-    "United States",
-    "Venezuela",
-    "Zimbabwe",
-  ];
-
   const countryEmojiMap = {
     Global: "🌍",
     Argentina: "🇦🇷",
@@ -149,7 +94,6 @@ function Blog() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
   const [likedPost, setLikedPost] = useState(false);
   const currentPage = parseInt(localStorage.getItem("currentPage"));
   const [topFour, setTopFour] = useState([]);
@@ -262,22 +206,6 @@ function Blog() {
       localStorage.setItem("currentPage", currentPage - 1);
       window.location.reload();
     }
-  };
-
-  const handleSSelectChange = (e, index) => {
-    setFilter(`?sort=${e.target.value}`);
-    localStorage.setItem("selectedFilter", e.target.value);
-  };
-
-  const handleCountryChange = (e) => {
-    const selectedCountry = e.target.value;
-    setCountry(selectedCountry ? `?country=${selectedCountry}` : "");
-    localStorage.setItem("selectedCountry", selectedCountry);
-  };
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-    localStorage.setItem("searchQuery", e.target.value);
   };
 
   const handleLike = async (postId, guest) => {
@@ -497,6 +425,7 @@ function Blog() {
                                           newIndices[uploadIndex] = index;
                                           setCurrIndices(newIndices);
                                         }}
+                                        style={{ pointerEvents: "none" }}
                                       />
                                     </div>
                                   ))}

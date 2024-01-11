@@ -5,7 +5,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 function NoResult() {
   return (
-    <div className="NoResult">
+    <div className="NoResult" style={{ textAlign: "center" }}>
       <h2>Sorry, no results found! 🙁</h2>
       <p>{`Search Result: ${localStorage.getItem(
         "current"
