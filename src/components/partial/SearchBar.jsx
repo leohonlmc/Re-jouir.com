@@ -300,7 +300,7 @@ function SearchBar(props) {
                   </div>
                   {hide === true ? null : (
                     <div
-                      className="btn btn-submit"
+                      className="btn btn-submit sm"
                       onClick={() => {
                         setSearched(true);
                         setTimeout(() => {

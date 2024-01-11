@@ -587,7 +587,9 @@ function Blog() {
                                       }}
                                       size="xl"
                                     />{" "}
-                                    {`${upload.likes.length} people like this`}
+                                    {`You and ${
+                                      upload.likes.length - 1
+                                    } others like this`}
                                   </div>
                                 ) : (
                                   <div
