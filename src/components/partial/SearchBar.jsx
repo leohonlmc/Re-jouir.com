@@ -22,7 +22,7 @@ function SearchBar(props) {
   const [hide, setHide] = useState(false);
 
   const countryList = [
-    "Global",
+    "the Global",
     "Argentina",
     "Australia",
     "Austria",
