@@ -72,7 +72,7 @@ function Header(props) {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-item nav-link active" to="/list">
+                <Link className="nav-item nav-link active" to="/upload">
                   Upload
                 </Link>
               </li>

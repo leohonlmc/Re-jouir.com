@@ -132,7 +132,7 @@ function Hero() {
                 )}
               </div>
               <div className="start-btn">
-                <Link to={"/list"}>
+                <Link to={"/upload"}>
                   <button className="btn btn-danger">
                     Let's get started{" "}
                     <svg
