@@ -526,7 +526,9 @@ strong {
 
 .ny,
 .fr,
-.uk {
+.uk,
+.ca,
+.ar {
   position: relative;
   color: var(--tg-common-color-white);
   overflow: hidden;
@@ -546,7 +548,7 @@ strong {
       rgba(0, 0, 0, 0.7),
       rgb(0, 0, 0)
     ),
-    url("../public/ny.jpeg");
+    url("https://s3.ca-central-1.amazonaws.com/rejouir/Hlb1Z$98Dwnull53373496851_156a663049_b.jpg");
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease;
@@ -566,7 +568,7 @@ strong {
       rgba(0, 0, 0, 0.7),
       rgb(0, 0, 0)
     ),
-    url("../public/france.jpeg");
+    url("https://s3.ca-central-1.amazonaws.com/rejouir/8N8gL9oEBZnullcampagne.jpg");
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease;
@@ -592,9 +594,51 @@ strong {
   transition: transform 0.3s ease;
 }
 
+.ca::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.7),
+      rgb(0, 0, 0)
+    ),
+    url("https://s3.ca-central-1.amazonaws.com/rejouir/YEq7$Z1N!8nullIMG_7523.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.ar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.7),
+      rgb(0, 0, 0)
+    ),
+    url("https://s3.ca-central-1.amazonaws.com/rejouir/F@6kA9sfcsnullIMG_1885.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
 .ny:hover::before,
 .fr:hover::before,
-.uk:hover::before {
+.uk:hover::before,
+.ca:hover::before,
+.ar:hover::before {
   transform: scale(1.1);
 }
 

@@ -444,7 +444,7 @@ function Blog() {
                               <div className="all-info-div">
                                 <ul className="inline-list">
                                   <li>
-                                    {countryEmojiMap[upload.country]}{" "}
+                                    {countryEmojiMap[upload.country]}
                                     {upload.country}
                                   </li>
                                   <li>

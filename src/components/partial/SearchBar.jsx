@@ -11,6 +11,7 @@ import {
 function SearchBar(props) {
   const [filter, setFilter] = useState("");
   const [filterValue, setFilterValue] = useState("");
+  const localsearchQuery = localStorage.getItem("searchQuery");
 
   const [country, setCountry] = useState("");
   const [countryValue, setCountryValue] = useState("the Global");
@@ -162,6 +163,7 @@ function SearchBar(props) {
               name="going"
               onChange={handleSearchChange}
               maxLength="40"
+              value={localsearchQuery}
             />
           </div>
           <div className="input-group input--medium">

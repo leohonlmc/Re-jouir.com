@@ -1,19 +1,22 @@
 import "../../App.css";
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate, Link } from "react-router-dom";
 
 function PlaceToGo() {
+  const navigate = useNavigate();
+
   const data = [
     {
       country: "United States",
       city: "New York",
-      place: "The Columbus Circle Holiday Market",
+      place: "221 Avenue of the Americas",
       class: "ny",
     },
     {
       country: "France",
       city: "Broglie, Strasbourg",
-      place: "The Christkindelsmärik",
+      place: "The Micheletty circus Christmas village",
       class: "fr",
     },
     {
@@ -22,7 +25,25 @@ function PlaceToGo() {
       place: "Christmas Market",
       class: "uk",
     },
+    {
+      country: "Canada",
+      city: "Toronto",
+      place: "Distillery District",
+      class: "ca",
+    },
+    {
+      country: "Argentina",
+      city: "Estonia",
+      place: "Tallinn",
+      class: "ar",
+    },
   ];
+
+  const search = function (query) {
+    // searchQuery
+    navigate("/blog");
+    localStorage.setItem("searchQuery", query);
+  };
 
   return (
     <div className="Home">
@@ -42,6 +63,7 @@ function PlaceToGo() {
           <div
             className={`col-lg-3 col-md-4 col-sm-6 col-12 country-review ${item.class}`}
             key={index}
+            onClick={() => search(item.place)}
           >
             <div>
               <h4>{item.country}</h4>
