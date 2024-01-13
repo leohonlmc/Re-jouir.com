@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 // faPaperPlane
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate, Link } from "react-router-dom";
 import "../../Footer.css";
 
 function Footer() {
@@ -18,10 +17,10 @@ function Footer() {
             <div className="footer-logo">
               <img src="/R_white.png" alt="" style={{ width: "250px" }} />
             </div>
-            <p>
+            {/* <p>
               We make Christmas one step closer around the globe, and share your
               precious moment.
-            </p>
+            </p> */}
 
             <ul className="list-wrap footer__social">
               <li>
@@ -32,7 +31,7 @@ function Footer() {
                 >
                   <FontAwesomeIcon
                     icon={faInstagram}
-                    style={{ color: "#a8b6ca" }}
+                    style={{ color: "white" }}
                     size="2xl"
                   />
                 </a>
@@ -45,7 +44,7 @@ function Footer() {
                 >
                   <FontAwesomeIcon
                     icon={faPaperPlane}
-                    style={{ color: "#a8b6ca" }}
+                    style={{ color: "white" }}
                     size="2xl"
                   />
                 </a>
@@ -67,7 +66,7 @@ function Footer() {
               <div className="copyright__menu">
                 <ul className="list-wrap">
                   <li>
-                    <a href="/#/about">About us</a>
+                    <a href="/#/about">About</a>
                   </li>
                   <li>
                     <a href="/#/terms">Terms & Conditions</a>

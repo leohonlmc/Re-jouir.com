@@ -240,10 +240,6 @@ function List() {
   const handleTitle = (event) => {
     setTitle(event.target.value);
 
-    if (!event.target.value) {
-      toast.error(`Please enter a title.`);
-    }
-
     if (event.target.value.length > 0) {
       setTypingTitle(true);
     } else {
