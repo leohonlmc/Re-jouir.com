@@ -14,28 +14,6 @@ function Footer() {
           className="col-xl-5 col-lg-7 col-md-9 col-sm-11"
           style={{ position: "relative" }}
         >
-          <img
-            className="object"
-            src="/assets/img/objects/circle-01.png"
-            alt="object"
-            style={{
-              position: "absolute",
-              bottom: "-15%",
-              right: "30%",
-              width: "24px",
-            }}
-          ></img>
-          <img
-            className="object"
-            src="/assets/img/objects/circle-03.png"
-            alt="object"
-            style={{
-              position: "absolute",
-              bottom: "-70%",
-              left: "20%",
-              width: "24px",
-            }}
-          ></img>
           <div className="footer__info text-center">
             <div className="footer-logo">
               <img src="/R_white.png" alt="" style={{ width: "250px" }} />

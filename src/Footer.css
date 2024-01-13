@@ -6,7 +6,7 @@
 }
 
 .section-py-80 {
-  padding: 60px 0;
+  padding: 40px 0;
   background-color: var(--christmas-green) !important;
   background-image: url("../public/snow-4.png") !important;
 }
@@ -27,7 +27,7 @@ svg {
 }
 
 .copyright__wrapper {
-  margin: 80px 0 0;
+  margin: 30px 0 0;
   padding: 30px 0 0;
   border-top: 1px solid rgb(221, 221, 221);
 }
