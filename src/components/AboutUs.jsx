@@ -70,7 +70,10 @@ function AboutUs() {
 
         <p>
           Founded and developed by{" "}
-          <a href="https://www.linkedin.com/in/hon-leo-aa12881b2/">Leo Hon</a>.
+          <a href="https://www.linkedin.com/in/ming-chun-hon-aa12881b2/">
+            Leo Hon
+          </a>
+          .
         </p>
       </div>
       <Footer />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import "../../SearchBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
