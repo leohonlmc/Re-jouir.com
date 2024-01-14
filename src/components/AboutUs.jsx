@@ -25,14 +25,10 @@ function AboutUs() {
       </div>
       <div className="about-main">
         <p>
-          Welcome to{" "}
-          <strong style={{ fontSize: "20px" }}>
-            <span className="r-logo">R</span>ejouirxmas.com
-          </strong>
-          , where the magic of Christmas echoes from every corner of the globe.
-          As a dedicated Christmas blog, we're more than just a festive site;
-          we're a community brought together by the warmth, joy, and spirit of
-          the holiday season.
+          Welcome to rejouirxmas.com , where the magic of Christmas echoes from
+          every corner of the globe. As a dedicated Christmas blog, we're more
+          than just a festive site; we're a community brought together by the
+          warmth, joy, and spirit of the holiday season.
         </p>
 
         <p>
@@ -65,7 +61,7 @@ function AboutUs() {
 
         <p>
           Join us in our journey as we celebrate, share, and connect the world
-          through the timeless spirit of Christmas. Welcome to Réjouir.com.
+          through the timeless spirit of Christmas. Welcome to rejouirxmas.com.
         </p>
 
         <p>
