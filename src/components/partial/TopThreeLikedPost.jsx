@@ -24,7 +24,6 @@ function TopThree() {
       });
       if (data) {
         setTopThree(data.topThree);
-        console.log(data.topThree);
       }
     } catch (ex) {
       console.error("An error occurred:", ex);
