@@ -456,6 +456,7 @@ strong {
   overflow: hidden;
   margin: 15px !important;
   text-align: left;
+  cursor: pointer;
 }
 
 .about__content .section__title {
