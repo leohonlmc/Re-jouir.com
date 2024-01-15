@@ -14,7 +14,7 @@ canvas {
 .World {
   position: relative;
   transition: 0.4s;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .world-text {

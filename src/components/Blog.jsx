@@ -17,6 +17,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import NoResult from "./partial/NoResult";
 import World from "./effect/World";
+import TopThreeLikedPost from "./partial/TopThreeLikedPost";
 import SearchBar from "./partial/SearchBar";
 import {
   faCircleChevronUp,
@@ -97,6 +98,7 @@ function Blog() {
   const [likedPost, setLikedPost] = useState(false);
   const currentPage = parseInt(localStorage.getItem("currentPage"));
   const [topFour, setTopFour] = useState([]);
+  const [topThree, setTopThree] = useState([]);
 
   const [noResult, setNoResult] = useState(false);
 
@@ -292,9 +294,9 @@ function Blog() {
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
           )}
-          {[...Array(totalPages).keys()].map((page) => (
+          {[...Array(totalPages).keys()].map((page, index) => (
             <button
-              key={page}
+              key={index}
               className={
                 Number(localStorage.getItem("currentPage")) === page + 1
                   ? "active-1 btn btn-light"
@@ -396,7 +398,7 @@ function Blog() {
                                   {upload.images.map((image, index) => (
                                     <div
                                       className={`mb-1 mb-1${index}`}
-                                      key={index}
+                                      key={image._id}
                                       style={
                                         index === 0 ? {} : { cursor: "default" }
                                       }
@@ -563,7 +565,7 @@ function Blog() {
                         <ul className="locations-ul">
                           {topFour.map((location, index) => (
                             <li
-                              key={index}
+                              key={location._id}
                               onClick={() => {
                                 localStorage.setItem(
                                   "selectedCountry",
@@ -585,6 +587,7 @@ function Blog() {
                         </ul>
                       </div>
                       <World />
+                      <TopThreeLikedPost />
                     </div>
                   </div>
                 </div>
@@ -616,9 +619,9 @@ function Blog() {
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
           )}
-          {[...Array(totalPages).keys()].map((page) => (
+          {[...Array(totalPages).keys()].map((page, index) => (
             <button
-              key={page}
+              key={index}
               className={
                 Number(localStorage.getItem("currentPage")) === page + 1
                   ? "active-1 btn btn-outline-primary"

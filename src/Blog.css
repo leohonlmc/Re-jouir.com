@@ -779,6 +779,57 @@
   color: var(--tg-common-color-white);
 }
 
+.country-review-blog {
+  border-radius: 10px;
+  min-height: 270px;
+  padding: 35px 35px 20px 35px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  margin-bottom: 15px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.country-review-blog > div > div > h4,
+.country-review-blog > div > div > h5 {
+  color: white;
+}
+
+.top-three-content {
+  width: 70%;
+}
+
+.total-like {
+  width: 30%;
+}
+
+.total-like > h2 {
+  color: white;
+  text-align: end;
+}
+
+.top-section-text {
+  border-bottom: 1.5px solid rgb(167, 167, 167);
+  margin-bottom: 10px;
+}
+
+.ranking {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+}
+
+.ranking > img {
+  width: 40px;
+}
+
 @media (max-width: 767px) {
   .ml12.aside-cta.flex--item {
     display: none;
