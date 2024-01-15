@@ -830,6 +830,19 @@
   width: 40px;
 }
 
+.inner-image {
+  position: relative;
+}
+
+.inner-image-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 12px;
+  padding: 5px 7px;
+  background-color: white;
+  border-radius: 10px;
+}
+
 @media (max-width: 767px) {
   .ml12.aside-cta.flex--item {
     display: none;

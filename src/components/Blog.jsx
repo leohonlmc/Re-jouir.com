@@ -23,6 +23,7 @@ import {
   faCircleChevronUp,
   faArrowLeft,
   faArrowRight,
+  faImage,
 } from "@fortawesome/free-solid-svg-icons";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
@@ -384,13 +385,24 @@ function Blog() {
                                       setCapton(upload.title);
                                     }}
                                   >
-                                    <img
-                                      src={`${REACT_APP_AWS}${
-                                        upload.images[currIndices[uploadIndex]]
-                                      }`}
-                                      alt=""
-                                      className="ecommerce-gallery-main-img active w-100 "
-                                    />
+                                    <div className="inner-image">
+                                      <img
+                                        src={`${REACT_APP_AWS}${
+                                          upload.images[
+                                            currIndices[uploadIndex]
+                                          ]
+                                        }`}
+                                        alt=""
+                                        className="ecommerce-gallery-main-img active w-100 "
+                                      />
+                                      <div className="inner-image-icon">
+                                        <FontAwesomeIcon
+                                          icon={faImage}
+                                          size="lg"
+                                        />{" "}
+                                        {upload.images.length}
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
 
