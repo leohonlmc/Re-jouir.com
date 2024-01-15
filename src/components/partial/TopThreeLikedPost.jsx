@@ -59,7 +59,10 @@ function TopThree() {
           <div className="ranking">
             <img src={`/number${index + 1}.png`} alt="" />
           </div>
-          <div className="d-flex">
+          <div
+            className="d-flex"
+            style={{ flexWrap: "nowrap", flexDirection: "row" }}
+          >
             <div className="top-three-content">
               <h4>{item.country}</h4>
               <h5>{item.location}</h5>
