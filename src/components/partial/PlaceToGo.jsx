@@ -42,7 +42,7 @@ function PlaceToGo() {
   const search = function (query) {
     // searchQuery
     navigate("/blog");
-    localStorage.setItem("searchQuery", query);
+    localStorage.setItem("selectedCountry", query);
   };
 
   return (
@@ -63,7 +63,7 @@ function PlaceToGo() {
           <div
             className={`col-lg-3 col-md-4 col-sm-6 col-12 country-review ${item.class}`}
             key={index}
-            onClick={() => search(item.place)}
+            onClick={() => search(item.country)}
           >
             <div>
               <h4>{item.country}</h4>
