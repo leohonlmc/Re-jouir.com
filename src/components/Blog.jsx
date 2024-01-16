@@ -1,5 +1,5 @@
 import "../Blog.css";
-import React, { useState, useEffect, useRef, Suspense } from "react";
+import React, { useState, useEffect, Suspense, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
@@ -25,6 +25,7 @@ import {
   faArrowRight,
   faImage,
 } from "@fortawesome/free-solid-svg-icons";
+import { AppStateContext } from "../Context/AppStateProvider";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 const ViewIcon = React.lazy(() => import("./popup/ViewIcon"));
@@ -93,13 +94,12 @@ function Blog() {
   const [showPopup, setShowPopup] = useState(false);
   const [allUpload, setAllUpload] = useState([]);
   const guest = generateRandomUserId();
-  const [loading, setLoading] = useState(true);
+  const { loading, setLoading } = useContext(AppStateContext);
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
   const [likedPost, setLikedPost] = useState(false);
   const currentPage = parseInt(localStorage.getItem("currentPage"));
   const [topFour, setTopFour] = useState([]);
-  const [topThree, setTopThree] = useState([]);
 
   const [noResult, setNoResult] = useState(false);
 
