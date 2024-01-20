@@ -19,13 +19,10 @@ import NoResult from "./partial/NoResult";
 import World from "./effect/World";
 import TopThreeLikedPost from "./partial/TopThreeLikedPost";
 import SearchBar from "./partial/SearchBar";
-import {
-  faCircleChevronUp,
-  faArrowLeft,
-  faArrowRight,
-  faImage,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleChevronUp, faImage } from "@fortawesome/free-solid-svg-icons";
 import { AppStateContext } from "../Context/AppStateProvider";
+import Page from "./partial/Page";
+import Location from "./partial/Location";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 const ViewIcon = React.lazy(() => import("./popup/ViewIcon"));
@@ -201,16 +198,6 @@ function Blog() {
       });
   };
 
-  const handlePageChange = (direction) => {
-    if (direction === "next" && currentPage < totalPages) {
-      localStorage.setItem("currentPage", currentPage + 1);
-      window.location.reload();
-    } else if (direction === "prev" && currentPage > 1) {
-      localStorage.setItem("currentPage", currentPage - 1);
-      window.location.reload();
-    }
-  };
-
   const handleLike = async (postId, guest) => {
     try {
       const { data } = await axios.post(
@@ -285,42 +272,7 @@ function Blog() {
           <SearchBar showPopup={showPopup} />
         </div>
 
-        <div className="page-number-div p-0 m-0">
-          {Number(localStorage.getItem("currentPage")) > 1 && (
-            <button
-              className="btn btn-light"
-              onClick={() => handlePageChange("prev")}
-              style={{ borderRadius: "50%" }}
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
-          )}
-          {[...Array(totalPages).keys()].map((page, index) => (
-            <button
-              key={index}
-              className={
-                Number(localStorage.getItem("currentPage")) === page + 1
-                  ? "active-1 btn btn-light"
-                  : "btn btn-light"
-              }
-              onClick={() => {
-                localStorage.setItem("currentPage", page + 1);
-                window.location.reload();
-              }}
-            >
-              {page + 1}
-            </button>
-          ))}
-          {Number(localStorage.getItem("currentPage")) < totalPages && (
-            <button
-              className="btn btn-light"
-              onClick={() => handlePageChange("next")}
-              style={{ borderRadius: "50%" }}
-            >
-              <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-          )}
-        </div>
+        <Page totalPages={totalPages} />
 
         <br />
 
@@ -572,32 +524,7 @@ function Blog() {
                   </div>
                   <div className="col-lg-4">
                     <div className="sticky-div">
-                      <div className="countries-cat">
-                        <h3>Locations</h3>
-                        <ul className="locations-ul">
-                          {topFour.map((location, index) => (
-                            <li
-                              key={location._id}
-                              onClick={() => {
-                                localStorage.setItem(
-                                  "selectedCountry",
-                                  location._id
-                                );
-                                window.location.reload();
-                              }}
-                            >
-                              <div className="locations-li">
-                                <p className="location-name">
-                                  {location._id.toUpperCase()}
-                                </p>
-                              </div>
-                              <div className="locations-li">
-                                {location.count}
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      <Location topFour={topFour} />
                       <World />
                       <TopThreeLikedPost />
                     </div>
@@ -621,42 +548,7 @@ function Blog() {
           <p>BACK TO TOP</p>
         </div>
 
-        <div className="page-number-div">
-          {Number(localStorage.getItem("currentPage")) > 1 && (
-            <button
-              className="btn btn-outline-primary"
-              onClick={() => handlePageChange("prev")}
-              style={{ borderRadius: "50%" }}
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
-          )}
-          {[...Array(totalPages).keys()].map((page, index) => (
-            <button
-              key={index}
-              className={
-                Number(localStorage.getItem("currentPage")) === page + 1
-                  ? "active-1 btn btn-outline-primary"
-                  : "btn btn-outline-primary"
-              }
-              onClick={() => {
-                localStorage.setItem("currentPage", page + 1);
-                window.location.reload();
-              }}
-            >
-              {page + 1}
-            </button>
-          ))}
-          {Number(localStorage.getItem("currentPage")) < totalPages && (
-            <button
-              className="btn btn-outline-primary"
-              onClick={() => handlePageChange("next")}
-              style={{ borderRadius: "50%" }}
-            >
-              <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-          )}
-        </div>
+        <Page totalPages={totalPages} />
       </div>
       <Footer />
     </div>
