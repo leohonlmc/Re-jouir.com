@@ -832,6 +832,12 @@
 
 .inner-image {
   position: relative;
+  transition: 0.3s;
+}
+
+.inner-image:hover {
+  transform: scale(0.9);
+  transition: 0.3s;
 }
 
 .inner-image-icon {
