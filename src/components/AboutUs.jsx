@@ -66,8 +66,20 @@ function AboutUs() {
 
         <p>
           Founded and developed by{" "}
-          <a href="https://www.linkedin.com/in/ming-chun-hon-aa12881b2/">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/ming-chun-hon-aa12881b2/"
+          >
             Leo Hon
+          </a>
+          . Designed and directed by{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/berry-kky/"
+          >
+            Berry Kwan
           </a>
           .
         </p>
