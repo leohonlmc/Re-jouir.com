@@ -95,7 +95,6 @@ function Blog() {
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
   const [likedPost, setLikedPost] = useState(false);
-  const currentPage = parseInt(localStorage.getItem("currentPage"));
   const [topFour, setTopFour] = useState([]);
 
   const [noResult, setNoResult] = useState(false);
@@ -255,17 +254,15 @@ function Blog() {
       </Helmet>
       <ToastContainer position="top-center" autoClose={1500} />
       {showPopup && (
-        <>
-          <Suspense fallback={<div>Loading...</div>}>
-            <ViewIcon
-              setShowPopup={setShowPopup}
-              image={currImageUrl}
-              images={allImageUrl}
-              currIndex={currImageIndex}
-              caption={capton}
-            />
-          </Suspense>
-        </>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ViewIcon
+            setShowPopup={setShowPopup}
+            image={currImageUrl}
+            images={allImageUrl}
+            currIndex={currImageIndex}
+            caption={capton}
+          />
+        </Suspense>
       )}
       <div className="blog-main">
         <div className="filter-div">
@@ -408,7 +405,10 @@ function Blog() {
                           <div className="blog-info">
                             <div className="blog-info-child">
                               <div className="all-info-div">
-                                <ul className="inline-list">
+                                <ul
+                                  className="inline-list"
+                                  style={{ marginBottom: "10px" }}
+                                >
                                   <li>
                                     {countryEmojiMap[upload.country]}
                                     {upload.country}
@@ -433,7 +433,10 @@ function Blog() {
                                   <li>🗓️ {formatDateString(upload.created)}</li>
                                 </ul>
 
-                                <div className="container p-0">
+                                <div
+                                  className="container p-0"
+                                  style={{ marginBottom: "10px" }}
+                                >
                                   <div className="row">
                                     <div className="col-lg-2 col-md-3 p-0">
                                       {upload.rating > 3 ? (
@@ -466,6 +469,14 @@ function Blog() {
                                 <p className="upload-description">
                                   {upload.description}
                                 </p>
+
+                                <br />
+
+                                {upload.name ? (
+                                  <p>{`By ${upload.name}`}</p>
+                                ) : (
+                                  <p>By guest</p>
+                                )}
                               </div>
                               <br />
                               <div

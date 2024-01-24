@@ -354,6 +354,9 @@ function List() {
           description,
           images: uploadedImages,
           rating: stars,
+          name: localStorage.getItem("name")
+            ? localStorage.getItem("name")
+            : "",
         },
         {
           withCredentials: true,

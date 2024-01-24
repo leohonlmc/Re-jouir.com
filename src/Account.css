@@ -1,0 +1,89 @@
+:root {
+  --gray-500: #6c6c89;
+  --christmas-green: #00873e;
+  --christmas-red: #d6001c;
+  --tg--christmas-yellow: #f8b229;
+  --tg-heading-font-family: "Power Grotesk";
+  --tg-body-font-family: "Mabry Pro";
+  --tg-body-font-color: #7b7583;
+  --tg--christmas-yellow: #f8b229;
+  --tg-body-font-family: "Mabry Pro";
+  --tg-heading-font-family: "Power Grotesk";
+  --tg-fa-icon-font-family: "Font Awesome 5 Free";
+  --tg-ui-icon-font-family: "Unicons";
+  --tg-body-font-size: 18px;
+  --tg-body-line-height: 1.5;
+  --tg-heading-line-height: 1.2;
+  --tg-common-color-blue: #0d6efd;
+  --tg-common-color-indigo: #6610f2;
+  --tg-common-color-purple: #741ff5;
+  --tg-common-color-pink: #d63384;
+  --tg-common-color-red: #dc3545;
+  --tg-common-color-orange: #fd7e14;
+  --tg-common-color-yellow: #ffc107;
+  --tg-common-color-green: #198754;
+  --tg-common-color-teal: #20c997;
+  --tg-common-color-cyan: #0dcaf0;
+  --tg-common-color-white: #fff;
+  --tg-common-color-gray: #6c757d;
+  --tg-common-color-black: #0f051d;
+  --tg-body-color: #7b7583;
+  --tg-heading-color: #0f051d;
+  --tg-theme-primary: #741ff5;
+  --tg-theme-secondary: #e348ff;
+  --tg-gradient-1: #00873e;
+  --tg-gradient-2: #f8b229;
+  --tg-border-1: #e5e5e5;
+  --tg-border-2: rgba(131, 131, 131, 0.25);
+  --tg-rgba-1: rgba(255, 255, 255, 0.05);
+  --tg-rgba-2: rgba(255, 255, 255, 0.02);
+  --tg-rgba-3: rgba(255, 255, 255, 0.15);
+  --tg-fw-extra-bold: 800;
+  --tg-fw-bold: 700;
+  --tg-fw-semi-bold: 600;
+  --tg-fw-medium: 500;
+  --tg-fw-regular: 400;
+  --tg-fw-light: 300;
+}
+
+.divider {
+  max-width: 100%;
+}
+.my-4 {
+  margin-bottom: 1.5rem !important;
+  margin-top: 1.5rem !important;
+}
+.align-items-center {
+  align-items: center !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.flex-line {
+  border-top: 1px solid #aaa;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+hr {
+  left: 0;
+  width: 100%;
+}
+
+.login-window {
+  display: flex !important;
+  position: relative;
+}
+
+.close-btn-div {
+  position: absolute;
+  right: 10px !important;
+  top: 10px !important;
+}
+
+.logout {
+  width: 100%;
+  background-color: var(--christmas-red);
+  color: white;
+}

@@ -241,6 +241,22 @@
   width: 45px;
 }
 
+.account-icon {
+  margin-left: auto;
+  margin-right: 0px;
+  cursor: pointer;
+  height: 100%;
+}
+
+.account-icon-fort {
+  transition: 0.3s;
+  height: 40px;
+}
+
+.account-icon-fort:hover {
+  color: var(--tg-common-color-gray);
+}
+
 @media screen and (max-width: 991px) {
   .props {
     display: none;

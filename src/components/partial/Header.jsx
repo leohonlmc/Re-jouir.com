@@ -5,11 +5,15 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import Login from "../popup/Login";
 
 function Header(props) {
   const [scrolled, setScrolled] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const picture = localStorage.getItem("picture");
+  const id = localStorage.getItem("id");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +36,9 @@ function Header(props) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Helmet>
       </HelmetProvider>
+
+      {showPopup && <Login setShowPopup={setShowPopup} />}
+
       <nav
         className={`navbar navbar-expand-lg fixed-top navbar-light bg-light ${
           scrolled ? "white" : ""
@@ -82,11 +89,32 @@ function Header(props) {
                 </Link>
               </li>
             </ul>
+            <div className="account-icon" onClick={() => setShowPopup(true)}>
+              {id ? (
+                <div>
+                  <img
+                    src={localStorage.getItem("picture")}
+                    alt=""
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                    }}
+                  />
+                </div>
+              ) : (
+                <FontAwesomeIcon
+                  className="account-icon-fort"
+                  icon={faCircleUser}
+                  size="2xl"
+                />
+              )}
+            </div>
           </div>
         </div>
-        <div className="props">
+        {/* <div className="props">
           <img src="/props.png" alt="" />
-        </div>
+        </div> */}
       </nav>
     </div>
   );
