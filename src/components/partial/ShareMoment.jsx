@@ -30,22 +30,22 @@ function ShareMoment() {
               without an account.
             </p>
 
-            <div class="about__facts-list">
-              <div class="about__icon-box">
-                <div class="icon">
+            <div className="about__facts-list">
+              <div className="about__icon-box">
+                <div className="icon">
                   <FontAwesomeIcon icon={faImages} size="sm" />
                 </div>
                 <p>1. Images</p>
               </div>
-              <div class="about__icon-box">
-                <div class="icon">
+              <div className="about__icon-box">
+                <div className="icon">
                   <FontAwesomeIcon icon={faMapLocationDot} size="sm" />
                 </div>
                 <p>2. Country, address</p>
               </div>
 
-              <div class="about__icon-box">
-                <div class="icon">
+              <div className="about__icon-box">
+                <div className="icon">
                   <FontAwesomeIcon
                     icon={faStar}
                     size="sm"
@@ -56,8 +56,8 @@ function ShareMoment() {
                 <p>3. Rate your exp</p>
               </div>
 
-              <div class="about__icon-box">
-                <div class="icon cloud">
+              <div className="about__icon-box">
+                <div className="icon cloud">
                   <FontAwesomeIcon icon={faCloudArrowUp} size="sm" bounce />
                 </div>
                 <p>4. Upload to cloud</p>

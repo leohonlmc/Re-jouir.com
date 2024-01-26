@@ -99,7 +99,7 @@ function Home() {
       </Helmet>
 
       <div className="header-section banner__background-wrap ">
-        <div class="background"></div>
+        <div className="background"></div>
         {timeLeft.days && timeLeft.days !== 0 ? (
           <Header
             title={`(${timeLeft.days}) Share Your Precious Moment | Réjouir`}

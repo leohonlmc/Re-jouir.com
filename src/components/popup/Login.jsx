@@ -5,7 +5,8 @@ import "../../Account.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-const { REACT_APP_AWS } = process.env;
+import axios from "axios";
+const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 const Login = ({ setShowPopup, ...props }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
@@ -15,6 +16,27 @@ const Login = ({ setShowPopup, ...props }) => {
   const closePopup = () => {
     setIsPopupVisible(false);
     setShowPopup(false);
+  };
+
+  const createUser = async () => {
+    try {
+      const { data } = await axios.post(
+        `${REACT_APP_API_ENDPOINT}/api/user`,
+        {
+          id: localStorage.getItem("id"),
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
+        }
+      );
+
+      if (data) {
+        console.log("User created");
+      }
+    } catch (ex) {
+      console.log(ex);
+    }
   };
 
   return (
@@ -51,6 +73,15 @@ const Login = ({ setShowPopup, ...props }) => {
                   and good energy!
                 </p>
                 <br />
+                {/* 
+                <hr />
+
+                <br />
+
+                <h3>Your bookmark</h3>
+
+                <br /> */}
+
                 <button
                   className="btn logout"
                   onClick={() => {
@@ -78,6 +109,9 @@ const Login = ({ setShowPopup, ...props }) => {
                       localStorage.setItem("family_name", decoded.family_name);
                       localStorage.setItem("email", decoded.email);
                       localStorage.setItem("picture", decoded.picture);
+                      createUser();
+
+                      window.location.reload();
                     }}
                     onError={() => {
                       console.log("Login Failed");

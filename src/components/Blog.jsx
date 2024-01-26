@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faB, faBookmark, faHeart } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import formatDateString from "./functions/formatDateString";
 import generateRandomUserId from "./functions/generateRandomUserId";
@@ -482,9 +482,25 @@ function Blog() {
                               <div
                                 style={{
                                   display: "flex",
-                                  justifyContent: "flex-end",
+                                  justifyContent: "space-between",
                                 }}
                               >
+                                {/* {" "}
+                                {localStorage.getItem("id") ? (
+                                  <div className="save-post-div">
+                                    <div className="liked-btn-div">
+                                      <FontAwesomeIcon
+                                        icon={faBookmark}
+                                        style={{
+                                          color: "grey",
+                                          marginRight: "0px",
+                                        }}
+                                        size="xl"
+                                      />{" "}
+                                      Bookmark
+                                    </div>
+                                  </div>
+                                ) : null} */}
                                 {upload.likes.includes(
                                   localStorage.getItem("guest")
                                 ) ? (

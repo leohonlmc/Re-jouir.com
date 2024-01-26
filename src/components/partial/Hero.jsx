@@ -96,7 +96,7 @@ function Hero() {
                 style={{ top: "-4%", right: "16%" }}
               />
 
-              <h2 class="title">Share your precious moment</h2>
+              <h2 className="title">Share your precious moment</h2>
 
               <div className="countdown" ref={countdownRef}>
                 {" "}
@@ -152,7 +152,7 @@ function Hero() {
             </div>
           </div>
           <div className="col-lg-6">
-            <div class="banner__images-grid-two">
+            <div className="banner__images-grid-two">
               <img src="/tree-1.png" alt="" />
             </div>
           </div>
