@@ -24,6 +24,11 @@ const Login = ({ setShowPopup, ...props }) => {
         `${REACT_APP_API_ENDPOINT}/api/user`,
         {
           id: localStorage.getItem("id"),
+          name: localStorage.getItem("name"),
+          given_name: localStorage.getItem("given_name"),
+          family_name: localStorage.getItem("family_name"),
+          email: localStorage.getItem("email"),
+          picture: localStorage.getItem("picture"),
         },
         {
           withCredentials: true,
@@ -33,6 +38,7 @@ const Login = ({ setShowPopup, ...props }) => {
 
       if (data) {
         console.log("User created");
+        window.location.reload();
       }
     } catch (ex) {
       console.log(ex);
@@ -110,8 +116,6 @@ const Login = ({ setShowPopup, ...props }) => {
                       localStorage.setItem("email", decoded.email);
                       localStorage.setItem("picture", decoded.picture);
                       createUser();
-
-                      window.location.reload();
                     }}
                     onError={() => {
                       console.log("Login Failed");
