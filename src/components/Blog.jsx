@@ -502,7 +502,10 @@ function Blog() {
                                   </div>
                                 ) : null} */}
                                 {upload.likes.includes(
-                                  localStorage.getItem("guest")
+                                  localStorage.getItem("guest") ||
+                                    upload.likes.includes(
+                                      localStorage.getItem("id")
+                                    )
                                 ) ? (
                                   <div className="liked-btn-div">
                                     <FontAwesomeIcon
