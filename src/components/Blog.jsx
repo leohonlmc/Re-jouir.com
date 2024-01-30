@@ -4,7 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faB, faBookmark, faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faB,
+  faBookmark,
+  faHeart,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import formatDateString from "./functions/formatDateString";
 import generateRandomUserId from "./functions/generateRandomUserId";
@@ -473,9 +478,27 @@ function Blog() {
                                 <br />
 
                                 {upload.name ? (
-                                  <p>{`By ${upload.name}`}</p>
+                                  <div>
+                                    <img
+                                      src="https://lh3.googleusercontent.com/a/ACg8ocKLUjcgDB2Qrmeivkkm6hxQUmXT8fic-DgZ-JXwB-pz=s96-c"
+                                      alt=""
+                                      style={{
+                                        width: "30px",
+                                        borderRadius: "50%",
+                                        marginRight: "5px",
+                                      }}
+                                    />
+                                    <span>{upload.name}</span>
+                                  </div>
                                 ) : (
-                                  <p>By guest</p>
+                                  <div>
+                                    <FontAwesomeIcon
+                                      icon={faUser}
+                                      size="xl"
+                                      style={{ marginRight: "5px" }}
+                                    />
+                                    <span>Guest</span>
+                                  </div>
                                 )}
                               </div>
                               <br />
