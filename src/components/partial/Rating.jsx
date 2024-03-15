@@ -1,4 +1,4 @@
-import "../../Rating.css";
+import "../../Rating.scoped.css";
 import React, { useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
