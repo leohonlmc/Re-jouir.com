@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import "../../Faq.css";
+import "../../Faq.scoped.css";
 
 function Faq() {
   return (

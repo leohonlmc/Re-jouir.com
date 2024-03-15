@@ -1,4 +1,4 @@
-import "../../Blog.css";
+import "../../Blog.scoped.css";
 import React, { useState, useEffect, useRef, Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

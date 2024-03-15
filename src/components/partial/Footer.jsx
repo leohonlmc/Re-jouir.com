@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 // faPaperPlane
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import "../../Footer.css";
+import "../../Footer.scoped.css";
 
 function Footer() {
   return (

@@ -1,0 +1,41 @@
+.divider {
+  max-width: 100%;
+}
+.my-4 {
+  margin-bottom: 1.5rem !important;
+  margin-top: 1.5rem !important;
+}
+.align-items-center {
+  align-items: center !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.flex-line {
+  border-top: 1px solid #aaa;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+hr {
+  left: 0;
+  width: 100%;
+}
+
+.login-window {
+  display: flex !important;
+  position: relative;
+}
+
+.close-btn-div {
+  position: absolute;
+  right: 10px !important;
+  top: 10px !important;
+}
+
+.logout {
+  width: 100%;
+  background-color: var(--christmas-red);
+  color: white;
+}

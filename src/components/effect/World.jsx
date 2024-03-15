@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
-import "../../World.css";
+import "../../World.scoped.css";
 
 const World = () => {
   const globeEl = useRef();

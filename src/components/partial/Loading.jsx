@@ -1,4 +1,4 @@
-import "../../Header.css";
+import "../../Header.scoped.css";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";

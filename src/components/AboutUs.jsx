@@ -1,4 +1,4 @@
-import "../About.css";
+import "../About.scoped.css";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";

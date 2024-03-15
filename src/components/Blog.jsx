@@ -1,4 +1,4 @@
-import "../Blog.css";
+import "../Blog.scoped.css";
 import React, { useState, useEffect, Suspense, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";

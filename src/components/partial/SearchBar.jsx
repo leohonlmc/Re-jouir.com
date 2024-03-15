@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../SearchBar.css";
+import "../../SearchBar.scoped.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faRepeat,
