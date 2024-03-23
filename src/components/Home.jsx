@@ -29,6 +29,8 @@ function Home() {
   const [showCelebration, setShowCelebration] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
 
+  const [waveMainClass, setWaveMainClass] = useState("wave-main");
+
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
@@ -68,6 +70,26 @@ function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    // Handler to update the state based on window width
+    const handleResize = () => {
+      if (window.innerWidth < 1000) {
+        setWaveMainClass("");
+      } else {
+        setWaveMainClass("wave-main");
+      }
+    };
+
+    // Set the initial state based on the current window size
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // The empty array ensures this effect runs only once on mount
+
   function updateCountdown() {
     const now = new Date();
     const christmas = new Date(now.getFullYear(), 11, 25);
@@ -93,59 +115,50 @@ function Home() {
   };
 
   return (
-    <div className="Home" style={{ paddingTop: "100px" }}>
+    <div className="Home">
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com" />
       </Helmet>
 
-      <div className="header-section banner__background-wrap ">
-        <div className="background"></div>
-        {timeLeft.days && timeLeft.days !== 0 ? (
-          <Header
-            title={`(${timeLeft.days}) Share Your Precious Moment | Réjouir`}
-          />
-        ) : (
-          <Header title={`Merry Christmas! 🌟 | Réjouir`} />
-        )}
-        <Snow />
-        <Hero />
+      <div className={waveMainClass}>
+        <div className="header-section banner__background-wrap">
+          {timeLeft.days && timeLeft.days !== 0 ? (
+            <Header
+              title={`(${timeLeft.days}) Share Your Precious Moment | Réjouir`}
+            />
+          ) : (
+            <Header title={`Merry Christmas! 🌟 | Réjouir`} />
+          )}
+          <Snow />
+          <Hero />
+        </div>
+
+        <div>
+          <ChooseUs />
+        </div>
+
+        <div>
+          <PlaceToGo />
+        </div>
+
+        <div>
+          <Song />
+        </div>
+
+        <div>
+          <ShareMoment />
+        </div>
+
+        <div>
+          <LoveXmas />
+        </div>
+        <div>
+          <Faq />
+        </div>
       </div>
 
-      <div className="wave-main">
-        <div className="wave-bottom">
-          <div className="main">
-            <div className="mission-div">
-              <ChooseUs />
-              <br />
-              <br />
-              <br />
-              <br />
-              <PlaceToGo />
-              <br />
-              <br />
-              <Song />
-              <br />
-              <br />
-              <ShareMoment />
-              <br />
-              <br />
-              <LoveXmas />
-              <Faq />
-              <br />
-              <br />
-
-              <div className="back-to-top-div" onClick={scrollToTop}>
-                <FontAwesomeIcon
-                  className="back-to-top"
-                  icon={faCircleChevronUp}
-                  size="2xl"
-                />
-                <p>BACK TO TOP</p>
-              </div>
-            </div>
-          </div>
-          <Footer />
-        </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

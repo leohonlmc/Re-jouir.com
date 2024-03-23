@@ -22,7 +22,7 @@ function ChooseUs() {
     },
   ];
   return (
-    <div className="Home">
+    <div className="Home" style={{ paddingTop: "100px" }}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-8 col-lg-10">

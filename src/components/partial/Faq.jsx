@@ -3,7 +3,7 @@ import "../../Faq.scoped.css";
 
 function Faq() {
   return (
-    <div className="Faq">
+    <div className="Faq" style={{ paddingTop: "100px" }}>
       <div className="container">
         <div
           className="row justify-content-center"

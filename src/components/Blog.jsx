@@ -308,7 +308,7 @@ function Blog() {
                               data-mdb-auto-height="true"
                             >
                               <div className="row py-3 shadow-5">
-                                <div className="col-9 mb-1">
+                                <div className="col-12 mb-1">
                                   {uploadIndex === 0 &&
                                   Number(
                                     localStorage.getItem("currentPage")
@@ -360,7 +360,7 @@ function Blog() {
                                   </div>
                                 </div>
 
-                                <div className="col-3">
+                                {/* <div className="col-3">
                                   {upload.images.map((image, index) => (
                                     <div
                                       className={`mb-1 mb-1${index}`}
@@ -402,7 +402,7 @@ function Blog() {
                                       />
                                     </div>
                                   ))}
-                                </div>
+                                </div> */}
                               </div>
                             </div>
                           </div>

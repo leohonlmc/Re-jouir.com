@@ -147,9 +147,9 @@ p {
 }
 
 .Home {
-  width: 100%;
   max-width: 1450px;
   margin: auto;
+  /* min-width: 1450px; */
 }
 
 .hidden {
@@ -457,6 +457,7 @@ strong {
   margin: 15px !important;
   text-align: left;
   cursor: pointer;
+  z-index: 10000;
 }
 
 .about__content .section__title {
@@ -745,6 +746,17 @@ strong {
 
 .banner__content > img:hover {
   transform: scale(1.3);
+}
+
+.wave-main {
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+}
+
+.wave-main > div {
+  scroll-snap-align: start;
+  height: 100vh;
 }
 
 @media (max-width: 1500px) {

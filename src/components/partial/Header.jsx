@@ -39,11 +39,7 @@ function Header(props) {
 
       {showPopup && <Login setShowPopup={setShowPopup} />}
 
-      <nav
-        className={`navbar navbar-expand-lg fixed-top navbar-light bg-light ${
-          scrolled ? "white" : ""
-        }`}
-      >
+      <nav className="navbar navbar-expand-lg fixed-top">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             <img

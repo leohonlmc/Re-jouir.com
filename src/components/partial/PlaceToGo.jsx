@@ -25,18 +25,18 @@ function PlaceToGo() {
       place: "Christmas Market",
       class: "uk",
     },
-    {
-      country: "Canada",
-      city: "Toronto",
-      place: "Distillery District",
-      class: "ca",
-    },
-    {
-      country: "Argentina",
-      city: "Estonia",
-      place: "Tallinn",
-      class: "ar",
-    },
+    // {
+    //   country: "Canada",
+    //   city: "Toronto",
+    //   place: "Distillery District",
+    //   class: "ca",
+    // },
+    // {
+    //   country: "Argentina",
+    //   city: "Estonia",
+    //   place: "Tallinn",
+    //   class: "ar",
+    // },
   ];
 
   const search = function (query) {
@@ -46,7 +46,7 @@ function PlaceToGo() {
   };
 
   return (
-    <div className="Home">
+    <div className="Home" style={{ paddingTop: "100px" }}>
       <div className="countries row">
         <div className="section__title text-start">
           <h2
@@ -57,7 +57,9 @@ function PlaceToGo() {
           </h2>
         </div>
         <div>
-          <p style={{ margin: "0px" }}>More to find from our blog section!</p>
+          <p style={{ margin: "0px", textAlign: "center" }}>
+            More to find from our blog section!
+          </p>
         </div>
         {data.map((item, index) => (
           <div
