@@ -19,7 +19,7 @@ function Page(props) {
   };
 
   return (
-    <div className="page-number-div p-0 m-0">
+    <div className="page-number-div p-0">
       {Number(localStorage.getItem("currentPage")) > 1 && (
         <button
           className="btn btn-light"

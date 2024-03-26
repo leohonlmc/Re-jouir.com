@@ -269,8 +269,6 @@ function Blog() {
 
         <Page totalPages={totalPages} />
 
-        <br />
-
         <>
           {noResult === true ? (
             <NoResult />
@@ -278,6 +276,13 @@ function Blog() {
             <div className="image-grid">
               {allUpload.map((upload, uploadIndex) => (
                 <div className="image-item" key={upload._id}>
+                  {uploadIndex === 0 &&
+                  Number(localStorage.getItem("currentPage")) === 1 ? (
+                    <div className="new-upload-icon">
+                      <img src="/new.png" alt="" />
+                    </div>
+                  ) : null}
+
                   <div
                     className="lightbox"
                     onClick={() => {
@@ -332,11 +337,8 @@ function Blog() {
                         <li>🗓️ {formatDateString(upload.created)}</li>
                       </ul> */}
 
-                      <div
-                        className="container p-0"
-                        style={{ marginBottom: "10px" }}
-                      >
-                        <div className="row">
+                      <div className="container p-0">
+                        <div className="row col-lg-12">
                           <div className="col-lg-2 col-md-3 p-0">
                             {upload.rating > 3 ? (
                               <div className="rating-div green-rating">
@@ -355,7 +357,7 @@ function Blog() {
                             )}
                           </div>
                           <div className="col-lg-10 col-md-9 p-0">
-                            <h4 className="m-0 p-2">{upload.title}</h4>
+                            <h4 className="p-2">{upload.title}</h4>
                           </div>
                         </div>
                       </div>

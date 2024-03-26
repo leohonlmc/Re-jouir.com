@@ -72,8 +72,6 @@
 .blog-main {
   width: 95%;
   margin: auto;
-  padding: 50px 0px;
-  padding-top: 0px;
 }
 
 .top-img,
@@ -109,6 +107,7 @@
 }
 
 .liked-btn-div {
+  margin-top: 10px;
   padding: 5px 0px;
   color: black;
 }
@@ -134,6 +133,9 @@
 
 .blog-info > div {
   padding: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .row.py-3.shadow-5 {
@@ -202,11 +204,6 @@
   position: relative;
 }
 
-.lightbox > img {
-  max-width: 330px;
-  transition: 0.3s;
-}
-
 .col-3 {
   padding: 12px;
   border-left: 1px solid #e0e0e0;
@@ -251,8 +248,8 @@
 }
 
 .page-number-div {
-  width: 100%;
   text-align: center;
+  margin: 20px 0px;
 }
 
 .page-number-div > button {
@@ -777,6 +774,7 @@
   break-inside: avoid;
   margin-bottom: 16px;
   cursor: pointer;
+  position: relative;
 }
 
 .image-item img {
@@ -784,6 +782,17 @@
   height: auto;
   display: block;
   object-fit: cover;
+}
+
+.new-upload-icon {
+  position: absolute;
+  z-index: 1000;
+  left: -5px;
+  top: 5px;
+}
+
+.new-upload-icon img {
+  width: 100px;
 }
 
 @media (max-width: 1200px) {
@@ -796,10 +805,7 @@
   .ml12.aside-cta.flex--item {
     display: none;
   }
-  .blog-info {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+
   .col-lg-2.p-0 {
     text-align: left;
     justify-content: left;
@@ -809,11 +815,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
-  .blog-info {
-    border-radius: 0px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
+
   .btn-submit.search,
   .btn-submit.reset.lg {
     display: none;

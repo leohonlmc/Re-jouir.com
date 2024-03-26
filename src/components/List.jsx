@@ -706,7 +706,7 @@ function List() {
                     <Rating onRatingChange={handleRatingChange} />
                   </div>
                   <div className="list-item-btn d-flex">
-                    <div>
+                    {/* <div>
                       {uploaded ? (
                         <div
                           className="btn btn-warning"
@@ -743,7 +743,7 @@ function List() {
                           Preview
                         </div>
                       )}
-                    </div>
+                    </div> */}
 
                     <div>
                       {uploading === true ? (
