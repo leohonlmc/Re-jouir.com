@@ -26,6 +26,7 @@
   margin-bottom: 5px;
   font-family: var(--tg-body-font-family);
   color: var(--tg-body-font-color);
+  text-align: center;
 }
 
 .inline-list li {
@@ -100,27 +101,6 @@
   max-width: 100px;
 }
 
-.images-section {
-  width: 50%;
-  display: inline-block;
-  padding: 0px;
-}
-
-.blog-info {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  background-image: url("../public/blurred-tree.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right;
-  background-color: black;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
 .save-blog {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 5px 10px;
@@ -129,16 +109,12 @@
 }
 
 .liked-btn-div {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 5px 10px;
-  border-radius: 10px;
+  padding: 5px 0px;
   color: black;
 }
 
 .all-info-div {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .all-info-div > h2 {
@@ -221,9 +197,9 @@
   justify-content: center;
   height: 100%;
   text-align: center;
-  padding: 12px;
   transition: 0.5s;
   margin: auto;
+  position: relative;
 }
 
 .lightbox > img {
@@ -242,7 +218,6 @@
 
 .ecommerce-gallery-main-img {
   object-fit: cover;
-  width: 95% !important;
   cursor: pointer;
 }
 
@@ -784,26 +759,40 @@
   width: 40px;
 }
 
-.inner-image {
-  position: relative;
-  transition: 0.3s;
-}
-
-.inner-image:hover {
-  transform: scale(0.9);
-  transition: 0.3s;
-}
-
 .inner-image-icon {
   position: absolute;
   bottom: 5px;
-  right: 12px;
+  right: 5px;
   padding: 5px 7px;
   background-color: white;
   border-radius: 5px;
 }
 
-@media (max-width: 767px) {
+.image-grid {
+  column-count: 4;
+  column-gap: 16px;
+}
+
+.image-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  .image-grid {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
   .ml12.aside-cta.flex--item {
     display: none;
   }
@@ -832,6 +821,9 @@
   .btn-submit.search-sm {
     display: block;
   }
+  .image-grid {
+    column-count: 2;
+  }
 }
 
 @media (max-width: 576px) {
@@ -859,5 +851,11 @@
   }
   .reset-btn {
     width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-grid {
+    column-count: 1;
   }
 }

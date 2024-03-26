@@ -104,7 +104,7 @@ function Blog() {
 
   const [noResult, setNoResult] = useState(false);
 
-  const POSTS_PER_PAGE = 8;
+  const POSTS_PER_PAGE = 10;
   const [totalPages, setTotalPages] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -153,13 +153,6 @@ function Blog() {
       window.removeEventListener("scroll", toggleVisibility);
     };
   }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
 
   const fetchCurrent = () => {
     const savedFilterValue = localStorage.getItem("selectedFilter");
@@ -278,328 +271,158 @@ function Blog() {
 
         <br />
 
-        {loading ? (
-          <Loading />
-        ) : (
-          <>
-            {noResult === true ? (
-              <NoResult />
-            ) : (
-              <div className="container blog">
-                <div className="row">
-                  <div className="col-lg-8">
-                    {allUpload.map((upload, uploadIndex) => (
-                      <>
-                        {uploadIndex === 4 ? <Support /> : null}
-                        <div
-                          className={
-                            uploadIndex === 0 &&
-                            Number(localStorage.getItem("currentPage")) === 1
-                              ? "d-flex new"
-                              : "d-flex"
-                          }
-                          style={{ marginBottom: "30px" }}
-                          key={upload._id}
-                        >
-                          <div className="images-section">
-                            <div
-                              className="ecommerce-gallery"
-                              data-mdb-zoom-effect="true"
-                              data-mdb-auto-height="true"
-                            >
-                              <div className="row py-3 shadow-5">
-                                <div className="col-12 mb-1">
-                                  {uploadIndex === 0 &&
-                                  Number(
-                                    localStorage.getItem("currentPage")
-                                  ) === 1 ? (
-                                    <div className="new-post">
-                                      <img src="/new.png" alt="" />
-                                    </div>
-                                  ) : null}
-                                  <div
-                                    className="lightbox"
-                                    onClick={() => {
-                                      setShowPopup(true);
-                                      setCurrImageUrl(
-                                        `${REACT_APP_AWS}${
-                                          upload.images[
-                                            currIndices[uploadIndex]
-                                          ]
-                                        }`
-                                      );
-                                      setAllImageUrl(
-                                        upload.images.map(
-                                          (image) => `${REACT_APP_AWS}${image}`
-                                        )
-                                      );
-                                      setCurrImageIndex(
-                                        currIndices[uploadIndex]
-                                      );
-                                      setCapton(upload.title);
-                                    }}
-                                  >
-                                    <div className="inner-image">
-                                      <img
-                                        src={`${REACT_APP_AWS}${
-                                          upload.images[
-                                            currIndices[uploadIndex]
-                                          ]
-                                        }`}
-                                        alt=""
-                                        className="ecommerce-gallery-main-img active w-100 "
-                                      />
-                                      <div className="inner-image-icon">
-                                        <FontAwesomeIcon
-                                          icon={faImage}
-                                          size="lg"
-                                        />{" "}
-                                        {upload.images.length}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+        <>
+          {noResult === true ? (
+            <NoResult />
+          ) : (
+            <div className="image-grid">
+              {allUpload.map((upload, uploadIndex) => (
+                <div className="image-item" key={upload._id}>
+                  <div
+                    className="lightbox"
+                    onClick={() => {
+                      setShowPopup(true);
+                      setCurrImageUrl(
+                        `${REACT_APP_AWS}${
+                          upload.images[currIndices[uploadIndex]]
+                        }`
+                      );
+                      setAllImageUrl(
+                        upload.images.map((image) => `${REACT_APP_AWS}${image}`)
+                      );
+                      setCurrImageIndex(currIndices[uploadIndex]);
+                      setCapton(upload.title);
+                    }}
+                  >
+                    <img
+                      src={`${REACT_APP_AWS}${
+                        upload.images[currIndices[uploadIndex]]
+                      }`}
+                      alt="Cover Image"
+                    />
+                    <div className="inner-image-icon">
+                      <FontAwesomeIcon icon={faImage} size="lg" />{" "}
+                      {upload.images.length}
+                    </div>
+                  </div>
 
-                                {/* <div className="col-3">
-                                  {upload.images.map((image, index) => (
-                                    <div
-                                      className={`mb-1 mb-1${index}`}
-                                      key={image._id}
-                                      style={
-                                        index === 0 ? {} : { cursor: "default" }
-                                      }
-                                    >
-                                      <div className="D_Qy-2">
-                                        <p
-                                          className="D_oz D_ov D_o_ D_oE D_oH D_oK D_oN D_oP"
-                                          style={{
-                                            textAlign: "center",
-                                            margin: "0px",
-                                            fontSize: "11px",
-                                            color: "white",
-                                          }}
-                                        >
-                                          {index + 1}
-                                        </p>
-                                      </div>
-                                      <LazyLoadImage
-                                        src={`${REACT_APP_AWS}${image}`}
-                                        alt=""
-                                        className={`active w-100 ${
-                                          currIndices[uploadIndex] === index
-                                            ? "selected"
-                                            : ""
-                                        }`}
-                                        effect="blur"
-                                        onClick={() => {
-                                          const newIndices = [...currIndices];
-                                          newIndices[uploadIndex] = index;
-                                          setCurrIndices(newIndices);
-                                        }}
-                                        style={{
-                                          pointerEvents: "none",
-                                        }}
-                                      />
-                                    </div>
-                                  ))}
-                                </div> */}
+                  <div className="blog-info">
+                    <div className="all-info-div">
+                      {/* <ul className="inline-list">
+                        <li>
+                          {countryEmojiMap[upload.country]}
+                          {upload.country}
+                        </li>
+                        <li>
+                          <a
+                            style={{ textDecoration: "none" }}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={`https://www.google.com/maps?q=${encodeURIComponent(
+                              upload.location
+                            )}`}
+                          >
+                            <img
+                              src="/google-map.png"
+                              alt="Google map icon"
+                              style={{ width: "20px" }}
+                            />
+                          </a>
+                        </li>
+                        <li>🗓️ {formatDateString(upload.created)}</li>
+                      </ul> */}
+
+                      <div
+                        className="container p-0"
+                        style={{ marginBottom: "10px" }}
+                      >
+                        <div className="row">
+                          <div className="col-lg-2 col-md-3 p-0">
+                            {upload.rating > 3 ? (
+                              <div className="rating-div green-rating">
+                                <div>Rating</div>
+                                <div className="text-xl leading-5 font-bold ">
+                                  {upload.rating.toFixed(1)}
+                                </div>
                               </div>
-                            </div>
+                            ) : (
+                              <div className="rating-div yellow-rating">
+                                <div>Rating</div>
+                                <div className="text-xl leading-5 font-bold ">
+                                  NA
+                                </div>
+                              </div>
+                            )}
                           </div>
-
-                          <div className="blog-info">
-                            <div className="blog-info-child">
-                              <div className="all-info-div">
-                                <ul
-                                  className="inline-list"
-                                  style={{ marginBottom: "10px" }}
-                                >
-                                  <li>
-                                    {countryEmojiMap[upload.country]}
-                                    {upload.country}
-                                  </li>
-                                  <li>
-                                    <img
-                                      src="/google-map.png"
-                                      alt=""
-                                      style={{ width: "20px" }}
-                                    />
-                                    <a
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      href={`https://www.google.com/maps?q=${encodeURIComponent(
-                                        upload.location
-                                      )}`}
-                                      style={{ textDecoration: "none" }}
-                                    >
-                                      {upload.location}
-                                    </a>
-                                  </li>
-                                  <li>🗓️ {formatDateString(upload.created)}</li>
-                                </ul>
-
-                                <div
-                                  className="container p-0"
-                                  style={{ marginBottom: "10px" }}
-                                >
-                                  <div className="row">
-                                    <div className="col-lg-2 col-md-3 p-0">
-                                      {upload.rating > 3 ? (
-                                        <div className="rating-div green-rating">
-                                          <div>Rating</div>
-                                          <div className="text-xl leading-5 font-bold ">
-                                            {upload.rating.toFixed(1)}
-                                          </div>
-                                        </div>
-                                      ) : (
-                                        <div className="rating-div yellow-rating">
-                                          <div>Rating</div>
-                                          <div className="text-xl leading-5 font-bold ">
-                                            NA
-                                          </div>
-                                        </div>
-                                      )}
-                                    </div>
-                                    <div className="col-lg-10 col-md-9 p-0">
-                                      <h4 className="m-0 p-2">
-                                        {upload.title}
-                                      </h4>
-                                    </div>
-                                  </div>
-                                </div>
-                                {!upload.event ? null : (
-                                  <p className="upload-event">{`Event: ${upload.event}`}</p>
-                                )}
-
-                                <p className="upload-description">
-                                  {upload.description}
-                                </p>
-
-                                <br />
-
-                                {upload.name ? (
-                                  <div>
-                                    <img
-                                      src="https://lh3.googleusercontent.com/a/ACg8ocKLUjcgDB2Qrmeivkkm6hxQUmXT8fic-DgZ-JXwB-pz=s96-c"
-                                      alt=""
-                                      style={{
-                                        width: "30px",
-                                        borderRadius: "50%",
-                                        marginRight: "5px",
-                                      }}
-                                    />
-                                    <span>{upload.name}</span>
-                                  </div>
-                                ) : (
-                                  <div>
-                                    <FontAwesomeIcon
-                                      icon={faUser}
-                                      size="xl"
-                                      style={{ marginRight: "5px" }}
-                                    />
-                                    <span>Guest</span>
-                                  </div>
-                                )}
-                              </div>
-                              <br />
-                              <div
-                                style={{
-                                  display: "flex",
-                                  justifyContent: "space-between",
-                                }}
-                              >
-                                {/* {" "}
-                                {localStorage.getItem("id") ? (
-                                  <div className="save-post-div">
-                                    <div className="liked-btn-div">
-                                      <FontAwesomeIcon
-                                        icon={faBookmark}
-                                        style={{
-                                          color: "grey",
-                                          marginRight: "0px",
-                                        }}
-                                        size="xl"
-                                      />{" "}
-                                      Bookmark
-                                    </div>
-                                  </div>
-                                ) : null} */}
-                                {upload.likes.includes(
-                                  localStorage.getItem("guest") ||
-                                    upload.likes.includes(
-                                      localStorage.getItem("id")
-                                    )
-                                ) ? (
-                                  <div className="liked-btn-div">
-                                    <FontAwesomeIcon
-                                      className="liked-btn"
-                                      icon={faHeart}
-                                      style={{
-                                        color: "#ff0000",
-                                        marginRight: "0px",
-                                      }}
-                                      size="xl"
-                                    />{" "}
-                                    {`You and ${
-                                      upload.likes.length - 1
-                                    } others like this`}
-                                  </div>
-                                ) : (
-                                  <div
-                                    className="liked-btn-div"
-                                    onClick={() => {
-                                      handleLike(
-                                        upload._id,
-                                        localStorage.getItem("guest")
-                                      );
-                                      setLikedPost(true);
-                                      toast.success("You liked the post!");
-                                    }}
-                                  >
-                                    <FontAwesomeIcon
-                                      className="like-btn"
-                                      icon={faHeart}
-                                      style={{
-                                        color: "grey",
-                                        marginRight: "0px",
-                                      }}
-                                      size="xl"
-                                    />{" "}
-                                    {`${upload.likes.length} people like this`}
-                                  </div>
-                                )}
-                              </div>
-                            </div>
+                          <div className="col-lg-10 col-md-9 p-0">
+                            <h4 className="m-0 p-2">{upload.title}</h4>
                           </div>
                         </div>
-                      </>
-                    ))}
-                  </div>
-                  <div className="col-lg-4">
-                    <div className="sticky-div">
-                      <Location topFour={topFour} />
-                      <World />
-                      <TopThreeLikedPost />
+                      </div>
+
+                      <p className="upload-description truncate">
+                        {upload.description}
+                      </p>
+
+                      <div>
+                        {upload.likes.includes(
+                          localStorage.getItem("guest") ||
+                            upload.likes.includes(localStorage.getItem("id"))
+                        ) ? (
+                          <div className="liked-btn-div">
+                            <FontAwesomeIcon
+                              className="liked-btn"
+                              icon={faHeart}
+                              style={{
+                                color: "#ff0000",
+                                marginRight: "0px",
+                              }}
+                              size="xl"
+                            />{" "}
+                            {`You and ${
+                              upload.likes.length - 1
+                            } others like this`}
+                          </div>
+                        ) : (
+                          <div
+                            className="liked-btn-div"
+                            onClick={() => {
+                              handleLike(
+                                upload._id,
+                                localStorage.getItem("guest")
+                              );
+                              setLikedPost(true);
+                              toast.success("You liked the post!");
+                            }}
+                          >
+                            <FontAwesomeIcon
+                              className="like-btn"
+                              icon={faHeart}
+                              style={{
+                                color: "grey",
+                                marginRight: "0px",
+                              }}
+                              size="xl"
+                            />{" "}
+                            {`${upload.likes.length} people like this`}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </>
-        )}
+              ))}
 
-        <div
-          onClick={scrollToTop}
-          style={{ textAlign: "center", margin: "20px 0px" }}
-          className="back-to-top-div"
-        >
-          <FontAwesomeIcon
-            className="back-to-top"
-            icon={faCircleChevronUp}
-            size="2xl"
-          />
-          <p>BACK TO TOP</p>
-        </div>
+              {/* <div className="col-lg-4">
+                    <div className="sticky-div">
+                      <Location topFour={topFour} />
+                      
+                      <TopThreeLikedPost />
+                    </div>
+                  </div> */}
+            </div>
+          )}
+        </>
 
         <Page totalPages={totalPages} />
       </div>
