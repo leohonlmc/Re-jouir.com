@@ -54,6 +54,8 @@
   font-family: var(--tg-body-font-family);
   color: var(--tg-body-font-color);
   margin: 0px;
+  margin-top: 5px;
+  font-size: 15px;
 }
 
 .Blog {
@@ -112,10 +114,6 @@
   color: black;
 }
 
-.all-info-div {
-  background-color: rgba(255, 255, 255, 1);
-}
-
 .all-info-div > h2 {
   font-family: var(--tg-heading-font-family);
   margin: 0px;
@@ -131,11 +129,12 @@
   font-family: var(--tg-body-font-family);
 }
 
+.blog-info {
+  margin-top: 5px;
+}
+
 .blog-info > div {
   padding: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 .row.py-3.shadow-5 {
@@ -767,14 +766,19 @@
 
 .image-grid {
   column-count: 4;
-  column-gap: 16px;
+  column-gap: 15px;
 }
 
 .image-item {
   break-inside: avoid;
-  margin-bottom: 16px;
+  margin-bottom: 28px;
   cursor: pointer;
   position: relative;
+}
+
+.image-item:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease-out;
 }
 
 .image-item img {
@@ -782,6 +786,7 @@
   height: auto;
   display: block;
   object-fit: cover;
+  border-radius: 20px;
 }
 
 .new-upload-icon {
