@@ -31,7 +31,7 @@
 
 .inline-list li {
   margin-right: 10px;
-  position: relative; /* Needed for positioning the ::after pseudo-element */
+  position: relative;
 }
 
 .inline-list li:not(:last-child)::after {
@@ -757,8 +757,8 @@
 
 .inner-image-icon {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 10px;
+  right: 10px;
   padding: 5px 7px;
   background-color: white;
   border-radius: 5px;
