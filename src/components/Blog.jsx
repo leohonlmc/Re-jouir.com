@@ -104,7 +104,7 @@ function Blog() {
 
   const [noResult, setNoResult] = useState(false);
 
-  const POSTS_PER_PAGE = 10;
+  const POSTS_PER_PAGE = 20;
   const [totalPages, setTotalPages] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
