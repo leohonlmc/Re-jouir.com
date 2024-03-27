@@ -104,7 +104,7 @@ function Blog() {
 
   const [noResult, setNoResult] = useState(false);
 
-  const POSTS_PER_PAGE = 20;
+  const POSTS_PER_PAGE = 100;
   const [totalPages, setTotalPages] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -299,11 +299,13 @@ function Blog() {
                       setCapton(upload.title);
                     }}
                   >
-                    <img
+                    <LazyLoadImage
                       src={`${REACT_APP_AWS}${
                         upload.images[currIndices[uploadIndex]]
                       }`}
                       alt="Cover Image"
+                      effect="blur"
+                      wrapperClassName="image-wrapper"
                     />
                     <div className="inner-image-icon">
                       <FontAwesomeIcon icon={faImage} size="lg" />{" "}
