@@ -767,6 +767,8 @@
 .image-grid {
   column-count: 4;
   column-gap: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .image-item {

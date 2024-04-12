@@ -28,6 +28,7 @@ import { faCircleChevronUp, faImage } from "@fortawesome/free-solid-svg-icons";
 import { AppStateContext } from "../Context/AppStateProvider";
 import Page from "./partial/Page";
 import Location from "./partial/Location";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 const ViewIcon = React.lazy(() => import("./popup/ViewIcon"));
@@ -94,7 +95,8 @@ function Blog() {
   const [currImageIndex, setCurrImageIndex] = useState(0);
   const [capton, setCapton] = useState("");
   const [showPopup, setShowPopup] = useState(false);
-  const [allUpload, setAllUpload] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
   const guest = generateRandomUserId();
   const { loading, setLoading } = useContext(AppStateContext);
   const [filter, setFilter] = useState("");
@@ -138,7 +140,7 @@ function Blog() {
 
     fetchCurrent();
 
-    getTopFourCountries();
+    // getTopFourCountries();
 
     const handleKeyDown = (event) => {
       if (event.key === "Enter") {
@@ -178,10 +180,11 @@ function Blog() {
       )
       .then((res) => {
         if (res.data && res.data.uploads) {
-          setAllUpload(res.data.uploads);
+          setPosts((prevPosts) => [...prevPosts, ...res.data.uploads]);
+          setHasMore(res.data.uploads.length > 0);
           setCurrIndices(Array(res.data.uploads.length).fill(0));
           setLoading(false);
-          setTotalPages(res.data.totalPages);
+          // setTotalPages(res.data.totalPages);
 
           if (res.data.uploads.length === 0) {
             setNoResult(true);
@@ -221,26 +224,26 @@ function Blog() {
     }
   };
 
-  const getTopFourCountries = async () => {
-    try {
-      const { data } = await axios.get(
-        `${REACT_APP_API_ENDPOINT}/four/counties`,
-        {
-          withCredentials: true,
-          credentials: "include",
-        }
-      );
-      if (data) {
-        setTopFour(data.topFour);
-      }
-    } catch (ex) {
-      if (ex.response && ex.response.data && ex.response.data.error) {
-        toast.error(`Error: ${ex.response.data.error}`);
-      } else {
-        console.error("An error occurred:", ex);
-      }
-    }
-  };
+  // const getTopFourCountries = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       `${REACT_APP_API_ENDPOINT}/four/counties`,
+  //       {
+  //         withCredentials: true,
+  //         credentials: "include",
+  //       }
+  //     );
+  //     if (data) {
+  //       setTopFour(data.topFour);
+  //     }
+  //   } catch (ex) {
+  //     if (ex.response && ex.response.data && ex.response.data.error) {
+  //       toast.error(`Error: ${ex.response.data.error}`);
+  //     } else {
+  //       console.error("An error occurred:", ex);
+  //     }
+  //   }
+  // };
 
   return (
     <div className="Blog" style={{ paddingTop: "100px" }}>
@@ -267,55 +270,51 @@ function Blog() {
           <SearchBar showPopup={showPopup} />
         </div>
 
-        <Page totalPages={totalPages} />
-
-        <>
-          {noResult === true ? (
-            <NoResult />
-          ) : (
-            <div className="image-grid">
-              {allUpload.map((upload, uploadIndex) => (
-                <div className="image-item" key={upload._id}>
-                  {uploadIndex === 0 &&
-                  Number(localStorage.getItem("currentPage")) === 1 ? (
-                    <div className="new-upload-icon">
-                      <img src="/new.png" alt="" />
-                    </div>
-                  ) : null}
-
-                  <div
-                    className="lightbox"
-                    onClick={() => {
-                      setShowPopup(true);
-                      setCurrImageUrl(
-                        `${REACT_APP_AWS}${
-                          upload.images[currIndices[uploadIndex]]
-                        }`
-                      );
-                      setAllImageUrl(
-                        upload.images.map((image) => `${REACT_APP_AWS}${image}`)
-                      );
-                      setCurrImageIndex(currIndices[uploadIndex]);
-                      setCapton(upload.title);
-                    }}
-                  >
-                    <LazyLoadImage
-                      src={`${REACT_APP_AWS}${
-                        upload.images[currIndices[uploadIndex]]
-                      }`}
-                      alt="Cover Image"
-                      effect="blur"
-                      wrapperClassName="image-wrapper"
-                    />
-                    <div className="inner-image-icon">
-                      <FontAwesomeIcon icon={faImage} size="lg" />{" "}
-                      {upload.images.length}
-                    </div>
+        {noResult === true ? (
+          <NoResult />
+        ) : (
+          <div className="image-grid">
+            {posts.map((upload, uploadIndex) => (
+              <div className="image-item" key={upload._id}>
+                {uploadIndex === 0 ? (
+                  <div className="new-upload-icon">
+                    <img src="/new.png" alt="" />
                   </div>
+                ) : null}
 
-                  <div className="blog-info">
-                    <div className="all-info-div">
-                      {/* <ul className="inline-list">
+                <div
+                  className="lightbox"
+                  onClick={() => {
+                    setShowPopup(true);
+                    setCurrImageUrl(
+                      `${REACT_APP_AWS}${
+                        upload.images[currIndices[uploadIndex]]
+                      }`
+                    );
+                    setAllImageUrl(
+                      upload.images.map((image) => `${REACT_APP_AWS}${image}`)
+                    );
+                    setCurrImageIndex(currIndices[uploadIndex]);
+                    setCapton(upload.title);
+                  }}
+                >
+                  <LazyLoadImage
+                    src={`${REACT_APP_AWS}${
+                      upload.images[currIndices[uploadIndex]]
+                    }`}
+                    alt="Cover Image"
+                    effect="blur"
+                    wrapperClassName="image-wrapper"
+                  />
+                  <div className="inner-image-icon">
+                    <FontAwesomeIcon icon={faImage} size="lg" />{" "}
+                    {upload.images.length}
+                  </div>
+                </div>
+
+                <div className="blog-info">
+                  <div className="all-info-div">
+                    {/* <ul className="inline-list">
                         <li>
                           {countryEmojiMap[upload.country]}
                           {upload.country}
@@ -339,96 +338,85 @@ function Blog() {
                         <li>🗓️ {formatDateString(upload.created)}</li>
                       </ul> */}
 
-                      <div className="container p-0">
-                        <div className="row col-lg-12">
-                          <div className="col-lg-2 col-md-3 p-0">
-                            {upload.rating > 3 ? (
-                              <div className="rating-div green-rating">
-                                <div>Rating</div>
-                                <div className="text-xl leading-5 font-bold ">
-                                  {upload.rating.toFixed(1)}
-                                </div>
+                    <div className="container p-0">
+                      <div className="row col-lg-12">
+                        <div className="col-lg-2 col-md-3 p-0">
+                          {upload.rating > 3 ? (
+                            <div className="rating-div green-rating">
+                              <div>Rating</div>
+                              <div className="text-xl leading-5 font-bold ">
+                                {upload.rating.toFixed(1)}
                               </div>
-                            ) : (
-                              <div className="rating-div yellow-rating">
-                                <div>Rating</div>
-                                <div className="text-xl leading-5 font-bold ">
-                                  NA
-                                </div>
+                            </div>
+                          ) : (
+                            <div className="rating-div yellow-rating">
+                              <div>Rating</div>
+                              <div className="text-xl leading-5 font-bold ">
+                                NA
                               </div>
-                            )}
-                          </div>
-                          <div className="col-lg-10 col-md-9 p-0">
-                            <h4 className="p-2">{upload.title}</h4>
-                          </div>
+                            </div>
+                          )}
+                        </div>
+                        <div className="col-lg-10 col-md-9 p-0">
+                          <h4 className="p-2">{upload.title}</h4>
                         </div>
                       </div>
+                    </div>
 
-                      <p className="upload-description truncate">
-                        {upload.description}
-                      </p>
+                    <p className="upload-description truncate">
+                      {upload.description}
+                    </p>
 
-                      <div>
-                        {upload.likes.includes(
-                          localStorage.getItem("guest") ||
-                            upload.likes.includes(localStorage.getItem("id"))
-                        ) ? (
-                          <div className="liked-btn-div">
-                            <FontAwesomeIcon
-                              className="liked-btn"
-                              icon={faHeart}
-                              style={{
-                                color: "#ff0000",
-                                marginRight: "0px",
-                              }}
-                              size="xl"
-                            />{" "}
-                            {`You and ${
-                              upload.likes.length - 1
-                            } others like this`}
-                          </div>
-                        ) : (
-                          <div
-                            className="liked-btn-div"
-                            onClick={() => {
-                              handleLike(
-                                upload._id,
-                                localStorage.getItem("guest")
-                              );
-                              setLikedPost(true);
-                              toast.success("You liked the post!");
+                    <div>
+                      {upload.likes.includes(
+                        localStorage.getItem("guest") ||
+                          upload.likes.includes(localStorage.getItem("id"))
+                      ) ? (
+                        <div className="liked-btn-div">
+                          <FontAwesomeIcon
+                            className="liked-btn"
+                            icon={faHeart}
+                            style={{
+                              color: "#ff0000",
+                              marginRight: "0px",
                             }}
-                          >
-                            <FontAwesomeIcon
-                              className="like-btn"
-                              icon={faHeart}
-                              style={{
-                                color: "grey",
-                                marginRight: "0px",
-                              }}
-                              size="xl"
-                            />{" "}
-                            {`${upload.likes.length} people like this`}
-                          </div>
-                        )}
-                      </div>
+                            size="xl"
+                          />{" "}
+                          {`You and ${
+                            upload.likes.length - 1
+                          } others like this`}
+                        </div>
+                      ) : (
+                        <div
+                          className="liked-btn-div"
+                          onClick={() => {
+                            handleLike(
+                              upload._id,
+                              localStorage.getItem("guest")
+                            );
+                            setLikedPost(true);
+                            toast.success("You liked the post!");
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            className="like-btn"
+                            icon={faHeart}
+                            style={{
+                              color: "grey",
+                              marginRight: "0px",
+                            }}
+                            size="xl"
+                          />{" "}
+                          {`${upload.likes.length} people like this`}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              ))}
-
-              {/* <div className="col-lg-4">
-                    <div className="sticky-div">
-                      <Location topFour={topFour} />
-                      
-                      <TopThreeLikedPost />
-                    </div>
-                  </div> */}
-            </div>
-          )}
-        </>
-
-        <Page totalPages={totalPages} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <Footer />
     </div>
