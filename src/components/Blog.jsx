@@ -96,7 +96,6 @@ function Blog() {
   const [capton, setCapton] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [posts, setPosts] = useState([]);
-  const [hasMore, setHasMore] = useState(true);
   const guest = generateRandomUserId();
   const { loading, setLoading } = useContext(AppStateContext);
   const [filter, setFilter] = useState("");
@@ -180,8 +179,7 @@ function Blog() {
       )
       .then((res) => {
         if (res.data && res.data.uploads) {
-          setPosts((prevPosts) => [...prevPosts, ...res.data.uploads]);
-          setHasMore(res.data.uploads.length > 0);
+          setPosts(res.data.uploads);
           setCurrIndices(Array(res.data.uploads.length).fill(0));
           setLoading(false);
           // setTotalPages(res.data.totalPages);

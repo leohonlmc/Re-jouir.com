@@ -273,6 +273,19 @@ p {
   margin: auto;
 }
 
+.btn.btn-outline {
+  position: relative;
+  border-radius: 40px;
+  padding: 18px 32px;
+  font-size: 18px;
+  font-weight: 700;
+  margin: auto;
+  margin-left: 18px;
+  color: black;
+  background: transparent;
+  box-shadow: none;
+}
+
 .container-footer.container.text-center.my-6.p-8.text-gray3 {
   background-color: var(--christmas-green);
   background-image: url("../public/snow-4.png");
