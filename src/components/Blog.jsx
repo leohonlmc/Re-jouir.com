@@ -244,7 +244,7 @@ function Blog() {
   // };
 
   return (
-    <div className="Blog" style={{ paddingTop: "100px" }}>
+    <div className="Blog">
       <div className="blog-section">
         <Header title="Blog | Réjouir" />
       </div>
@@ -356,7 +356,7 @@ function Blog() {
                           )}
                         </div>
                         <div className="col-lg-10 col-md-9 p-0">
-                          <h4 className="p-2">{upload.title}</h4>
+                          <p className="post-title p-2">{upload.title}</p>
                         </div>
                       </div>
                     </div>

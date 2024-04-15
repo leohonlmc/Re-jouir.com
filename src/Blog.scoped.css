@@ -802,6 +802,10 @@
   width: 100px;
 }
 
+.post-title {
+  color: black;
+}
+
 @media (max-width: 1200px) {
   .image-grid {
     column-count: 3;
