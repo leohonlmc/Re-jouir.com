@@ -12,10 +12,6 @@ function Song() {
         <h2 className="title" style={{ textAlign: "center" }}>
           <span className="tg-text-gradient">Songs</span> you might like
         </h2>
-
-        <p style={{ margin: "0px", textAlign: "center" }}>
-          Live music for your day!
-        </p>
       </div>
       <iframe
         src="https://www.youtube.com/embed/t574Hf3-Uvo?si=cBqlsaZ9O3p--f2e"

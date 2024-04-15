@@ -56,11 +56,7 @@ function PlaceToGo() {
             <span className="tg-text-gradient">Place</span> you would like to go
           </h2>
         </div>
-        <div>
-          <p style={{ margin: "0px", textAlign: "center" }}>
-            More to find from our blog section!
-          </p>
-        </div>
+
         {data.map((item, index) => (
           <div
             className={`col-lg-3 col-md-4 col-sm-6 col-12 country-review ${item.class}`}

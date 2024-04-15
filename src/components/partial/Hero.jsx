@@ -64,7 +64,7 @@ function Hero() {
   }
 
   return (
-    <div className="Home Hero" style={{ paddingTop: "100px" }}>
+    <div className="Home Hero">
       <div className="container">
         <div className="row align-items-center justify-content-center">
           <div className="col-lg-6">

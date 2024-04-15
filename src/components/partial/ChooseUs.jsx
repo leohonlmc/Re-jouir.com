@@ -29,7 +29,7 @@ function ChooseUs() {
             <br />
             <div className="section__title text-center title-mb-80">
               <h2 className="title why-rejouir">
-                Why <span className="tg-text-gradient">choose Réjouir?</span>
+                <span className="tg-text-gradient">Why Réjouir?</span>
               </h2>
             </div>
             <br />

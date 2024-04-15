@@ -74,7 +74,7 @@ function Home() {
     // Handler to update the state based on window width
     const handleResize = () => {
       if (window.innerWidth < 1000) {
-        setWaveMainClass("");
+        setWaveMainClass("wave-main-mobile");
       } else {
         setWaveMainClass("wave-main");
       }
@@ -115,7 +115,7 @@ function Home() {
   };
 
   return (
-    <div className="Home">
+    <div className="Home background">
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com" />
       </Helmet>

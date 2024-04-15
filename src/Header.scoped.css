@@ -11,6 +11,12 @@
   font-style: normal;
 }
 
+.nav-item.nav-link.active {
+  color: var(--tg-common-color-white);
+  font-weight: 500;
+  font-size: 18px;
+}
+
 .nav-item.nav-link.active.blog {
   color: var(--tg--christmas-yellow) !important;
 }
@@ -33,13 +39,6 @@
     opacity: 1;
     transform: none;
   }
-}
-
-.nav-item.nav-link.active {
-  color: black !important;
-  font-weight: bold;
-  font-size: 20px;
-  font-family: var(--tg-body-font-family);
 }
 
 .nav-item.nav-link:hover {
