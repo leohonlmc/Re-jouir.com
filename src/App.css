@@ -232,6 +232,10 @@ p {
   z-index: 10;
 }
 
+.btn {
+  text-transform: none;
+}
+
 .btn.btn-danger {
   border-radius: 40px !important;
   background-color: var(--tg-gradient-1);
