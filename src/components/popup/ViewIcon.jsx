@@ -56,11 +56,8 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                 />
               </div>
 
-              <div className="all-card-img-section" style={{ height: "25%" }}>
-                <div
-                  className="all-card-img-sub-section"
-                  style={{ height: "100%", width: "100%" }}
-                >
+              <div className="all-card-img-section">
+                <div className="all-card-img-sub-section">
                   {props.images.map((item, index) => (
                     <div
                       key={index}
