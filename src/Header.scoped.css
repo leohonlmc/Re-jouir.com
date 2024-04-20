@@ -74,10 +74,11 @@
   max-width: 110px;
   object-fit: contain;
   cursor: pointer;
-  padding: 10px;
+  padding: 7px;
   border-radius: 10px;
   transition: 0.3s;
   filter: blur(2px);
+  margin-right: 8px;
 }
 
 .images-section-curr.n0,
@@ -85,7 +86,7 @@
 .images-section-curr.n2,
 .images-section-curr.n3,
 .images-section-curr.n4 {
-  background-color: var(--christmas-green);
+  background-color: var(--tg-gradient-2);
   filter: blur(0px);
 }
 

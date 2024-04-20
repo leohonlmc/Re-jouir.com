@@ -29,68 +29,15 @@ import { AppStateContext } from "../Context/AppStateProvider";
 import Page from "./partial/Page";
 import Location from "./partial/Location";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useNavigate } from "react-router-dom";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 const ViewIcon = React.lazy(() => import("./popup/ViewIcon"));
 
 function Blog() {
-  const countryEmojiMap = {
-    Global: "🌍",
-    Argentina: "🇦🇷",
-    Australia: "🇦🇺",
-    Austria: "🇦🇹",
-    Belgium: "🇧🇪",
-    Brazil: "🇧🇷",
-    Canada: "🇨🇦",
-    Chile: "🇨🇱",
-    Colombia: "🇨🇴",
-    "Costa Rica": "🇨🇷",
-    Denmark: "🇩🇰",
-    Ecuador: "🇪🇨",
-    Finland: "🇫🇮",
-    France: "🇫🇷",
-    Germany: "🇩🇪",
-    Greece: "🇬🇷",
-    Hungary: "🇭🇺",
-    "Hong Kong SAR": "🇭🇰",
-    Iceland: "🇮🇸",
-    India: "🇮🇳",
-    Indonesia: "🇮🇩",
-    Ireland: "🇮🇪",
-    Italy: "🇮🇹",
-    Jamaica: "🇯🇲",
-    Japan: "🇯🇵",
-    Kenya: "🇰🇪",
-    Lebanon: "🇱🇧",
-    Luxembourg: "🇱🇺",
-    Mexico: "🇲🇽",
-    Netherlands: "🇳🇱",
-    "New Zealand": "🇳🇿",
-    Norway: "🇳🇴",
-    Panama: "🇵🇦",
-    Peru: "🇵🇪",
-    Philippines: "🇵🇭",
-    Poland: "🇵🇱",
-    Portugal: "🇵🇹",
-    "Puerto Rico": "🇵🇷",
-    Romania: "🇷🇴",
-    Russia: "🇷🇺",
-    "South Africa": "🇿🇦",
-    "South Korea": "🇰🇷",
-    Spain: "🇪🇸",
-    Sweden: "🇸🇪",
-    Switzerland: "🇨🇭",
-    Turkey: "🇹🇷",
-    Taiwan: "🇹🇼",
-    Ukraine: "🇺🇦",
-    "United Kingdom": "🇬🇧",
-    "United States": "🇺🇸",
-    Venezuela: "🇻🇪",
-    Zimbabwe: "🇿🇼",
-  };
-
   const [currIndices, setCurrIndices] = useState([]);
   const [currImageUrl, setCurrImageUrl] = useState("");
+  const [upload, setUpload] = useState([]);
   const [allImageUrl, setAllImageUrl] = useState([]);
   const [currImageIndex, setCurrImageIndex] = useState(0);
   const [capton, setCapton] = useState("");
@@ -102,12 +49,11 @@ function Blog() {
   const [country, setCountry] = useState("");
   const [likedPost, setLikedPost] = useState(false);
   const [topFour, setTopFour] = useState([]);
-
   const [noResult, setNoResult] = useState(false);
-
   const POSTS_PER_PAGE = 100;
   const [totalPages, setTotalPages] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -260,9 +206,11 @@ function Blog() {
             images={allImageUrl}
             currIndex={currImageIndex}
             caption={capton}
+            upload={upload}
           />
         </Suspense>
       )}
+
       <div className="blog-main">
         <div className="filter-div">
           <SearchBar showPopup={showPopup} />
@@ -273,7 +221,7 @@ function Blog() {
         ) : (
           <div className="image-grid">
             {posts.map((upload, uploadIndex) => (
-              <div className="image-item" key={upload._id}>
+              <div className="image-item" key={uploadIndex}>
                 {uploadIndex === 0 ? (
                   <div className="new-upload-icon">
                     <img src="/new.png" alt="" />
@@ -283,17 +231,7 @@ function Blog() {
                 <div
                   className="lightbox"
                   onClick={() => {
-                    setShowPopup(true);
-                    setCurrImageUrl(
-                      `${REACT_APP_AWS}${
-                        upload.images[currIndices[uploadIndex]]
-                      }`
-                    );
-                    setAllImageUrl(
-                      upload.images.map((image) => `${REACT_APP_AWS}${image}`)
-                    );
-                    setCurrImageIndex(currIndices[uploadIndex]);
-                    setCapton(upload.title);
+                    navigate(`/post/${upload._id}`);
                   }}
                 >
                   <LazyLoadImage
@@ -312,30 +250,6 @@ function Blog() {
 
                 <div className="blog-info">
                   <div className="all-info-div">
-                    {/* <ul className="inline-list">
-                        <li>
-                          {countryEmojiMap[upload.country]}
-                          {upload.country}
-                        </li>
-                        <li>
-                          <a
-                            style={{ textDecoration: "none" }}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={`https://www.google.com/maps?q=${encodeURIComponent(
-                              upload.location
-                            )}`}
-                          >
-                            <img
-                              src="/google-map.png"
-                              alt="Google map icon"
-                              style={{ width: "20px" }}
-                            />
-                          </a>
-                        </li>
-                        <li>🗓️ {formatDateString(upload.created)}</li>
-                      </ul> */}
-
                     <div className="container p-0">
                       <div className="row col-lg-12">
                         <div className="col-lg-2 col-md-3 p-0">

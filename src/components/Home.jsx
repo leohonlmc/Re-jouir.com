@@ -1,17 +1,17 @@
 import "../App.css";
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./partial/Header";
-import Footer from "./partial/Footer";
-import Song from "./partial/Song";
 import generateRandomUserId from "./functions/generateRandomUserId";
 import { Helmet } from "react-helmet";
+import Header from "./partial/Header";
+import Footer from "./partial/Footer";
 import ChooseUs from "./partial/ChooseUs";
 import LoveXmas from "./partial/LoveXmas";
 import PlaceToGo from "./partial/PlaceToGo";
 import Snow from "./effect/Snow";
 import Hero from "./partial/Hero";
 import Faq from "./partial/Faq";
+import Song from "./partial/Song";
 import ShareMoment from "./partial/ShareMoment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
@@ -129,7 +129,7 @@ function Home() {
           ) : (
             <Header title={`Merry Christmas! 🌟 | Réjouir`} />
           )}
-          <Snow />
+          {/* <Snow /> */}
           <Hero />
         </div>
 

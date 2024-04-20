@@ -100,8 +100,7 @@ const Login = ({ setShowPopup, ...props }) => {
               </div>
             ) : (
               <div style={{ width: "100%" }}>
-                <h2>Sign in with email</h2>
-                <p>Currently we only offer Google login at this moment.</p>
+                <h2>Sign in with Google</h2>
 
                 <div style={{ marginTop: "16px" }}>
                   <GoogleLogin

@@ -4,10 +4,65 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import "../../Header.scoped.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import formatDateString from "../functions/formatDateString";
 
 const { REACT_APP_AWS } = process.env;
 
 const ViewIcon = ({ setShowPopup, ...props }) => {
+  const countryEmojiMap = {
+    Global: "🌍",
+    Argentina: "🇦🇷",
+    Australia: "🇦🇺",
+    Austria: "🇦🇹",
+    Belgium: "🇧🇪",
+    Brazil: "🇧🇷",
+    Canada: "🇨🇦",
+    Chile: "🇨🇱",
+    Colombia: "🇨🇴",
+    "Costa Rica": "🇨🇷",
+    Denmark: "🇩🇰",
+    Ecuador: "🇪🇨",
+    Finland: "🇫🇮",
+    France: "🇫🇷",
+    Germany: "🇩🇪",
+    Greece: "🇬🇷",
+    Hungary: "🇭🇺",
+    "Hong Kong SAR": "🇭🇰",
+    Iceland: "🇮🇸",
+    India: "🇮🇳",
+    Indonesia: "🇮🇩",
+    Ireland: "🇮🇪",
+    Italy: "🇮🇹",
+    Jamaica: "🇯🇲",
+    Japan: "🇯🇵",
+    Kenya: "🇰🇪",
+    Lebanon: "🇱🇧",
+    Luxembourg: "🇱🇺",
+    Mexico: "🇲🇽",
+    Netherlands: "🇳🇱",
+    "New Zealand": "🇳🇿",
+    Norway: "🇳🇴",
+    Panama: "🇵🇦",
+    Peru: "🇵🇪",
+    Philippines: "🇵🇭",
+    Poland: "🇵🇱",
+    Portugal: "🇵🇹",
+    "Puerto Rico": "🇵🇷",
+    Romania: "🇷🇴",
+    Russia: "🇷🇺",
+    "South Africa": "🇿🇦",
+    "South Korea": "🇰🇷",
+    Spain: "🇪🇸",
+    Sweden: "🇸🇪",
+    Switzerland: "🇨🇭",
+    Turkey: "🇹🇷",
+    Taiwan: "🇹🇼",
+    Ukraine: "🇺🇦",
+    "United Kingdom": "🇬🇧",
+    "United States": "🇺🇸",
+    Venezuela: "🇻🇪",
+    Zimbabwe: "🇿🇼",
+  };
   const [isPopupVisible, setIsPopupVisible] = useState(true);
   const [currIndex, setCurrIndex] = useState(props.currIndex);
   const images = props.images;
@@ -131,7 +186,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
           .button-container {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px; 
+            margin-top: 20px;
           }
 
           .popup h2 {
@@ -146,7 +201,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
             padding: 7px 10px;
             background-color: rgb(0, 213, 255);
             font-weight: bold;
-            
+
           }
 
           .popup button:hover {
