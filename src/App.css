@@ -26,6 +26,7 @@
   --tg-common-color-cyan: #0dcaf0;
   --tg-common-color-white: #fff;
   --tg-common-color-gray: #6c757d;
+  --tg-common-color-ligh-gray: #e7e8e9;
   --tg-common-color-black: #0f051d;
   --tg-body-color: #7b7583;
   --tg-heading-color: #0f051d;
@@ -813,9 +814,6 @@ strong {
 @media (max-width: 768px) {
   .d-flex {
     flex-direction: column;
-  }
-  .d-flex > div {
-    width: 100% !important;
   }
 }
 

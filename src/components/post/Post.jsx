@@ -8,11 +8,15 @@ import {
   faAngleRight,
   faHeart,
   faCircleUser,
+  faLink,
 } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ViewIcon from "../popup/ViewIcon";
+import TopThreeLikedPost from "../partial/TopThreeLikedPost";
+import { ToastContainer, toast } from "react-toastify";
+import Blogs from "../blog/Blogs";
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 function Post() {
@@ -22,28 +26,82 @@ function Post() {
   const [showPopup, setShowPopup] = useState(false);
   const [currImageUrl, setCurrImageUrl] = useState("");
   const [allImageUrl, setAllImageUrl] = useState([]);
+  const [filter, setFilter] = useState("");
+  const [country, setCountry] = useState("");
+  const [likedPost, setLikedPost] = useState(false);
+  const [topFour, setTopFour] = useState([]);
+  const [posts, setPosts] = useState([]);
+
+  const POSTS_PER_PAGE = 10;
+
+  const fetchCurrent = () => {
+    const savedFilterValue = localStorage.getItem("selectedFilter");
+    const savedCountryValue = localStorage.getItem("selectedCountry");
+    const savedSearchQuery = localStorage.getItem("searchQuery");
+
+    const savedCountry = savedCountryValue
+      ? `?country=${savedCountryValue}`
+      : "?country=global";
+
+    const savedSearch = savedSearchQuery
+      ? `&searchQuery=${savedSearchQuery}`
+      : "";
+
+    setFilter(savedFilterValue ? `?sort=${savedFilterValue}` : "");
+    setCountry(savedCountryValue ? `?country=${savedCountryValue}` : "");
+
+    axios
+      .get(
+        `${REACT_APP_API_ENDPOINT}/all/upload${savedCountry}&sort=${savedFilterValue}&page=${localStorage.getItem(
+          "currentPage"
+        )}&limit=${POSTS_PER_PAGE}${savedSearch}`
+      )
+      .then((res) => {
+        if (res.data && res.data.uploads) {
+          setPosts(res.data.uploads);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     axios.get(`${REACT_APP_API_ENDPOINT}/post/${id}`).then((response) => {
       setPost(response.data.upload);
     });
+
+    fetchCurrent();
   }, []);
 
   const returnToBlog = () => {
     window.location.href = "/#/blog";
   };
 
+  function copyCurrentURL() {
+    const url = window.location.href;
+
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        toast("URL copied to clipboard", {
+          position: "bottom-center",
+          type: "success",
+          autoClose: 2000,
+        });
+      })
+      .catch((err) => {
+        console.error("Failed to copy URL: ", err);
+      });
+  }
+
   console.log(post);
 
   return (
     <div className="Post background">
       <Header />
-      {/* <ViewIcon
-        setShowPopup={setShowPopup}
-        image={currImageUrl}
-        images={allImageUrl}
-        currIndex={currIndex}
-      /> */}
+
+      <ToastContainer />
       <div className="container post">
         <div className="endpoint d-flex justify-content-center align-items-center">
           <div style={{ cursor: "pointer" }} onClick={returnToBlog}>
@@ -69,9 +127,18 @@ function Post() {
             <div
               className="d-flex"
               style={{
-                justifyContent: "flex-end",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
+              <div>
+                <FontAwesomeIcon
+                  className="link-icon"
+                  icon={faLink}
+                  size="2xl"
+                  onClick={copyCurrentURL}
+                />
+              </div>
               <div className="d-flex">
                 <FontAwesomeIcon
                   className="liked-btn"
@@ -86,6 +153,7 @@ function Post() {
                 <div className="likes">{post ? post.likes.length : 0}</div>
               </div>
             </div>
+
             <h1 className="post-title">{post ? post.title : "loading"}</h1>
             <br />
             <p>Photo by Guest: {post ? post.guest : "loading"}</p>
@@ -114,7 +182,9 @@ function Post() {
 
             <h3>More photos</h3>
 
-            <div className="">
+            <br />
+
+            <div>
               <div
                 className="all-card-img-sub-section"
                 style={{ padding: "0px" }}
@@ -149,8 +219,11 @@ function Post() {
             </div>
           </div>
         </div>
-      </div>
 
+        <h3 style={{ textAlign: "center" }}>More posts</h3>
+
+        <Blogs posts={posts} reload="yes" />
+      </div>
       <Footer />
     </div>
   );
