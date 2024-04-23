@@ -95,13 +95,23 @@ function Post() {
       });
   }
 
-  console.log(post);
+  const onImageClick = () => {
+    setShowPopup(true);
+  };
 
   return (
     <div className="Post background">
       <Header />
 
       <ToastContainer />
+
+      <ViewIcon
+        setShowPopup={setShowPopup}
+        showPopup={showPopup}
+        post={post}
+        currIndex={currIndex}
+      />
+
       <div className="container post">
         <div className="endpoint d-flex justify-content-center align-items-center">
           <div style={{ cursor: "pointer" }} onClick={returnToBlog}>
@@ -116,11 +126,7 @@ function Post() {
               src={post && REACT_APP_AWS + post.images[currIndex]}
               className="current-image"
               alt="Current image"
-              onClick={() => {
-                setShowPopup(true);
-                setAllImageUrl(post && post.images);
-                setCurrImageUrl(post && REACT_APP_AWS + post.images[currIndex]);
-              }}
+              onClick={onImageClick}
             />
           </div>
           <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12  right">

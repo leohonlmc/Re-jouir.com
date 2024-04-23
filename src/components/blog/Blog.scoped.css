@@ -624,12 +624,6 @@
   transform: scale(1.03);
 }
 
-.col-lg-2.p-0 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .rating-div {
   border-radius: 10px;
   text-align: center;
@@ -818,10 +812,6 @@
     display: none;
   }
 
-  .col-lg-2.p-0 {
-    text-align: left;
-    justify-content: left;
-  }
   .row.py-3.shadow-5 {
     border-radius: 0px;
     border-top-left-radius: 10px;

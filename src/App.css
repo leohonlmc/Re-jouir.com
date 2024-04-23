@@ -317,7 +317,12 @@ p {
 }
 
 .feature-img {
+  width: 50%;
   text-align: center;
+}
+
+.feature-img > img {
+  width: 100%;
 }
 
 .feature {
@@ -754,7 +759,8 @@ strong {
 
 .wave-main > div {
   scroll-snap-align: start;
-  height: 100vh;
+  height: 100vh !important;
+  padding-top: 100px;
 }
 
 .truncate {
@@ -771,7 +777,7 @@ strong {
 }
 
 .feature.right {
-  width: 100%;
+  width: 50%;
 }
 
 @media (max-width: 1500px) {
@@ -809,6 +815,12 @@ strong {
 @media (max-width: 768px) {
   .d-flex {
     flex-direction: column;
+  }
+  .feature.right {
+    width: 100%;
+  }
+  .feature-img {
+    width: 100%;
   }
 }
 

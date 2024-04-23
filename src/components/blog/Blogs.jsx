@@ -100,13 +100,15 @@ function Blogs(props) {
           <div className="blog-info">
             <div className="all-info-div">
               <div className="container p-0">
-                <div className="row col-lg-12">
-                  <div className="col-lg-2 col-md-3 p-0">
+                <div className="row col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div className="col-lg-2 col-md-3 col-sm-3 col-3 p-0">
                     {upload.rating > 3 ? (
-                      <div className="rating-div green-rating">
-                        <div>Rating</div>
-                        <div className="text-xl leading-5 font-bold ">
-                          {upload.rating.toFixed(1)}
+                      <div>
+                        <div className="rating-div green-rating">
+                          <div>Rating</div>
+                          <div className="text-xl leading-5 font-bold ">
+                            {upload.rating.toFixed(1)}
+                          </div>
                         </div>
                       </div>
                     ) : (
@@ -116,7 +118,7 @@ function Blogs(props) {
                       </div>
                     )}
                   </div>
-                  <div className="col-lg-10 col-md-9 p-0">
+                  <div className="col-lg-10 col-md-9 col-sm-9 col-9 p-0">
                     <p className="post-title p-2">{upload.title}</p>
                   </div>
                 </div>

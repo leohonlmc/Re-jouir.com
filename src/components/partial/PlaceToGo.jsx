@@ -40,37 +40,34 @@ function PlaceToGo() {
   ];
 
   const search = function (query) {
-    // searchQuery
     navigate("/blog");
     localStorage.setItem("selectedCountry", query);
   };
 
   return (
-    <div className="Home" style={{ paddingTop: "100px" }}>
-      <div className="countries row">
-        <div className="section__title text-start">
-          <h2
-            className="title"
-            style={{ fontWeight: "bold", textAlign: "center" }}
-          >
-            <span className="tg-text-gradient">Place</span> you would like to go
-          </h2>
-        </div>
-
-        {data.map((item, index) => (
-          <div
-            className={`col-lg-3 col-md-4 col-sm-6 col-12 country-review ${item.class}`}
-            key={index}
-            onClick={() => search(item.country)}
-          >
-            <div>
-              <h4>{item.country}</h4>
-              <h5>{item.city}</h5>
-              <p>{item.place}</p>
-            </div>
-          </div>
-        ))}
+    <div className="countries row">
+      <div className="section__title text-start">
+        <h2
+          className="title"
+          style={{ fontWeight: "bold", textAlign: "center" }}
+        >
+          <span className="tg-text-gradient">Place</span> you would like to go
+        </h2>
       </div>
+
+      {data.map((item, index) => (
+        <div
+          className={`col-lg-3 col-md-4 col-sm-6 col-12 country-review ${item.class}`}
+          key={index}
+          onClick={() => search(item.country)}
+        >
+          <div>
+            <h4>{item.country}</h4>
+            <h5>{item.city}</h5>
+            <p>{item.place}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

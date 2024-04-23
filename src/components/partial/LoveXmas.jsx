@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function LoveXmas() {
   return (
-    <div className="Home">
+    <div>
       <div className="d-flex flex-box">
         <div className="feature-img">
           <img src="/santa-2.png" alt="" style={{ width: "100%" }} />

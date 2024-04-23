@@ -11,10 +11,10 @@ import {
 
 function ShareMoment() {
   return (
-    <div style={{ paddingTop: "100px" }}>
+    <div>
       <div className="d-flex flex-box" style={{ padding: "20px" }}>
         <div className="feature-img">
-          <img src="/moment-2.png" alt="" style={{ width: "100%" }} />
+          <img src="/moment-2.png" alt="Share your moment" />
         </div>
         <div className="feature right">
           <div className="feature-child">

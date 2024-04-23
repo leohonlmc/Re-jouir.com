@@ -121,7 +121,10 @@ function Home() {
       </Helmet>
 
       <div className={waveMainClass}>
-        <div className="header-section banner__background-wrap">
+        <div
+          className="header-section banner__background-wrap"
+          style={{ paddingTop: "0px" }}
+        >
           {timeLeft.days && timeLeft.days !== 0 ? (
             <Header
               title={`(${timeLeft.days}) Share Your Precious Moment | Réjouir`}

@@ -8,64 +8,19 @@ import formatDateString from "../functions/formatDateString";
 
 const { REACT_APP_AWS } = process.env;
 
-const ViewIcon = ({ setShowPopup, ...props }) => {
-  const countryEmojiMap = {
-    Global: "🌍",
-    Argentina: "🇦🇷",
-    Australia: "🇦🇺",
-    Austria: "🇦🇹",
-    Belgium: "🇧🇪",
-    Brazil: "🇧🇷",
-    Canada: "🇨🇦",
-    Chile: "🇨🇱",
-    Colombia: "🇨🇴",
-    "Costa Rica": "🇨🇷",
-    Denmark: "🇩🇰",
-    Ecuador: "🇪🇨",
-    Finland: "🇫🇮",
-    France: "🇫🇷",
-    Germany: "🇩🇪",
-    Greece: "🇬🇷",
-    Hungary: "🇭🇺",
-    "Hong Kong SAR": "🇭🇰",
-    Iceland: "🇮🇸",
-    India: "🇮🇳",
-    Indonesia: "🇮🇩",
-    Ireland: "🇮🇪",
-    Italy: "🇮🇹",
-    Jamaica: "🇯🇲",
-    Japan: "🇯🇵",
-    Kenya: "🇰🇪",
-    Lebanon: "🇱🇧",
-    Luxembourg: "🇱🇺",
-    Mexico: "🇲🇽",
-    Netherlands: "🇳🇱",
-    "New Zealand": "🇳🇿",
-    Norway: "🇳🇴",
-    Panama: "🇵🇦",
-    Peru: "🇵🇪",
-    Philippines: "🇵🇭",
-    Poland: "🇵🇱",
-    Portugal: "🇵🇹",
-    "Puerto Rico": "🇵🇷",
-    Romania: "🇷🇴",
-    Russia: "🇷🇺",
-    "South Africa": "🇿🇦",
-    "South Korea": "🇰🇷",
-    Spain: "🇪🇸",
-    Sweden: "🇸🇪",
-    Switzerland: "🇨🇭",
-    Turkey: "🇹🇷",
-    Taiwan: "🇹🇼",
-    Ukraine: "🇺🇦",
-    "United Kingdom": "🇬🇧",
-    "United States": "🇺🇸",
-    Venezuela: "🇻🇪",
-    Zimbabwe: "🇿🇼",
-  };
+const ViewIcon = ({ setShowPopup, showPopup, ...props }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
-  const [currIndex, setCurrIndex] = useState(props.currIndex);
-  const images = props.images;
+  const [currIndex, setCurrIndex] = useState(props.currIndex || 0);
+
+  if (!showPopup) {
+    return null;
+  }
+
+  if (!props.post || !props.post.images) {
+    return <div>Loading...</div>;
+  }
+
+  const images = props.post.images;
 
   const closePopup = () => {
     setIsPopupVisible(false);
@@ -95,11 +50,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
                 className="image-section"
               >
                 <LazyLoadImage
-                  src={
-                    images[currIndex].slice(0, 4) !== "http"
-                      ? `${REACT_APP_AWS}${images[currIndex]}`
-                      : images[currIndex]
-                  }
+                  src={`${REACT_APP_AWS}${images[currIndex]}`}
                   className="card-img-top"
                   style={{
                     height: "100%",
@@ -113,7 +64,7 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
 
               <div className="all-card-img-section">
                 <div className="all-card-img-sub-section">
-                  {props.images.map((item, index) => (
+                  {images.map((item, index) => (
                     <div
                       key={index}
                       style={{
@@ -181,31 +132,6 @@ const ViewIcon = ({ setShowPopup, ...props }) => {
             width: 100%;
             height: 100%;
             animation: popupAnimation 0.2s ease-in-out forwards;
-          }
-
-          .button-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-          }
-
-          .popup h2 {
-            margin-bottom: 10px;
-          }
-
-          .popup p {
-            margin-bottom: 20px;
-          }
-
-          .popup button {
-            padding: 7px 10px;
-            background-color: rgb(0, 213, 255);
-            font-weight: bold;
-
-          }
-
-          .popup button:hover {
-            background-color: rgb(1, 185, 222);
           }
 
           .overlay {

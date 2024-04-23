@@ -7,10 +7,7 @@ function Song() {
   const navigate = useNavigate();
 
   return (
-    <div
-      className="Song"
-      style={{ paddingTop: "100px", width: "95%", margin: "auto" }}
-    >
+    <div className="Song" style={{ width: "95%", margin: "auto" }}>
       <div className="section__title text-start">
         <h2 className="title" style={{ textAlign: "center" }}>
           <span className="tg-text-gradient">Songs</span> you might like
