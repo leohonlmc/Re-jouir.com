@@ -103,7 +103,7 @@
 
 @media (max-width: 768px) {
   .d-flex {
-    flex-direction: row; /* Reinforces horizontal layout */
+    flex-direction: row;
     text-align: center;
   }
 }

@@ -77,13 +77,6 @@ h5,
 .h5,
 h6,
 .h6 {
-  /* font-family: var(--tg-heading-font-family);
-  color: var(--tg-heading-color);
-  margin-top: 0px;
-  font-weight: var(--tg-fw-bold);
-  line-height: 1.2;
-  text-transform: unset; */
-  color: var(--tg-heading-color) !important;
   font-weight: 600 !important;
 }
 
@@ -324,12 +317,10 @@ p {
 }
 
 .feature-img {
-  width: 50%;
   text-align: center;
 }
 
 .feature {
-  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -777,6 +768,10 @@ strong {
 
 .container-fluid {
   padding: 0px 24px !important;
+}
+
+.feature.right {
+  width: 100%;
 }
 
 @media (max-width: 1500px) {
