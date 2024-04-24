@@ -147,7 +147,7 @@ function Post() {
               </div>
               <div className="d-flex">
                 <FontAwesomeIcon
-                  className="liked-btn"
+                  className="likes"
                   icon={faHeart}
                   style={{
                     color: "#ff0000",

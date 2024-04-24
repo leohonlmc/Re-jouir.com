@@ -221,6 +221,10 @@
   cursor: not-allowed;
 }
 
+.likes {
+  cursor: default;
+}
+
 .sort-container {
   display: flex;
   gap: 20px;

@@ -54,7 +54,6 @@ const ViewIcon = ({ setShowPopup, showPopup, ...props }) => {
                   className="card-img-top"
                   style={{
                     height: "100%",
-                    width: "100%",
                     objectFit: "contain",
                   }}
                   alt="..."
