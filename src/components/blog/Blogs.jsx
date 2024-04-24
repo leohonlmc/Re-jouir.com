@@ -101,32 +101,34 @@ function Blogs(props) {
             <div className="all-info-div">
               <div className="container p-0">
                 <div className="row col-lg-12 col-md-12 col-sm-12 col-12">
-                  <div className="col-lg-2 col-md-3 col-sm-3 col-3 p-0">
+                  <div className="col-lg-3 col-md-3 col-sm-3 col-3 p-0">
                     {upload.rating > 3 ? (
                       <div>
                         <div className="rating-div green-rating">
                           <div>Rating</div>
-                          <div className="text-xl leading-5 font-bold ">
+                          <div className="text-xl leading-5 font-bold">
                             {upload.rating.toFixed(1)}
                           </div>
                         </div>
                       </div>
                     ) : (
                       <div className="rating-div yellow-rating">
-                        <div>Rating</div>
-                        <div className="text-xl leading-5 font-bold ">NA</div>
+                        <p>Rating</p>
+                        <div className="text-xl leading-5 font-bold">NA</div>
                       </div>
                     )}
                   </div>
-                  <div className="col-lg-10 col-md-9 col-sm-9 col-9 p-0">
+                  <div className="col-lg-9 col-md-9 col-sm-9 col-9 p-0">
                     <p className="post-title p-2">{upload.title}</p>
                   </div>
                 </div>
               </div>
 
-              <p className="upload-description truncate">
-                {upload.description}
-              </p>
+              <div className="upload-description-div">
+                <p className="upload-description truncate">
+                  {upload.description}
+                </p>
+              </div>
 
               <div>
                 {upload.likes.includes(

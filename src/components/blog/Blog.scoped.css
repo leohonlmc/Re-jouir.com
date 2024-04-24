@@ -51,11 +51,11 @@
   margin-bottom: 10px;
 }
 
+.upload-description-div {
+  margin-top: 10px;
+}
+
 .upload-description {
-  font-family: var(--tg-body-font-family);
-  color: var(--tg-body-font-color);
-  margin: 0px;
-  margin-top: 5px;
   font-size: 15px;
 }
 
@@ -134,10 +134,6 @@
   margin-top: 5px;
 }
 
-.blog-info > div {
-  padding: 10px;
-}
-
 .row.py-3.shadow-5 {
   padding: 0px 0px 0px 0px !important;
   margin: 0px;
@@ -206,7 +202,6 @@
 
 .col-3 {
   padding: 12px;
-  border-left: 1px solid #e0e0e0;
 }
 
 .col-3.mt-1 {
