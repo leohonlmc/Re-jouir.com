@@ -172,10 +172,6 @@
   color: var(--tg-common-color-gray);
 }
 
-.card-img-top {
-  border-radius: 30%;
-}
-
 @media screen and (max-width: 991px) {
   .props {
     display: none;

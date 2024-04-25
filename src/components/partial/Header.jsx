@@ -13,7 +13,7 @@ function Header(props) {
   const [scrolled, setScrolled] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const picture = localStorage.getItem("picture");
-  const id = localStorage.getItem("id");
+  const isAccountUser = localStorage.getItem("id");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,10 +84,18 @@ function Header(props) {
                   Blog
                 </Link>
               </li>
+              {/* <li className="nav-item">
+                <Link className="nav-item nav-link active shop" to="/shop">
+                  Shop
+                </Link>
+              </li> */}
             </ul>
             <div className="account-icon" onClick={() => setShowPopup(true)}>
-              {id ? (
-                <div>
+              {isAccountUser ? (
+                <div className="avatar-div">
+                  <div className="avatar">
+                    <img src="hat.png" alt="avatar" />
+                  </div>
                   <img
                     src={localStorage.getItem("picture")}
                     alt=""
@@ -99,18 +107,17 @@ function Header(props) {
                   />
                 </div>
               ) : (
-                <FontAwesomeIcon
-                  className="account-icon-fort"
-                  icon={faCircleUser}
-                  size="2xl"
-                />
+                <div>
+                  <FontAwesomeIcon
+                    className="account-icon-fort"
+                    icon={faCircleUser}
+                    size="2xl"
+                  />
+                </div>
               )}
             </div>
           </div>
         </div>
-        {/* <div className="props">
-          <img src="/props.png" alt="" />
-        </div> */}
       </nav>
     </div>
   );

@@ -31,6 +31,7 @@ function Post() {
   const [likedPost, setLikedPost] = useState(false);
   const [topFour, setTopFour] = useState([]);
   const [posts, setPosts] = useState([]);
+  const isAccountUser = localStorage.getItem("id");
 
   const POSTS_PER_PAGE = 10;
 
@@ -127,6 +128,7 @@ function Post() {
               className="current-image"
               alt="Current image"
               onClick={onImageClick}
+              effect="blur"
             />
           </div>
           <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12  right">
@@ -159,18 +161,21 @@ function Post() {
                 <div className="likes">{post ? post.likes.length : 0}</div>
               </div>
             </div>
-
+            <br />
             <h1 className="post-title">{post ? post.title : "loading"}</h1>
             <br />
             <p>Photo by Guest: {post ? post.guest : "loading"}</p>
             <p>Location: {post ? post.country : "loading"}</p>
             <p>Spot: {post ? post.location : "loading"}</p>
-
             <br />
-
             <div className="d-flex">
               <div className="d-flex">
-                <div>
+                <div className="avatar-div">
+                  {/* {isAccountUser ? (
+                    <div className="avatar">
+                      <img src="hat.png" alt="avatar" />
+                    </div>
+                  ) : null} */}
                   <FontAwesomeIcon
                     className="account-icon-fort"
                     icon={faCircleUser}
@@ -185,9 +190,7 @@ function Post() {
             </div>
 
             <br />
-
             <h3>More photos</h3>
-
             <br />
 
             <div>
@@ -227,7 +230,6 @@ function Post() {
         </div>
 
         <h3 style={{ textAlign: "center" }}>More posts</h3>
-
         <Blogs posts={posts} reload="yes" />
       </div>
       <Footer />

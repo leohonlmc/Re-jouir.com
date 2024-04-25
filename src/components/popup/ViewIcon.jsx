@@ -10,7 +10,7 @@ const { REACT_APP_AWS } = process.env;
 
 const ViewIcon = ({ setShowPopup, showPopup, ...props }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
-  const [currIndex, setCurrIndex] = useState(props.currIndex || 0);
+  const [currIndex, setCurrIndex] = useState(props.currIndex);
 
   if (!showPopup) {
     return null;
@@ -25,7 +25,10 @@ const ViewIcon = ({ setShowPopup, showPopup, ...props }) => {
   const closePopup = () => {
     setIsPopupVisible(false);
     setShowPopup(false);
+    setCurrIndex(0);
   };
+
+  console.log(currIndex);
 
   return (
     <div className="popupwindow">

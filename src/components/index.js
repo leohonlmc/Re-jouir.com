@@ -6,3 +6,4 @@ export { default as Privacy } from "./Privacy";
 export { default as List } from "./List";
 export { default as Admin } from "./Admin";
 export { default as Post } from "./post/Post";
+export { default as Shop } from "./shop/Shop";

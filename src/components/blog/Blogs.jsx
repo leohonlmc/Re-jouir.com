@@ -40,6 +40,7 @@ function Blogs(props) {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
   const posts = props.posts;
+  const [loading, setLoading] = useState(true);
 
   const handleLike = async (postId, guest) => {
     try {
@@ -65,6 +66,10 @@ function Blogs(props) {
       }
     }
   };
+
+  // if (loading) {
+  //   return <div>loading...</div>;
+  // }
 
   return (
     <div className="image-grid">
