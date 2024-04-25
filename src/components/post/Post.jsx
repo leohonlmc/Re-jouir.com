@@ -14,7 +14,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ViewIcon from "../popup/ViewIcon";
-import TopThreeLikedPost from "../partial/TopThreeLikedPost";
 import { ToastContainer, toast } from "react-toastify";
 import Blogs from "../blog/Blogs";
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
@@ -100,18 +99,21 @@ function Post() {
     setShowPopup(true);
   };
 
+  const updateCurrentIndex = (newIndex) => {
+    setCurrIndex(newIndex);
+  };
+
   return (
     <div className="Post background">
       <Header />
-
       <ToastContainer />
-
-      <ViewIcon
+      {/* <ViewIcon
         setShowPopup={setShowPopup}
         showPopup={showPopup}
-        post={post}
         currIndex={currIndex}
-      />
+        updateCurrentIndex={updateCurrentIndex}
+        post={post}
+      /> */}
 
       <div className="container post">
         <div className="endpoint d-flex justify-content-center align-items-center">
@@ -127,7 +129,7 @@ function Post() {
               src={post && REACT_APP_AWS + post.images[currIndex]}
               className="current-image"
               alt="Current image"
-              onClick={onImageClick}
+              // onClick={onImageClick}
               effect="blur"
             />
           </div>

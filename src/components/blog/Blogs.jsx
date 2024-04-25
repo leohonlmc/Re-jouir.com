@@ -67,10 +67,6 @@ function Blogs(props) {
     }
   };
 
-  // if (loading) {
-  //   return <div>loading...</div>;
-  // }
-
   return (
     <div className="image-grid">
       {posts.map((upload, uploadIndex) => (

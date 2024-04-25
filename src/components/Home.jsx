@@ -41,14 +41,12 @@ function Home() {
 
   useEffect(() => {
     const today = new Date();
-
     localStorage.setItem("searchQuery", "");
 
     if (isChristmas) {
       const timer = setTimeout(() => {
         setShowCelebration(false);
       }, 4000);
-
       return () => clearTimeout(timer);
     }
 
@@ -80,15 +78,12 @@ function Home() {
       }
     };
 
-    // Set the initial state based on the current window size
     handleResize();
 
-    // Add event listener for window resize
     window.addEventListener("resize", handleResize);
 
-    // Clean up the event listener when the component unmounts
     return () => window.removeEventListener("resize", handleResize);
-  }, []); // The empty array ensures this effect runs only once on mount
+  }, []);
 
   function updateCountdown() {
     const now = new Date();
