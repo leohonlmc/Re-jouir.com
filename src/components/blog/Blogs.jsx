@@ -23,20 +23,14 @@ import { useNavigate } from "react-router-dom";
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 function Blogs(props) {
-  const [currIndices, setCurrIndices] = useState([]);
-  const [currImageUrl, setCurrImageUrl] = useState("");
   const [upload, setUpload] = useState([]);
-  const [allImageUrl, setAllImageUrl] = useState([]);
-  const [currImageIndex, setCurrImageIndex] = useState(0);
   const [capton, setCapton] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
   const [likedPost, setLikedPost] = useState(false);
-  const [topFour, setTopFour] = useState([]);
   const [noResult, setNoResult] = useState(false);
   const POSTS_PER_PAGE = 100;
-  const [totalPages, setTotalPages] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
   const posts = props.posts;

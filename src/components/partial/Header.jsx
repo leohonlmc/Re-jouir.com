@@ -84,11 +84,11 @@ function Header(props) {
                   Blog
                 </Link>
               </li>
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <Link className="nav-item nav-link active shop" to="/shop">
                   Shop
                 </Link>
-              </li> */}
+              </li>
             </ul>
             <div className="account-icon" onClick={() => setShowPopup(true)}>
               {isAccountUser ? (

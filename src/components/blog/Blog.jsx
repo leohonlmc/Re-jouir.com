@@ -15,19 +15,13 @@ import formatDateString from "../functions/formatDateString";
 import generateRandomUserId from "../functions/generateRandomUserId";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import Loading from "../partial/Loading";
-import Support from "../popup/Support";
 import { Helmet } from "react-helmet";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import NoResult from "../partial/NoResult";
-import World from "../effect/World";
-import TopThreeLikedPost from "../partial/TopThreeLikedPost";
 import SearchBar from "../partial/SearchBar";
 import { faCircleChevronUp, faImage } from "@fortawesome/free-solid-svg-icons";
 import { AppStateContext } from "../../Context/AppStateProvider";
-import Page from "../partial/Page";
-import Location from "../partial/Location";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useNavigate } from "react-router-dom";
 import Blogs from "./Blogs";
@@ -85,8 +79,6 @@ function Blog() {
 
     fetchCurrent();
 
-    // getTopFourCountries();
-
     const handleKeyDown = (event) => {
       if (event.key === "Enter") {
         window.location.reload();
@@ -140,27 +132,6 @@ function Blog() {
       });
   };
 
-  // const getTopFourCountries = async () => {
-  //   try {
-  //     const { data } = await axios.get(
-  //       `${REACT_APP_API_ENDPOINT}/four/counties`,
-  //       {
-  //         withCredentials: true,
-  //         credentials: "include",
-  //       }
-  //     );
-  //     if (data) {
-  //       setTopFour(data.topFour);
-  //     }
-  //   } catch (ex) {
-  //     if (ex.response && ex.response.data && ex.response.data.error) {
-  //       toast.error(`Error: ${ex.response.data.error}`);
-  //     } else {
-  //       console.error("An error occurred:", ex);
-  //     }
-  //   }
-  // };
-
   return (
     <div className="Blog">
       <div className="blog-section">
@@ -175,7 +146,6 @@ function Blog() {
         <div className="filter-div">
           <SearchBar showPopup={showPopup} />
         </div>
-
         {noResult === true ? <NoResult /> : <Blogs posts={posts && posts} />}
       </div>
       <Footer />
