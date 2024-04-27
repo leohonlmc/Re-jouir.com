@@ -29,7 +29,7 @@ function Shop() {
         </div>
 
         <div className="avartars-div row col-lg-12 col-md-12 col-sm-12 col-12">
-          <div className="avartar col-lg-3 col-md-3 col-sm-4 col-6 p-0">
+          <div className="avartar col-lg-3 col-md-4 col-sm-6 col-12 p-0">
             <div className="avartar-icon-div">
               <img className="avartar-icon" src="/hat.png" alt="avartar-hat" />
             </div>
@@ -48,11 +48,12 @@ function Shop() {
             </div>
           </div>
 
-          {/* <div className="avartar col-lg-3 col-md-3 col-sm-4 col-6 p-0"></div>
-          <div className="avartar col-lg-3 col-md-3 col-sm-4 col-6 p-0"></div>
-          <div className="avartar col-lg-3 col-md-3 col-sm-4 col-6 p-0"></div> */}
+          {/* 
+          <div className="avartar col-lg-4 col-md-4 col-sm-6 col-12 p-0"></div>
+          <div className="avartar col-lg-4 col-md-4 col-sm-6 col-12 p-0"></div>
+          <div className="avartar col-lg-4 col-md-4 col-sm-6 col-12 p-0"></div> */}
 
-          <div className="avartar col-lg-3 col-md-3 col-sm-4 col-6 p-0">
+          <div className="avartar col-lg-3 col-md-4 col-sm-6 col-12 p-0">
             <div className="avartar-icon-div">
               <h1 className="coming-soon-title">Coming soon</h1>
             </div>
