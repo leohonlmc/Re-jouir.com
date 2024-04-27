@@ -27,28 +27,50 @@
 .avartar {
   margin-bottom: 20px;
   border-radius: 20px;
-  border: 2px solid var(--tg-gradient-1);
+  /* border: 2px solid var(--tg-gradient-1); */
   margin-right: 26px;
   height: auto;
 }
 
 .avartar-icon-div {
   width: 100%;
-  height: 70%;
+  height: 250px;
   background-color: black;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.avartar-div {
+  position: absolute;
+  top: -20px;
+  left: 55%;
+  transform: translateX(-50%);
+}
+
+.icon-shape {
+  width: 150px;
+  height: 150px;
+  background-color: var(--tg-common-color-white);
+  background-image: url("../../../public/R.png");
+  background-repeat: no-repeat;
+  background-size: 6rem;
+  background-position: center;
+  border-radius: 50%;
 }
 
 .avartar-icon {
-  width: 85%;
+  width: 150px;
 }
 
 .avartar-des {
   width: 100%;
   height: 30%;
-  background-color: grey;
+  background-color: rgb(35, 35, 35);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 15px;

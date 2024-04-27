@@ -31,7 +31,14 @@ function Shop() {
         <div className="avartars-div row col-lg-12 col-md-12 col-sm-12 col-12">
           <div className="avartar col-lg-3 col-md-4 col-sm-6 col-12 p-0">
             <div className="avartar-icon-div">
-              <img className="avartar-icon" src="/hat.png" alt="avartar-hat" />
+              <div className="avartar-div">
+                <img
+                  className="avartar-icon"
+                  src="/hat.png"
+                  alt="avartar-hat"
+                />
+              </div>
+              <div className="icon-shape"></div>
             </div>
             <div className="avartar-des">
               <h3 className="avartar-name">Santa's hat</h3>
@@ -48,27 +55,17 @@ function Shop() {
             </div>
           </div>
 
-          {/* 
-          <div className="avartar col-lg-4 col-md-4 col-sm-6 col-12 p-0"></div>
-          <div className="avartar col-lg-4 col-md-4 col-sm-6 col-12 p-0"></div>
-          <div className="avartar col-lg-4 col-md-4 col-sm-6 col-12 p-0"></div> */}
-
           <div className="avartar col-lg-3 col-md-4 col-sm-6 col-12 p-0">
             <div className="avartar-icon-div">
               <h1 className="coming-soon-title">Coming soon</h1>
             </div>
             <div className="avartar-des">
               <h3 className="avartar-name">Coming soon</h3>
-              {/* {id ? (
+              {id ? (
                 <button className="avartar-price-btn">Claimed</button>
               ) : (
-                <button
-                  className="avartar-price-btn"
-                  onClick={() => setShowPopup(true)}
-                >
-                  Sign up to claim
-                </button>
-              )} */}
+                <button className="avartar-price-btn">Stay tuned</button>
+              )}
             </div>
           </div>
         </div>
