@@ -136,6 +136,10 @@ function Home() {
         </div>
 
         <div>
+          <ShareMoment />
+        </div>
+
+        <div>
           <PlaceToGo />
         </div>
 
@@ -143,13 +147,10 @@ function Home() {
           <Song />
         </div>
 
-        <div>
-          <ShareMoment />
-        </div>
-
+        {/* 
         <div>
           <LoveXmas />
-        </div>
+        </div> */}
         <div>
           <Faq />
         </div>
