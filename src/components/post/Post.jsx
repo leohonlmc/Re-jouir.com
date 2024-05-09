@@ -139,6 +139,7 @@ function Post() {
               style={{
                 justifyContent: "space-between",
                 alignItems: "center",
+                flexWrap: "nowrap",
               }}
             >
               <div>
