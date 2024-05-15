@@ -50,9 +50,8 @@ const Login = ({ setShowPopup, ...props }) => {
       {isPopupVisible && (
         <div className="popup-login">
           <div
-            className="login-window"
+            className="login-window p-8"
             style={{
-              padding: "24px",
               backgroundColor: "white",
               borderRadius: "10px",
             }}
@@ -62,12 +61,8 @@ const Login = ({ setShowPopup, ...props }) => {
                 icon={faXmark}
                 style={{
                   cursor: "pointer",
-                  padding: "5px 8px",
-                  backgroundColor: "black",
-                  borderRadius: "50%",
-                  color: "white",
                 }}
-                size="lg"
+                size="2xl"
               />
             </div>
             {id ? (
@@ -79,14 +74,6 @@ const Login = ({ setShowPopup, ...props }) => {
                   and good energy!
                 </p>
                 <br />
-                {/* 
-                <hr />
-
-                <br />
-
-                <h3>Your bookmark</h3>
-
-                <br /> */}
 
                 <button
                   className="btn logout"

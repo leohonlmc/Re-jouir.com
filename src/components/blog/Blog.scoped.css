@@ -38,6 +38,7 @@
   width: 100%;
   max-width: 1450px;
   margin: auto;
+  position: relative;
 }
 
 .blog-section {
@@ -772,6 +773,42 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   margin: 16px 0px;
   background-color: white;
+}
+
+.login-message-div {
+  position: fixed;
+  max-width: 350px;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  z-index: 100000;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.google-login {
+  margin: auto;
+  text-align: center;
+  margin: 16px 0px;
+}
+
+.grey-color-text {
+  color: var(--tg-common-color-gray);
+  text-align: center;
+  font-size: 11px;
+}
+
+.terms,
+.privacy {
+  color: black;
+}
+
+.close-google-login {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
