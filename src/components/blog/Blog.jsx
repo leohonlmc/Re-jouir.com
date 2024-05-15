@@ -232,8 +232,8 @@ function Blog() {
               href="/#/privacy"
             >
               Privacy Policy
-            </a>{" "}
-            ; Opens a new tab . Notice at collection ; Opens a new tab .
+            </a>
+            .
           </p>
         </div>
       ) : null}
