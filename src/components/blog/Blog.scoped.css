@@ -105,6 +105,7 @@
 
 .blog-info {
   margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .row.py-3.shadow-5 {
@@ -735,14 +736,8 @@
 
 .image-item {
   break-inside: avoid;
-  margin-bottom: 28px;
   cursor: pointer;
   position: relative;
-}
-
-.image-item:hover {
-  transform: scale(1.03);
-  transition: transform 0.3s ease-out;
 }
 
 .image-item img {
@@ -766,6 +761,17 @@
 
 .post-title {
   color: black;
+}
+
+.upload-btn {
+  margin-top: 16px;
+}
+
+.reminder {
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  margin: 16px 0px;
+  background-color: white;
 }
 
 @media (max-width: 1200px) {

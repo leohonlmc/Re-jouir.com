@@ -794,6 +794,10 @@ strong {
   width: 35px;
 }
 
+.p-8 {
+  padding: 2rem;
+}
+
 @media (max-width: 1500px) {
   .container {
     max-width: 1230px;

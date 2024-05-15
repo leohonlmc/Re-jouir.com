@@ -64,109 +64,125 @@ function Blogs(props) {
   return (
     <div className="image-grid">
       {posts.map((upload, uploadIndex) => (
-        <div className="image-item" key={uploadIndex}>
-          {uploadIndex === 0 ? (
-            <div className="new-upload-icon">
-              <img src="/new.png" alt="" />
+        <>
+          {uploadIndex !== 0 && uploadIndex % 10 === 0 ? (
+            <div className="p-8 reminder">
+              <h1>Help us to decorate our site!</h1>
+              <p>A moment you never forget.</p>
+              <button
+                className="btn btn-danger upload-btn"
+                onClick={() => {
+                  navigate("/upload");
+                }}
+              >
+                Upload images
+              </button>
             </div>
           ) : null}
+          <div className="image-item" key={uploadIndex}>
+            {uploadIndex === 0 ? (
+              <div className="new-upload-icon">
+                <img src="/new.png" alt="" />
+              </div>
+            ) : null}
 
-          <div
-            className="lightbox"
-            onClick={() => {
-              navigate(`/post/${upload._id}`);
-              if (props.reload === "yes") {
-                window.location.reload();
-              }
-            }}
-          >
-            <LazyLoadImage
-              src={`${REACT_APP_AWS}${upload.images[0]}`}
-              alt="Cover Image"
-              effect="blur"
-              wrapperClassName="image-wrapper"
-            />
-            <div className="inner-image-icon">
-              <FontAwesomeIcon icon={faImage} size="lg" />{" "}
-              {upload.images.length}
+            <div
+              className="lightbox"
+              onClick={() => {
+                navigate(`/post/${upload._id}`);
+                if (props.reload === "yes") {
+                  window.location.reload();
+                }
+              }}
+            >
+              <LazyLoadImage
+                src={`${REACT_APP_AWS}${upload.images[0]}`}
+                alt="Cover Image"
+                effect="blur"
+                wrapperClassName="image-wrapper"
+              />
+              <div className="inner-image-icon">
+                <FontAwesomeIcon icon={faImage} size="lg" />{" "}
+                {upload.images.length}
+              </div>
             </div>
-          </div>
 
-          <div className="blog-info">
-            <div className="all-info-div">
-              <div className="container p-0">
-                <div className="row col-lg-12 col-md-12 col-sm-12 col-12">
-                  <div className="col-lg-3 col-md-3 col-sm-3 col-3 p-0">
-                    {upload.rating > 3 ? (
-                      <div>
-                        <div className="rating-div green-rating">
-                          <div>Rating</div>
-                          <div className="text-xl leading-5 font-bold">
-                            {upload.rating.toFixed(1)}
+            <div className="blog-info">
+              <div className="all-info-div">
+                <div className="container p-0">
+                  <div className="row col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div className="col-lg-3 col-md-3 col-sm-3 col-3 p-0">
+                      {upload.rating > 3 ? (
+                        <div>
+                          <div className="rating-div green-rating">
+                            <div>Rating</div>
+                            <div className="text-xl leading-5 font-bold">
+                              {upload.rating.toFixed(1)}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ) : (
-                      <div className="rating-div yellow-rating">
-                        <p>Rating</p>
-                        <div className="text-xl leading-5 font-bold">NA</div>
-                      </div>
-                    )}
-                  </div>
-                  <div className="col-lg-9 col-md-9 col-sm-9 col-9 p-0">
-                    <p className="post-title p-2">{upload.title}</p>
+                      ) : (
+                        <div className="rating-div yellow-rating">
+                          <p>Rating</p>
+                          <div className="text-xl leading-5 font-bold">NA</div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="col-lg-9 col-md-9 col-sm-9 col-9 p-0">
+                      <p className="post-title p-2">{upload.title}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="upload-description-div">
-                <p className="upload-description truncate">
-                  {upload.description}
-                </p>
-              </div>
+                <div className="upload-description-div">
+                  <p className="upload-description truncate">
+                    {upload.description}
+                  </p>
+                </div>
 
-              <div>
-                {upload.likes.includes(
-                  localStorage.getItem("guest") ||
-                    upload.likes.includes(localStorage.getItem("id"))
-                ) ? (
-                  <div className="liked-btn-div">
-                    <FontAwesomeIcon
-                      className="liked-btn"
-                      icon={faHeart}
-                      style={{
-                        color: "#ff0000",
-                        marginRight: "0px",
+                <div>
+                  {upload.likes.includes(
+                    localStorage.getItem("guest") ||
+                      upload.likes.includes(localStorage.getItem("id"))
+                  ) ? (
+                    <div className="liked-btn-div">
+                      <FontAwesomeIcon
+                        className="liked-btn"
+                        icon={faHeart}
+                        style={{
+                          color: "#ff0000",
+                          marginRight: "0px",
+                        }}
+                        size="xl"
+                      />{" "}
+                      {`You and ${upload.likes.length - 1} others like this`}
+                    </div>
+                  ) : (
+                    <div
+                      className="liked-btn-div"
+                      onClick={() => {
+                        handleLike(upload._id, localStorage.getItem("guest"));
+                        setLikedPost(true);
+                        toast.success("You liked the post!");
                       }}
-                      size="xl"
-                    />{" "}
-                    {`You and ${upload.likes.length - 1} others like this`}
-                  </div>
-                ) : (
-                  <div
-                    className="liked-btn-div"
-                    onClick={() => {
-                      handleLike(upload._id, localStorage.getItem("guest"));
-                      setLikedPost(true);
-                      toast.success("You liked the post!");
-                    }}
-                  >
-                    <FontAwesomeIcon
-                      className="like-btn"
-                      icon={faHeart}
-                      style={{
-                        color: "grey",
-                        marginRight: "0px",
-                      }}
-                      size="xl"
-                    />{" "}
-                    {`${upload.likes.length} people like this`}
-                  </div>
-                )}
+                    >
+                      <FontAwesomeIcon
+                        className="like-btn"
+                        icon={faHeart}
+                        style={{
+                          color: "grey",
+                          marginRight: "0px",
+                        }}
+                        size="xl"
+                      />{" "}
+                      {`${upload.likes.length} people like this`}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </>
       ))}
     </div>
   );
