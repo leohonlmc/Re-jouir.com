@@ -150,6 +150,7 @@ function Post() {
                   onClick={copyCurrentURL}
                 />
               </div>
+
               <div className="d-flex">
                 <FontAwesomeIcon
                   className="likes"
@@ -174,11 +175,6 @@ function Post() {
             <div className="d-flex">
               <div className="d-flex">
                 <div className="avatar-div">
-                  {/* {isAccountUser ? (
-                    <div className="avatar">
-                      <img src="hat.png" alt="avatar" />
-                    </div>
-                  ) : null} */}
                   <FontAwesomeIcon
                     className="account-icon-fort"
                     icon={faCircleUser}
