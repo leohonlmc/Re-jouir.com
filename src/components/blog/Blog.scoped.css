@@ -739,6 +739,7 @@
   break-inside: avoid;
   cursor: pointer;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .image-item img {
