@@ -14,7 +14,7 @@ function NoResult() {
         "current"
       )}, Country: ${localStorage.getItem(
         "selectedCountry"
-      )}, Query: ${localStorage.getItem("searchQuery")}`}</p>
+      )}, Keywords: ${localStorage.getItem("searchQuery")}`}</p>
     </div>
   );
 }

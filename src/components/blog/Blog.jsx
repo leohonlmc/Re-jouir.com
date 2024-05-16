@@ -13,6 +13,8 @@ import SearchBar from "../partial/SearchBar";
 import { AppStateContext } from "../../Context/AppStateProvider";
 import Blogs from "./Blogs";
 import ReminderDiv from "./ReminderDiv";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const { REACT_APP_API_ENDPOINT } = process.env;
 
@@ -27,6 +29,7 @@ function Blog() {
   const POSTS_PER_PAGE = 100;
   const [isVisible, setIsVisible] = useState(false);
   const close = localStorage.getItem("close");
+  const keywords = localStorage.getItem("searchQuery");
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -125,6 +128,20 @@ function Blog() {
         <div className="filter-div">
           <SearchBar showPopup={showPopup} />
         </div>
+
+        {keywords.length > 0 ? (
+          <div
+            onClick={() => {
+              localStorage.setItem("searchQuery", "");
+              window.location.reload();
+            }}
+          >
+            <span className="keywords">
+              {keywords} <FontAwesomeIcon icon={faXmark} />
+            </span>
+          </div>
+        ) : null}
+
         {noResult === true ? <NoResult /> : <Blogs posts={posts && posts} />}
       </div>
 

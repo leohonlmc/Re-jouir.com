@@ -731,7 +731,7 @@
 .image-grid {
   column-count: 4;
   column-gap: 15px;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 50px;
 }
 
@@ -813,6 +813,14 @@
 
 iframe {
   width: 100%!;
+}
+
+.keywords {
+  padding: 6px 15px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {
