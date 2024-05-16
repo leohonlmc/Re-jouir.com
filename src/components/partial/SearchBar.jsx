@@ -229,7 +229,7 @@ function SearchBar(props) {
             </button>
           ) : (
             <>
-              <button
+              {/* <button
                 className="btn-submit search"
                 type="submit"
                 onClick={() => {
@@ -256,7 +256,7 @@ function SearchBar(props) {
                   <circle cx="11" cy="11" r="8"></circle>
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
-              </button>
+              </button> */}
 
               {!(filterValue || searchQuery || countryValue) ||
               props.showPopup === true ? null : (

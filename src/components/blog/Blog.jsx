@@ -114,7 +114,7 @@ function Blog() {
   return (
     <div className="Blog">
       <div className="blog-section">
-        <Header title="Blog | Réjouir" />
+        <Header title={!loading ? "Blog | Réjouir" : "Loading content..."} />
       </div>
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com/blog" />

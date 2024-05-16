@@ -28,7 +28,6 @@ function Home() {
   const [isChristmas, setIsChristmas] = useState(false);
   const [showCelebration, setShowCelebration] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
-
   const [waveMainClass, setWaveMainClass] = useState("wave-main");
 
   const toggleVisibility = () => {
@@ -102,13 +101,6 @@ function Home() {
     setTimeLeft({ days, hours, minutes, seconds });
   }
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <div className="Home background">
       <Helmet>
@@ -125,7 +117,8 @@ function Home() {
               title={`(${timeLeft.days}) Share Your Precious Moment | Réjouir`}
             />
           ) : (
-            <Header title={`Merry Christmas! 🌟 | Réjouir`} />
+            // <Header title={`Merry Christmas! 🌟 | Réjouir`} />
+            <Header title={``} />
           )}
           {/* <Snow /> */}
           <Hero />
