@@ -104,8 +104,9 @@ function Post() {
   };
 
   return (
-    <div className="Post background">
-      <Header title={post ? post.title : "Loading content..."} />
+    <div className="Post main">
+      <Header title={post ? post.title : "Loading content..."} type="fixed" />
+
       <ToastContainer />
       {/* <ViewIcon
         setShowPopup={setShowPopup}

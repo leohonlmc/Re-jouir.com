@@ -113,7 +113,7 @@ function Home() {
           style={{ paddingTop: "0px" }}
         >
           {timeLeft.days && timeLeft.days !== 0 ? (
-            <Header title={"Share Your Precious Moment | Réjouir"} />
+            <Header title={"Share Your Precious Moment | Réjouir"} number="1" />
           ) : (
             // <Header title={`Merry Christmas! 🌟 | Réjouir`} />
             <Header title={``} />

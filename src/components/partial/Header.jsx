@@ -39,7 +39,7 @@ function Header(props) {
 
       {showPopup && <Login setShowPopup={setShowPopup} />}
 
-      <nav className="navbar navbar-expand-lg">
+      <nav className={`navbar navbar-expand-lg ${props.type}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             <img

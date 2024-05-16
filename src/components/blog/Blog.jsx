@@ -115,13 +115,18 @@ function Blog() {
   };
 
   return (
-    <div className="Blog">
+    <div className="Blog main">
       <div className="blog-section">
-        <Header title={!loading ? "Blog | Réjouir" : "Loading content..."} />
+        <Header
+          title={!loading ? "Blog | Réjouir" : "Loading content..."}
+          type="fixed"
+        />
       </div>
+
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com/blog" />
       </Helmet>
+
       <ToastContainer position="top-center" autoClose={1500} />
 
       <div className="blog-main">

@@ -795,6 +795,10 @@ strong {
   text-align: center;
 }
 
+.main {
+  padding-top: 120px;
+}
+
 @media (max-width: 1500px) {
   .container {
     max-width: 1230px;
