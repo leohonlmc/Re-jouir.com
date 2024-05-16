@@ -32,7 +32,7 @@ function ReminderDiv() {
           </div>
 
           <p className="grey-color-text">
-            By continuing, you agree to Rejouir's{" "}
+            By continuing, you agree to Réjouir's{" "}
             <a className="terms" style={{ fontWeight: "bold" }} href="/#/terms">
               Terms of Service
             </a>{" "}

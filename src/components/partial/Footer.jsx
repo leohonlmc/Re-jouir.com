@@ -58,7 +58,7 @@ function Footer() {
             <div className="col-md-6">
               <div className="copyright__text">
                 <p>
-                  © {new Date().getFullYear()} Rejouir. All rights reserved.
+                  © {new Date().getFullYear()} Réjouir. All rights reserved.
                 </p>
               </div>
             </div>

@@ -18,7 +18,7 @@ function Shop() {
 
   return (
     <div className="Shop background">
-      <Header />
+      <Header title="Shop | Réjouir" />
 
       {showPopup && <Login setShowPopup={setShowPopup} />}
 
