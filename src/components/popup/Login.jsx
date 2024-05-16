@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import "../../Account.scoped.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import axios from "axios";
 import GoogleLoginDiv from "./GoogleLogin";
-const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 const Login = ({ setShowPopup, ...props }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
@@ -15,33 +13,6 @@ const Login = ({ setShowPopup, ...props }) => {
   const closePopup = () => {
     setIsPopupVisible(false);
     setShowPopup(false);
-  };
-
-  const createUser = async () => {
-    try {
-      const { data } = await axios.post(
-        `${REACT_APP_API_ENDPOINT}/api/user`,
-        {
-          id: localStorage.getItem("id"),
-          name: localStorage.getItem("name"),
-          given_name: localStorage.getItem("given_name"),
-          family_name: localStorage.getItem("family_name"),
-          email: localStorage.getItem("email"),
-          picture: localStorage.getItem("picture"),
-        },
-        {
-          withCredentials: true,
-          credentials: "include",
-        }
-      );
-
-      if (data) {
-        console.log("User created");
-        window.location.reload();
-      }
-    } catch (ex) {
-      console.log(ex);
-    }
   };
 
   return (

@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 import "../../Account.scoped.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
-const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
+const { REACT_APP_API_ENDPOINT } = process.env;
 
 const GoogleLoginDiv = () => {
-  const id = localStorage.getItem("id");
-  const name = localStorage.getItem("name");
-
   const createUser = async () => {
     try {
       const { data } = await axios.post(

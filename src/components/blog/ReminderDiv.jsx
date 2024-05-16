@@ -1,14 +1,9 @@
 import "./Blog.scoped.css";
-import React, { useState, useEffect, Suspense, useContext } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { Helmet } from "react-helmet";
-import { useNavigate } from "react-router-dom";
 import GoogleLoginDiv from "../popup/GoogleLogin";
-
-const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
-const ViewIcon = React.lazy(() => import("../popup/ViewIcon"));
 
 function ReminderDiv() {
   const [closePopup, setClosePopup] = useState(false);
