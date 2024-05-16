@@ -811,6 +811,10 @@
   cursor: pointer;
 }
 
+iframe {
+  width: 100%!;
+}
+
 @media (max-width: 1200px) {
   .image-grid {
     column-count: 3;

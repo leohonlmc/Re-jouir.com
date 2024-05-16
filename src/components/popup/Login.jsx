@@ -3,9 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import "../../Account.scoped.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import GoogleLoginDiv from "./GoogleLogin";
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 const Login = ({ setShowPopup, ...props }) => {
@@ -90,24 +89,7 @@ const Login = ({ setShowPopup, ...props }) => {
                 <h2>Sign in with Google</h2>
 
                 <div style={{ marginTop: "16px" }}>
-                  <GoogleLogin
-                    style={{ width: "100%" }}
-                    onSuccess={(credentialResponse) => {
-                      var decoded = jwtDecode(credentialResponse.credential);
-
-                      localStorage.setItem("id", decoded.sub);
-                      localStorage.setItem("name", decoded.name);
-                      localStorage.setItem("given_name", decoded.given_name);
-                      localStorage.setItem("family_name", decoded.family_name);
-                      localStorage.setItem("email", decoded.email);
-                      localStorage.setItem("picture", decoded.picture);
-                      createUser();
-                    }}
-                    onError={() => {
-                      console.log("Login Failed");
-                    }}
-                    useOneTap
-                  />
+                  <GoogleLoginDiv />
 
                   <hr style={{ margin: "16px 0px" }} />
 
