@@ -189,6 +189,10 @@ function Post() {
               </div>
             </div>
 
+            <div style={{ marginTop: "8px" }}>
+              <p>{post.description}</p>
+            </div>
+
             <br />
             <h3>More photos</h3>
             <br />
