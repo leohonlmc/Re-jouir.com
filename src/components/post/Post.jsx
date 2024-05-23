@@ -190,7 +190,7 @@ function Post() {
             </div>
 
             <div style={{ marginTop: "8px" }}>
-              <p>{post.description}</p>
+              <p>{post ? post.description : "loading description"}</p>
             </div>
 
             <br />
