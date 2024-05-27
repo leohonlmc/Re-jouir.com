@@ -148,9 +148,9 @@ function Blog() {
           </div>
         ) : null}
 
-        {noResult === true ? <NoResult /> : <Blogs posts={posts && posts} />}
-
         {loading ? <Loading /> : <Blogs posts={posts && posts} />}
+
+        {noResult === true ? <NoResult /> : <Blogs posts={posts && posts} />}
       </div>
 
       {close !== "true" && localStorage.getItem("id") === null ? (
