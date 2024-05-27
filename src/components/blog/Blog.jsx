@@ -15,6 +15,7 @@ import Blogs from "./Blogs";
 import ReminderDiv from "./ReminderDiv";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import Loading from "./Loading";
 
 const { REACT_APP_API_ENDPOINT } = process.env;
 
@@ -148,6 +149,8 @@ function Blog() {
         ) : null}
 
         {noResult === true ? <NoResult /> : <Blogs posts={posts && posts} />}
+
+        {loading ? <Loading /> : <Blogs posts={posts && posts} />}
       </div>
 
       {close !== "true" && localStorage.getItem("id") === null ? (

@@ -1,40 +1,20 @@
 import "./Blog.scoped.css";
-import React, { useState, useEffect, Suspense, useContext } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "../partial/Header";
-import Footer from "../partial/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faB,
-  faBookmark,
-  faHeart,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faImage } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
-import { Helmet } from "react-helmet";
+import { toast } from "react-toastify";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { faCircleChevronUp, faImage } from "@fortawesome/free-solid-svg-icons";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { useNavigate } from "react-router-dom";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 function Blogs(props) {
-  const [upload, setUpload] = useState([]);
-  const [capton, setCapton] = useState("");
-  const [showPopup, setShowPopup] = useState(false);
-  const [filter, setFilter] = useState("");
-  const [country, setCountry] = useState("");
   const [likedPost, setLikedPost] = useState(false);
-  const [noResult, setNoResult] = useState(false);
-  const POSTS_PER_PAGE = 100;
-  const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
   const posts = props.posts;
-  const [loading, setLoading] = useState(true);
 
   const handleLike = async (postId, guest) => {
     try {
@@ -64,28 +44,22 @@ function Blogs(props) {
   return (
     <div className="image-grid">
       {posts.map((upload, uploadIndex) => (
-        <>
-          {uploadIndex !== 0 && uploadIndex % 10 === 0 ? (
-            <div className="p-8 reminder">
-              <h1>Help us to decorate our site!</h1>
-              <p>A moment you never forget.</p>
-              <button
-                className="btn btn-danger upload-btn"
-                onClick={() => {
-                  navigate("/upload");
-                }}
-              >
-                Upload images
-              </button>
+        <div className="image-item" key={uploadIndex}>
+          {uploadIndex === 0 && props.loading !== "true" && (
+            <div className="new-upload-icon">
+              <img src="/new.png" alt="" />
             </div>
-          ) : null}
-          <div className="image-item" key={uploadIndex}>
-            {uploadIndex === 0 ? (
-              <div className="new-upload-icon">
-                <img src="/new.png" alt="" />
-              </div>
-            ) : null}
+          )}
 
+          {props.loading === "true" ? (
+            <div className="lightbox">
+              <div className="loading-inner-image-icon">
+                <div className="loading-container">
+                  <div className="loading-line"></div>
+                </div>
+              </div>
+            </div>
+          ) : (
             <div
               className="lightbox"
               onClick={() => {
@@ -106,7 +80,9 @@ function Blogs(props) {
                 {upload.images.length}
               </div>
             </div>
+          )}
 
+          {props.loading !== "true" && (
             <div className="blog-info">
               <div className="all-info-div">
                 <div className="container p-0">
@@ -181,8 +157,8 @@ function Blogs(props) {
                 </div>
               </div>
             </div>
-          </div>
-        </>
+          )}
+        </div>
       ))}
     </div>
   );

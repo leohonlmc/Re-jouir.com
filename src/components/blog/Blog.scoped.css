@@ -719,6 +719,73 @@
   width: 40px;
 }
 
+.loading-inner-image-icon {
+  height: 500px;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 30px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.loading-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.loading-line {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    white 50%,
+    transparent 100%
+  );
+  animation: move 2s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.loading-inner-image-icon {
+  width: 100%;
+  height: 300px;
+  background: grey;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.loading-line {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    white 50%,
+    transparent 100%
+  );
+  animation: move 2s linear infinite;
+}
+
 .inner-image-icon {
   position: absolute;
   bottom: 10px;
