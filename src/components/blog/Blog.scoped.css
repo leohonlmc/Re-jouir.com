@@ -759,10 +759,26 @@
 
 .loading-inner-image-icon {
   width: 100%;
-  height: 300px;
   background: grey;
   position: relative;
   overflow: hidden;
+  cursor: default;
+}
+
+.loading-3 {
+  height: 300px;
+}
+
+.loading-4 {
+  height: 400px;
+}
+
+.loading-5 {
+  height: 500px;
+}
+
+.loading-6 {
+  height: 600px;
 }
 
 .loading-container {

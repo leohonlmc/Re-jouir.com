@@ -53,7 +53,9 @@ function Blogs(props) {
 
           {props.loading === "true" ? (
             <div className="lightbox">
-              <div className="loading-inner-image-icon">
+              <div
+                className={`loading-inner-image-icon loading-${upload.height}`}
+              >
                 <div className="loading-container">
                   <div className="loading-line"></div>
                 </div>
