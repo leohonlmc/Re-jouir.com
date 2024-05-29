@@ -19,7 +19,7 @@ function Loading() {
       status: "active",
       created: "2024-01-05T20:29:14.763Z",
       __v: 17,
-      height: 3,
+      height: Math.floor(Math.random() * 5) + 2,
     },
     {
       _id: "",
@@ -35,7 +35,7 @@ function Loading() {
       status: "active",
       created: "2024-01-05T20:29:14.763Z",
       __v: 17,
-      height: 4,
+      height: Math.floor(Math.random() * 10) + 2,
     },
     {
       _id: "",
@@ -51,7 +51,7 @@ function Loading() {
       status: "active",
       created: "2024-01-05T20:29:14.763Z",
       __v: 17,
-      height: 4,
+      height: Math.floor(Math.random() * 10) + 2,
     },
     {
       _id: "",
@@ -67,7 +67,7 @@ function Loading() {
       status: "active",
       created: "2024-01-05T20:29:14.763Z",
       __v: 17,
-      height: 5,
+      height: Math.floor(Math.random() * 10) + 2,
     },
     {
       _id: "",
@@ -83,7 +83,7 @@ function Loading() {
       status: "active",
       created: "2024-01-05T20:29:14.763Z",
       __v: 17,
-      height: 3,
+      height: Math.floor(Math.random() * 10) + 2,
     },
     {
       _id: "",
@@ -99,7 +99,7 @@ function Loading() {
       status: "active",
       created: "2024-01-05T20:29:14.763Z",
       __v: 17,
-      height: 5,
+      height: Math.floor(Math.random() * 10) + 2,
     },
     {
       _id: "",
@@ -115,7 +115,7 @@ function Loading() {
       status: "active",
       created: "2024-01-05T20:29:14.763Z",
       __v: 17,
-      height: 5,
+      height: Math.floor(Math.random() * 10) + 2,
     },
     {
       _id: "",
@@ -131,7 +131,7 @@ function Loading() {
       status: "active",
       created: "2024-01-05T20:29:14.763Z",
       __v: 17,
-      height: 4,
+      height: Math.floor(Math.random() * 10) + 2,
     },
   ];
 

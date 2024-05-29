@@ -765,6 +765,10 @@
   cursor: default;
 }
 
+.loading-2 {
+  height: 200px;
+}
+
 .loading-3 {
   height: 300px;
 }
@@ -775,10 +779,6 @@
 
 .loading-5 {
   height: 500px;
-}
-
-.loading-6 {
-  height: 600px;
 }
 
 .loading-container {
