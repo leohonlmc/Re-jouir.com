@@ -107,4 +107,7 @@
   .d-flex {
     text-align: center;
   }
+  .col-6 {
+    width: 100% !important;
+  }
 }
