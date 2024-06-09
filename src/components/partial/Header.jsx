@@ -5,7 +5,10 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleUser,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -17,7 +20,9 @@ function Header(props) {
   const [showPopup, setShowPopup] = useState(false);
   const picture = localStorage.getItem("picture");
   const isAccountUser = localStorage.getItem("id");
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const localsearchQuery = localStorage.getItem("searchQuery");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +36,11 @@ function Header(props) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    localStorage.setItem("searchQuery", e.target.value);
+  };
 
   return (
     <div className="Header">
@@ -69,12 +79,6 @@ function Header(props) {
 
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
-              {/* <li className="nav-item">
-                <Button variant="success" onClick={() => navigate("/")}>
-                  Home
-                </Button>
-              </li> */}
-
               <Dropdown>
                 <Dropdown.Toggle variant="secondary" id="dropdown-basic">
                   Explore
@@ -87,7 +91,21 @@ function Header(props) {
                 </Dropdown.Menu>
               </Dropdown>
             </ul>
-            <div className="account-icon" onClick={() => setShowPopup(true)}>
+
+            <div className="header-search-engine-div">
+              <div className="faMagnifying-glass-div">
+                <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
+              </div>
+              <input
+                className="header-search-engine"
+                type="text"
+                placeholder="Search for keywords, locations, etc."
+                onChange={handleSearchChange}
+                value={localsearchQuery}
+              />
+            </div>
+
+            <div onClick={() => setShowPopup(true)}>
               {isAccountUser ? (
                 <div className="avatar-div">
                   <div className="avatar">

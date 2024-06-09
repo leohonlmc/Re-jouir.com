@@ -53,6 +53,7 @@
 .dropdown-toggle.btn.btn-secondary {
   border-radius: 30px;
   font-size: var(--font-size-300);
+  padding: 10px 15px;
 }
 
 .dropdown-menu.show {
@@ -69,6 +70,26 @@
 .dropdown-item {
   border-radius: 10px;
   font-weight: bold;
+}
+
+.faMagnifying-glass-div {
+  position: absolute;
+  top: 25%;
+  left: 2.5%;
+}
+
+.header-search-engine-div {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.header-search-engine {
+  background-color: lightgrey;
+  border-radius: 30px;
+  width: 98%;
+  padding: 10px;
+  padding-left: 45px;
 }
 
 @keyframes fadeInDown {
@@ -188,6 +209,11 @@
   .btn.btn-success,
   .btn.btn-secondary {
     margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .header-search-engine {
+    width: 100%;
     margin-bottom: 8px;
   }
 }

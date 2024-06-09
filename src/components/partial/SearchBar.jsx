@@ -162,7 +162,6 @@ function SearchBar(props) {
               placeholder="Type here..."
               name="going"
               onChange={handleSearchChange}
-              // maxLength="40"
               value={localsearchQuery}
             />
           </div>
