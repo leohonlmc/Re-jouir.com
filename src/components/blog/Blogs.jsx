@@ -7,7 +7,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
@@ -41,6 +42,14 @@ function Blogs(props) {
     }
   };
 
+  const { lang } = useParams();
+  const { i18n } = useTranslation();
+  const currentLang = lang || i18n.language;
+
+  const handleNavigation = (id) => {
+    navigate(`/${currentLang}/post/${id}`);
+  };
+
   return (
     <div className="image-grid">
       {posts.map((upload, uploadIndex) => (
@@ -65,7 +74,7 @@ function Blogs(props) {
             <div
               className="lightbox"
               onClick={() => {
-                navigate(`/post/${upload._id}`);
+                handleNavigation(upload._id);
                 if (props.reload === "yes") {
                   window.location.reload();
                 }
