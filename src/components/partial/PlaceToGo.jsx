@@ -1,28 +1,30 @@
 import "../../App.css";
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function PlaceToGo() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const data = [
     {
-      country: "United States",
-      city: "New York",
-      place: "221 Avenue of the Americas",
+      country: t("united_states"),
+      city: t("new_york"),
+      place: t("place_usa"),
       class: "ny",
     },
     {
-      country: "France",
-      city: "Broglie, Strasbourg",
-      place: "The Micheletty circus Christmas village",
+      country: t("france"),
+      city: t("strasbourg"),
+      place: t("place_france"),
       class: "fr",
     },
     {
-      country: "United Kingdom",
-      city: "Edinburgh, Scotland",
-      place: "Christmas Market",
+      country: t("united_kingdom"),
+      city: t("edinburgh"),
+      place: t("place_uk"),
       class: "uk",
     },
     // {
@@ -51,7 +53,7 @@ function PlaceToGo() {
           className="title"
           style={{ fontWeight: "bold", textAlign: "center" }}
         >
-          <span className="tg-text-gradient">Place</span> you would like to go
+          <span className="tg-text-gradient">{t("place_to_go")}</span>
         </h2>
       </div>
 

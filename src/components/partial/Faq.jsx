@@ -1,7 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import "../../Faq.scoped.css";
+import { useTranslation } from "react-i18next";
 
 function Faq() {
+  const { t } = useTranslation();
+
   return (
     <div className="Faq">
       <div className="container">
@@ -14,7 +17,7 @@ function Faq() {
               className="section__title text-center title-mb-75"
               style={{ marginBottom: "75px" }}
             >
-              <h2 className="title">Asked Questions</h2>
+              <h2 className="title">{t("asked_questions")}</h2>
             </div>
           </div>
         </div>
@@ -35,7 +38,7 @@ function Faq() {
                       aria-expanded="false"
                       aria-controls="collapseOne"
                     >
-                      What is Rejouir?
+                      {t("faq_question_1")}
                     </button>
                   </h2>
                   <div
@@ -46,11 +49,7 @@ function Faq() {
                     style={{}}
                   >
                     <div className="accordion-body">
-                      <p>
-                        Rejouir is a blog platform that shares Christmas moment
-                        with images and information for you to plan your trip
-                        around the world.
-                      </p>
+                      <p>{t("faq_answer_1")}</p>
                     </div>
                   </div>
                 </div>
@@ -64,7 +63,7 @@ function Faq() {
                       aria-expanded="false"
                       aria-controls="collapseTwo"
                     >
-                      Do we need an account to upload images?
+                      {t("faq_question_2")}
                     </button>
                   </h2>
                   <div
@@ -74,10 +73,7 @@ function Faq() {
                     data-bs-parent="#accordionFaq"
                   >
                     <div className="accordion-body">
-                      <p>
-                        No! You can upload images without an account. We want to
-                        simplify the process of sharing your Christmas moment.
-                      </p>
+                      <p>{t("faq_answer_2")}</p>
                       <p></p>
                     </div>
                   </div>
@@ -92,7 +88,7 @@ function Faq() {
                       aria-expanded="false"
                       aria-controls="collapseThree"
                     >
-                      Why we should choose Rejouir?
+                      {t("faq_question_3")}
                     </button>
                   </h2>
                   <div
@@ -103,11 +99,7 @@ function Faq() {
                     style={{}}
                   >
                     <div className="accordion-body">
-                      <p>
-                        We build Christmas community and create contents with
-                        passion. And one of the reason is to centralize
-                        Christmas contents not just from other soical media.
-                      </p>
+                      <p>{t("faq_answer_3")}</p>
                     </div>
                   </div>
                 </div>
@@ -121,7 +113,7 @@ function Faq() {
                       aria-expanded="false"
                       aria-controls="collapseFour"
                     >
-                      Where we can contact rejouir team?
+                      {t("faq_question_4")}
                     </button>
                   </h2>
                   <div
@@ -132,7 +124,7 @@ function Faq() {
                   >
                     <div className="accordion-body">
                       <p>
-                        You can contact us via email via{" "}
+                        {t("faq_answer_4")}{" "}
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
@@ -155,7 +147,7 @@ function Faq() {
                       aria-expanded="false"
                       aria-controls="collapseFive"
                     >
-                      How many images we can upload?
+                      {t("faq_question_5")}
                     </button>
                   </h2>
                   <div
@@ -165,11 +157,7 @@ function Faq() {
                     data-bs-parent="#accordionFaq"
                   >
                     <div className="accordion-body">
-                      <p>
-                        We offer 5 images at most for each upload. We want to
-                        keep the quality of the content and not to spam the
-                        platform.
-                      </p>
+                      <p>{t("faq_answer_5")}</p>
                       <p></p>
                     </div>
                   </div>

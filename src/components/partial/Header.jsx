@@ -3,17 +3,16 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleUser,
   faMagnifyingGlass,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import Button from "react-bootstrap/Button";
-import Dropdown from "react-bootstrap/Dropdown";
+import { Dropdown, Button } from "react-bootstrap";
 import Login from "../popup/Login";
-import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Header(props) {
   const [scrolled, setScrolled] = useState(false);
@@ -23,6 +22,9 @@ function Header(props) {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const localsearchQuery = localStorage.getItem("searchQuery");
+  const { lang } = useParams();
+  const { t, i18n } = useTranslation();
+  const currentLang = lang || i18n.language;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +42,10 @@ function Header(props) {
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
     localStorage.setItem("searchQuery", e.target.value);
+  };
+
+  const handleSelect = (eventKey) => {
+    navigate(eventKey.replace(":lang", currentLang));
   };
 
   return (
@@ -79,20 +85,26 @@ function Header(props) {
 
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
-              <Dropdown>
-                <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                  Explore
+              <Dropdown onSelect={handleSelect}>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                  {t("menu")}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/upload">Upload</Dropdown.Item>
-                  <Dropdown.Item href="#/blog">Blog</Dropdown.Item>
-                  <Dropdown.Item href="#/shop">Shop</Dropdown.Item>
+                  <Dropdown.Item eventKey="/:lang/upload">
+                    {t("upload")}
+                  </Dropdown.Item>
+                  <Dropdown.Item eventKey="/:lang/blog">
+                    {t("blog")}
+                  </Dropdown.Item>
+                  <Dropdown.Item eventKey="/:lang/shop">
+                    {t("shop")}
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </ul>
 
-            {props.page === "blog" ? (
+            {props.page === "blog" && (
               <div className="header-search-engine-div">
                 <div className="faMagnifying-glass-div">
                   <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
@@ -101,22 +113,22 @@ function Header(props) {
                 <input
                   className="header-search-engine"
                   type="text"
-                  placeholder="Search for keywords, locations, etc."
+                  placeholder={t("search_placeholder")}
                   onChange={handleSearchChange}
                   value={localsearchQuery}
                 />
               </div>
-            ) : null}
+            )}
 
             <div className="account-icon" onClick={() => setShowPopup(true)}>
               {isAccountUser ? (
                 <div className="avatar-div">
                   <div className="avatar">
-                    <img src="hat.png" alt="avatar" />
+                    <img src="hat.png" alt={t("avatar")} />
                   </div>
                   <img
                     src={localStorage.getItem("picture")}
-                    alt=""
+                    alt={t("user_picture")}
                     style={{
                       width: "40px",
                       height: "40px",

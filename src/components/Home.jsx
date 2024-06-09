@@ -1,20 +1,15 @@
-import "../App.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import generateRandomUserId from "./functions/generateRandomUserId";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import ChooseUs from "./partial/ChooseUs";
-import LoveXmas from "./partial/LoveXmas";
 import PlaceToGo from "./partial/PlaceToGo";
-import Snow from "./effect/Snow";
 import Hero from "./partial/Hero";
 import Faq from "./partial/Faq";
 import Song from "./partial/Song";
 import ShareMoment from "./partial/ShareMoment";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   const [timeLeft, setTimeLeft] = useState({
@@ -24,11 +19,11 @@ function Home() {
     seconds: 0,
   });
 
-  const guest = generateRandomUserId();
   const [isChristmas, setIsChristmas] = useState(false);
   const [showCelebration, setShowCelebration] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const [waveMainClass, setWaveMainClass] = useState("wave-main");
+  const { t } = useTranslation();
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -55,20 +50,15 @@ function Home() {
 
     const intervalId = setInterval(updateCountdown, 1000);
 
-    if (localStorage.getItem("guest") === null) {
-      localStorage.setItem("guest", guest);
-    }
-
     window.addEventListener("scroll", toggleVisibility);
 
     return () => {
       clearInterval(intervalId);
       window.removeEventListener("scroll", toggleVisibility);
     };
-  }, []);
+  }, [isChristmas]);
 
   useEffect(() => {
-    // Handler to update the state based on window width
     const handleResize = () => {
       if (window.innerWidth < 1000) {
         setWaveMainClass("wave-main-mobile");
@@ -113,12 +103,10 @@ function Home() {
           style={{ paddingTop: "0px" }}
         >
           {timeLeft.days && timeLeft.days !== 0 ? (
-            <Header title={"Share Your Precious Moment | Réjouir"} number="1" />
+            <Header title={t("share_your_precious_moment_title")} number="1" />
           ) : (
-            // <Header title={`Merry Christmas! 🌟 | Réjouir`} />
             <Header title={``} />
           )}
-          {/* <Snow /> */}
           <Hero />
         </div>
 
@@ -138,10 +126,6 @@ function Home() {
           <Song />
         </div>
 
-        {/* 
-        <div>
-          <LoveXmas />
-        </div> */}
         <div>
           <Faq />
         </div>

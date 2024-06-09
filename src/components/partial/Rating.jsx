@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 
 function Rating({ onRatingChange }) {
   const [selected1, setSelected1] = useState(false);
@@ -10,6 +11,7 @@ function Rating({ onRatingChange }) {
   const [selected3, setSelected3] = useState(false);
   const [selected4, setSelected4] = useState(false);
   const [selected5, setSelected5] = useState(false);
+  const { t } = useTranslation();
 
   const handleStarClick = (rating) => {
     onRatingChange(rating);
@@ -20,7 +22,7 @@ function Rating({ onRatingChange }) {
       <div className="d-flex star-div">
         <div className="d-flex">
           <p className="rating-message">
-            Your rating? <span className="asterisk">*</span>
+            {t("your_rating")}? <span className="asterisk">*</span>
           </p>
         </div>
         <div>

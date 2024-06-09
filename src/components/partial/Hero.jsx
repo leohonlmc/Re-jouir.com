@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate, Link } from "react-router-dom";
 import generateRandomUserId from "../functions/generateRandomUserId";
+import { useTranslation } from "react-i18next";
 
 function Hero() {
   const countdownRef = useRef(null);
@@ -17,6 +18,7 @@ function Hero() {
   const guest = generateRandomUserId();
   const [isChristmas, setIsChristmas] = useState(false);
   const [showCelebration, setShowCelebration] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const today = new Date();
@@ -96,7 +98,7 @@ function Hero() {
                 style={{ top: "-4%", right: "16%" }}
               />
 
-              <h2 className="title">Share your precious moment</h2>
+              <h2 className="title">{t("share_your_precious_moment")}</h2>
 
               <div className="countdown" ref={countdownRef}>
                 {" "}
@@ -134,7 +136,7 @@ function Hero() {
               <div className="start-btn">
                 <Link to={"/upload"}>
                   <button className="btn btn-danger">
-                    Share now{" "}
+                    {t("share_now")}{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="30"
@@ -150,7 +152,7 @@ function Hero() {
                 </Link>
 
                 <Link to={"/about"}>
-                  <button className="btn btn-outline">Learn more</button>
+                  <button className="btn btn-outline">{t("learn_more")}</button>
                 </Link>
               </div>
             </div>

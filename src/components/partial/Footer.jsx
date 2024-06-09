@@ -1,11 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-// faPaperPlane
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 import "../../Footer.scoped.css";
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer-area section-py-80">
       <div className="row justify-content-center footer">
@@ -18,8 +20,7 @@ function Footer() {
               <img src="/R_white.png" alt="" style={{ width: "250px" }} />
             </div>
             {/* <p>
-              We make Christmas one step closer around the globe, and share your
-              precious moment.
+              {t("footer_description")}
             </p> */}
 
             <ul className="list-wrap footer__social">
@@ -58,7 +59,8 @@ function Footer() {
             <div className="col-md-6">
               <div className="copyright__text">
                 <p>
-                  © {new Date().getFullYear()} Réjouir. All rights reserved.
+                  © {new Date().getFullYear()} Réjouir.{" "}
+                  {t("all_rights_reserved")}
                 </p>
               </div>
             </div>
@@ -66,13 +68,13 @@ function Footer() {
               <div className="copyright__menu">
                 <ul className="list-wrap">
                   <li>
-                    <a href="/#/about">About</a>
+                    <a href="/#/about">{t("about")}</a>
                   </li>
                   <li>
-                    <a href="/#/terms">Terms & Conditions</a>
+                    <a href="/#/terms">{t("terms_conditions")}</a>
                   </li>
                   <li className="backTop">
-                    <a href="/#/privacy">Privacy Policy</a>
+                    <a href="/#/privacy">{t("privacy_policy")}</a>
                   </li>
                 </ul>
               </div>

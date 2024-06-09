@@ -23,6 +23,7 @@ import Rating from "./partial/Rating";
 import Preview from "./partial/Preview";
 import Submitted from "./partial/Submitted";
 import Footer from "./partial/Footer";
+import { useTranslation } from "react-i18next";
 
 const {
   REACT_APP_API_ENDPOINT,
@@ -49,10 +50,9 @@ function List() {
   const [imageFile, setImageFile] = useState([]);
   const [imageSrcs, setImageSrcs] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
-
   const [submitted, setSubmitted] = useState(false);
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const { t } = useTranslation();
 
   const countryList = [
     "Argentina",
@@ -379,7 +379,7 @@ function List() {
   return (
     <div className="List">
       <div className="list-header-section">
-        <Header showSearchBar={false} title={`Upload | Réjouir`} />
+        <Header showSearchBar={false} title={`${t("upload")} | Réjouir`} />
       </div>
 
       {showPopup && (
@@ -530,7 +530,7 @@ function List() {
                     </div>
 
                     <button>
-                      Select Images
+                      {t("select_images")}
                       <input
                         type="file"
                         style={{
@@ -547,8 +547,8 @@ function List() {
                         accept="image/*"
                       />
                     </button>
-                    <p style={{ paddingTop: "10px" }}>or drag images here</p>
-                    <p style={{ color: "darkgray" }}>(Up to 5 images)</p>
+                    <p style={{ paddingTop: "10px" }}>{t("drag")}</p>
+                    <p style={{ color: "darkgray" }}>{t("up_to_5")}</p>
                   </div>
                 </div>
                 {imageSrcs.map((src, index) => (
@@ -620,7 +620,7 @@ function List() {
                       <input
                         type="text"
                         class="form-control"
-                        placeholder="Title *"
+                        placeholder={t("title")}
                         onChange={handleTitle}
                         maxLength={50}
                         required
@@ -631,7 +631,7 @@ function List() {
                       <input
                         type="text"
                         class="form-control"
-                        placeholder="Address *"
+                        placeholder={t("address")}
                         required
                         onChange={handleLocationChange}
                         maxLength={30}
@@ -650,7 +650,7 @@ function List() {
                         class="form-control"
                         onChange={handleEventChange}
                         maxLength={50}
-                        placeholder="Event"
+                        placeholder={t("event")}
                       />
                     </div>
                     <div
@@ -680,7 +680,7 @@ function List() {
                       cols="30"
                       rows="10"
                       maxLength={500}
-                      placeholder="Description"
+                      placeholder={t("description")}
                       className="form-control-textarea"
                       onChange={handleDescriptionChange}
                     ></textarea>
@@ -767,7 +767,7 @@ function List() {
                           className="btn btn-success"
                           style={{ padding: "4px 24px", fontWeight: "bold" }}
                         >
-                          Post!
+                          {t("post")}
                         </button>
                       )}
                     </div>

@@ -4,8 +4,10 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import "../../Account.scoped.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import GoogleLoginDiv from "./GoogleLogin";
+import { useTranslation } from "react-i18next";
 
 const Login = ({ setShowPopup, ...props }) => {
+  const { t } = useTranslation();
   const [isPopupVisible, setIsPopupVisible] = useState(true);
   const id = localStorage.getItem("id");
   const name = localStorage.getItem("name");
@@ -37,12 +39,9 @@ const Login = ({ setShowPopup, ...props }) => {
             </div>
             {id ? (
               <div style={{ width: "100%" }}>
-                <h2>Hi {name}!</h2>
+                <h2>{t("hi_user", { name })}!</h2>
                 <br />
-                <p>
-                  How's your day? <br /> We hope Rejouir brings you good vibes
-                  and good energy!
-                </p>
+                <p>{t("welcome_message")}</p>
                 <br />
 
                 <button
@@ -52,12 +51,12 @@ const Login = ({ setShowPopup, ...props }) => {
                     window.location.reload();
                   }}
                 >
-                  Logout
+                  {t("logout")}
                 </button>
               </div>
             ) : (
               <div style={{ width: "100%" }}>
-                <h2>Sign in with Google</h2>
+                <h2>{t("sign_in_with_google")}</h2>
 
                 <div style={{ marginTop: "16px" }}>
                   <GoogleLoginDiv />
@@ -66,12 +65,11 @@ const Login = ({ setShowPopup, ...props }) => {
 
                   <div>
                     <h3 style={{ marginBottom: "16px" }}>
-                      Once you join with us...
+                      {t("join_benefits")}
                     </h3>
-                    <p>1. Your name showing in your post.</p>
-                    {/* <p>2. You can save your favorite posts.</p> */}
-                    <p>2. Get regular updates from our Santa's team!</p>
-                    <p>3. Promotions & Prizes will get from our events!</p>
+                    <p>{t("benefit_1")}</p>
+                    <p>{t("benefit_2")}</p>
+                    <p>{t("benefit_3")}</p>
                   </div>
                 </div>
               </div>

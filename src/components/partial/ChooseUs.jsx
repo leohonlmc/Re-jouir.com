@@ -1,26 +1,30 @@
 import "../../App.css";
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useTranslation } from "react-i18next";
 
 function ChooseUs() {
+  const { t } = useTranslation();
+
   const data = [
     {
-      title: "Christmas Blog",
-      description: "Share up to 5 images about Christmas from your country!",
+      title: t("christmas_blog_title"),
+      description: t("christmas_blog_description"),
     },
     {
-      title: "Connect the Globe",
-      description: "We CAPTURE the Christmas spirit from around the globe.",
+      title: t("connect_globe_title"),
+      description: t("connect_globe_description"),
     },
     {
-      title: "Share your Christmas",
-      description: "Share your Christmas with the world!",
+      title: t("share_christmas_title"),
+      description: t("share_christmas_description"),
     },
     {
-      title: "Guest Visit",
-      description: "Don't need an account to share your Christmas moment!",
+      title: t("guest_visit_title"),
+      description: t("guest_visit_description"),
     },
   ];
+
   return (
     <div className="Home">
       <div className="container">
@@ -29,7 +33,7 @@ function ChooseUs() {
             <br />
             <div className="section__title text-center title-mb-80">
               <h2 className="title why-rejouir">
-                <span className="tg-text-gradient">Why Réjouir?</span>
+                <span className="tg-text-gradient">{t("why_rejouir")}</span>
               </h2>
             </div>
             <br />

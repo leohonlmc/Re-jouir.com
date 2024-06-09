@@ -4,8 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import GoogleLoginDiv from "../popup/GoogleLogin";
+import { useTranslation } from "react-i18next";
 
 function ReminderDiv() {
+  const { t } = useTranslation();
   const [closePopup, setClosePopup] = useState(false);
 
   return (
@@ -24,25 +26,25 @@ function ReminderDiv() {
               size="2xl"
             />
           </div>
-          <h4>You are signed out</h4>
-          <p>Sign in to get the best experience</p>
+          <h4>{t("signed_out")}</h4>
+          <p>{t("sign_in_experience")}</p>
 
           <div className="google-login">
             <GoogleLoginDiv />
           </div>
 
           <p className="grey-color-text">
-            By continuing, you agree to Réjouir's{" "}
+            {t("by_continuing")}{" "}
             <a className="terms" style={{ fontWeight: "bold" }} href="/#/terms">
-              Terms of Service
+              {t("terms_of_service")}
             </a>{" "}
-            ; Opens a new tab and acknowledge you've read our{" "}
+            ; {t("acknowledge_privacy")}{" "}
             <a
               className="privacy"
               style={{ fontWeight: "bold" }}
               href="/#/privacy"
             >
-              Privacy Policy
+              {t("privacy_policy")}
             </a>
             .
           </p>

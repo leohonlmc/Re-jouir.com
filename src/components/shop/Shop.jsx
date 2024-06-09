@@ -1,5 +1,5 @@
 import "./Shop.scoped.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "../partial/Header";
 import Footer from "../partial/Footer";
@@ -7,25 +7,26 @@ import Login from "../popup/Login";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-
 import { ToastContainer, toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 function Shop() {
+  const { t } = useTranslation();
   const id = localStorage.getItem("id");
   const [showPopup, setShowPopup] = useState(false);
 
   return (
     <div className="Shop background">
-      <Header title="Shop | Réjouir" />
+      <Header title={t("shop_title")} />
 
       {showPopup && <Login setShowPopup={setShowPopup} />}
 
       <div className="shop-main">
         <div className="avatar-page-div">
           <div className="avartar-title">
-            <h1>Avartar</h1>
+            <h1>{t("avatar_title")}</h1>
           </div>
         </div>
 
@@ -36,21 +37,21 @@ function Shop() {
                 <img
                   className="avartar-icon"
                   src="/hat.png"
-                  alt="avartar-hat"
+                  alt={t("avatar_hat_alt")}
                 />
               </div>
               <div className="icon-shape"></div>
             </div>
             <div className="avartar-des">
-              <h3 className="avartar-name">Santa's hat</h3>
+              <h3 className="avartar-name">{t("avatar_hat_name")}</h3>
               {id ? (
-                <button className="avartar-price-btn">Claimed</button>
+                <button className="avartar-price-btn">{t("claimed")}</button>
               ) : (
                 <button
                   className="avartar-price-btn"
                   onClick={() => setShowPopup(true)}
                 >
-                  Sign up to claim
+                  {t("sign_up_to_claim")}
                 </button>
               )}
             </div>
@@ -58,14 +59,14 @@ function Shop() {
 
           <div className="avartar col-lg-3 col-md-4 col-sm-6 col-12 p-0">
             <div className="avartar-icon-div">
-              <h1 className="coming-soon-title">Coming soon</h1>
+              <h1 className="coming-soon-title">{t("coming_soon")}</h1>
             </div>
             <div className="avartar-des">
-              <h3 className="avartar-name">Coming soon</h3>
+              <h3 className="avartar-name">{t("coming_soon")}</h3>
               {id ? (
-                <button className="avartar-price-btn">Claimed</button>
+                <button className="avartar-price-btn">{t("claimed")}</button>
               ) : (
-                <button className="avartar-price-btn">Stay tuned</button>
+                <button className="avartar-price-btn">{t("stay_tuned")}</button>
               )}
             </div>
           </div>
