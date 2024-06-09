@@ -7,13 +7,17 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
 import Login from "../popup/Login";
+import { useNavigate } from "react-router-dom";
 
 function Header(props) {
   const [scrolled, setScrolled] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const picture = localStorage.getItem("picture");
   const isAccountUser = localStorage.getItem("id");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,29 +70,22 @@ function Header(props) {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link
-                  className="nav-item nav-link active"
-                  aria-current="page"
-                  to="/"
-                >
+                <Button variant="success" onClick={() => navigate("/")}>
                   Home
-                </Link>
+                </Button>
               </li>
-              <li className="nav-item">
-                <Link className="nav-item nav-link active" to="/upload">
-                  Upload
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item nav-link active blog" to="/blog">
-                  Blog
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item nav-link active shop" to="/shop">
-                  Shop
-                </Link>
-              </li>
+
+              <Dropdown>
+                <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                  Explore
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/upload">Upload</Dropdown.Item>
+                  <Dropdown.Item href="#/blog">Blog</Dropdown.Item>
+                  <Dropdown.Item href="#/shop">Shop</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </ul>
             <div className="account-icon" onClick={() => setShowPopup(true)}>
               {isAccountUser ? (

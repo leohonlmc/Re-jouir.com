@@ -40,6 +40,37 @@
   top: 0px;
 }
 
+.btn.btn-success {
+  border-radius: 30px;
+  margin-right: 8px;
+  box-shadow: none;
+}
+
+.btn.btn-success:hover {
+  box-shadow: none;
+}
+
+.dropdown-toggle.btn.btn-secondary {
+  border-radius: 30px;
+  font-size: var(--font-size-300);
+}
+
+.dropdown-menu.show {
+  border: 0px;
+  border-radius: 20px;
+  margin-top: 4px;
+  padding: 10px;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(193, 193, 193);
+}
+
+.dropdown-item {
+  border-radius: 10px;
+  font-weight: bold;
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -152,5 +183,11 @@
 @media screen and (max-width: 991px) {
   .props {
     display: none;
+  }
+
+  .btn.btn-success,
+  .btn.btn-secondary {
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 }
