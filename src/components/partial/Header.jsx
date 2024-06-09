@@ -69,11 +69,11 @@ function Header(props) {
 
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Button variant="success" onClick={() => navigate("/")}>
                   Home
                 </Button>
-              </li>
+              </li> */}
 
               <Dropdown>
                 <Dropdown.Toggle variant="secondary" id="dropdown-basic">
