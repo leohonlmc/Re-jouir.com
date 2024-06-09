@@ -121,6 +121,7 @@ function Blog() {
         <Header
           title={!loading ? "Blog | Réjouir" : "Loading content..."}
           type="fixed"
+          page="blog"
         />
       </div>
 

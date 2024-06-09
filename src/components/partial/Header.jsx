@@ -92,20 +92,23 @@ function Header(props) {
               </Dropdown>
             </ul>
 
-            <div className="header-search-engine-div">
-              <div className="faMagnifying-glass-div">
-                <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
-              </div>
-              <input
-                className="header-search-engine"
-                type="text"
-                placeholder="Search for keywords, locations, etc."
-                onChange={handleSearchChange}
-                value={localsearchQuery}
-              />
-            </div>
+            {props.page === "blog" ? (
+              <div className="header-search-engine-div">
+                <div className="faMagnifying-glass-div">
+                  <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
+                </div>
 
-            <div onClick={() => setShowPopup(true)}>
+                <input
+                  className="header-search-engine"
+                  type="text"
+                  placeholder="Search for keywords, locations, etc."
+                  onChange={handleSearchChange}
+                  value={localsearchQuery}
+                />
+              </div>
+            ) : null}
+
+            <div className="account-icon" onClick={() => setShowPopup(true)}>
               {isAccountUser ? (
                 <div className="avatar-div">
                   <div className="avatar">
