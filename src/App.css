@@ -800,6 +800,10 @@ strong {
   padding-top: 120px;
 }
 
+.p-0 {
+  padding: 0px !important;
+}
+
 @media (max-width: 1500px) {
   .container {
     max-width: 1230px;

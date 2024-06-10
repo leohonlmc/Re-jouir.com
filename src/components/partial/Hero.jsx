@@ -103,7 +103,7 @@ function Hero() {
                 src="/assets/img/objects/x.png"
                 width="28"
                 alt="object"
-                style={{ top: "-4%", right: "16%" }}
+                style={{ top: "-15%", right: "16%" }}
               />
 
               <h2 className="title">{t("share_your_precious_moment")}</h2>
