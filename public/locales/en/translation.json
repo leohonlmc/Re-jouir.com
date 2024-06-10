@@ -218,5 +218,9 @@
   "Zimbabwe": "Zimbabwe",
   "thank_you_for_contribution": "Thank you for your contribution!",
   "santa_team_review": "Our Santa's team will review ASAP",
-  "return_to_blog": "Return to blog"
+  "return_to_blog": "Return to blog",
+  "days": "days",
+  "hr": "hr",
+  "min": "min",
+  "sec": "sec"
 }

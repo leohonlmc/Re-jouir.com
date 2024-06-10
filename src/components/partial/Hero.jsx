@@ -124,19 +124,19 @@ function Hero() {
                   <>
                     <div className="countdown-time days">
                       <div>{timeLeft.days}:</div>
-                      <div>days</div>
+                      <div>{t("days")}</div>
                     </div>
                     <div className="countdown-time">
                       <div>{timeLeft.hours}:</div>
-                      <div>hr</div>
+                      <div>{t("hr")}</div>
                     </div>
                     <div className="countdown-time">
                       <div>{timeLeft.minutes}:</div>
-                      <div>min</div>
+                      <div>{t("min")}</div>
                     </div>
                     <div className="countdown-time second">
                       <div>{timeLeft.seconds}</div>
-                      <div>sec</div>
+                      <div>{t("sec")}</div>
                     </div>
                   </>
                 )}
