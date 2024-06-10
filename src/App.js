@@ -99,7 +99,7 @@ export default function App() {
               }
             />
             <Route
-              path="/:lang/admin/username/leohon/leohonlmc"
+              path="/admin/username/leohon/leohonlmc"
               element={
                 <LanguageWrapper>
                   <Admin />
