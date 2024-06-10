@@ -1,11 +1,13 @@
 import "../../App.css";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 function PlaceToGo() {
-  const { t } = useTranslation();
+  const { lang } = useParams();
+  const { t, i18n } = useTranslation();
+  const currentLang = lang || i18n.language;
   const navigate = useNavigate();
 
   const data = [
@@ -27,22 +29,10 @@ function PlaceToGo() {
       place: t("place_uk"),
       class: "uk",
     },
-    // {
-    //   country: "Canada",
-    //   city: "Toronto",
-    //   place: "Distillery District",
-    //   class: "ca",
-    // },
-    // {
-    //   country: "Argentina",
-    //   city: "Estonia",
-    //   place: "Tallinn",
-    //   class: "ar",
-    // },
   ];
 
   const search = function (query) {
-    navigate("/blog");
+    navigate(`/${currentLang}/blog`);
     localStorage.setItem("selectedCountry", query);
   };
 

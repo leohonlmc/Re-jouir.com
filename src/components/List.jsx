@@ -20,7 +20,6 @@ import generateRandomString from "./functions/generateRandomString";
 import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet";
 import Rating from "./partial/Rating";
-import Preview from "./partial/Preview";
 import Submitted from "./partial/Submitted";
 import Footer from "./partial/Footer";
 import { useTranslation } from "react-i18next";
@@ -379,21 +378,12 @@ function List() {
   return (
     <div className="List">
       <div className="list-header-section">
-        <Header showSearchBar={false} title={`${t("upload")} | Réjouir`} />
-      </div>
-
-      {showPopup && (
-        <Preview
-          setShowPopup={setShowPopup}
-          allUpload={imageSrcs}
-          title={title}
-          country={country}
-          location={location}
-          event={eventData}
-          description={description}
-          rating={stars}
+        <Header
+          showSearchBar={false}
+          title={`${t("upload")} | Réjouir`}
+          page="upload"
         />
-      )}
+      </div>
 
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com/list" />
@@ -455,7 +445,7 @@ function List() {
                     size="2xl"
                     className={`checkmark ${success}`}
                   />
-                  <p>Pending requested!</p>
+                  <p>{t("pending_request")}</p>
                 </div>
               </div>
             </div>
@@ -663,8 +653,8 @@ function List() {
                         onChange={handleCountryChange}
                       >
                         {countryList.map((country, index) => (
-                          <option key={index} value={country}>
-                            {`${country} ${countryEmojiMap[country]}`}
+                          <option value={country} key={country}>
+                            {`${t(country)} ${countryEmojiMap[country]}`}
                           </option>
                         ))}
                       </select>
@@ -706,45 +696,6 @@ function List() {
                     <Rating onRatingChange={handleRatingChange} />
                   </div>
                   <div className="list-item-btn d-flex">
-                    {/* <div>
-                      {uploaded ? (
-                        <div
-                          className="btn btn-warning"
-                          style={{
-                            padding: "4px 24px",
-                            fontWeight: "bold",
-                            marginBottom: "10px",
-                          }}
-                          onClick={() => setShowPopup(true)}
-                        >
-                          Preview
-                        </div>
-                      ) : (
-                        <div
-                          className="btn btn-secondary"
-                          style={{
-                            padding: "4px 24px",
-                            fontWeight: "bold",
-                            marginBottom: "10px",
-                          }}
-                          onClick={() =>
-                            toast.warn("Please upload at least one image!", {
-                              position: "top-center",
-                              autoClose: 5000,
-                              hideProgressBar: false,
-                              closeOnClick: true,
-                              pauseOnHover: true,
-                              draggable: true,
-                              progress: undefined,
-                              theme: "light",
-                            })
-                          }
-                        >
-                          Preview
-                        </div>
-                      )}
-                    </div> */}
-
                     <div>
                       {uploading === true ? (
                         <button

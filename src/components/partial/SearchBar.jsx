@@ -7,8 +7,10 @@ import {
   faMinus,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 
 function SearchBar(props) {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState("");
   const [filterValue, setFilterValue] = useState("");
   const localsearchQuery = localStorage.getItem("searchQuery");
@@ -155,31 +157,31 @@ function SearchBar(props) {
       <div className="card-body">
         <div>
           <div className="input-group input--large">
-            <label className="label">Keywords</label>
+            <label className="label">{t("keywords")}</label>
             <input
               className="input--style-1"
               type="text"
-              placeholder="Type here..."
+              placeholder={t("type_here")}
               name="going"
               onChange={handleSearchChange}
               value={localsearchQuery}
             />
           </div>
           <div className="input-group input--medium">
-            <label className="label">Filter</label>
+            <label className="label">{t("filter")}</label>
             <select
               className="form-select"
               aria-label=".form-select-sm example"
               value={filter.replace("?sort=", "")}
               onChange={(e) => handleSSelectChange(e, 0)}
             >
-              <option value="newest">Newest</option>
-              <option value="oldest">Oldest</option>
-              <option value="likes">Likes ❤️</option>
+              <option value="newest">{t("newest")}</option>
+              <option value="oldest">{t("oldest")}</option>
+              <option value="likes">{t("likes")} ❤️</option>
             </select>
           </div>
           <div className="input-group input--medium">
-            <label className="label">Location</label>
+            <label className="label">{t("location")}</label>
             <select
               className="form-select"
               id="exampleFormControlSelect1"
@@ -188,8 +190,8 @@ function SearchBar(props) {
               onChange={(e) => handleCountryChange(e)}
             >
               {countryList.map((country, index) => (
-                <option value={country} key={country._id}>
-                  {`${country} ${countryEmojiMap[country]}`}
+                <option value={country} key={country}>
+                  {`${t(country)} ${countryEmojiMap[country]}`}
                 </option>
               ))}
             </select>
@@ -281,9 +283,11 @@ function SearchBar(props) {
                       }}
                       style={{ marginTop: "10px" }}
                     >
-                      {`Search ${filterValue.toLowerCase()} "${searchQuery}" in ${countryValue} ${
-                        countryEmojiMap[countryValue]
-                      }`}
+                      {`${t(
+                        "search"
+                      )} ${filterValue.toLowerCase()} "${searchQuery}" ${t(
+                        "in"
+                      )} ${t(countryValue)} ${countryEmojiMap[countryValue]}`}
                     </div>
                   )}
                 </div>

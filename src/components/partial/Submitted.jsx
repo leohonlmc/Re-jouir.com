@@ -1,9 +1,17 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import Footer from "../partial/Footer";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Submitted() {
   const navigate = useNavigate();
+  const { lang } = useParams();
+  const { t, i18n } = useTranslation();
+  const currentLang = lang || i18n.language;
+
+  const handleReturnToBlog = () => {
+    navigate(`/${currentLang}/blog`);
+  };
 
   return (
     <div className="Submitted" style={{ height: "80vh", textAlign: "center" }}>
@@ -17,14 +25,14 @@ function Submitted() {
         }}
       >
         <div>
-          <h2>Thank you for your contribution!</h2>
-          <p>Our Santa's team will review ASAP</p>
+          <h2>{t("thank_you_for_contribution")}</h2>
+          <p>{t("santa_team_review")}</p>
         </div>
       </div>
 
-      <a className="btn btn-success" href="/#/blog">
-        Return to blog
-      </a>
+      <button className="btn btn-success" onClick={handleReturnToBlog}>
+        {t("return_to_blog")}
+      </button>
     </div>
   );
 }

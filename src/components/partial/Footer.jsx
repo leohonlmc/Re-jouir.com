@@ -3,10 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import "../../Footer.scoped.css";
 
 function Footer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { lang } = useParams();
+  const currentLang = lang || i18n.language;
 
   return (
     <footer className="footer-area section-py-80">
@@ -68,13 +71,17 @@ function Footer() {
               <div className="copyright__menu">
                 <ul className="list-wrap">
                   <li>
-                    <a href="/#/about">{t("about")}</a>
+                    <a href={`/#/${currentLang}/about`}>{t("about")}</a>
                   </li>
                   <li>
-                    <a href="/#/terms">{t("terms_conditions")}</a>
+                    <a href={`/#/${currentLang}/terms`}>
+                      {t("terms_conditions")}
+                    </a>
                   </li>
                   <li className="backTop">
-                    <a href="/#/privacy">{t("privacy_policy")}</a>
+                    <a href={`/#/${currentLang}/privacy`}>
+                      {t("privacy_policy")}
+                    </a>
                   </li>
                 </ul>
               </div>

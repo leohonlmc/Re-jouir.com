@@ -19,7 +19,7 @@ function Shop() {
 
   return (
     <div className="Shop background">
-      <Header title={t("shop_title")} />
+      <Header title={t("shop_title")} page="shop" />
 
       {showPopup && <Login setShowPopup={setShowPopup} />}
 

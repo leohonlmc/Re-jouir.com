@@ -4,12 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 function AboutUs() {
+  const { t } = useTranslation();
+
   return (
     <div className="About">
       <div className="header-section-about">
-        <Header title="About Us | Réjouir" />
+        <Header title={t("about_us_title")} page="about" />
 
         <Helmet>
           <link rel="canonical" href="https://www.rejouirxmas.com/about" />
@@ -17,55 +20,29 @@ function AboutUs() {
 
         <br />
         <br />
-        <h1 className="about-réjouir">
+        <h1 className="about-réjouir">
           <strong>
-            About <span className="r-logo">R</span>éjouir
+            {t("about")} <span className="r-logo">R</span>éjouir
           </strong>
         </h1>
       </div>
       <div className="about-main">
-        <p>
-          Welcome to rejouirxmas.com , where the magic of Christmas echoes from
-          every corner of the globe. As a dedicated Christmas blog, we're more
-          than just a festive site; we're a community brought together by the
-          warmth, joy, and spirit of the holiday season.
-        </p>
+        <p>{t("about_paragraph_1")}</p>
+        <p>{t("about_paragraph_2")}</p>
+
+        <h2>{t("share_and_cherish")}</h2>
+        <p>{t("share_and_cherish_paragraph")}</p>
+
+        <h2>{t("connect_the_globe")}</h2>
+        <p>{t("connect_the_globe_paragraph")}</p>
+
+        <h2>{t("guest_visit")}</h2>
+        <p>{t("guest_visit_paragraph")}</p>
+
+        <p>{t("about_paragraph_3")}</p>
 
         <p>
-          Our passion lies in capturing the essence of Christmas, no matter
-          where it's celebrated. From the snow-kissed hills of Canada to the
-          sunlit beaches of Australia, every region has its unique way of
-          embracing the festive spirit, and we want to showcase it all.
-        </p>
-
-        <h2>Share and Cherish:</h2>
-        <p>
-          With Réjouir, you can share up to five enchanting Christmas images
-          from your country, offering the world a glimpse into your unique
-          celebrations.
-        </p>
-
-        <h2>Connect the Globe:</h2>
-        <p>
-          Our platform is designed to foster connections. Through shared
-          moments, stories, and images, we bridge continents and cultures,
-          weaving a tapestry of Christmas celebrations worldwide.
-        </p>
-
-        <h2>Guest Visit:</h2>
-        <p>
-          At Réjouir, we believe in the spirit of giving. That's why you don't
-          need an account to share your cherished Christmas moments. Simply drop
-          by, share, and spread the festive cheer!
-        </p>
-
-        <p>
-          Join us in our journey as we celebrate, share, and connect the world
-          through the timeless spirit of Christmas. Welcome to rejouirxmas.com.
-        </p>
-
-        <p>
-          Founded and developed by{" "}
+          {t("founded_and_developed_by")}{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -73,7 +50,7 @@ function AboutUs() {
           >
             Leo Hon
           </a>
-          . Designed and directed by{" "}
+          . {t("designed_and_directed_by")}{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

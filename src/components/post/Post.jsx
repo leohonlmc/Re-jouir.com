@@ -13,12 +13,14 @@ import {
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import ViewIcon from "../popup/ViewIcon";
 import { ToastContainer, toast } from "react-toastify";
 import Blogs from "../blog/Blogs";
+import { useTranslation } from "react-i18next";
+
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 function Post() {
+  const { t } = useTranslation();
   const { id } = useParams();
   const [post, setPost] = useState();
   const [currIndex, setCurrIndex] = useState(0);
@@ -84,7 +86,7 @@ function Post() {
     navigator.clipboard
       .writeText(url)
       .then(() => {
-        toast("URL copied to clipboard", {
+        toast(t("url_copied"), {
           position: "bottom-center",
           type: "success",
           autoClose: 2000,
@@ -105,7 +107,7 @@ function Post() {
 
   return (
     <div className="Post main">
-      <Header title={post ? post.title : "Loading content..."} type="fixed" />
+      <Header title={post ? post.title : t("loading_content")} type="fixed" />
 
       <ToastContainer />
       {/* <ViewIcon
@@ -122,7 +124,7 @@ function Post() {
             Blog
           </div>
           <FontAwesomeIcon icon={faAngleRight} />
-          <div>{post ? post.title : "loading"}</div>
+          <div>{post ? post.title : t("loading")}</div>
         </div>
         <div className="row col-12 post">
           <div className="col-6 left">
@@ -167,11 +169,17 @@ function Post() {
               </div>
             </div>
             <br />
-            <h1 className="post-title">{post ? post.title : "loading"}</h1>
+            <h1 className="post-title">{post ? post.title : t("loading")}</h1>
             <br />
-            <p>Photo by Guest: {post ? post.guest : "loading"}</p>
-            <p>Location: {post ? post.country : "loading"}</p>
-            <p>Spot: {post ? post.location : "loading"}</p>
+            <p>
+              {t("photo_by_guest")}: {post ? post.guest : t("loading")}
+            </p>
+            <p>
+              {t("location")}: {post ? post.country : t("loading")}
+            </p>
+            <p>
+              {t("spot")}: {post ? post.location : t("loading")}
+            </p>
             <br />
             <div className="d-flex">
               <div className="d-flex">
@@ -183,18 +191,18 @@ function Post() {
                   />
                 </div>
                 <div style={{ marginLeft: "8px" }}>
-                  <p>{post ? post.guest : "loading username"}</p>
-                  <p>New joiner</p>
+                  <p>{post ? post.guest : t("loading_username")}</p>
+                  <p>{t("new_joiner")}</p>
                 </div>
               </div>
             </div>
 
             <div style={{ marginTop: "8px" }}>
-              <p>{post ? post.description : "loading description"}</p>
+              <p>{post ? post.description : t("loading_description")}</p>
             </div>
 
             <br />
-            <h3>More photos</h3>
+            <h3>{t("more_photos")}</h3>
             <br />
 
             <div>
@@ -233,7 +241,7 @@ function Post() {
           </div>
         </div>
 
-        <h3 style={{ textAlign: "center" }}>More posts</h3>
+        <h3 style={{ textAlign: "center" }}>{t("more_posts")}</h3>
         <Blogs posts={posts} reload="yes" />
       </div>
       <Footer />

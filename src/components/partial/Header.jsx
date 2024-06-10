@@ -9,6 +9,7 @@ import {
   faCircleUser,
   faMagnifyingGlass,
   faBars,
+  faLanguage,
 } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown, Button } from "react-bootstrap";
 import Login from "../popup/Login";
@@ -48,6 +49,11 @@ function Header(props) {
     navigate(eventKey.replace(":lang", currentLang));
   };
 
+  const handleLanguageChange = (lang) => {
+    i18n.changeLanguage(lang);
+    navigate(`/${lang}/${props.page}`);
+  };
+
   return (
     <div className="Header">
       <HelmetProvider>
@@ -61,7 +67,7 @@ function Header(props) {
 
       <nav className={`navbar navbar-expand-lg ${props.type}`}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href={`/#/${currentLang}`}>
             <img
               src="/R.png"
               width="60"
@@ -120,9 +126,25 @@ function Header(props) {
               </div>
             )}
 
-            <div className="account-icon" onClick={() => setShowPopup(true)}>
+            <div className="account-icon d-flex">
+              <div className="language-div d-flex">
+                <Dropdown>
+                  <Dropdown.Toggle variant="" id="dropdown-basic">
+                    <FontAwesomeIcon icon={faLanguage} size="xl" />
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={() => handleLanguageChange("en")}>
+                      English
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleLanguageChange("cn")}>
+                      繁體中文
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
               {isAccountUser ? (
-                <div className="avatar-div">
+                <div className="avatar-div" onClick={() => setShowPopup(true)}>
                   <div className="avatar">
                     <img src="hat.png" alt={t("avatar")} />
                   </div>
@@ -137,7 +159,7 @@ function Header(props) {
                   />
                 </div>
               ) : (
-                <div>
+                <div onClick={() => setShowPopup(true)}>
                   <FontAwesomeIcon
                     className="account-icon-fort"
                     icon={faCircleUser}

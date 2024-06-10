@@ -201,6 +201,17 @@
   color: var(--tg-common-color-gray);
 }
 
+.language-div {
+  margin-right: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-toggle.btn {
+  border-radius: 30px;
+  box-shadow: none;
+}
+
 @media screen and (max-width: 991px) {
   .props {
     display: none;
@@ -215,5 +226,9 @@
   .header-search-engine {
     width: 100%;
     margin-bottom: 8px;
+  }
+
+  .language-div {
+    margin-right: 0px;
   }
 }

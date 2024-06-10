@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate, Link } from "react-router-dom";
 import generateRandomUserId from "../functions/generateRandomUserId";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
 function Hero() {
   const countdownRef = useRef(null);
@@ -18,7 +19,10 @@ function Hero() {
   const guest = generateRandomUserId();
   const [isChristmas, setIsChristmas] = useState(false);
   const [showCelebration, setShowCelebration] = useState(true);
-  const { t } = useTranslation();
+  const { lang } = useParams();
+  const { t, i18n } = useTranslation();
+  const currentLang = lang || i18n.language;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const today = new Date();
@@ -64,6 +68,10 @@ function Hero() {
 
     setTimeLeft({ days, hours, minutes, seconds });
   }
+
+  const handleSelect = (eventKey) => {
+    navigate(eventKey.replace(":lang", currentLang));
+  };
 
   return (
     <div className="Home Hero">
@@ -134,7 +142,7 @@ function Hero() {
                 )}
               </div>
               <div className="start-btn">
-                <Link to={"/upload"}>
+                <Link to={`/${currentLang}/upload`}>
                   <button className="btn btn-danger">
                     {t("share_now")}{" "}
                     <svg
@@ -151,7 +159,7 @@ function Hero() {
                   </button>
                 </Link>
 
-                <Link to={"/about"}>
+                <Link to={`/${currentLang}/about`}>
                   <button className="btn btn-outline">{t("learn_more")}</button>
                 </Link>
               </div>

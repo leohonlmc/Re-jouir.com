@@ -16,6 +16,7 @@ import ReminderDiv from "./ReminderDiv";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Loading from "./Loading";
+import { useTranslation } from "react-i18next";
 
 const { REACT_APP_API_ENDPOINT } = process.env;
 
@@ -31,6 +32,7 @@ function Blog() {
   const [isVisible, setIsVisible] = useState(false);
   const close = localStorage.getItem("close");
   const keywords = localStorage.getItem("searchQuery");
+  const { t } = useTranslation();
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -119,7 +121,7 @@ function Blog() {
     <div className="Blog main">
       <div className="blog-section">
         <Header
-          title={!loading ? "Blog | Réjouir" : "Loading content..."}
+          title={!loading ? `${t("blog")} | Réjouir` : "Loading content..."}
           type="fixed"
           page="blog"
         />

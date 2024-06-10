@@ -4,12 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 function Terms() {
+  const { t } = useTranslation();
+
   return (
     <div className="About">
       <div className="header-section-about">
-        <Header title="Terms | Réjouir" />
+        <Header title={t("terms_title")} page="privacy" />
 
         <Helmet>
           <link rel="canonical" href="https://www.rejouirxmas.com/terms" />
@@ -17,22 +20,21 @@ function Terms() {
 
         <br />
         <br />
-        <h1 className="about-réjouir">
-          <strong>Terms & Conditions</strong>
+        <h1 className="about-réjouir">
+          <strong>{t("terms_and_conditions")}</strong>
         </h1>
       </div>
       <div className="about-main">
         <p>
-          <strong>Last updated: 20 Oct 2023</strong>
+          <strong>{t("last_updated", { date: "20 Oct 2023" })}</strong>
         </p>
 
         <p>
-          Thank you for choosing{" "}
+          {t("terms_intro_1")}{" "}
           <strong style={{ fontSize: "20px" }}>
-            <span className="r-logo">R</span>éjouir
+            <span className="r-logo">R</span>éjouir
           </strong>
-          . Please read these Terms and Conditions ("Terms", "Terms and
-          Conditions") carefully before using the{" "}
+          . {t("terms_intro_2")}{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -40,35 +42,25 @@ function Terms() {
           >
             Rejouirxmas.com
           </a>{" "}
-          website ("Service") operated by Réjouir ("us", "we", or "our").
+          {t("terms_intro_3")}{" "}
+          <strong style={{ fontSize: "20px" }}>
+            <span className="r-logo">R</span>éjouir
+          </strong>{" "}
+          ({t("us_we_our")}).
         </p>
 
-        <h2>1. Agreement to Terms</h2>
-        <p>
-          By accessing and using our Service, you agree to comply with and be
-          bound by these Terms. If you disagree with any part of these terms,
-          please do not use our Service.
-        </p>
+        <h2>{t("agreement_to_terms")}</h2>
+        <p>{t("agreement_to_terms_desc")}</p>
 
-        <h2>2. Changes to Terms</h2>
-        <p>
-          We reserve the right to modify these Terms at any time, and without
-          prior notice. By continuing to access or use our Service after those
-          revisions become effective, you agree to be bound by the revised
-          terms.
-        </p>
+        <h2>{t("changes_to_terms")}</h2>
+        <p>{t("changes_to_terms_desc")}</p>
 
-        <h2>3. Termination</h2>
-        <p>
-          We reserve the right to terminate or suspend access to our Service at
-          any time, without prior notice or liability, for any reason
-          whatsoever, including, without limitation, if you breach these Terms.
-        </p>
+        <h2>{t("termination")}</h2>
+        <p>{t("termination_desc")}</p>
 
-        <h2>Feedback and Contact</h2>
+        <h2>{t("feedback_and_contact")}</h2>
         <p>
-          If you have any feedback or questions about these Terms, please
-          contact us through{" "}
+          {t("feedback_and_contact_desc")}{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

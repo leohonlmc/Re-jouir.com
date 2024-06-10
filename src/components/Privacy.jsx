@@ -4,12 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./partial/Header";
 import Footer from "./partial/Footer";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 function Privacy() {
+  const { t } = useTranslation();
+
   return (
     <div className="About">
       <div className="header-section-about">
-        <Header title="Privacy Policy | Réjouir" />
+        <Header title={t("privacy_policy_title")} page="terms" />
 
         <Helmet>
           <link rel="canonical" href="https://www.rejouirxmas.com/privacy" />
@@ -17,68 +20,46 @@ function Privacy() {
 
         <br />
         <br />
-        <h1 className="about-réjouir">
-          <strong>Privacy Policy</strong>
+        <h1 className="about-réjouir">
+          <strong>{t("privacy_policy")}</strong>
         </h1>
       </div>
       <div className="about-main">
         <p>
-          <strong>Last updated: 20 Oct 2023</strong>
+          <strong>{t("last_updated", { date: "20 Oct 2023" })}</strong>
         </p>
 
         <p>
-          Welcome to{" "}
+          {t("welcome_to")}{" "}
           <strong style={{ fontSize: "20px" }}>
-            <span className="r-logo">R</span>éjouir
+            <span className="r-logo">R</span>éjouir
           </strong>
-          ! This Privacy Policy describes how{" "}
+          ! {t("privacy_policy_intro")}{" "}
           <strong style={{ fontSize: "20px" }}>
-            <span className="r-logo">R</span>éjouir
+            <span className="r-logo">R</span>éjouir
           </strong>{" "}
-          ("us", "we", or "our") collects, uses, and discloses your personal
-          information when you use our Service.
+          ({t("us_we_our")}) {t("collects_uses_discloses")}
         </p>
 
-        <h2>1. Information Collection</h2>
-        <p>
-          We collect information that you provide to us directly, such as when
-          you create an account, post content, or contact us. This can include
-          your name, email address, and other personal details.
-        </p>
+        <h2>{t("information_collection")}</h2>
+        <p>{t("information_collection_desc")}</p>
 
-        <h2>2. How We Use Your Information</h2>
-        <p>
-          We use your information to provide, maintain, and improve our Service,
-          to respond to comments and questions, and to personalize user
-          experience.
-        </p>
+        <h2>{t("how_we_use_your_information")}</h2>
+        <p>{t("how_we_use_your_information_desc")}</p>
 
-        <h2>3. Data Protection</h2>
-        <p>
-          We use reasonable measures to help protect your personal information
-          and ensure its security, but we cannot guarantee that unauthorized
-          access, hacking, or other breaches will never occur.
-        </p>
+        <h2>{t("data_protection")}</h2>
+        <p>{t("data_protection_desc")}</p>
 
-        <h2>4. Third-Party Services</h2>
-        <p>
-          Our Service may include links to other websites or services that are
-          not operated by us. We have no control over and are not responsible
-          for the privacy policies of third-party services.
-        </p>
+        <h2>{t("third_party_services")}</h2>
+        <p>{t("third_party_services_desc")}</p>
 
-        <h2>5. Changes to Privacy Policy</h2>
-        <p>
-          We may update our Privacy Policy from time to time. We will notify you
-          of changes by posting the new policy on this page and updating the
-          "last updated" date. You are advised to review this page periodically
-          for any changes.
-        </p>
+        <h2>{t("changes_to_privacy_policy")}</h2>
+        <p>{t("changes_to_privacy_policy_desc")}</p>
 
-        <h2>Contact Us</h2>
+        <h2>{t("contact_us")}</h2>
         <p>
-          If you have any questions about this Privacy Policy, please contact us
-          at <a href="mailto:rejouirxmas@gmail.com">gmail</a>.
+          {t("contact_us_desc")}{" "}
+          <a href="mailto:rejouirxmas@gmail.com">gmail</a>.
         </p>
       </div>
       <Footer />

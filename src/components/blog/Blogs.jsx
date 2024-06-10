@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 function Blogs(props) {
+  const { t, i18n } = useTranslation();
   const [likedPost, setLikedPost] = useState(false);
   const navigate = useNavigate();
   const posts = props.posts;
@@ -31,7 +32,7 @@ function Blogs(props) {
         }
       );
       if (data) {
-        toast.success("You liked this post!");
+        toast.success(t("like_success"));
       }
     } catch (ex) {
       if (ex.response && ex.response.data && ex.response.data.error) {
@@ -43,7 +44,6 @@ function Blogs(props) {
   };
 
   const { lang } = useParams();
-  const { i18n } = useTranslation();
   const currentLang = lang || i18n.language;
 
   const handleNavigation = (id) => {
@@ -82,7 +82,7 @@ function Blogs(props) {
             >
               <LazyLoadImage
                 src={`${REACT_APP_AWS}${upload.images[0]}`}
-                alt="Cover Image"
+                alt={t("cover_image")}
                 effect="blur"
                 wrapperClassName="image-wrapper"
               />
@@ -102,7 +102,7 @@ function Blogs(props) {
                       {upload.rating > 3 ? (
                         <div>
                           <div className="rating-div green-rating">
-                            <div>Rating</div>
+                            <div>{t("rating")}</div>
                             <div className="text-xl leading-5 font-bold">
                               {upload.rating.toFixed(1)}
                             </div>
@@ -110,7 +110,7 @@ function Blogs(props) {
                         </div>
                       ) : (
                         <div className="rating-div yellow-rating">
-                          <p>Rating</p>
+                          <p>{t("rating")}</p>
                           <div className="text-xl leading-5 font-bold">NA</div>
                         </div>
                       )}
@@ -142,7 +142,9 @@ function Blogs(props) {
                         }}
                         size="xl"
                       />{" "}
-                      {`You and ${upload.likes.length - 1} others like this`}
+                      {t("you_and_others_like", {
+                        count: upload.likes.length - 1,
+                      })}
                     </div>
                   ) : (
                     <div
@@ -150,7 +152,7 @@ function Blogs(props) {
                       onClick={() => {
                         handleLike(upload._id, localStorage.getItem("guest"));
                         setLikedPost(true);
-                        toast.success("You liked the post!");
+                        toast.success(t("like_success"));
                       }}
                     >
                       <FontAwesomeIcon
@@ -162,7 +164,7 @@ function Blogs(props) {
                         }}
                         size="xl"
                       />{" "}
-                      {`${upload.likes.length} people like this`}
+                      {t("people_like_this", { count: upload.likes.length })}
                     </div>
                   )}
                 </div>
