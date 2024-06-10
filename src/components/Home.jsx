@@ -103,9 +103,13 @@ function Home() {
           style={{ paddingTop: "0px" }}
         >
           {timeLeft.days && timeLeft.days !== 0 ? (
-            <Header title={t("share_your_precious_moment_title")} number="1" />
+            <Header
+              title={t("share_your_precious_moment_title")}
+              number="1"
+              page=""
+            />
           ) : (
-            <Header title={``} />
+            <Header title={``} page="" />
           )}
           <Hero />
         </div>
