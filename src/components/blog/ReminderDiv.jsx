@@ -5,10 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import GoogleLoginDiv from "../popup/GoogleLogin";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useParams } from "react-router-dom";
 
-function ReminderDiv() {
-  const { t } = useTranslation();
+function ReminderDiv(props) {
   const [closePopup, setClosePopup] = useState(false);
+  const { lang } = useParams();
+  const { t, i18n } = useTranslation();
+  const currentLang = lang || i18n.language;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -35,14 +39,18 @@ function ReminderDiv() {
 
           <p className="grey-color-text">
             {t("by_continuing")}{" "}
-            <a className="terms" style={{ fontWeight: "bold" }} href="/#/terms">
+            <a
+              className="terms"
+              style={{ fontWeight: "bold" }}
+              href={`/#/${currentLang}/terms`}
+            >
               {t("terms_of_service")}
             </a>{" "}
             ; {t("acknowledge_privacy")}{" "}
             <a
               className="privacy"
               style={{ fontWeight: "bold" }}
-              href="/#/privacy"
+              href={`/#/${currentLang}/privacy`}
             >
               {t("privacy_policy")}
             </a>

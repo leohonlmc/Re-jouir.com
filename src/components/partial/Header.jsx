@@ -152,8 +152,7 @@ function Header(props) {
                     src={localStorage.getItem("picture")}
                     alt={t("user_picture")}
                     style={{
-                      width: "40px",
-                      height: "40px",
+                      width: "60px",
                       borderRadius: "50%",
                     }}
                   />
