@@ -20,7 +20,6 @@ import { useTranslation } from "react-i18next";
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 function Post() {
-  const { t } = useTranslation();
   const { id } = useParams();
   const [post, setPost] = useState();
   const [currIndex, setCurrIndex] = useState(0);
@@ -35,6 +34,9 @@ function Post() {
   const isAccountUser = localStorage.getItem("id");
 
   const POSTS_PER_PAGE = 10;
+  const { lang } = useParams();
+  const { t, i18n } = useTranslation();
+  const currentLang = lang || i18n.language;
 
   const fetchCurrent = () => {
     const savedFilterValue = localStorage.getItem("selectedFilter");
@@ -77,7 +79,7 @@ function Post() {
   }, []);
 
   const returnToBlog = () => {
-    window.location.href = "/#/blog";
+    window.location.href = `/#/${lang}/blog`;
   };
 
   function copyCurrentURL() {
@@ -107,7 +109,11 @@ function Post() {
 
   return (
     <div className="Post main">
-      <Header title={post ? post.title : t("loading_content")} type="fixed" />
+      <Header
+        title={post ? post.title : t("loading_content")}
+        type="fixed"
+        page={`post/${id}`}
+      />
 
       <ToastContainer />
       {/* <ViewIcon
