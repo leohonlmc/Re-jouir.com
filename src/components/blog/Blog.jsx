@@ -138,7 +138,7 @@ function Blog() {
           <SearchBar showPopup={showPopup} />
         </div>
 
-        {keywords.length > 0 ? (
+        {keywords && keywords.length > 0 ? (
           <div
             onClick={() => {
               localStorage.setItem("searchQuery", "");
