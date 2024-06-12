@@ -140,6 +140,12 @@ function Header(props) {
                     <Dropdown.Item onClick={() => handleLanguageChange("cn")}>
                       繁體中文
                     </Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleLanguageChange("fr")}>
+                      Français
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleLanguageChange("es")}>
+                      Español
+                    </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
