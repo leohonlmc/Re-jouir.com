@@ -55,11 +55,11 @@ function Blogs(props) {
     <div className="image-grid">
       {posts.map((upload, uploadIndex) => (
         <div className="image-item" key={uploadIndex}>
-          {uploadIndex === 0 && props.loading !== "true" && (
+          {/* {uploadIndex === 0 && props.loading !== "true" && (
             <div className="new-upload-icon">
               <img src="/new.png" alt="" />
             </div>
-          )}
+          )} */}
 
           {props.loading === "true" ? (
             <div className="lightbox">
