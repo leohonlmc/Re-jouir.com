@@ -10,7 +10,8 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
+const { REACT_APP_ENDPOINT, REACT_APP_API_ENDPOINT, REACT_APP_AWS } =
+  process.env;
 
 function Blogs(props) {
   const { t, i18n } = useTranslation();
@@ -71,14 +72,11 @@ function Blogs(props) {
               </div>
             </div>
           ) : (
-            <div
+            <a
               className="lightbox"
-              onClick={() => {
-                handleNavigation(upload._id);
-                if (props.reload === "yes") {
-                  window.location.reload();
-                }
-              }}
+              href={`${REACT_APP_ENDPOINT}/#/${currentLang}/post/${upload._id}`}
+              target="_blank"
+              rel="noreferrer"
             >
               <LazyLoadImage
                 src={`${REACT_APP_AWS}${upload.images[0]}`}
@@ -90,7 +88,7 @@ function Blogs(props) {
                 <FontAwesomeIcon icon={faImage} size="lg" />{" "}
                 {upload.images.length}
               </div>
-            </div>
+            </a>
           )}
 
           {props.loading !== "true" && (
