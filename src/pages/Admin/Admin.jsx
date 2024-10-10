@@ -1,13 +1,13 @@
-import "../About.scoped.css";
+import "../About/About.scoped.css";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import Header from "./partial/Header";
-import Footer from "./partial/Footer";
-import formatDateString from "./functions/formatDateString";
+import Header from "../../components/partial/Header";
+import Footer from "../../components/partial/Footer";
+import formatDateString from "../../components/functions/formatDateString";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import ViewIcon from "./popup/ViewIcon";
+import ViewIcon from "../../components/popup/ViewIcon";
 import { Helmet } from "react-helmet";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;

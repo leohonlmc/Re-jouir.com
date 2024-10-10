@@ -1,8 +1,8 @@
-import "../About.scoped.css";
+import "./About.scoped.css";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./partial/Header";
-import Footer from "./partial/Footer";
+import Header from "../../components/partial/Header";
+import Footer from "../../components/partial/Footer";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 

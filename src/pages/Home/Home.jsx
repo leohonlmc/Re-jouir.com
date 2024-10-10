@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import Header from "./partial/Header";
-import Footer from "./partial/Footer";
-import ChooseUs from "./partial/ChooseUs";
-import PlaceToGo from "./partial/PlaceToGo";
-import Hero from "./partial/Hero";
-import Faq from "./partial/Faq";
-import Song from "./partial/Song";
-import ShareMoment from "./partial/ShareMoment";
+import Header from "../../components/partial/Header";
+import Footer from "../../components/partial/Footer";
+import ChooseUs from "../../components/partial/ChooseUs";
+import PlaceToGo from "../../components/partial/PlaceToGo";
+import Hero from "../../components/partial/Hero";
+import Faq from "../../components/partial/Faq";
+import Song from "../../components/partial/Song";
+import ShareMoment from "../../components/partial/ShareMoment";
 
 function Home() {
   const [timeLeft, setTimeLeft] = useState({
