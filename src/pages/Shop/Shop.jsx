@@ -1,16 +1,11 @@
 import "./Shop.scoped.css";
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "../partial/Header";
-import Footer from "../partial/Footer";
-import Login from "../popup/Login";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Header from "../../components/partial/Header";
+import Footer from "../../components/partial/Footer";
+import Login from "../../components/popup/Login";
 import {} from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-
-const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;
 
 function Shop() {
   const { t } = useTranslation();

@@ -1,8 +1,8 @@
 import "./Post.scoped.css";
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "../partial/Header";
-import Footer from "../partial/Footer";
+import Header from "../../components/partial/Header";
+import Footer from "../../components/partial/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleRight,
@@ -14,7 +14,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { ToastContainer, toast } from "react-toastify";
-import Blogs from "../blog/Blogs";
+import Blogs from "../Blog/Blogs";
 import { useTranslation } from "react-i18next";
 
 const { REACT_APP_API_ENDPOINT, REACT_APP_AWS } = process.env;

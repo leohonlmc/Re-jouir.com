@@ -1,8 +1,8 @@
-import "../List.css";
+import "./List.css";
 import React, { useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import Header from "./partial/Header";
+import Header from "../../components/partial/Header";
 import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,13 +15,13 @@ import {
   faSpinner,
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
-import generateRandomUserId from "./functions/generateRandomUserId";
-import generateRandomString from "./functions/generateRandomString";
+import generateRandomUserId from "../../components/functions/generateRandomUserId";
+import generateRandomString from "../../components/functions/generateRandomString";
 import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet";
-import Rating from "./partial/Rating";
-import Submitted from "./partial/Submitted";
-import Footer from "./partial/Footer";
+import Rating from "../../components/partial/Rating";
+import Submitted from "../../components/partial/Submitted";
+import Footer from "../../components/partial/Footer";
 import { useTranslation } from "react-i18next";
 
 const {

@@ -7,9 +7,15 @@ import {
   Navigate,
 } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Home, AboutUs, Blog, Terms, Privacy, List, Admin } from "./components";
-import Post from "./components/post/Post";
-import Shop from "./components/shop/Shop";
+import Home from "./pages/Home/Home";
+import Admin from "./pages/Admin/Admin";
+import Blog from "./pages/Blog/Blog";
+import Post from "./pages/Post/Post";
+import AboutUs from "./pages/About/AboutUs";
+import Terms from "./pages/Terms/Terms";
+import Privacy from "./pages/Privacy/Privacy";
+import Shop from "./pages/Shop/Shop";
+import List from "./pages/List/List";
 import AppStateProvider from "./Context/AppStateProvider";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./config/i18n";
