@@ -1,0 +1,25 @@
+footer {
+  padding-top: 20px;
+  background-color: var(--christmas-green);
+  color: white;
+  margin-top: 40px;
+  /* tetsing */
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+a {
+  inherits: none;
+  text-decoration: none;
+  color: white;
+}
