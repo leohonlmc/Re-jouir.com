@@ -2,7 +2,7 @@ import React from "react";
 import "../../Account.scoped.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { GoogleLogin } from "@react-oauth/google";
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 const { REACT_APP_API_ENDPOINT } = process.env;
 
