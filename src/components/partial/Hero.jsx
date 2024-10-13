@@ -69,10 +69,6 @@ function Hero() {
     setTimeLeft({ days, hours, minutes, seconds });
   }
 
-  const handleSelect = (eventKey) => {
-    navigate(eventKey.replace(":lang", currentLang));
-  };
-
   return (
     <div className="Home Hero">
       <div className="container">

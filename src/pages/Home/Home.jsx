@@ -7,7 +7,7 @@ import Footer from "../../components/partial/Footer/Footer";
 import ChooseUs from "../../components/partial/ChooseUs";
 // import PlaceToGo from "../../components/partial/PlaceToGo";
 import Hero from "../../components/partial/Hero";
-import ShareMoment from "../../components/partial/ShareMoment";
+// import ShareMoment from "../../components/partial/ShareMoment";
 
 function Home() {
   const [timeLeft, setTimeLeft] = useState({
@@ -19,16 +19,7 @@ function Home() {
 
   const [isChristmas, setIsChristmas] = useState(false);
   const [showCelebration, setShowCelebration] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation();
-
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
 
   useEffect(() => {
     const today = new Date();
@@ -75,30 +66,25 @@ function Home() {
         <link rel="canonical" href="https://www.rejouirxmas.com" />
       </Helmet>
 
-      <div>
+      <div className="section">
         <div
           className="header-section banner__background-wrap"
           style={{ paddingTop: "0px" }}
         >
-          {timeLeft.days && timeLeft.days !== 0 ? (
-            <Header
-              title={t("share_your_precious_moment_title")}
-              number="1"
-              page=""
-            />
-          ) : (
-            <Header title={``} page="" />
-          )}
+          <Header
+            title={t("share_your_precious_moment_title")}
+            number="1"
+            page=""
+          />
+
           <Hero />
         </div>
 
-        <div>
+        <div className="section">
           <ChooseUs />
         </div>
 
-        <div>
-          <ShareMoment />
-        </div>
+        <div></div>
       </div>
 
       <div>
