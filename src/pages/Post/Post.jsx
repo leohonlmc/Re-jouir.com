@@ -23,7 +23,7 @@ function Post() {
   const { id } = useParams();
   const [post, setPost] = useState();
   const [currIndex, setCurrIndex] = useState(0);
-  const [showPopup, setShowPopup] = useState(false);
+  // const [showPopup, setShowPopup] = useState(false);
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
   const [posts, setPosts] = useState([]);
@@ -92,14 +92,6 @@ function Post() {
         console.error("Failed to copy URL: ", err);
       });
   }
-
-  const onImageClick = () => {
-    setShowPopup(true);
-  };
-
-  const updateCurrentIndex = (newIndex) => {
-    setCurrIndex(newIndex);
-  };
 
   return (
     <div className="Post main">

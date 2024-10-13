@@ -12,11 +12,11 @@ function Footer() {
   const currentLang = lang || i18n.language;
 
   return (
-    <footer class="text-center text-lg-start">
-      <section class="">
-        <div class="container text-center text-md-start ">
-          <div class="row mt-3">
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+    <footer className="text-center text-lg-start">
+      <section className="">
+        <div className="container text-center text-md-start ">
+          <div className="row mt-3">
+            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <img
                 src="/R_white.png"
                 alt=""
@@ -29,8 +29,8 @@ function Footer() {
               </p>
             </div>
 
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 class="text-uppercase fw-bold mb-4">Company</h6>
+            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 className="text-uppercase fw-bold mb-4">Company</h6>
               <p>
                 <a href={`/#/${currentLang}/about`}>{t("about")}</a>
               </p>
@@ -42,15 +42,15 @@ function Footer() {
               </p>
             </div>
 
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
 
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="mailto:rejouirxmas@gmail.com"
               >
-                <i class="fas fa-envelope me-3"></i>
+                <i className="fas fa-envelope me-3"></i>
                 rejouirxmas@gmail.com
               </a>
             </div>
@@ -59,25 +59,22 @@ function Footer() {
       </section>
 
       <div
-        class="text-center p-4 row"
+        className="text-center p-4 row"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
-        <div class="col-6 text-left">
+        <div className="col-6 text-left">
           © 2024 Copyright:
-          <span class="text-reset fw-bold" href="https://mdbootstrap.com/">
+          <span className="text-reset fw-bold" href="https://mdbootstrap.com/">
             rejouirxmas.com
           </span>
         </div>
 
-        <div class="col-6 text-right">
+        <div className="col-6 text-right">
           <a
             href="https://www.instagram.com/rejouirxmas"
-            class="me-4 text-reset"
+            className="me-4 text-reset"
           >
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="" class="me-4 text-reset">
-            <i class="fab fa-linkedin"></i>
+            <i className="fab fa-instagram"></i>
           </a>
         </div>
       </div>
