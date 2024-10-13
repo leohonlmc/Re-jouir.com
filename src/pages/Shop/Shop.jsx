@@ -13,7 +13,7 @@ function Shop() {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
-    <div className="Shop background">
+    <div className="Shop background main">
       <Header title={t("shop_title")} page="shop" />
 
       {showPopup && <Login setShowPopup={setShowPopup} />}

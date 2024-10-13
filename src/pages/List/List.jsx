@@ -375,7 +375,7 @@ function List() {
   };
 
   return (
-    <div className="List">
+    <div className="List main">
       <div className="list-header-section">
         <Header
           showSearchBar={false}
@@ -600,9 +600,9 @@ function List() {
                   backgroundColor: "white",
                 }}
               >
-                <div className="xmas-hat-div">
+                {/* <div className="xmas-hat-div">
                   <img src="/xmas-hat.png" alt="" />
-                </div>
+                </div> */}
                 <form onSubmit={handleSubmit}>
                   <div class="form-row d-flex">
                     <div class="col">
