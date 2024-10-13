@@ -1,12 +1,12 @@
 import "./Blog.scoped.css";
 import React, { useState, useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "../../components/partial/Header";
-import Footer from "../../components/partial/Footer";
+import Header from "../../components/partial/Header/Header";
+import Footer from "../../components/partial/Footer/Footer";
 import axios from "axios";
 import generateRandomUserId from "../../components/functions/generateRandomUserId";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { Helmet } from "react-helmet";
 import NoResult from "../../components/partial/NoResult";
 import SearchBar from "../../components/partial/SearchBar";

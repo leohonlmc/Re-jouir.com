@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import Header from "../../components/partial/Header";
-import Footer from "../../components/partial/Footer";
+import Header from "../../components/partial/Header/Header";
+import Footer from "../../components/partial/Footer/Footer";
 import ChooseUs from "../../components/partial/ChooseUs";
-import PlaceToGo from "../../components/partial/PlaceToGo";
+// import PlaceToGo from "../../components/partial/PlaceToGo";
 import Hero from "../../components/partial/Hero";
-import Faq from "../../components/partial/Faq";
-import Song from "../../components/partial/Song";
 import ShareMoment from "../../components/partial/ShareMoment";
 
 function Home() {
@@ -22,7 +20,6 @@ function Home() {
   const [isChristmas, setIsChristmas] = useState(false);
   const [showCelebration, setShowCelebration] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
-  const [waveMainClass, setWaveMainClass] = useState("wave-main");
   const { t } = useTranslation();
 
   const toggleVisibility = () => {
@@ -50,29 +47,10 @@ function Home() {
 
     const intervalId = setInterval(updateCountdown, 1000);
 
-    window.addEventListener("scroll", toggleVisibility);
-
     return () => {
       clearInterval(intervalId);
-      window.removeEventListener("scroll", toggleVisibility);
     };
   }, [isChristmas]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 1000) {
-        setWaveMainClass("wave-main-mobile");
-      } else {
-        setWaveMainClass("wave-main");
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   function updateCountdown() {
     const now = new Date();
@@ -92,12 +70,12 @@ function Home() {
   }
 
   return (
-    <div className="Home background">
+    <div className="Home background main">
       <Helmet>
         <link rel="canonical" href="https://www.rejouirxmas.com" />
       </Helmet>
 
-      <div className={waveMainClass}>
+      <div>
         <div
           className="header-section banner__background-wrap"
           style={{ paddingTop: "0px" }}
@@ -120,18 +98,6 @@ function Home() {
 
         <div>
           <ShareMoment />
-        </div>
-
-        <div>
-          <PlaceToGo />
-        </div>
-
-        <div>
-          <Song />
-        </div>
-
-        <div>
-          <Faq />
         </div>
       </div>
 

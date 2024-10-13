@@ -1,9 +1,8 @@
 import "../blog/Blog.scoped.css";
-import React, { useState, useEffect, useRef, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 

@@ -1,43 +1,18 @@
 .Header {
-  position: relative;
-}
-
-@font-face {
-  font-family: "Mabry Pro";
-  src: url("../static/assets/fonts/mabry-pro/MabryPro-Bold.woff") format("woff"),
-    url("../static/assets/fonts/mabry-pro/MabryPro-Regular.woff2")
-      format("woff2");
-  font-weight: 800;
-  font-style: normal;
-}
-
-.nav-item.nav-link.active {
-  font-weight: 500;
-  font-size: 18px;
-}
-
-.nav-item.nav-link.active.blog {
-  color: var(--tg--christmas-yellow) !important;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
 .navbar.navbar-expand-lg {
-  padding: 1% 2%;
-  background-color: transparent;
-  max-width: 1450px;
-  width: 100%;
-  border: 0px;
-  box-shadow: none;
-}
-
-.navbar.navbar-expand-lg.fixed {
-  padding: 1% 2%;
-  max-width: 1450px;
   position: fixed;
-  width: 100%;
+  top: 10px;
   z-index: 9999;
+  width: 90%;
   background-color: white;
-  border-bottom: 1px solid #e5e5e5 !important;
-  top: 0px;
+  border-radius: 40px;
+  padding: 5px 20px;
 }
 
 .btn.btn-success {

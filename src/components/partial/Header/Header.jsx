@@ -1,9 +1,9 @@
-import "../../Header.scoped.css";
+import "./Header.scoped.css";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleUser,
@@ -11,14 +11,13 @@ import {
   faBars,
   faLanguage,
 } from "@fortawesome/free-solid-svg-icons";
-import { Dropdown, Button } from "react-bootstrap";
-import Login from "../popup/Login";
+import { Dropdown } from "react-bootstrap";
+import Login from "../../popup/Login";
 import { useTranslation } from "react-i18next";
 
 function Header(props) {
   const [scrolled, setScrolled] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const picture = localStorage.getItem("picture");
   const isAccountUser = localStorage.getItem("id");
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -70,8 +69,8 @@ function Header(props) {
           <a className="navbar-brand" href={`/#/${currentLang}`}>
             <img
               src="/R.png"
-              width="60"
-              height="60"
+              width="50"
+              height="50"
               className="d-inline-block align-top"
               alt=""
             />

@@ -1,8 +1,8 @@
 import "./Shop.scoped.css";
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "../../components/partial/Header";
-import Footer from "../../components/partial/Footer";
+import Header from "../../components/partial/Header/Header";
+import Footer from "../../components/partial/Footer/Footer";
 import Login from "../../components/popup/Login";
 import {} from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
@@ -13,7 +13,7 @@ function Shop() {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
-    <div className="Shop background">
+    <div className="Shop background main">
       <Header title={t("shop_title")} page="shop" />
 
       {showPopup && <Login setShowPopup={setShowPopup} />}

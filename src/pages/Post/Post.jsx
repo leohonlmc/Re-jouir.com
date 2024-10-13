@@ -1,8 +1,8 @@
 import "./Post.scoped.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "../../components/partial/Header";
-import Footer from "../../components/partial/Footer";
+import Header from "../../components/partial/Header/Header";
+import Footer from "../../components/partial/Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleRight,
@@ -24,19 +24,13 @@ function Post() {
   const [post, setPost] = useState();
   const [currIndex, setCurrIndex] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
-  const [currImageUrl, setCurrImageUrl] = useState("");
-  const [allImageUrl, setAllImageUrl] = useState([]);
   const [filter, setFilter] = useState("");
   const [country, setCountry] = useState("");
-  const [likedPost, setLikedPost] = useState(false);
-  const [topFour, setTopFour] = useState([]);
   const [posts, setPosts] = useState([]);
-  const isAccountUser = localStorage.getItem("id");
 
   const POSTS_PER_PAGE = 10;
   const { lang } = useParams();
   const { t, i18n } = useTranslation();
-  const currentLang = lang || i18n.language;
 
   const fetchCurrent = () => {
     const savedFilterValue = localStorage.getItem("selectedFilter");

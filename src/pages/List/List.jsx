@@ -1,8 +1,8 @@
 import "./List.css";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import Header from "../../components/partial/Header";
+import Header from "../../components/partial/Header/Header";
 import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -21,7 +21,7 @@ import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet";
 import Rating from "../../components/partial/Rating";
 import Submitted from "../../components/partial/Submitted";
-import Footer from "../../components/partial/Footer";
+import Footer from "../../components/partial/Footer/Footer";
 import { useTranslation } from "react-i18next";
 
 const {
@@ -48,7 +48,6 @@ function List() {
   const [images, setImages] = useState([]);
   const [imageFile, setImageFile] = useState([]);
   const [imageSrcs, setImageSrcs] = useState([]);
-  const [showPopup, setShowPopup] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { t } = useTranslation();
@@ -376,7 +375,7 @@ function List() {
   };
 
   return (
-    <div className="List">
+    <div className="List main">
       <div className="list-header-section">
         <Header
           showSearchBar={false}
@@ -601,9 +600,9 @@ function List() {
                   backgroundColor: "white",
                 }}
               >
-                <div className="xmas-hat-div">
+                {/* <div className="xmas-hat-div">
                   <img src="/xmas-hat.png" alt="" />
-                </div>
+                </div> */}
                 <form onSubmit={handleSubmit}>
                   <div class="form-row d-flex">
                     <div class="col">

@@ -5,14 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import GoogleLoginDiv from "../../components/popup/GoogleLogin";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function ReminderDiv(props) {
   const [closePopup, setClosePopup] = useState(false);
   const { lang } = useParams();
   const { t, i18n } = useTranslation();
   const currentLang = lang || i18n.language;
-  const navigate = useNavigate();
 
   return (
     <>
