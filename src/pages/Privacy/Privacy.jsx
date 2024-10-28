@@ -18,11 +18,11 @@ function Privacy() {
           <link rel="canonical" href="https://www.rejouirxmas.com/privacy" />
         </Helmet>
 
-        <br />
-        <br />
-        <h1 className="about-réjouir">
-          <strong>{t("privacy_policy")}</strong>
-        </h1>
+        <div className="center-text">
+          <h1 className="about-réjouir">
+            <strong>{t("privacy_policy")}</strong>
+          </h1>
+        </div>
       </div>
       <div className="about-main">
         <p>

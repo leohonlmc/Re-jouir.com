@@ -18,11 +18,11 @@ function Terms() {
           <link rel="canonical" href="https://www.rejouirxmas.com/terms" />
         </Helmet>
 
-        <br />
-        <br />
-        <h1 className="about-réjouir">
-          <strong>{t("terms_and_conditions")}</strong>
-        </h1>
+        <div className="center-text">
+          <h1 className="about-réjouir">
+            <strong>{t("terms_and_conditions")}</strong>
+          </h1>
+        </div>
       </div>
       <div className="about-main">
         <p>
