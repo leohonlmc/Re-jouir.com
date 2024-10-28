@@ -18,13 +18,13 @@ function AboutUs() {
           <link rel="canonical" href="https://www.rejouirxmas.com/about" />
         </Helmet>
 
-        <br />
-        <br />
-        <h1 className="about-réjouir">
-          <strong>
-            {t("about")} <span className="r-logo">R</span>éjouir
-          </strong>
-        </h1>
+        <div className="center-text">
+          <h1 className="about-réjouir">
+            <strong>
+              {t("about")} <span className="r-logo">R</span>éjouir
+            </strong>
+          </h1>
+        </div>
       </div>
       <div className="about-main">
         <p>{t("about_paragraph_1")}</p>
